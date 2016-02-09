@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E27AA0C1C69B42D009AD819 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA0B1C69B42D009AD819 /* AppDelegate.swift */; };
+		1E27AA0E1C69B42D009AD819 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA0D1C69B42D009AD819 /* ViewController.swift */; };
+		1E27AA111C69B42D009AD819 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E27AA0F1C69B42D009AD819 /* Main.storyboard */; };
+		1E27AA131C69B42D009AD819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E27AA121C69B42D009AD819 /* Assets.xcassets */; };
+		1E27AA161C69B42D009AD819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E27AA141C69B42D009AD819 /* LaunchScreen.storyboard */; };
+		1E27AA211C69B42D009AD819 /* MyUnimolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA201C69B42D009AD819 /* MyUnimolTests.swift */; };
+		1E27AA2C1C69B42D009AD819 /* MyUnimolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA2B1C69B42D009AD819 /* MyUnimolUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1E27AA1D1C69B42D009AD819 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E27AA001C69B42D009AD819 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E27AA071C69B42D009AD819;
+			remoteInfo = MyUnimol;
+		};
+		1E27AA281C69B42D009AD819 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E27AA001C69B42D009AD819 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E27AA071C69B42D009AD819;
+			remoteInfo = MyUnimol;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1E27AA081C69B42D009AD819 /* MyUnimol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyUnimol.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E27AA0B1C69B42D009AD819 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1E27AA0D1C69B42D009AD819 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1E27AA101C69B42D009AD819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1E27AA121C69B42D009AD819 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1E27AA151C69B42D009AD819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1E27AA171C69B42D009AD819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E27AA1C1C69B42D009AD819 /* MyUnimolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyUnimolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E27AA201C69B42D009AD819 /* MyUnimolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUnimolTests.swift; sourceTree = "<group>"; };
+		1E27AA221C69B42D009AD819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E27AA271C69B42D009AD819 /* MyUnimolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyUnimolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E27AA2B1C69B42D009AD819 /* MyUnimolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUnimolUITests.swift; sourceTree = "<group>"; };
+		1E27AA2D1C69B42D009AD819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1E27AA051C69B42D009AD819 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E27AA191C69B42D009AD819 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E27AA241C69B42D009AD819 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E27A9FF1C69B42D009AD819 = {
+			isa = PBXGroup;
+			children = (
+				1E27AA0A1C69B42D009AD819 /* MyUnimol */,
+				1E27AA1F1C69B42D009AD819 /* MyUnimolTests */,
+				1E27AA2A1C69B42D009AD819 /* MyUnimolUITests */,
+				1E27AA091C69B42D009AD819 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1E27AA091C69B42D009AD819 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1E27AA081C69B42D009AD819 /* MyUnimol.app */,
+				1E27AA1C1C69B42D009AD819 /* MyUnimolTests.xctest */,
+				1E27AA271C69B42D009AD819 /* MyUnimolUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1E27AA0A1C69B42D009AD819 /* MyUnimol */ = {
+			isa = PBXGroup;
+			children = (
+				1E27AA0B1C69B42D009AD819 /* AppDelegate.swift */,
+				1E27AA0D1C69B42D009AD819 /* ViewController.swift */,
+				1E27AA0F1C69B42D009AD819 /* Main.storyboard */,
+				1E27AA121C69B42D009AD819 /* Assets.xcassets */,
+				1E27AA141C69B42D009AD819 /* LaunchScreen.storyboard */,
+				1E27AA171C69B42D009AD819 /* Info.plist */,
+			);
+			path = MyUnimol;
+			sourceTree = "<group>";
+		};
+		1E27AA1F1C69B42D009AD819 /* MyUnimolTests */ = {
+			isa = PBXGroup;
+			children = (
+				1E27AA201C69B42D009AD819 /* MyUnimolTests.swift */,
+				1E27AA221C69B42D009AD819 /* Info.plist */,
+			);
+			path = MyUnimolTests;
+			sourceTree = "<group>";
+		};
+		1E27AA2A1C69B42D009AD819 /* MyUnimolUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1E27AA2B1C69B42D009AD819 /* MyUnimolUITests.swift */,
+				1E27AA2D1C69B42D009AD819 /* Info.plist */,
+			);
+			path = MyUnimolUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1E27AA071C69B42D009AD819 /* MyUnimol */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E27AA301C69B42D009AD819 /* Build configuration list for PBXNativeTarget "MyUnimol" */;
+			buildPhases = (
+				1E27AA041C69B42D009AD819 /* Sources */,
+				1E27AA051C69B42D009AD819 /* Frameworks */,
+				1E27AA061C69B42D009AD819 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyUnimol;
+			productName = MyUnimol;
+			productReference = 1E27AA081C69B42D009AD819 /* MyUnimol.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1E27AA1B1C69B42D009AD819 /* MyUnimolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E27AA331C69B42D009AD819 /* Build configuration list for PBXNativeTarget "MyUnimolTests" */;
+			buildPhases = (
+				1E27AA181C69B42D009AD819 /* Sources */,
+				1E27AA191C69B42D009AD819 /* Frameworks */,
+				1E27AA1A1C69B42D009AD819 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E27AA1E1C69B42D009AD819 /* PBXTargetDependency */,
+			);
+			name = MyUnimolTests;
+			productName = MyUnimolTests;
+			productReference = 1E27AA1C1C69B42D009AD819 /* MyUnimolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1E27AA261C69B42D009AD819 /* MyUnimolUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E27AA361C69B42D009AD819 /* Build configuration list for PBXNativeTarget "MyUnimolUITests" */;
+			buildPhases = (
+				1E27AA231C69B42D009AD819 /* Sources */,
+				1E27AA241C69B42D009AD819 /* Frameworks */,
+				1E27AA251C69B42D009AD819 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E27AA291C69B42D009AD819 /* PBXTargetDependency */,
+			);
+			name = MyUnimolUITests;
+			productName = MyUnimolUITests;
+			productReference = 1E27AA271C69B42D009AD819 /* MyUnimolUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1E27AA001C69B42D009AD819 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Giovanni Grano";
+				TargetAttributes = {
+					1E27AA071C69B42D009AD819 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 93Y79F553H;
+					};
+					1E27AA1B1C69B42D009AD819 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 93Y79F553H;
+						TestTargetID = 1E27AA071C69B42D009AD819;
+					};
+					1E27AA261C69B42D009AD819 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 93Y79F553H;
+						TestTargetID = 1E27AA071C69B42D009AD819;
+					};
+				};
+			};
+			buildConfigurationList = 1E27AA031C69B42D009AD819 /* Build configuration list for PBXProject "MyUnimol" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1E27A9FF1C69B42D009AD819;
+			productRefGroup = 1E27AA091C69B42D009AD819 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1E27AA071C69B42D009AD819 /* MyUnimol */,
+				1E27AA1B1C69B42D009AD819 /* MyUnimolTests */,
+				1E27AA261C69B42D009AD819 /* MyUnimolUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1E27AA061C69B42D009AD819 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E27AA161C69B42D009AD819 /* LaunchScreen.storyboard in Resources */,
+				1E27AA131C69B42D009AD819 /* Assets.xcassets in Resources */,
+				1E27AA111C69B42D009AD819 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E27AA1A1C69B42D009AD819 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E27AA251C69B42D009AD819 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E27AA041C69B42D009AD819 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E27AA0E1C69B42D009AD819 /* ViewController.swift in Sources */,
+				1E27AA0C1C69B42D009AD819 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E27AA181C69B42D009AD819 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E27AA211C69B42D009AD819 /* MyUnimolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E27AA231C69B42D009AD819 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E27AA2C1C69B42D009AD819 /* MyUnimolUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1E27AA1E1C69B42D009AD819 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E27AA071C69B42D009AD819 /* MyUnimol */;
+			targetProxy = 1E27AA1D1C69B42D009AD819 /* PBXContainerItemProxy */;
+		};
+		1E27AA291C69B42D009AD819 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E27AA071C69B42D009AD819 /* MyUnimol */;
+			targetProxy = 1E27AA281C69B42D009AD819 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1E27AA0F1C69B42D009AD819 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E27AA101C69B42D009AD819 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1E27AA141C69B42D009AD819 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E27AA151C69B42D009AD819 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1E27AA2E1C69B42D009AD819 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1E27AA2F1C69B42D009AD819 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1E27AA311C69B42D009AD819 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MyUnimol/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimol";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1E27AA321C69B42D009AD819 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MyUnimol/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimol";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1E27AA341C69B42D009AD819 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyUnimolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimolTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyUnimol.app/MyUnimol";
+			};
+			name = Debug;
+		};
+		1E27AA351C69B42D009AD819 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyUnimolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimolTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyUnimol.app/MyUnimol";
+			};
+			name = Release;
+		};
+		1E27AA371C69B42D009AD819 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MyUnimolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimolUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyUnimol;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		1E27AA381C69B42D009AD819 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MyUnimolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimolUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyUnimol;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E27AA031C69B42D009AD819 /* Build configuration list for PBXProject "MyUnimol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E27AA2E1C69B42D009AD819 /* Debug */,
+				1E27AA2F1C69B42D009AD819 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E27AA301C69B42D009AD819 /* Build configuration list for PBXNativeTarget "MyUnimol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E27AA311C69B42D009AD819 /* Debug */,
+				1E27AA321C69B42D009AD819 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1E27AA331C69B42D009AD819 /* Build configuration list for PBXNativeTarget "MyUnimolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E27AA341C69B42D009AD819 /* Debug */,
+				1E27AA351C69B42D009AD819 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1E27AA361C69B42D009AD819 /* Build configuration list for PBXNativeTarget "MyUnimolUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E27AA371C69B42D009AD819 /* Debug */,
+				1E27AA381C69B42D009AD819 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1E27AA001C69B42D009AD819 /* Project object */;
+}

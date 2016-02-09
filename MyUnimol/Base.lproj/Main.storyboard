@@ -1,25 +1,91 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyUnimolBigLogo" translatesAutoresizingMaskIntoConstraints="NO" id="9ba-ES-wW4">
+                                <rect key="frame" x="77" y="61" width="220" height="179"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="179" id="PBP-i5-MqX"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hvP-tw-lev">
+                                <rect key="frame" x="77" y="298" width="220" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6j4-JH-u9M"/>
+                                    <constraint firstAttribute="width" constant="220" id="Ltf-mp-oQS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OcS-5i-YSL">
+                                <rect key="frame" x="77" y="364" width="220" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="9Ke-Hw-UuE"/>
+                                    <constraint firstAttribute="height" constant="30" id="B6p-Kr-Zig"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiH-Gv-xTz">
+                                <rect key="frame" x="147" y="453" width="80" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="2e5-LE-HBB"/>
+                                    <constraint firstAttribute="width" constant="80" id="PR8-E0-Tcw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mrO-bO-GxF"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9ba-ES-wW4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="41" id="7MQ-Aq-RVx"/>
+                            <constraint firstItem="9ba-ES-wW4" firstAttribute="centerX" secondItem="CiH-Gv-xTz" secondAttribute="centerX" id="7Qb-yu-NRe"/>
+                            <constraint firstItem="9ba-ES-wW4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hey-SN-eEl"/>
+                            <constraint firstItem="hvP-tw-lev" firstAttribute="top" secondItem="9ba-ES-wW4" secondAttribute="bottom" constant="58" id="Itm-4s-cJz"/>
+                            <constraint firstItem="OcS-5i-YSL" firstAttribute="top" secondItem="hvP-tw-lev" secondAttribute="bottom" constant="36" id="O4w-tR-Ajw"/>
+                            <constraint firstItem="hvP-tw-lev" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RKk-2K-5Lq"/>
+                            <constraint firstItem="9ba-ES-wW4" firstAttribute="trailing" secondItem="OcS-5i-YSL" secondAttribute="trailing" id="ZrY-5o-7Vu"/>
+                            <constraint firstItem="9ba-ES-wW4" firstAttribute="leading" secondItem="OcS-5i-YSL" secondAttribute="leading" id="aR4-KW-QHN"/>
+                            <constraint firstItem="9ba-ES-wW4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="61" id="cSr-5w-SPa"/>
+                            <constraint firstItem="CiH-Gv-xTz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dql-pQ-F7T"/>
+                            <constraint firstItem="9ba-ES-wW4" firstAttribute="leading" secondItem="hvP-tw-lev" secondAttribute="leading" id="fy6-Pg-D7g"/>
+                            <constraint firstItem="hvP-tw-lev" firstAttribute="top" secondItem="9ba-ES-wW4" secondAttribute="bottom" constant="58" id="hQw-1X-cTx"/>
+                            <constraint firstItem="CiH-Gv-xTz" firstAttribute="top" secondItem="OcS-5i-YSL" secondAttribute="bottom" constant="59" id="tHE-AQ-GBy"/>
+                            <constraint firstItem="OcS-5i-YSL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tTI-hc-f4f"/>
+                            <constraint firstItem="9ba-ES-wW4" firstAttribute="trailing" secondItem="hvP-tw-lev" secondAttribute="trailing" id="vkc-vP-qbh"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="passwordField" destination="OcS-5i-YSL" id="QAT-yx-2nS"/>
+                        <outlet property="usernameField" destination="hvP-tw-lev" id="p6r-PQ-wtB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="349.5" y="477.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MyUnimolBigLogo" width="1024" height="1024"/>
+    </resources>
 </document>

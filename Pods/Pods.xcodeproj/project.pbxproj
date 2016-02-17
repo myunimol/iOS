@@ -7,110 +7,137 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		095406039B4D371E48D08B38A2975AC8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1947896D27DCDE24B016AEF1A7A082 /* Error.swift */; };
-		0AD6E8314A40D7D80603ED1C30392EBF /* KYDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6B7DF4C3EE49731C1DBBF86832541 /* KYDrawerController.swift */; };
-		16102E4E35FAA0FC4161282FECE56469 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D13F2C0C99DFC506B1E9022334CF8 /* Timeline.swift */; };
-		2D3405986FC586FA6C0A5E0B6BA7E64E /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F12A946251DA4625A67501385F28D5 /* Validation.swift */; };
-		34CCDCA848A701466256BC2927DA8856 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00597ABEAF57A4306CF685AA5E93017 /* NetworkReachabilityManager.swift */; };
-		3EA8F215C9C1432D74E5CCA4834AA8C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E30DB925C5365F6E94B4A5C3DA1EC /* ResponseSerialization.swift */; };
-		4081EA628AF0B73AC51FFB9D7AB3B89E /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CDD98BBD412FFAF2296A582E22296 /* Manager.swift */; };
-		5256D730160DD3F621F9C67A24740096 /* Pods-MyUnimol-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A68EE74541B5E60A6F7649BED569CE60 /* Pods-MyUnimol-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		58CD6D61EE6BE93AE0FB8D7F6BF45DF4 /* KYDrawerController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 024FE6EFE2824DDEB7E655B40A9B927C /* KYDrawerController-dummy.m */; };
-		5BC19E6E0F199276003F0AF96838BCE5 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E1A8B84339C4F7CDEB3A6A12657E20 /* Upload.swift */; };
-		5CB05FBCB32D21E194B5ECF680CB6AE0 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203309429B08ECE0069DE91BE5FD854 /* Download.swift */; };
-		62E8346F03C03E7F4D631361F325689E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A335105FA4AAF11C128861FA880F6711 /* Response.swift */; };
+		079D423BB02379097C94371EED61A30F /* Gloss-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8824D84E5D3C65E9C5922330A9098A /* Gloss-dummy.m */; };
+		095406039B4D371E48D08B38A2975AC8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047AE8E8D67618287F6D2EB7DA335F2 /* Error.swift */; };
+		0AD6E8314A40D7D80603ED1C30392EBF /* KYDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508121943A50A85F5E59340EC2D9F8D6 /* KYDrawerController.swift */; };
+		16102E4E35FAA0FC4161282FECE56469 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327952624B5CC678E986392830A7CF28 /* Timeline.swift */; };
+		2D3405986FC586FA6C0A5E0B6BA7E64E /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41516D9A02FC05804791BD4C5543ACA4 /* Validation.swift */; };
+		34CCDCA848A701466256BC2927DA8856 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F391F76AD0442F4FD6764AA004107 /* NetworkReachabilityManager.swift */; };
+		3EA8F215C9C1432D74E5CCA4834AA8C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87969D3929347B83C31CC69EBA25A4E7 /* ResponseSerialization.swift */; };
+		4081EA628AF0B73AC51FFB9D7AB3B89E /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8AD3DD9604A170E29004AA6AD51B5E /* Manager.swift */; };
+		4C9EE49A1DDB378987680CA65C0F9359 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		58CD6D61EE6BE93AE0FB8D7F6BF45DF4 /* KYDrawerController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBD20177BFAD1E0F6D9F1589BAE904B /* KYDrawerController-dummy.m */; };
+		5BC19E6E0F199276003F0AF96838BCE5 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A003C5C31FE044A1A6ED6707FA6A6 /* Upload.swift */; };
+		5CB05FBCB32D21E194B5ECF680CB6AE0 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B81DF82055B4B2A3DAC5B9E58847A /* Download.swift */; };
+		625D0D05F4104ABC93A6A21D078CE74B /* Pods-MyUnimol-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B80AFB611389CB806FFC8473E8A719 /* Pods-MyUnimol-dummy.m */; };
+		62E8346F03C03E7F4D631361F325689E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5877C03BE6C4C527EE3EC7611ACFFBF4 /* Response.swift */; };
+		6A511BFCF938FA5666883D32D6A7EF9E /* Gloss-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A1958C5AB0CC78A9DCEA690E518D7DB3 /* Gloss-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74E994B73A1857E0BA3817F9020ECBEB /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815716BD96DD47E625D9B3A58274F65 /* Encoder.swift */; };
 		7AFDEDE48B5D21665E90316B898E9DAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		7B48852C4D848FA2DA416A98F6425869 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0193B4950679953967936EC20D0551 /* ServerTrustPolicy.swift */; };
-		7ED02CD711925EBF88835D9A16CAAA93 /* KYEmbedMainControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958BEF519B4D292DC5B6EC80AC2D82BB /* KYEmbedMainControllerSegue.swift */; };
-		89B74E8B8891F867316F062F7F0340CB /* KYEmbedDrawerControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FE66264C2769369E9A3C6AC513A7DB /* KYEmbedDrawerControllerSegue.swift */; };
-		8BF92F5AF7E78E494D90B05475DD63C9 /* KYDrawerController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2214D5C7497D3404E4814658A2DDBCA5 /* KYDrawerController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8EB11202167FCDDF1257AAAB1D1FB244 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DDD1258625E67DEA7E6C05B6B559FE /* Alamofire.swift */; };
-		9469DF81ECB494E84675969B5E13374C /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 260608985EBEE4F117A9F7FFCA0F42A1 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AA314156AC500125F4078EE968DB14C6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21957A6E30BE4BF8D4D193398B00A0A9 /* Result.swift */; };
-		ADF19C953CE2A7D0B72EC93A81FCCC26 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 482370DE5BA7A1C0EFD1B73F5D9DAB96 /* Alamofire-dummy.m */; };
-		AE4CF87C02C042DF13ED5B21C4FDC1E0 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ECCB596FC45BA3561D20B2A3738EAC /* Stream.swift */; };
-		BE41196F6A3903E59C3306FE3F8B43FE /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43346BA7F41EFA13CB20039957CD837D /* Notifications.swift */; };
-		C0DB70AB368765DC64BFB5FEA75E0696 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2844A2EDBC86C1416FCB071C5ACB756 /* ParameterEncoding.swift */; };
-		C7B6DD7C0456C50289A2C381DFE9FA3F /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA52A2E71F7359B857034AA0B83EEBC0 /* MultipartFormData.swift */; };
-		CE0FAAD1165D0F1DDD5550CA9E9B9119 /* Pods-MyUnimol-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B80AFB611389CB806FFC8473E8A719 /* Pods-MyUnimol-dummy.m */; };
-		EFE92E8D3813DD26E78E93EEAF6D7E7E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F883642193EB1AAF6A6F82559B46 /* Request.swift */; };
+		7B48852C4D848FA2DA416A98F6425869 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0D03BC674EEBB7F9EED6CA730F9A70 /* ServerTrustPolicy.swift */; };
+		7ED02CD711925EBF88835D9A16CAAA93 /* KYEmbedMainControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C904D4867964E0F5D008A9929BC69A7 /* KYEmbedMainControllerSegue.swift */; };
+		89B74E8B8891F867316F062F7F0340CB /* KYEmbedDrawerControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF7B34A47DCD627393626A8694794B /* KYEmbedDrawerControllerSegue.swift */; };
+		8BF92F5AF7E78E494D90B05475DD63C9 /* KYDrawerController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 08B5F1135B1AA8F31B6CAB3C34E1E8B9 /* KYDrawerController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8EB11202167FCDDF1257AAAB1D1FB244 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BC9C37C85B3258B378201D7CBBDB0 /* Alamofire.swift */; };
+		8F86E67969A062F67329CDAD9FE2D53A /* Gloss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6BF9799615D4C3557975969E4A4ED5 /* Gloss.swift */; };
+		9469DF81ECB494E84675969B5E13374C /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A9E314ADFA20F0197F0C0318864CD4A9 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A584CFF03448E431D5F0135C12A16D1F /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5C801BA6EA331B918E805DA376D7F3 /* Operators.swift */; };
+		AA314156AC500125F4078EE968DB14C6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10782EA39F0819F470FEB84DFCF7867 /* Result.swift */; };
+		ADF19C953CE2A7D0B72EC93A81FCCC26 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D78A8C85250841D13FCB5038C92355 /* Alamofire-dummy.m */; };
+		AE4CF87C02C042DF13ED5B21C4FDC1E0 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2EE0C710DCEB11B36BC214B1A9598C /* Stream.swift */; };
+		B416B7CAF1C48163C18D3EF420D4CECE /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929FA3E2E69F118D454957726EEC5D7 /* Decoder.swift */; };
+		BE41196F6A3903E59C3306FE3F8B43FE /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E075D54122261E2714173483BAA2038 /* Notifications.swift */; };
+		C0DB70AB368765DC64BFB5FEA75E0696 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD109017532649D227E22123E7701302 /* ParameterEncoding.swift */; };
+		C7B6DD7C0456C50289A2C381DFE9FA3F /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9CAB833EF3FAC4C35042396575EEF8 /* MultipartFormData.swift */; };
+		D5507A909D2BE285DBA0516C8ACCD75A /* Pods-MyUnimol-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A68EE74541B5E60A6F7649BED569CE60 /* Pods-MyUnimol-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EB233A9A4A59091F1BEA1A0CB5F15553 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44267593678F04D8592C80D181FB7DF7 /* Dictionary.swift */; };
+		EFE92E8D3813DD26E78E93EEAF6D7E7E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDCC556F5808691C2AF344AA91D1C38 /* Request.swift */; };
 		F82198F34DD14753A42F4328CD5E7A6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		FBB89FB1616325222684EB3CB7A6015F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		F8E27CE1ED6BD71DF65339770F67C36A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		453B9ADA4044DD003C3F32CC84F4F1D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 79C040AFDDCE1BCBF6D8B5EB0B85887F;
-			remoteInfo = Alamofire;
-		};
-		B7C1FC9854BBA9FB05449E9F98FE3580 /* PBXContainerItemProxy */ = {
+		7EC8F636A96F37427CF50090E9EC20F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 43F633B3903DE39E43C0B694E1C46B06;
 			remoteInfo = KYDrawerController;
 		};
+		9B87B95E870FD9E9514842861E02E165 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79C040AFDDCE1BCBF6D8B5EB0B85887F;
+			remoteInfo = Alamofire;
+		};
+		BF5A5896E6C6DF1C6E0EAE285EB1579E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD730667634D830EEAC62832CCCBB290;
+			remoteInfo = Gloss;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		024FE6EFE2824DDEB7E655B40A9B927C /* KYDrawerController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KYDrawerController-dummy.m"; sourceTree = "<group>"; };
-		0BBEAC737E84EE545527005D606D9219 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		08B5F1135B1AA8F31B6CAB3C34E1E8B9 /* KYDrawerController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KYDrawerController-umbrella.h"; sourceTree = "<group>"; };
 		0D092AFFF22F7022D22929018E005856 /* Pods-MyUnimol-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyUnimol-frameworks.sh"; sourceTree = "<group>"; };
-		10ECCB596FC45BA3561D20B2A3738EAC /* Stream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = Source/Stream.swift; sourceTree = "<group>"; };
-		12E1A8B84339C4F7CDEB3A6A12657E20 /* Upload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = Source/Upload.swift; sourceTree = "<group>"; };
-		21957A6E30BE4BF8D4D193398B00A0A9 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
-		2214D5C7497D3404E4814658A2DDBCA5 /* KYDrawerController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KYDrawerController-umbrella.h"; sourceTree = "<group>"; };
+		0E5C801BA6EA331B918E805DA376D7F3 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/Gloss/Operators.swift; sourceTree = "<group>"; };
+		1815716BD96DD47E625D9B3A58274F65 /* Encoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Encoder.swift; path = Sources/Gloss/Encoder.swift; sourceTree = "<group>"; };
+		181BC9C37C85B3258B378201D7CBBDB0 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		1F8AD3DD9604A170E29004AA6AD51B5E /* Manager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = Source/Manager.swift; sourceTree = "<group>"; };
+		2047AE8E8D67618287F6D2EB7DA335F2 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Error.swift; sourceTree = "<group>"; };
 		236411DFB0AC142611070672EDE82ABD /* Pods-MyUnimol.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MyUnimol.modulemap"; sourceTree = "<group>"; };
-		260608985EBEE4F117A9F7FFCA0F42A1 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
-		366E30DB925C5365F6E94B4A5C3DA1EC /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
-		391D13F2C0C99DFC506B1E9022334CF8 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
+		2589FFC2932D73246A92091FF3E6B30C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		327952624B5CC678E986392830A7CF28 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		3C45E0BA87C6667B17AC328C6AB276C5 /* Pods-MyUnimol-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyUnimol-resources.sh"; sourceTree = "<group>"; };
+		3CDCC556F5808691C2AF344AA91D1C38 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		43346BA7F41EFA13CB20039957CD837D /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
-		47689245B13ACE7ECFAEF4346C567CDC /* KYDrawerController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KYDrawerController.xcconfig; sourceTree = "<group>"; };
-		482370DE5BA7A1C0EFD1B73F5D9DAB96 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		5A1947896D27DCDE24B016AEF1A7A082 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Error.swift; sourceTree = "<group>"; };
-		6BA6B7DF4C3EE49731C1DBBF86832541 /* KYDrawerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KYDrawerController.swift; path = KYDrawerController/Classes/KYDrawerController.swift; sourceTree = "<group>"; };
+		3F6B81DF82055B4B2A3DAC5B9E58847A /* Download.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Download.swift; path = Source/Download.swift; sourceTree = "<group>"; };
+		41516D9A02FC05804791BD4C5543ACA4 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		44267593678F04D8592C80D181FB7DF7 /* Dictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dictionary.swift; path = Sources/Gloss/Dictionary.swift; sourceTree = "<group>"; };
+		4575A96E1B4902DDC493C42BD6805457 /* Pods_MyUnimol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4728AA44A8805ABB42F071D0012614A3 /* Gloss-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gloss-prefix.pch"; sourceTree = "<group>"; };
+		480730D1C854511B93499718C82B0A46 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		4FADEC9955B22924C74023EC5EDCFBFA /* Gloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		508121943A50A85F5E59340EC2D9F8D6 /* KYDrawerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KYDrawerController.swift; path = KYDrawerController/Classes/KYDrawerController.swift; sourceTree = "<group>"; };
+		5877C03BE6C4C527EE3EC7611ACFFBF4 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		5A2EE0C710DCEB11B36BC214B1A9598C /* Stream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = Source/Stream.swift; sourceTree = "<group>"; };
+		62735CEBB074D38C68AD6E254E178D23 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		636EB014A237C93CE483D85CA4F792F4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0D03BC674EEBB7F9EED6CA730F9A70 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		710F391F76AD0442F4FD6764AA004107 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		72B80AFB611389CB806FFC8473E8A719 /* Pods-MyUnimol-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyUnimol-dummy.m"; sourceTree = "<group>"; };
-		749EE1AFAF17570A9326F6ACC1472E25 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		789345058D470DD974E1DA04785D530B /* KYDrawerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KYDrawerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F5CDD98BBD412FFAF2296A582E22296 /* Manager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = Source/Manager.swift; sourceTree = "<group>"; };
-		88F793C213D74596B910931DDE2B3F5D /* KYDrawerController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = KYDrawerController.modulemap; sourceTree = "<group>"; };
-		958BEF519B4D292DC5B6EC80AC2D82BB /* KYEmbedMainControllerSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KYEmbedMainControllerSegue.swift; path = KYDrawerController/Classes/KYEmbedMainControllerSegue.swift; sourceTree = "<group>"; };
-		9D0193B4950679953967936EC20D0551 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
-		A203309429B08ECE0069DE91BE5FD854 /* Download.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Download.swift; path = Source/Download.swift; sourceTree = "<group>"; };
-		A335105FA4AAF11C128861FA880F6711 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		861DA59889951FA18AABBBC3FD2425F2 /* Gloss.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Gloss.xcconfig; sourceTree = "<group>"; };
+		86AF7B34A47DCD627393626A8694794B /* KYEmbedDrawerControllerSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KYEmbedDrawerControllerSegue.swift; path = KYDrawerController/Classes/KYEmbedDrawerControllerSegue.swift; sourceTree = "<group>"; };
+		87969D3929347B83C31CC69EBA25A4E7 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		8A8824D84E5D3C65E9C5922330A9098A /* Gloss-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Gloss-dummy.m"; sourceTree = "<group>"; };
+		8C904D4867964E0F5D008A9929BC69A7 /* KYEmbedMainControllerSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KYEmbedMainControllerSegue.swift; path = KYDrawerController/Classes/KYEmbedMainControllerSegue.swift; sourceTree = "<group>"; };
+		8E075D54122261E2714173483BAA2038 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		919397CFC5E29C2D70E96F11DF594EC0 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		94D78A8C85250841D13FCB5038C92355 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		9C6BF9799615D4C3557975969E4A4ED5 /* Gloss.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Gloss.swift; path = Sources/Gloss/Gloss.swift; sourceTree = "<group>"; };
+		9D6200AA3B3AD6D30B2E9E6DED354C95 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		9D9CAB833EF3FAC4C35042396575EEF8 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		9E0857932CECFEB87642DC1B43E73502 /* KYDrawerController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = KYDrawerController.modulemap; sourceTree = "<group>"; };
+		A1958C5AB0CC78A9DCEA690E518D7DB3 /* Gloss-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gloss-umbrella.h"; sourceTree = "<group>"; };
+		A41714DBED2CA3B1FA9044B19365D9C2 /* KYDrawerController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KYDrawerController-prefix.pch"; sourceTree = "<group>"; };
+		A5E31CE76FF0E0C6FC3D64EBE972426C /* Gloss.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Gloss.modulemap; sourceTree = "<group>"; };
 		A68EE74541B5E60A6F7649BED569CE60 /* Pods-MyUnimol-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyUnimol-umbrella.h"; sourceTree = "<group>"; };
-		A6DDD1258625E67DEA7E6C05B6B559FE /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
-		A8979C31B7292B6D67F55B1E2AD38F2C /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		A929FA3E2E69F118D454957726EEC5D7 /* Decoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Decoder.swift; path = Sources/Gloss/Decoder.swift; sourceTree = "<group>"; };
+		A9E314ADFA20F0197F0C0318864CD4A9 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		AD109017532649D227E22123E7701302 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		B10782EA39F0819F470FEB84DFCF7867 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		B1206A04F14F6F88406D0F937454D075 /* Pods-MyUnimol-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyUnimol-acknowledgements.plist"; sourceTree = "<group>"; };
 		B1589EC701661FB97594D78939D1B451 /* Pods-MyUnimol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyUnimol.debug.xcconfig"; sourceTree = "<group>"; };
-		B2844A2EDBC86C1416FCB071C5ACB756 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C00597ABEAF57A4306CF685AA5E93017 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
-		CA52A2E71F7359B857034AA0B83EEBC0 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		D776765F97A7C1332C7EC97F40F35742 /* KYDrawerController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KYDrawerController-prefix.pch"; sourceTree = "<group>"; };
-		E2F12A946251DA4625A67501385F28D5 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
-		E51F3001BA24EF82B893BC71A2DA73ED /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E82E2F343BB29AA257C0C47B6CC61084 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		BFBD20177BFAD1E0F6D9F1589BAE904B /* KYDrawerController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KYDrawerController-dummy.m"; sourceTree = "<group>"; };
+		C299E8A6D74846DA770AA1A81C2EFF70 /* KYDrawerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KYDrawerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAA99BCA70714F815442E6AD46451ACF /* KYDrawerController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KYDrawerController.xcconfig; sourceTree = "<group>"; };
+		DD5A003C5C31FE044A1A6ED6707FA6A6 /* Upload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = Source/Upload.swift; sourceTree = "<group>"; };
+		E3ACB488AD2032BDC847E00C8D30F35E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF88CBFE6274BF74EB50EC130D2E723F /* Pods-MyUnimol-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyUnimol-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F2FE66264C2769369E9A3C6AC513A7DB /* KYEmbedDrawerControllerSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KYEmbedDrawerControllerSegue.swift; path = KYDrawerController/Classes/KYEmbedDrawerControllerSegue.swift; sourceTree = "<group>"; };
-		F4AEDA2AD1805BAA2B54786ADD0A739B /* Pods_MyUnimol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E4D38B6BA194F1ABCA5E15AB5337D2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F90385A007982401B3E689A0A5AEC2BB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9767D26E2D76533ED6096EA25B6EFD4 /* Pods-MyUnimol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyUnimol.release.xcconfig"; sourceTree = "<group>"; };
-		FAC5F883642193EB1AAF6A6F82559B46 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		74DA3C12F72C734761F9FE9B01CA23E4 /* Frameworks */ = {
+		4C464C88296D7D66E93656408BB4CC15 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBB89FB1616325222684EB3CB7A6015F /* Foundation.framework in Frameworks */,
+				F8E27CE1ED6BD71DF65339770F67C36A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +146,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82198F34DD14753A42F4328CD5E7A6B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3293815431460EB19D684E05DD388F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C9EE49A1DDB378987680CA65C0F9359 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,29 +168,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0DBBD6D316EA9CC842D37ED96FD4A04A /* Alamofire */ = {
+		1582005537AAAC3372ACF8C6E9DF9664 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A6DDD1258625E67DEA7E6C05B6B559FE /* Alamofire.swift */,
-				A203309429B08ECE0069DE91BE5FD854 /* Download.swift */,
-				5A1947896D27DCDE24B016AEF1A7A082 /* Error.swift */,
-				7F5CDD98BBD412FFAF2296A582E22296 /* Manager.swift */,
-				CA52A2E71F7359B857034AA0B83EEBC0 /* MultipartFormData.swift */,
-				C00597ABEAF57A4306CF685AA5E93017 /* NetworkReachabilityManager.swift */,
-				43346BA7F41EFA13CB20039957CD837D /* Notifications.swift */,
-				B2844A2EDBC86C1416FCB071C5ACB756 /* ParameterEncoding.swift */,
-				FAC5F883642193EB1AAF6A6F82559B46 /* Request.swift */,
-				A335105FA4AAF11C128861FA880F6711 /* Response.swift */,
-				366E30DB925C5365F6E94B4A5C3DA1EC /* ResponseSerialization.swift */,
-				21957A6E30BE4BF8D4D193398B00A0A9 /* Result.swift */,
-				9D0193B4950679953967936EC20D0551 /* ServerTrustPolicy.swift */,
-				10ECCB596FC45BA3561D20B2A3738EAC /* Stream.swift */,
-				391D13F2C0C99DFC506B1E9022334CF8 /* Timeline.swift */,
-				12E1A8B84339C4F7CDEB3A6A12657E20 /* Upload.swift */,
-				E2F12A946251DA4625A67501385F28D5 /* Validation.swift */,
-				4ED7B9855EB369C618A64214DE08634D /* Support Files */,
+				636EB014A237C93CE483D85CA4F792F4 /* Alamofire.framework */,
+				4FADEC9955B22924C74023EC5EDCFBFA /* Gloss.framework */,
+				C299E8A6D74846DA770AA1A81C2EFF70 /* KYDrawerController.framework */,
+				4575A96E1B4902DDC493C42BD6805457 /* Pods_MyUnimol.framework */,
 			);
-			path = Alamofire;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17DFEBCA68183B251707A2335EFFD1D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				633F693CAB18080D60AA210AF93A0154 /* Alamofire */,
+				A570AFA440717100BBCCFFDE9F09F6D0 /* Gloss */,
+				39B7037E9D3EEA6B74BFC1332B406950 /* KYDrawerController */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		1FD0E195373264D0137C84EBD63F2A84 /* Pods-MyUnimol */ = {
@@ -176,43 +207,54 @@
 			path = "Target Support Files/Pods-MyUnimol";
 			sourceTree = "<group>";
 		};
-		2A1C000B3DCEFECEA737147B24708514 /* Support Files */ = {
+		273200B00ACF78A2B3D8FCAE5C7DB1EE /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				E51F3001BA24EF82B893BC71A2DA73ED /* Info.plist */,
-				88F793C213D74596B910931DDE2B3F5D /* KYDrawerController.modulemap */,
-				47689245B13ACE7ECFAEF4346C567CDC /* KYDrawerController.xcconfig */,
-				024FE6EFE2824DDEB7E655B40A9B927C /* KYDrawerController-dummy.m */,
-				D776765F97A7C1332C7EC97F40F35742 /* KYDrawerController-prefix.pch */,
-				2214D5C7497D3404E4814658A2DDBCA5 /* KYDrawerController-umbrella.h */,
+				62735CEBB074D38C68AD6E254E178D23 /* Info.plist */,
+				9E0857932CECFEB87642DC1B43E73502 /* KYDrawerController.modulemap */,
+				CAA99BCA70714F815442E6AD46451ACF /* KYDrawerController.xcconfig */,
+				BFBD20177BFAD1E0F6D9F1589BAE904B /* KYDrawerController-dummy.m */,
+				A41714DBED2CA3B1FA9044B19365D9C2 /* KYDrawerController-prefix.pch */,
+				08B5F1135B1AA8F31B6CAB3C34E1E8B9 /* KYDrawerController-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/KYDrawerController";
 			sourceTree = "<group>";
 		};
-		2D4AB3955B3436139E2BCC0FB11746CE /* KYDrawerController */ = {
+		39B7037E9D3EEA6B74BFC1332B406950 /* KYDrawerController */ = {
 			isa = PBXGroup;
 			children = (
-				6BA6B7DF4C3EE49731C1DBBF86832541 /* KYDrawerController.swift */,
-				F2FE66264C2769369E9A3C6AC513A7DB /* KYEmbedDrawerControllerSegue.swift */,
-				958BEF519B4D292DC5B6EC80AC2D82BB /* KYEmbedMainControllerSegue.swift */,
-				2A1C000B3DCEFECEA737147B24708514 /* Support Files */,
+				508121943A50A85F5E59340EC2D9F8D6 /* KYDrawerController.swift */,
+				86AF7B34A47DCD627393626A8694794B /* KYEmbedDrawerControllerSegue.swift */,
+				8C904D4867964E0F5D008A9929BC69A7 /* KYEmbedMainControllerSegue.swift */,
+				273200B00ACF78A2B3D8FCAE5C7DB1EE /* Support Files */,
 			);
 			path = KYDrawerController;
 			sourceTree = "<group>";
 		};
-		4ED7B9855EB369C618A64214DE08634D /* Support Files */ = {
+		633F693CAB18080D60AA210AF93A0154 /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
-				E82E2F343BB29AA257C0C47B6CC61084 /* Alamofire.modulemap */,
-				A8979C31B7292B6D67F55B1E2AD38F2C /* Alamofire.xcconfig */,
-				482370DE5BA7A1C0EFD1B73F5D9DAB96 /* Alamofire-dummy.m */,
-				0BBEAC737E84EE545527005D606D9219 /* Alamofire-prefix.pch */,
-				260608985EBEE4F117A9F7FFCA0F42A1 /* Alamofire-umbrella.h */,
-				F90385A007982401B3E689A0A5AEC2BB /* Info.plist */,
+				181BC9C37C85B3258B378201D7CBBDB0 /* Alamofire.swift */,
+				3F6B81DF82055B4B2A3DAC5B9E58847A /* Download.swift */,
+				2047AE8E8D67618287F6D2EB7DA335F2 /* Error.swift */,
+				1F8AD3DD9604A170E29004AA6AD51B5E /* Manager.swift */,
+				9D9CAB833EF3FAC4C35042396575EEF8 /* MultipartFormData.swift */,
+				710F391F76AD0442F4FD6764AA004107 /* NetworkReachabilityManager.swift */,
+				8E075D54122261E2714173483BAA2038 /* Notifications.swift */,
+				AD109017532649D227E22123E7701302 /* ParameterEncoding.swift */,
+				3CDCC556F5808691C2AF344AA91D1C38 /* Request.swift */,
+				5877C03BE6C4C527EE3EC7611ACFFBF4 /* Response.swift */,
+				87969D3929347B83C31CC69EBA25A4E7 /* ResponseSerialization.swift */,
+				B10782EA39F0819F470FEB84DFCF7867 /* Result.swift */,
+				6A0D03BC674EEBB7F9EED6CA730F9A70 /* ServerTrustPolicy.swift */,
+				5A2EE0C710DCEB11B36BC214B1A9598C /* Stream.swift */,
+				327952624B5CC678E986392830A7CF28 /* Timeline.swift */,
+				DD5A003C5C31FE044A1A6ED6707FA6A6 /* Upload.swift */,
+				41516D9A02FC05804791BD4C5543ACA4 /* Validation.swift */,
+				A0CD3F548BBC2667E6BB59D18E5873D5 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Alamofire";
+			path = Alamofire;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -220,20 +262,51 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				C6ABFD94EC3A18C9F1C1630C19DB45C9 /* Pods */,
-				8B7C40B9E56A137CF63FFAE0D91CC497 /* Products */,
+				17DFEBCA68183B251707A2335EFFD1D6 /* Pods */,
+				1582005537AAAC3372ACF8C6E9DF9664 /* Products */,
 				BECF84E510CEDAB2BF3B4917B818D2D4 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8B7C40B9E56A137CF63FFAE0D91CC497 /* Products */ = {
+		8EFF88B416314A7FA1C3B3C2F437CA7A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				749EE1AFAF17570A9326F6ACC1472E25 /* Alamofire.framework */,
-				789345058D470DD974E1DA04785D530B /* KYDrawerController.framework */,
-				F4AEDA2AD1805BAA2B54786ADD0A739B /* Pods_MyUnimol.framework */,
+				A5E31CE76FF0E0C6FC3D64EBE972426C /* Gloss.modulemap */,
+				861DA59889951FA18AABBBC3FD2425F2 /* Gloss.xcconfig */,
+				8A8824D84E5D3C65E9C5922330A9098A /* Gloss-dummy.m */,
+				4728AA44A8805ABB42F071D0012614A3 /* Gloss-prefix.pch */,
+				A1958C5AB0CC78A9DCEA690E518D7DB3 /* Gloss-umbrella.h */,
+				2589FFC2932D73246A92091FF3E6B30C /* Info.plist */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/Gloss";
+			sourceTree = "<group>";
+		};
+		A0CD3F548BBC2667E6BB59D18E5873D5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				919397CFC5E29C2D70E96F11DF594EC0 /* Alamofire.modulemap */,
+				9D6200AA3B3AD6D30B2E9E6DED354C95 /* Alamofire.xcconfig */,
+				94D78A8C85250841D13FCB5038C92355 /* Alamofire-dummy.m */,
+				480730D1C854511B93499718C82B0A46 /* Alamofire-prefix.pch */,
+				A9E314ADFA20F0197F0C0318864CD4A9 /* Alamofire-umbrella.h */,
+				E3ACB488AD2032BDC847E00C8D30F35E /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Alamofire";
+			sourceTree = "<group>";
+		};
+		A570AFA440717100BBCCFFDE9F09F6D0 /* Gloss */ = {
+			isa = PBXGroup;
+			children = (
+				A929FA3E2E69F118D454957726EEC5D7 /* Decoder.swift */,
+				44267593678F04D8592C80D181FB7DF7 /* Dictionary.swift */,
+				1815716BD96DD47E625D9B3A58274F65 /* Encoder.swift */,
+				9C6BF9799615D4C3557975969E4A4ED5 /* Gloss.swift */,
+				0E5C801BA6EA331B918E805DA376D7F3 /* Operators.swift */,
+				8EFF88B416314A7FA1C3B3C2F437CA7A /* Support Files */,
+			);
+			path = Gloss;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -260,23 +333,22 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		C6ABFD94EC3A18C9F1C1630C19DB45C9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0DBBD6D316EA9CC842D37ED96FD4A04A /* Alamofire */,
-				2D4AB3955B3436139E2BCC0FB11746CE /* KYDrawerController */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		CEA5C915EF3CC2867BAF281EBEEF8228 /* Headers */ = {
+		8DC7F6CF02A40629B1062701283914AF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5256D730160DD3F621F9C67A24740096 /* Pods-MyUnimol-umbrella.h in Headers */,
+				6A511BFCF938FA5666883D32D6A7EF9E /* Gloss-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD183896C5A010F0B927E69C8CEB7D56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5507A909D2BE285DBA0516C8ACCD75A /* Pods-MyUnimol-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +385,27 @@
 			);
 			name = KYDrawerController;
 			productName = KYDrawerController;
-			productReference = 789345058D470DD974E1DA04785D530B /* KYDrawerController.framework */;
+			productReference = C299E8A6D74846DA770AA1A81C2EFF70 /* KYDrawerController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		528A98FE1BE38FD53EC38C310638EC00 /* Pods-MyUnimol */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F187C9E52F84FFC7F4987D961580B75B /* Build configuration list for PBXNativeTarget "Pods-MyUnimol" */;
+			buildPhases = (
+				0DDCBEE12E3833B5C0D750156A248995 /* Sources */,
+				4C464C88296D7D66E93656408BB4CC15 /* Frameworks */,
+				AD183896C5A010F0B927E69C8CEB7D56 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1EA34561DD45B060FA8235854259D3DC /* PBXTargetDependency */,
+				68B02FEE3C5C0F0F07039A30AF5F12C1 /* PBXTargetDependency */,
+				AEBC60F01D50A63AADF83995AF7E8286 /* PBXTargetDependency */,
+			);
+			name = "Pods-MyUnimol";
+			productName = "Pods-MyUnimol";
+			productReference = 4575A96E1B4902DDC493C42BD6805457 /* Pods_MyUnimol.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		79C040AFDDCE1BCBF6D8B5EB0B85887F /* Alamofire */ = {
@@ -330,26 +422,24 @@
 			);
 			name = Alamofire;
 			productName = Alamofire;
-			productReference = 749EE1AFAF17570A9326F6ACC1472E25 /* Alamofire.framework */;
+			productReference = 636EB014A237C93CE483D85CA4F792F4 /* Alamofire.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		CC5CCD58C88C68CD7B2FC6782E1C08E0 /* Pods-MyUnimol */ = {
+		FD730667634D830EEAC62832CCCBB290 /* Gloss */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEED006F53EF6450F26B16DB683C1C64 /* Build configuration list for PBXNativeTarget "Pods-MyUnimol" */;
+			buildConfigurationList = 878B754FE19C9076670F688F56DA66D3 /* Build configuration list for PBXNativeTarget "Gloss" */;
 			buildPhases = (
-				8A1DA224A1D929E281A4CA31418C49BD /* Sources */,
-				74DA3C12F72C734761F9FE9B01CA23E4 /* Frameworks */,
-				CEA5C915EF3CC2867BAF281EBEEF8228 /* Headers */,
+				E3C06E9B7BD100AB791FF26623926FD4 /* Sources */,
+				E3293815431460EB19D684E05DD388F7 /* Frameworks */,
+				8DC7F6CF02A40629B1062701283914AF /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0EC6BEA5D759FE0280CC2743358956D9 /* PBXTargetDependency */,
-				1F02921FC4946501A4990F28DDA5BFD2 /* PBXTargetDependency */,
 			);
-			name = "Pods-MyUnimol";
-			productName = "Pods-MyUnimol";
-			productReference = F4AEDA2AD1805BAA2B54786ADD0A739B /* Pods_MyUnimol.framework */;
+			name = Gloss;
+			productName = Gloss;
+			productReference = 4FADEC9955B22924C74023EC5EDCFBFA /* Gloss.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -369,23 +459,24 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 8B7C40B9E56A137CF63FFAE0D91CC497 /* Products */;
+			productRefGroup = 1582005537AAAC3372ACF8C6E9DF9664 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				79C040AFDDCE1BCBF6D8B5EB0B85887F /* Alamofire */,
+				FD730667634D830EEAC62832CCCBB290 /* Gloss */,
 				43F633B3903DE39E43C0B694E1C46B06 /* KYDrawerController */,
-				CC5CCD58C88C68CD7B2FC6782E1C08E0 /* Pods-MyUnimol */,
+				528A98FE1BE38FD53EC38C310638EC00 /* Pods-MyUnimol */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8A1DA224A1D929E281A4CA31418C49BD /* Sources */ = {
+		0DDCBEE12E3833B5C0D750156A248995 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE0FAAD1165D0F1DDD5550CA9E9B9119 /* Pods-MyUnimol-dummy.m in Sources */,
+				625D0D05F4104ABC93A6A21D078CE74B /* Pods-MyUnimol-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,27 +516,135 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E3C06E9B7BD100AB791FF26623926FD4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B416B7CAF1C48163C18D3EF420D4CECE /* Decoder.swift in Sources */,
+				EB233A9A4A59091F1BEA1A0CB5F15553 /* Dictionary.swift in Sources */,
+				74E994B73A1857E0BA3817F9020ECBEB /* Encoder.swift in Sources */,
+				079D423BB02379097C94371EED61A30F /* Gloss-dummy.m in Sources */,
+				8F86E67969A062F67329CDAD9FE2D53A /* Gloss.swift in Sources */,
+				A584CFF03448E431D5F0135C12A16D1F /* Operators.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0EC6BEA5D759FE0280CC2743358956D9 /* PBXTargetDependency */ = {
+		1EA34561DD45B060FA8235854259D3DC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
 			target = 79C040AFDDCE1BCBF6D8B5EB0B85887F /* Alamofire */;
-			targetProxy = 453B9ADA4044DD003C3F32CC84F4F1D1 /* PBXContainerItemProxy */;
+			targetProxy = 9B87B95E870FD9E9514842861E02E165 /* PBXContainerItemProxy */;
 		};
-		1F02921FC4946501A4990F28DDA5BFD2 /* PBXTargetDependency */ = {
+		68B02FEE3C5C0F0F07039A30AF5F12C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Gloss;
+			target = FD730667634D830EEAC62832CCCBB290 /* Gloss */;
+			targetProxy = BF5A5896E6C6DF1C6E0EAE285EB1579E /* PBXContainerItemProxy */;
+		};
+		AEBC60F01D50A63AADF83995AF7E8286 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = KYDrawerController;
 			target = 43F633B3903DE39E43C0B694E1C46B06 /* KYDrawerController */;
-			targetProxy = B7C1FC9854BBA9FB05449E9F98FE3580 /* PBXContainerItemProxy */;
+			targetProxy = 7EC8F636A96F37427CF50090E9EC20F5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		01995E56AE0BE27101E2084D4EA2BD35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1589EC701661FB97594D78939D1B451 /* Pods-MyUnimol.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MyUnimol/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MyUnimol/Pods-MyUnimol.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_MyUnimol;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		404F74DB7CE4728C610BC906AF4C99AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9767D26E2D76533ED6096EA25B6EFD4 /* Pods-MyUnimol.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MyUnimol/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MyUnimol/Pods-MyUnimol.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_MyUnimol;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5D707BB77C20A6E36520F35725BD4CFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 861DA59889951FA18AABBBC3FD2425F2 /* Gloss.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Gloss/Gloss-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Gloss/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Gloss/Gloss.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Gloss;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		656DF17B414825A65EA8D90CD5693E68 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47689245B13ACE7ECFAEF4346C567CDC /* KYDrawerController.xcconfig */;
+			baseConfigurationReference = CAA99BCA70714F815442E6AD46451ACF /* KYDrawerController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -472,7 +671,7 @@
 		};
 		8649319E44E7C86239CEF6BF49F020F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47689245B13ACE7ECFAEF4346C567CDC /* KYDrawerController.xcconfig */;
+			baseConfigurationReference = CAA99BCA70714F815442E6AD46451ACF /* KYDrawerController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -537,40 +736,9 @@
 			};
 			name = Debug;
 		};
-		9B5C37B31BBDCC5A15B9281144E86CD9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1589EC701661FB97594D78939D1B451 /* Pods-MyUnimol.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-MyUnimol/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MyUnimol/Pods-MyUnimol.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_MyUnimol;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		B6FC16AA8B8F0ECB0D4E9A05E0912511 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8979C31B7292B6D67F55B1E2AD38F2C /* Alamofire.xcconfig */;
+			baseConfigurationReference = 9D6200AA3B3AD6D30B2E9E6DED354C95 /* Alamofire.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -631,7 +799,7 @@
 		};
 		CB1883950DAA2ED713560E38DF52008D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8979C31B7292B6D67F55B1E2AD38F2C /* Alamofire.xcconfig */;
+			baseConfigurationReference = 9D6200AA3B3AD6D30B2E9E6DED354C95 /* Alamofire.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -657,9 +825,9 @@
 			};
 			name = Debug;
 		};
-		EEA235BEAE28D42AD0C0CF66ECE96FE2 /* Release */ = {
+		FC51963E928748A2AAC384E87F3E5FDE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9767D26E2D76533ED6096EA25B6EFD4 /* Pods-MyUnimol.release.xcconfig */;
+			baseConfigurationReference = 861DA59889951FA18AABBBC3FD2425F2 /* Gloss.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -668,17 +836,14 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-MyUnimol/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Gloss/Gloss-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Gloss/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MyUnimol/Pods-MyUnimol.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Gloss/Gloss.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_MyUnimol;
+				PRODUCT_NAME = Gloss;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -717,11 +882,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEED006F53EF6450F26B16DB683C1C64 /* Build configuration list for PBXNativeTarget "Pods-MyUnimol" */ = {
+		878B754FE19C9076670F688F56DA66D3 /* Build configuration list for PBXNativeTarget "Gloss" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9B5C37B31BBDCC5A15B9281144E86CD9 /* Debug */,
-				EEA235BEAE28D42AD0C0CF66ECE96FE2 /* Release */,
+				5D707BB77C20A6E36520F35725BD4CFD /* Debug */,
+				FC51963E928748A2AAC384E87F3E5FDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F187C9E52F84FFC7F4987D961580B75B /* Build configuration list for PBXNativeTarget "Pods-MyUnimol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01995E56AE0BE27101E2084D4EA2BD35 /* Debug */,
+				404F74DB7CE4728C610BC906AF4C99AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

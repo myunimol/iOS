@@ -9,13 +9,15 @@
 import UIKit
 import KYDrawerController
 
-class SliderMenuController: UITableViewController {
+class SliderMenuController: UIViewController, UITableViewDelegate {
+    
+    var menuElements = ["Home", "Libretto", "Rubrica", "Appelli", "News", "Pagamenti", "Suggerimenti"]
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let closeButton    = UIButton()
+        let closeButton = UIButton()
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.setTitle("Close", forState: .Normal)
         closeButton.addTarget(self,
@@ -48,6 +50,24 @@ class SliderMenuController: UITableViewController {
             )
         )
         view.backgroundColor = UIColor.whiteColor()
+        
+        // my code
+        
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return menuElements.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        
+        cell.textLabel?.text = menuElements[indexPath.row]
+        
+        return cell
+        
     }
     
     func didTapCloseButton(sender: UIButton) {

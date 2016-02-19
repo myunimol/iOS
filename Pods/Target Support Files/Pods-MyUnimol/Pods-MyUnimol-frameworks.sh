@@ -86,10 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MyUnimol/Alamofire.framework"
   install_framework "Pods-MyUnimol/Gloss.framework"
-  install_framework "Pods-MyUnimol/KYDrawerController.framework"
+  install_framework "Pods-MyUnimol/MMDrawerController.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MyUnimol/Alamofire.framework"
   install_framework "Pods-MyUnimol/Gloss.framework"
-  install_framework "Pods-MyUnimol/KYDrawerController.framework"
+  install_framework "Pods-MyUnimol/MMDrawerController.framework"
 fi

@@ -17,8 +17,8 @@
 		1E27AA2C1C69B42D009AD819 /* MyUnimolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA2B1C69B42D009AD819 /* MyUnimolUITests.swift */; };
 		1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */; };
 		1E38213D1C6D00E300D0E3A2 /* models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38213C1C6D00E300D0E3A2 /* models.swift */; };
-		1E8DABB31C74E8860018FBAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABB21C74E8860018FBAC /* HomeViewController.swift */; };
-		1E8DABB51C74EA390018FBAC /* SliderMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABB41C74EA390018FBAC /* SliderMenuController.swift */; };
+		1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABB81C76EDC30018FBAC /* LeftSideViewController.swift */; };
+		1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABBB1C7728D60018FBAC /* DrawerCell.swift */; };
 		F124B311CB8188F43DA31BF9 /* Pods_MyUnimol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C4D8A394E74E09684CD0EA /* Pods_MyUnimol.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,8 +56,9 @@
 		1E27AA2D1C69B42D009AD819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1E38213C1C6D00E300D0E3A2 /* models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = models.swift; sourceTree = "<group>"; };
-		1E8DABB21C74E8860018FBAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		1E8DABB41C74EA390018FBAC /* SliderMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderMenuController.swift; sourceTree = "<group>"; };
+		1E8DABB81C76EDC30018FBAC /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
+		1E8DABBA1C77183D0018FBAC /* MyUnimol-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyUnimol-Bridging-Header.h"; sourceTree = "<group>"; };
+		1E8DABBB1C7728D60018FBAC /* DrawerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerCell.swift; sourceTree = "<group>"; };
 		45C4D8A394E74E09684CD0EA /* Pods_MyUnimol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93205A951757DA4FAA716825 /* Pods-MyUnimol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimol.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimol/Pods-MyUnimol.release.xcconfig"; sourceTree = "<group>"; };
 		B612240B335FF7733F446997 /* Pods-MyUnimol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimol.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimol/Pods-MyUnimol.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,8 +174,9 @@
 		1E8DABB11C74E8730018FBAC /* navigationControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1E8DABB21C74E8860018FBAC /* HomeViewController.swift */,
-				1E8DABB41C74EA390018FBAC /* SliderMenuController.swift */,
+				1E8DABB81C76EDC30018FBAC /* LeftSideViewController.swift */,
+				1E8DABBA1C77183D0018FBAC /* MyUnimol-Bridging-Header.h */,
+				1E8DABBB1C7728D60018FBAC /* DrawerCell.swift */,
 			);
 			name = navigationControllers;
 			sourceTree = "<group>";
@@ -381,13 +383,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */,
 				1E38213D1C6D00E300D0E3A2 /* models.swift in Sources */,
 				1E27AA0E1C69B42D009AD819 /* ViewController.swift in Sources */,
 				1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */,
 				1E27AA0C1C69B42D009AD819 /* AppDelegate.swift in Sources */,
+				1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */,
 				1E00EA521C69C2900092F612 /* MyUnimolEndPoints.swift in Sources */,
-				1E8DABB31C74E8860018FBAC /* HomeViewController.swift in Sources */,
-				1E8DABB51C74EA390018FBAC /* SliderMenuController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +484,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/giograno/team_molise/MyUnimol/MyUnimol/MyUnimol-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -520,6 +523,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/giograno/team_molise/MyUnimol/MyUnimol/MyUnimol-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -534,6 +538,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimol";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/giograno/team_molise/MyUnimol/MyUnimol/MyUnimol-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -546,6 +551,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimol";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/giograno/team_molise/MyUnimol/MyUnimol/MyUnimol-Bridging-Header.h";
 			};
 			name = Release;
 		};

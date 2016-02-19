@@ -5,7 +5,7 @@
 
 target 'MyUnimol' do
     pod 'Alamofire', '~> 3.0'
-    pod 'KYDrawerController'
+    pod 'MMDrawerController', '~> 0.5.7'
     pod 'Gloss', '~> 0.6'
 end
 

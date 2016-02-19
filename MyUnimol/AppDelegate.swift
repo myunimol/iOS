@@ -7,34 +7,33 @@
 //
 
 import UIKit
-import KYDrawerController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var centerContainer: MMDrawerController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let homeViewController = HomeViewController()
-        let drawerViewController = SliderMenuController()
-        let drawerController = KYDrawerController()
+        var rootViewController = self.window!.rootViewController
         
-        drawerController.mainViewController = UINavigationController(
-            rootViewController: homeViewController
-        )
-        drawerController.drawerViewController = drawerViewController
+        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        /* Customize */
-        drawerController.drawerDirection = .Left
-        drawerController.drawerWidth     = 300
+        let centerViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let leftViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LeftSideViewController") as! LeftSideViewController
         
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = drawerController
-        window?.makeKeyAndVisible()
+        let leftSideNav = UINavigationController(rootViewController: leftViewController)
+        let centerNav = UINavigationController(rootViewController: centerViewController)
         
+        centerContainer = MMDrawerController(centerViewController: centerNav, leftDrawerViewController: leftSideNav)
+        
+        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView
+        
+        window!.rootViewController = centerContainer
+        window!.makeKeyAndVisible()
         return true
     }
 

@@ -1,16 +1,27 @@
 PODS:
   - Alamofire (3.2.0)
   - Gloss (0.6.2)
-  - KYDrawerController (1.1.2)
+  - MMDrawerController (0.5.7):
+    - MMDrawerController/Core (= 0.5.7)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.5.7)
+    - MMDrawerController/MMDrawerVisualStates (= 0.5.7)
+    - MMDrawerController/Subclass (= 0.5.7)
+  - MMDrawerController/Core (0.5.7)
+  - MMDrawerController/MMDrawerBarButtonItem (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.5.7):
+    - MMDrawerController/Core
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - Gloss (~> 0.6)
-  - KYDrawerController
+  - MMDrawerController (~> 0.5.7)
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
   Gloss: 22fd970682b5449e08e2f41c5087eefe7d7d084b
-  KYDrawerController: 222c4d07ed09fa7842011d36d73e3599dcbccab3
+  MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
 
 COCOAPODS: 0.39.0

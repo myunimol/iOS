@@ -8,7 +8,7 @@
 
 import Gloss
 
-struct StudentInfo {
+public struct StudentInfo {
     
     let availableExams : Int?
     let course : String?
@@ -31,7 +31,17 @@ struct StudentInfo {
         self.surname = "surname" <~~ json
         self.registrationDate = "registrationDate" <~~ json
         self.studentClass = "studentClass" <~~ json
-        self.studentId = "studentId" <~~ json
+        self.studentId = "studentID" <~~ json
     }
-
 }
+
+public class Student {
+    
+    public static let sharedInstance = Student()
+    
+    public var studentInfo: StudentInfo?
+    
+    private init() {}
+    
+}
+

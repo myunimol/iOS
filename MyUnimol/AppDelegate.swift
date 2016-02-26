@@ -13,23 +13,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var centerContainer: MMDrawerController?
-
+    let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        var rootViewController = self.window!.rootViewController
-        
-        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let centerViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+                
+        let loginViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
         let leftViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LeftSideViewController") as! LeftSideViewController
         
         let leftSideNav = UINavigationController(rootViewController: leftViewController)
-        let centerNav = UINavigationController(rootViewController: centerViewController)
+        leftSideNav.navigationBar.hidden = true
+        let centerNav = UINavigationController(rootViewController: loginViewController)
+        centerNav.navigationBar.hidden = true
         
         centerContainer = MMDrawerController(centerViewController: centerNav, leftDrawerViewController: leftSideNav)
         
-        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+        //centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
         centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView
         
         window!.rootViewController = centerContainer

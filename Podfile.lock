@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (3.2.0)
-  - Gloss (0.6.2)
+  - Gloss (0.7.1)
   - MMDrawerController (0.5.7):
     - MMDrawerController/Core (= 0.5.7)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.5.7)
@@ -21,7 +21,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
-  Gloss: 22fd970682b5449e08e2f41c5087eefe7d7d084b
+  Gloss: e674d7aa06a7e292a591d0d39a759b826daf503e
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
 
 COCOAPODS: 0.39.0

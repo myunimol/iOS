@@ -43,8 +43,34 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     }
     
     // what happens after a tap in a cell
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        //<#code#>
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var mainWindowController: UIViewController
+        
+        switch(indexPath.row) {
+        
+        case 0:
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+            print(indexPath.row)
+            break;
+            
+        case 1:
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("RecordBookController") as! RecordBookController
+            print(indexPath.row)
+            break;
+        
+        default:
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+            print("I am in the default section")
+            break;
+        }
+        
+        let centerNavigation = UINavigationController(rootViewController: mainWindowController)
+        centerNavigation.navigationBar.hidden = true
+        appDelegate.centerContainer!.centerViewController = centerNavigation
+        appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
 }

@@ -52,6 +52,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
                         statusCode = (response.response?.statusCode)!
                     }
                     
+                    print("Status code is \(statusCode)")
                     if (statusCode == 200) {
                         // login success
                         self.studentInfo = StudentInfo(json: response.result.value as! JSON)
@@ -114,7 +115,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
                     } else {
                         statusCode = (response.response?.statusCode)!
                     }
-                    
+                    print("Status code is \(statusCode)")
                     if (statusCode == 200) {
                         // login success
                         self.studentInfo = StudentInfo(json: response.result.value as! JSON)

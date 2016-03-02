@@ -45,12 +45,25 @@ public struct Exam: Decodable {
     let id : String?
 
     public init?(json: JSON) {
-        self.name = "name" <~~ json
+        self.name = Decoder.getExamName("name", json: json)
         self.cfu = "cfu" <~~ json
         self.vote = "vote" <~~ json
         self.date = "date" <~~ json
         self.year = "year" <~~ json
         self.id = "id" <~~ json
+    }
+}
+
+extension Decoder {
+    
+    static func getExamName(key: String, json: JSON) -> (String) {
+        let string = json.valueForKeyPath(key) as? String
+        if string!.containsString(" - ") {
+            var idAndName = string!.componentsSeparatedByString(" - ")
+            return (idAndName[1])
+        } else {
+            return string!
+        }
     }
 }
 

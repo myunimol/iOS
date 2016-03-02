@@ -21,6 +21,8 @@
 		1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABBB1C7728D60018FBAC /* DrawerCell.swift */; };
 		1E8DABBF1C7F6C000018FBAC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABBE1C7F6C000018FBAC /* Utils.swift */; };
 		1E8DABC41C80E5C20018FBAC /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABC31C80E5C20018FBAC /* KDCircularProgress.swift */; };
+		1E8DABC71C8359F10018FBAC /* RecordBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABC61C8359F10018FBAC /* RecordBookController.swift */; };
+		1E8DABC91C8368900018FBAC /* RecordBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABC81C8368900018FBAC /* RecordBookCell.swift */; };
 		F124B311CB8188F43DA31BF9 /* Pods_MyUnimol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C4D8A394E74E09684CD0EA /* Pods_MyUnimol.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		1E8DABBB1C7728D60018FBAC /* DrawerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerCell.swift; sourceTree = "<group>"; };
 		1E8DABBE1C7F6C000018FBAC /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1E8DABC31C80E5C20018FBAC /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KDCircularProgress.swift; path = "../../../Downloads/KDCircularProgress-master/KDCircularProgress/KDCircularProgress.swift"; sourceTree = "<group>"; };
+		1E8DABC61C8359F10018FBAC /* RecordBookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordBookController.swift; sourceTree = "<group>"; };
+		1E8DABC81C8368900018FBAC /* RecordBookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordBookCell.swift; sourceTree = "<group>"; };
 		45C4D8A394E74E09684CD0EA /* Pods_MyUnimol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93205A951757DA4FAA716825 /* Pods-MyUnimol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimol.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimol/Pods-MyUnimol.release.xcconfig"; sourceTree = "<group>"; };
 		B612240B335FF7733F446997 /* Pods-MyUnimol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimol.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimol/Pods-MyUnimol.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 		1E27AA0A1C69B42D009AD819 /* MyUnimol */ = {
 			isa = PBXGroup;
 			children = (
+				1E8DABC51C8359CC0018FBAC /* pages */,
 				1E8DABBD1C7F6BF40018FBAC /* utils */,
 				1E8DABB11C74E8730018FBAC /* navigationControllers */,
 				1E38213B1C6D00C600D0E3A2 /* beans */,
@@ -193,6 +198,15 @@
 				1E8DABBE1C7F6C000018FBAC /* Utils.swift */,
 			);
 			name = utils;
+			sourceTree = "<group>";
+		};
+		1E8DABC51C8359CC0018FBAC /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				1E8DABC61C8359F10018FBAC /* RecordBookController.swift */,
+				1E8DABC81C8368900018FBAC /* RecordBookCell.swift */,
+			);
+			name = pages;
 			sourceTree = "<group>";
 		};
 		7EDCD9F455047BFA5BBCA106 /* Pods */ = {
@@ -400,12 +414,14 @@
 				1E8DABC41C80E5C20018FBAC /* KDCircularProgress.swift in Sources */,
 				1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */,
 				1E38213D1C6D00E300D0E3A2 /* models.swift in Sources */,
+				1E8DABC91C8368900018FBAC /* RecordBookCell.swift in Sources */,
 				1E27AA0E1C69B42D009AD819 /* ViewController.swift in Sources */,
 				1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */,
 				1E27AA0C1C69B42D009AD819 /* AppDelegate.swift in Sources */,
 				1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */,
 				1E00EA521C69C2900092F612 /* MyUnimolEndPoints.swift in Sources */,
 				1E8DABBF1C7F6C000018FBAC /* Utils.swift in Sources */,
+				1E8DABC71C8359F10018FBAC /* RecordBookController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

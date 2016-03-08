@@ -17,6 +17,8 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Utils.setNavigationControllerStatusBar(self, title: "", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,7 +69,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
         }
         
         let centerNavigation = UINavigationController(rootViewController: mainWindowController)
-        centerNavigation.navigationBar.hidden = true
+        //centerNavigation.navigationBar.hidden = true
         appDelegate.centerContainer!.centerViewController = centerNavigation
         appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)

@@ -81,7 +81,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
         
         let centerViewContainer = appDelegate.mainStoryBoard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         let centerNav = UINavigationController(rootViewController: centerViewContainer)
-        centerNav.navigationBar.hidden = true
+        
         appDelegate.centerContainer!.centerViewController = centerNav
         appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
         //appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
@@ -132,6 +132,12 @@ class LoginController : UIViewController, UITextFieldDelegate {
                     }
             }
         } // user already logged
+    }
+    
+    
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.Default
     }
     
     override func didReceiveMemoryWarning() {}

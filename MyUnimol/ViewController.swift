@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        Utils.setNavigationControllerStatusBar(self, title: "Home", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
+        
         if Utils.userAlreadyExists() {
             let (username, password) = Utils.getUsernameAndPassword()
             

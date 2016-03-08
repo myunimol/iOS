@@ -41,6 +41,17 @@ class Utils {
     static func removeProgressBar(targetVC: UIViewController) {
         messageFrame.removeFromSuperview()
     }
+    
+    static func setNavigationControllerStatusBar(myView: UIViewController, title: String, color: CIColor, style: UIBarStyle) {
+        
+        let navigation = myView.navigationController!
+        
+        navigation.navigationBar.barStyle = style
+        navigation.navigationBar.barTintColor = UIColor(CIColor: color)
+        navigation.navigationBar.translucent = false
+        navigation.navigationBar.tintColor = UIColor.whiteColor()
+        myView.navigationItem.title = title
+    }
 
     static func saveUsernameAndPassoword (username: String, password: String) {
         NSUserDefaults.standardUserDefaults().setObject(username, forKey: "username")
@@ -62,4 +73,6 @@ class Utils {
         let password = NSUserDefaults.standardUserDefaults().objectForKey("password") as! String
         return (username, password)
     }
+    
+    static let myUnimolBlue = CIColor(red: 46.0/255.0, green: 93.0/255.0, blue: 207.0/255.0, alpha: 1.0)
 }

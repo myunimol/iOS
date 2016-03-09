@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let leftSideNav = UINavigationController(rootViewController: leftViewController)
         leftSideNav.navigationBar.hidden = true
+
         let centerNav = UINavigationController(rootViewController: loginViewController)
         centerNav.navigationBar.hidden = true
         

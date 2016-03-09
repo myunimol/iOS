@@ -74,5 +74,6 @@ class Utils {
         return (username, password)
     }
     
-    static let myUnimolBlue = CIColor(red: 46.0/255.0, green: 93.0/255.0, blue: 207.0/255.0, alpha: 1.0)
+    //static let myUnimolBlue = CIColor(red: 46.0/255.0, green: 93.0/255.0, blue: 207.0/255.0, alpha: 1.0)
+    static let myUnimolBlue = CIColor(red: 75.0/255.0, green: 101.0/255.0, blue: 149.0/255.0, alpha: 1.0)
 }

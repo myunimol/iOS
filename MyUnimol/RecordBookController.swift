@@ -41,18 +41,10 @@ class RecordBookController: UIViewController, UITableViewDelegate {
         cell.cfu.text = "\(currentRecordBook!.cfu!)"
         cell.date.text = currentRecordBook!.date
         
-        //cell.examName.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        //cell.examName.numberOfLines = 2
-        
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        
-        return UIStatusBarStyle.LightContent
     }
 }

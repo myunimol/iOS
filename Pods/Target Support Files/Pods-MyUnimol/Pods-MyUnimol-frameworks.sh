@@ -84,12 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-MyUnimol/Alamofire.framework"
-  install_framework "Pods-MyUnimol/Gloss.framework"
-  install_framework "Pods-MyUnimol/MMDrawerController.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Charts/Charts.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Gloss/Gloss.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/MMDrawerController/MMDrawerController.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-MyUnimol/Alamofire.framework"
-  install_framework "Pods-MyUnimol/Gloss.framework"
-  install_framework "Pods-MyUnimol/MMDrawerController.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Charts/Charts.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Gloss/Gloss.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/MMDrawerController/MMDrawerController.framework"
 fi

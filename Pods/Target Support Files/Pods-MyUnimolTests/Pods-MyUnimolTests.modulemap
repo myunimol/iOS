@@ -1,0 +1,6 @@
+framework module Pods_MyUnimolTests {
+  umbrella header "Pods-MyUnimolTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

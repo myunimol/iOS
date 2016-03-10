@@ -1,5 +1,8 @@
 PODS:
-  - Alamofire (3.2.0)
+  - Alamofire (3.2.1)
+  - Charts (2.2.3):
+    - Charts/Core (= 2.2.3)
+  - Charts/Core (2.2.3)
   - Gloss (0.7.1)
   - MMDrawerController (0.5.7):
     - MMDrawerController/Core (= 0.5.7)
@@ -16,12 +19,16 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - Charts
   - Gloss (~> 0.6)
   - MMDrawerController (~> 0.5.7)
 
 SPEC CHECKSUMS:
-  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
+  Charts: f54267bb3f0f0e74520c6f248517cf5074dfd6fc
   Gloss: e674d7aa06a7e292a591d0d39a759b826daf503e
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: e07df212c17ffe88e5ee8469a01da23615b9b5b3
+
+COCOAPODS: 1.0.0.beta.5

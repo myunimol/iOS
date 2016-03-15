@@ -124,7 +124,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
                         student.studentInfo = self.studentInfo
                         //TODO insert credential remember
                         self.performSegueWithIdentifier("ViewController", sender: self)
-                        
+
                     } else if (statusCode == 401) {
                         
                         // error on credential

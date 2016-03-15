@@ -17,10 +17,10 @@
 		1E27AA2C1C69B42D009AD819 /* MyUnimolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA2B1C69B42D009AD819 /* MyUnimolUITests.swift */; };
 		1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */; };
 		1E38213D1C6D00E300D0E3A2 /* models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38213C1C6D00E300D0E3A2 /* models.swift */; };
+		1E4F8E3D1C972F0F007D92E2 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4F8E3C1C972F0F007D92E2 /* KDCircularProgress.swift */; };
 		1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABB81C76EDC30018FBAC /* LeftSideViewController.swift */; };
 		1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABBB1C7728D60018FBAC /* DrawerCell.swift */; };
 		1E8DABBF1C7F6C000018FBAC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABBE1C7F6C000018FBAC /* Utils.swift */; };
-		1E8DABC41C80E5C20018FBAC /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABC31C80E5C20018FBAC /* KDCircularProgress.swift */; };
 		1E8DABC71C8359F10018FBAC /* RecordBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABC61C8359F10018FBAC /* RecordBookController.swift */; };
 		1E8DABC91C8368900018FBAC /* RecordBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABC81C8368900018FBAC /* RecordBookCell.swift */; };
 		5D737390488590A8AFB3D405 /* Pods_MyUnimol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD278C60037F9C814D327609 /* Pods_MyUnimol.framework */; };
@@ -65,11 +65,11 @@
 		1E27AA2D1C69B42D009AD819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1E38213C1C6D00E300D0E3A2 /* models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = models.swift; sourceTree = "<group>"; };
+		1E4F8E3C1C972F0F007D92E2 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		1E8DABB81C76EDC30018FBAC /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
 		1E8DABBA1C77183D0018FBAC /* MyUnimol-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyUnimol-Bridging-Header.h"; sourceTree = "<group>"; };
 		1E8DABBB1C7728D60018FBAC /* DrawerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerCell.swift; sourceTree = "<group>"; };
 		1E8DABBE1C7F6C000018FBAC /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		1E8DABC31C80E5C20018FBAC /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KDCircularProgress.swift; path = "../../../Downloads/KDCircularProgress-master/KDCircularProgress/KDCircularProgress.swift"; sourceTree = "<group>"; };
 		1E8DABC61C8359F10018FBAC /* RecordBookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordBookController.swift; sourceTree = "<group>"; };
 		1E8DABC81C8368900018FBAC /* RecordBookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordBookCell.swift; sourceTree = "<group>"; };
 		6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,7 +217,7 @@
 		1E8DABBD1C7F6BF40018FBAC /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				1E8DABC31C80E5C20018FBAC /* KDCircularProgress.swift */,
+				1E4F8E3C1C972F0F007D92E2 /* KDCircularProgress.swift */,
 				1E8DABBE1C7F6C000018FBAC /* Utils.swift */,
 			);
 			name = utils;
@@ -507,7 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E8DABC41C80E5C20018FBAC /* KDCircularProgress.swift in Sources */,
+				1E4F8E3D1C972F0F007D92E2 /* KDCircularProgress.swift in Sources */,
 				1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */,
 				1E38213D1C6D00E300D0E3A2 /* models.swift in Sources */,
 				1E8DABC91C8368900018FBAC /* RecordBookCell.swift in Sources */,

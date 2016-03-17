@@ -82,7 +82,7 @@ extension String {
 
 public struct RecordBook {
 
-    let average : String?
+    let average : Double?
     var exams = [Exam]()
     let weightedAverage : String?
     
@@ -110,7 +110,7 @@ public struct RecordBook {
                 accumulator += exam.cfu! * grade
                 
                 self.examsGrades.append(grade)
-                let currentAverage = (Double(accumulator / cfuCounter))
+                let currentAverage = (Double(accumulator) / Double(cfuCounter))
                 
                 self.staringDegree.append(Int((currentAverage * 11) / 3))
             }

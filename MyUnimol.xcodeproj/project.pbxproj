@@ -18,6 +18,9 @@
 		1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */; };
 		1E38213D1C6D00E300D0E3A2 /* models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38213C1C6D00E300D0E3A2 /* models.swift */; };
 		1E4F8E3D1C972F0F007D92E2 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4F8E3C1C972F0F007D92E2 /* KDCircularProgress.swift */; };
+		1E8ACFD01C9B13BE0059AED2 /* TaxesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8ACFCF1C9B13BE0059AED2 /* TaxesViewController.swift */; };
+		1E8ACFD21C9B14BF0059AED2 /* TaxesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8ACFD11C9B14BF0059AED2 /* TaxesCell.swift */; };
+		1E8ACFD41C9B154F0059AED2 /* Tax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8ACFD31C9B154F0059AED2 /* Tax.swift */; };
 		1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABB81C76EDC30018FBAC /* LeftSideViewController.swift */; };
 		1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABBB1C7728D60018FBAC /* DrawerCell.swift */; };
 		1E8DABBF1C7F6C000018FBAC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABBE1C7F6C000018FBAC /* Utils.swift */; };
@@ -66,6 +69,9 @@
 		1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1E38213C1C6D00E300D0E3A2 /* models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = models.swift; sourceTree = "<group>"; };
 		1E4F8E3C1C972F0F007D92E2 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
+		1E8ACFCF1C9B13BE0059AED2 /* TaxesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxesViewController.swift; sourceTree = "<group>"; };
+		1E8ACFD11C9B14BF0059AED2 /* TaxesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxesCell.swift; sourceTree = "<group>"; };
+		1E8ACFD31C9B154F0059AED2 /* Tax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tax.swift; sourceTree = "<group>"; };
 		1E8DABB81C76EDC30018FBAC /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
 		1E8DABBA1C77183D0018FBAC /* MyUnimol-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyUnimol-Bridging-Header.h"; sourceTree = "<group>"; };
 		1E8DABBB1C7728D60018FBAC /* DrawerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerCell.swift; sourceTree = "<group>"; };
@@ -154,7 +160,8 @@
 		1E27AA0A1C69B42D009AD819 /* MyUnimol */ = {
 			isa = PBXGroup;
 			children = (
-				1E8DABC51C8359CC0018FBAC /* pages */,
+				1E8ACFCE1C9B13960059AED2 /* taxes */,
+				1E8DABC51C8359CC0018FBAC /* recordBook */,
 				1E8DABBD1C7F6BF40018FBAC /* utils */,
 				1E8DABB11C74E8730018FBAC /* navigationControllers */,
 				1E38213B1C6D00C600D0E3A2 /* beans */,
@@ -200,8 +207,18 @@
 			isa = PBXGroup;
 			children = (
 				1E38213C1C6D00E300D0E3A2 /* models.swift */,
+				1E8ACFD31C9B154F0059AED2 /* Tax.swift */,
 			);
 			name = beans;
+			sourceTree = "<group>";
+		};
+		1E8ACFCE1C9B13960059AED2 /* taxes */ = {
+			isa = PBXGroup;
+			children = (
+				1E8ACFCF1C9B13BE0059AED2 /* TaxesViewController.swift */,
+				1E8ACFD11C9B14BF0059AED2 /* TaxesCell.swift */,
+			);
+			name = taxes;
 			sourceTree = "<group>";
 		};
 		1E8DABB11C74E8730018FBAC /* navigationControllers */ = {
@@ -223,13 +240,13 @@
 			name = utils;
 			sourceTree = "<group>";
 		};
-		1E8DABC51C8359CC0018FBAC /* pages */ = {
+		1E8DABC51C8359CC0018FBAC /* recordBook */ = {
 			isa = PBXGroup;
 			children = (
 				1E8DABC61C8359F10018FBAC /* RecordBookController.swift */,
 				1E8DABC81C8368900018FBAC /* RecordBookCell.swift */,
 			);
-			name = pages;
+			name = recordBook;
 			sourceTree = "<group>";
 		};
 		B03316ED1BF5BE1BD9AA517B /* Frameworks */ = {
@@ -507,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E8ACFD01C9B13BE0059AED2 /* TaxesViewController.swift in Sources */,
 				1E4F8E3D1C972F0F007D92E2 /* KDCircularProgress.swift in Sources */,
 				1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */,
 				1E38213D1C6D00E300D0E3A2 /* models.swift in Sources */,
@@ -515,7 +533,9 @@
 				1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */,
 				1E27AA0C1C69B42D009AD819 /* AppDelegate.swift in Sources */,
 				1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */,
+				1E8ACFD21C9B14BF0059AED2 /* TaxesCell.swift in Sources */,
 				1E00EA521C69C2900092F612 /* MyUnimolEndPoints.swift in Sources */,
+				1E8ACFD41C9B154F0059AED2 /* Tax.swift in Sources */,
 				1E8DABBF1C7F6C000018FBAC /* Utils.swift in Sources */,
 				1E8DABC71C8359F10018FBAC /* RecordBookController.swift in Sources */,
 			);

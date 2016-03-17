@@ -13,11 +13,16 @@ import Charts
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var progress: KDCircularProgress!
     @IBOutlet weak var percentage: UILabel!
     
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var barChartView: BarChartView!
+    
+    @IBOutlet weak var average: UILabel!
+    @IBOutlet weak var startingDegree: UILabel!
     
     var recordBook: RecordBook?
     
@@ -59,6 +64,9 @@ class ViewController: UIViewController {
                         let recordBook: RecordBookClass! = RecordBookClass.sharedInstance
                         let grades = recordBook.recordBook?.examsGrades
                         let degrees = recordBook.recordBook?.staringDegree
+                        
+                        self.average.text = "\(recordBook.recordBook!.average!)"
+                        self.startingDegree.text = "\((recordBook.recordBook?.average)! * 11 / 3)"
                         print(degrees)
                         
                         self.animateButton()
@@ -157,7 +165,9 @@ class ViewController: UIViewController {
         
         if (percentage > 100) { percentage = 100 }
         
-        progress.animateFromAngle(0, toAngle: 360, duration: 1.5) { completed in
+        let angle = percentage * 360 / 100
+        
+        progress.animateFromAngle(0, toAngle: angle, duration: 1) { completed in
             if completed {
                 self.percentage.text = "\(percentage)%"
             }

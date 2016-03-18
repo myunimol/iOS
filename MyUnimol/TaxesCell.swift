@@ -9,7 +9,14 @@
 import UIKit
 
 class TaxesCell: UITableViewCell {
-
+    
+    @IBOutlet weak var view: UIView!
+    
+    @IBOutlet weak var billId: UILabel!
+    @IBOutlet weak var deadlineDate: UILabel!
+    @IBOutlet weak var accademicYear: UILabel!
+    @IBOutlet weak var amount: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

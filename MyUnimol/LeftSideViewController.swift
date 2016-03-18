@@ -61,7 +61,12 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("RecordBookController") as! RecordBookController
             print(indexPath.row)
             break;
-        
+            
+        case 5:
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TaxesViewController") as! TaxesViewController
+            print(indexPath.row)
+            break;
+            
         default:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
             print("I am in the default section")

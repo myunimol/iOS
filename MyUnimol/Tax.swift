@@ -31,7 +31,7 @@ public struct Tax: Decodable {
 
 public struct Taxes {
     
-    let taxes = [Tax]()
+    var taxes = [Tax]()
     
     init(json: JSON) {
         self.taxes = [Tax].fromJSONArray(("taxes" <~~ json)!)

@@ -6,7 +6,9 @@
 //  Copyright © 2016 Giovanni Grano. All rights reserved.
 //
 
-// Utility class
+/**
+    Generic utility class
+*/
 class Utils {
     
     static var messageFrame = UIView()

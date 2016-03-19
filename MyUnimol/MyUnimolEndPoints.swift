@@ -15,7 +15,9 @@ struct MyUnimolEndPoints {
     static let GET_ENROLLED_EXAMS   = BASE_URL  +   "getEnrolledExams"
     static let ENROLL_EXAMS         = BASE_URL  +   "enrollExam"
     static let GET_RECORD_BOOK      = BASE_URL  +   "getRecordBook"
-    //to be continue
+    static let GET_ADDRESS_BOOK     = BASE_URL  +   "getAddressBook"
+    static let GET_TAXES            = BASE_URL  +   "getTaxes"
+    //TODO
 }
 
 struct MyUnimolToken {

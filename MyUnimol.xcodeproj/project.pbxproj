@@ -26,6 +26,7 @@
 		1E8DABBF1C7F6C000018FBAC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABBE1C7F6C000018FBAC /* Utils.swift */; };
 		1E8DABC71C8359F10018FBAC /* RecordBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABC61C8359F10018FBAC /* RecordBookController.swift */; };
 		1E8DABC91C8368900018FBAC /* RecordBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABC81C8368900018FBAC /* RecordBookCell.swift */; };
+		1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */; };
 		5D737390488590A8AFB3D405 /* Pods_MyUnimol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD278C60037F9C814D327609 /* Pods_MyUnimol.framework */; };
 		7EB8600C55DF70A9112606AB /* Pods_MyUnimolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */; };
 		EB9F673E5837124DCC806FBE /* Pods_MyUnimolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD01AF9A662744C7925F1F75 /* Pods_MyUnimolUITests.framework */; };
@@ -78,6 +79,7 @@
 		1E8DABBE1C7F6C000018FBAC /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1E8DABC61C8359F10018FBAC /* RecordBookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordBookController.swift; sourceTree = "<group>"; };
 		1E8DABC81C8368900018FBAC /* RecordBookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordBookCell.swift; sourceTree = "<group>"; };
+		1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
 		6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF660E12398073C98C7DEFE /* Pods-MyUnimolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimolTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimolTests/Pods-MyUnimolTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0EA6B7FA1990CCBE6F19A54 /* Pods-MyUnimolUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimolUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimolUITests/Pods-MyUnimolUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				1E00EA511C69C2900092F612 /* MyUnimolEndPoints.swift */,
+				1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */,
 			);
 			name = api;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				1E27AA0C1C69B42D009AD819 /* AppDelegate.swift in Sources */,
 				1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */,
 				1E8ACFD21C9B14BF0059AED2 /* TaxesCell.swift in Sources */,
+				1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */,
 				1E00EA521C69C2900092F612 /* MyUnimolEndPoints.swift in Sources */,
 				1E8ACFD41C9B154F0059AED2 /* Tax.swift in Sources */,
 				1E8DABBF1C7F6C000018FBAC /* Utils.swift in Sources */,

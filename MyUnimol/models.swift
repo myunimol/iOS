@@ -27,8 +27,14 @@ public struct StudentInfo {
         self.courseLength = "courseLength" <~~ json
         self.department = "department" <~~ json
         self.enrolledExams = "enrolledExams" <~~ json
-        self.name = "name" <~~ json
-        self.surname = "surname" <~~ json
+        
+        let auxName: String? = "name" <~~ json
+        self.name = auxName?.firstCharacterUpperCase()
+
+        let auxSurname: String? = "surname" <~~ json
+        self.surname = auxSurname?.firstCharacterUpperCase()
+        
+        self.surname?.firstCharacterUpperCase()
         self.registrationDate = "registrationDate" <~~ json
         self.studentClass = "studentClass" <~~ json
         self.studentId = "studentID" <~~ json
@@ -78,6 +84,12 @@ extension String {
     var integerValue:Int? {
         return NumberFormatter.instance.numberFromString(self)?.integerValue
     }
+    func firstCharacterUpperCase() -> String {
+        let lowercaseString = self.lowercaseString
+        
+        return lowercaseString.stringByReplacingCharactersInRange(lowercaseString.startIndex...lowercaseString.startIndex, withString: String(lowercaseString[lowercaseString.startIndex]).uppercaseString)
+    }
+
 }
 
 public struct RecordBook {

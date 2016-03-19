@@ -47,8 +47,16 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         cell.accademicYear.text = "Anno accademico: " + tax!.year!
         cell.deadlineDate.text = "Data scadenza: " + tax!.expiringDate!
         
-        cell.amount.text = "€ + " + String(tax!.amount!)
+        cell.amount.text = "€ " + String(format: "%.2f", tax!.amount!)
         
+        cell.view.layer.cornerRadius = cell.view.frame.size.height/2
+        cell.view.layer.masksToBounds = true
+        
+        if (tax?.statusPayment == "pagato") {
+            cell.view.backgroundColor = UIColor.greenColor()
+        } else {
+            cell.view.backgroundColor = UIColor.redColor()
+        }
         
         return cell
     }

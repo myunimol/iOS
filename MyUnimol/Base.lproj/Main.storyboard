@@ -274,6 +274,96 @@
             </objects>
             <point key="canvasLocation" x="87.5" y="241"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="0B8-9r-QPg">
+            <objects>
+                <viewController storyboardIdentifier="UniversityNewsViewController" id="miy-Sj-i2z" customClass="UniversityNewsViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xpq-DW-73K"/>
+                        <viewControllerLayoutGuide type="bottom" id="nO9-0t-vW0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fZU-XF-3ez">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cd8-DC-8W0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NewsCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" id="xdH-9a-YC4" customClass="NewsCell" customModule="MyUnimol" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xdH-9a-YC4" id="gGt-07-xNp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="miy-Sj-i2z" id="3LS-Ls-5M7"/>
+                                    <outlet property="delegate" destination="miy-Sj-i2z" id="0oy-Lm-wiE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Cd8-DC-8W0" secondAttribute="trailing" id="CSa-ap-QFD"/>
+                            <constraint firstItem="Cd8-DC-8W0" firstAttribute="leading" secondItem="fZU-XF-3ez" secondAttribute="leading" id="CSk-gz-Seq"/>
+                            <constraint firstItem="nO9-0t-vW0" firstAttribute="top" secondItem="Cd8-DC-8W0" secondAttribute="bottom" id="Qcl-pC-UzM"/>
+                            <constraint firstItem="Cd8-DC-8W0" firstAttribute="top" secondItem="xpq-DW-73K" secondAttribute="bottom" id="kbu-Xh-28W"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="ay4-iw-wUp"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="Cd8-DC-8W0" id="7iE-Pa-gjK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T7A-sB-GUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1535.5" y="-1418.5"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="etu-1I-MRD">
+            <objects>
+                <viewController id="bOa-9E-Dsa" customClass="DepartmentNewsViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bnd-sX-nzd"/>
+                        <viewControllerLayoutGuide type="bottom" id="baR-N8-jQz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EIc-mf-efo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="D2e-vN-jRU"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N8G-3Y-wBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1535.5" y="-677.5"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="D8n-AI-DOQ">
+            <objects>
+                <viewController id="yPb-lR-r7L" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mZX-iP-oc1"/>
+                        <viewControllerLayoutGuide type="bottom" id="2a6-w1-se5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NNU-0Y-bIa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="WmF-Mv-SEl"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mS3-qw-zfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1535.5" y="64.5"/>
+        </scene>
         <!--Left Side View Controller-->
         <scene sceneID="o9w-mW-CnA">
             <objects>
@@ -609,6 +699,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fb8-Ce-vAV">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaxesCell" rowHeight="100" id="XV8-sD-JMf" customClass="TaxesCell" customModule="MyUnimol" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="375" height="100"/>
@@ -635,9 +726,9 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="€ 240,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LT-ld-hrd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="€ 240,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LT-ld-hrd">
                                                     <rect key="frame" x="301" y="68" width="66" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -647,6 +738,7 @@
                                                 </view>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                                         <connections>
                                             <outlet property="accademicYear" destination="6d4-gD-r65" id="Yyp-4c-LCp"/>
                                             <outlet property="amount" destination="4LT-ld-hrd" id="yxW-YM-4kC"/>
@@ -679,6 +771,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8aO-tp-0FM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="525.5" y="1794.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="rNy-ik-81R">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="A6I-Q5-FhZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="NNv-F9-foF">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="miy-Sj-i2z" kind="relationship" relationship="viewControllers" id="ulN-e3-rJ9"/>
+                        <segue destination="bOa-9E-Dsa" kind="relationship" relationship="viewControllers" id="3v6-Ir-ZwB"/>
+                        <segue destination="yPb-lR-r7L" kind="relationship" relationship="viewControllers" id="MTV-xh-WjT"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cnB-Ue-0Fx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="525.5" y="-1007.5"/>
         </scene>
     </scenes>
     <resources>

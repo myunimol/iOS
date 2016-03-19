@@ -62,6 +62,11 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             print(indexPath.row)
             break;
             
+        case 4:
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("UniversityNewsViewController") as! UniversityNewsViewController
+            print(indexPath.row)
+            break;
+            
         case 5:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TaxesViewController") as! TaxesViewController
             print(indexPath.row)
@@ -79,5 +84,6 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
         appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
+    
     
 }

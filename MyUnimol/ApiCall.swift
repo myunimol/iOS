@@ -17,6 +17,69 @@ import Gloss
 class ApiCall {
     
     /**
+     Checks the network availability
+    */
+    static func isConnectionAvailable() -> Bool {
+        return Reachability.isConnectedToNetwork()
+    }
+    
+    /**
+     Checks for credentials stored in `NSUserDefaults`
+     - returns: a boolean value
+     */
+    static func areCredentialsStored() -> Bool {
+        let (username, password) = CacheManager.getUserCredential()
+        
+        if (username == nil && password == nil) {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    static func areCredentialsValid(username: String, password: String, caller: UIViewController) {
+        
+        let parameters = [
+            "username"  : username,
+            "password"  : password,
+            "token"     : MyUnimolToken.TOKEN
+        ]
+        
+        Utils.progressBarDisplayer(caller, msg: "This is a very long message which is dislayed in order to verify that the UILabel will strecth well", indicator: true)
+        
+        Alamofire.request(.POST, MyUnimolEndPoints.TEST_CREDENTIALS, parameters: parameters)
+            .responseJSON {response in
+                
+                Utils.removeProgressBar(caller)
+                
+                var statusCode: Int
+                if let httpError = response.result.error {
+                    statusCode = httpError.code
+                } else {
+                    statusCode = (response.response?.statusCode)!
+                }
+                print(statusCode)
+                if (statusCode == 200) {
+                    // store gathered data into the singleton
+                    let student = Student.sharedInstance
+                    let json = response.result.value as! JSON
+                    student.studentInfo = StudentInfo(json: json)
+                    
+                    // put the data into the cache
+                    CacheManager.storeLoginInformation(username, password: password)
+                    CacheManager.storeJsonInCacheByKey(CacheManager.STUDENT_INFO_KEY, json: json)
+                    
+                    // segue to home page
+                    caller.performSegueWithIdentifier("ViewController", sender: self)
+                } else if (statusCode == 401) {
+                    // credentials not valid
+                    Utils.displayAlert(caller, title: "Oops!", message: "I tuoi dati di accesso sembrano errati")
+                }
+            }
+    }
+    
+    
+    /**
         Call the getTaxes service from server, instantiating the TaxClass singleton.
         Update the asyncronous the table passed as parameter
         
@@ -61,6 +124,7 @@ class ApiCall {
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     table.reloadData()
+                    table.hidden = false
                 })
         }
     }
@@ -115,7 +179,6 @@ class ApiCall {
                 })
         }
     }
-
     
 }
 

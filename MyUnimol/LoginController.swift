@@ -31,49 +31,8 @@ class LoginController : UIViewController, UITextFieldDelegate {
         if username == "" || password == "" {
             Utils.displayAlert(self, title: "Oops!", message: "Username e/o password mancanti")
         } else {
-            let parameters = [
-                "username" : username,
-                "password" : password,
-                "token"    : MyUnimolToken.TOKEN
-            ]
-            
-            Utils.progressBarDisplayer(self, msg: "Wait for login", indicator: true)
-            
-            Alamofire.request(.POST, MyUnimolEndPoints.TEST_CREDENTIALS, parameters: parameters)
-                .responseJSON { response in
-                    
-                    
-                    Utils.removeProgressBar(self)
-                    
-                    var statusCode : Int
-                    if let httpError = response.result.error {
-                        statusCode = httpError.code
-                    } else {
-                        statusCode = (response.response?.statusCode)!
-                    }
-                    
-                    print("Status code is \(statusCode)")
-                    if (statusCode == 200) {
-                        // login success
-                        self.studentInfo = StudentInfo(json: response.result.value as! JSON)
-                        
-                        // put credentials into NSUserDefault
-                        NSUserDefaults.standardUserDefaults().setObject(self.username, forKey: "username")
-                        NSUserDefaults.standardUserDefaults().setObject(self.password, forKey: "password")
-                        NSUserDefaults.standardUserDefaults().setObject(true, forKey: "isLogged")
-                        
-                        let student = Student.sharedInstance
-                        student.studentInfo = self.studentInfo
-                        //TODO insert credential remember
-                        self.performSegueWithIdentifier("ViewController", sender: self)
-                        
-                    } else if (statusCode == 401) {
-                        
-                        // error on credential
-                        Utils.displayAlert(self, title: "Oops!", message: "I tuoi dati di accesso sembrano errati")
-                    }
-            }
-        } // else credential not null
+            ApiCall.areCredentialsValid(username, password: password, caller: self)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -87,54 +46,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
         //appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        // load all values from NSUserDefaults
-        self.isLogged = NSUserDefaults.standardUserDefaults().boolForKey("isLogged")
-        
-        if (isLogged != nil && isLogged == true) {
-            
-            let (username, password) = Utils.getUsernameAndPassword()
-            
-            let parameters = [
-                "username" : username,
-                "password" : password,
-                "token"    : MyUnimolToken.TOKEN
-            ]
-            
-            Utils.progressBarDisplayer(self, msg: "Wait for login", indicator: true)
-            
-            Alamofire.request(.POST, MyUnimolEndPoints.TEST_CREDENTIALS, parameters: parameters)
-                .responseJSON { response in
-                    
-                    
-                    Utils.removeProgressBar(self)
-                    
-                    var statusCode : Int
-                    if let httpError = response.result.error {
-                        statusCode = httpError.code
-                    } else {
-                        statusCode = (response.response?.statusCode)!
-                    }
-                    print("Status code is \(statusCode)")
-                    if (statusCode == 200) {
-                        // login success
-                        self.studentInfo = StudentInfo(json: response.result.value as! JSON)
-                        
-                        let student = Student.sharedInstance
-                        student.studentInfo = self.studentInfo
-                        //TODO insert credential remember
-                        self.performSegueWithIdentifier("ViewController", sender: self)
-
-                    } else if (statusCode == 401) {
-                        
-                        // error on credential
-                        Utils.displayAlert(self, title: "Oops!", message: "Qualcosa di strano è successo")
-                    }
-            }
-        } // user already logged
-    }
-    
-    
+    override func viewDidLoad() { super.viewDidLoad() }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.Default
@@ -142,7 +54,9 @@ class LoginController : UIViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {}
     
-    // Remove focus form a TextField
+    /**
+     Remove the focus from a texfield
+    */
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }

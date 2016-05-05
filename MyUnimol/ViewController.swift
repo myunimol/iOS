@@ -11,24 +11,31 @@ import Alamofire
 import Gloss
 import Charts
 
+/**
+ This class is the UIViewController for the home page of the application
+ */
 class ViewController: UIViewController {
     
+    // the scroll view
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    // the circular progress bar
     @IBOutlet weak var progress: KDCircularProgress!
+    // the label which contains the percentage value for the progress bar
     @IBOutlet weak var percentage: UILabel!
-    
+    // the line chart view
     @IBOutlet weak var lineChartView: LineChartView!
+    // the bar chart view
     @IBOutlet weak var barChartView: BarChartView!
-    
+    // the average degree for all the exams
     @IBOutlet weak var average: UILabel!
+    // the starting degree for your graduation
     @IBOutlet weak var startingDegree: UILabel!
+    
     
     var recordBook: RecordBook?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         Utils.setNavigationControllerStatusBar(self, title: "Home", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
         

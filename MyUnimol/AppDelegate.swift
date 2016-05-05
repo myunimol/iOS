@@ -15,25 +15,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var centerContainer: MMDrawerController?
     let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
+    var avoidLogin: Bool = false
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-                
-        let loginViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
+        
+        self.avoidLogin = ApiCall.areCredentialsStored()
+        
+        let firstViewController = configureCenterViewController()
         let leftViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LeftSideViewController") as! LeftSideViewController
         
         let leftSideNav = UINavigationController(rootViewController: leftViewController)
         leftSideNav.navigationBar.hidden = true
 
-        let centerNav = UINavigationController(rootViewController: loginViewController)
+        let centerNav = UINavigationController(rootViewController: firstViewController)
         centerNav.navigationBar.hidden = true
         
         centerContainer = MMDrawerController(centerViewController: centerNav, leftDrawerViewController: leftSideNav)
-        
-        //centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
         centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView
         
         window!.rootViewController = centerContainer
         window!.makeKeyAndVisible()
         return true
+    }
+    
+    func configureCenterViewController() -> UIViewController {
+        let centerViewController: UIViewController
+        if (avoidLogin) {
+            centerViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("FirstPageController") as! FirstPageController
+        } else {
+            centerViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
+        }
+        return centerViewController
     }
         
     func applicationWillResignActive(application: UIApplication) {

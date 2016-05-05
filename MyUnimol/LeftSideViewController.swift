@@ -13,7 +13,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var studentID: UILabel!
     
-    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "News", "Pagamenti", "Suggerimenti", "Il mio Portale"]
+    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "News", "Pagamenti", "Suggerimenti", "Il mio Portale", "Logout"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +70,12 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
         case 5:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TaxesViewController") as! TaxesViewController
             print(indexPath.row)
+            break;
+            
+        case 8:
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
+            print(indexPath.row)
+            CacheManager.resetLoginInformation()
             break;
             
         default:

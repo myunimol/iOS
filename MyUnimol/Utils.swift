@@ -9,6 +9,7 @@
 /**
     Generic utility class
 */
+
 class Utils {
     
     static var messageFrame = UIView()
@@ -24,15 +25,28 @@ class Utils {
     
     static func progressBarDisplayer(targetVC: UIViewController, msg:String, indicator:Bool ) {
         
-        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
+        let height = myHeightForView(msg, width: 200)
+        print(height)
+        
+        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: height))
+        strLabel.numberOfLines = 0
+        strLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         strLabel.text = msg
         strLabel.textColor = UIColor.whiteColor()
-        messageFrame = UIView(frame: CGRect(x: targetVC.view.frame.midX - 90, y: targetVC.view.frame.midY - 25 , width: 180, height: 50))
+        
+        let size: CGFloat = 260
+        let screenWidth = targetVC.view.frame.size.width
+        let screeHeight = targetVC.view.frame.size.height
+        
+        let frame = CGRectMake((screenWidth / 2) - (size / 2), (screeHeight / 2) - (height / 2), size, height)
+        messageFrame = UIView(frame: frame)
+
         messageFrame.layer.cornerRadius = 15
         messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
-        if indicator {
+        if (indicator) {
             activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
-            activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50) // size of activity indicator view
+            activityIndicator.center = CGPointMake(25, (height / 2));
             activityIndicator.startAnimating()
             messageFrame.addSubview(activityIndicator)
         }
@@ -40,6 +54,25 @@ class Utils {
         targetVC.view.addSubview(messageFrame)
     }
     
+    
+    static func myHeightForView(text: String, width: CGFloat) -> CGFloat {
+        let label = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.text = text
+        label.sizeToFit()
+        if (label.frame.height <= 50) {
+            return 50.0
+        } else {
+            return label.frame.height
+        }
+    }
+    
+    
+    /**
+     Removes the progress bar from a given view
+     - parameter targetVC: the view
+    */
     static func removeProgressBar(targetVC: UIViewController) {
         messageFrame.removeFromSuperview()
     }
@@ -55,11 +88,19 @@ class Utils {
         myView.navigationItem.title = title
     }
 
+    /**
+     Store the credential for a given user in the NSUserDefault cache
+     - parameter username: the username
+     - parameter password: the password
+    */
     static func saveUsernameAndPassoword (username: String, password: String) {
         NSUserDefaults.standardUserDefaults().setObject(username, forKey: "username")
         NSUserDefaults.standardUserDefaults().setObject(password, forKey: "password")
     }
     
+    /**
+     Checks if a user is already stored in the permanent cache
+    */
     static func userAlreadyExists() -> Bool {
         let usersDefault = NSUserDefaults.standardUserDefaults()
         
@@ -70,12 +111,17 @@ class Utils {
         }
     }
     
+    /**
+     Return the username and password credential for a given user
+     - returns: a tuple with username and password
+    */
     static func getUsernameAndPassword() -> (String, String) {
         let username = NSUserDefaults.standardUserDefaults().objectForKey("username") as! String
         let password = NSUserDefaults.standardUserDefaults().objectForKey("password") as! String
         return (username, password)
     }
     
-    //static let myUnimolBlue = CIColor(red: 46.0/255.0, green: 93.0/255.0, blue: 207.0/255.0, alpha: 1.0)
+    // various types of colors for MyUnimol UI
     static let myUnimolBlue = CIColor(red: 75.0/255.0, green: 101.0/255.0, blue: 149.0/255.0, alpha: 1.0)
+    static let myUnimolBlueUIColor = UIColor(CIColor: Utils.myUnimolBlue)
 }

@@ -22,6 +22,7 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         
         Utils.setNavigationControllerStatusBar(self, title: "Pagamenti", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
         
+        self.tableView.hidden = true
         ApiCall.getTaxes(self, table: self.tableView)
         
         self.taxes = TaxClass.sharedInstance

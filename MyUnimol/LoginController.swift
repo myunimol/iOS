@@ -48,6 +48,10 @@ class LoginController : UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() { super.viewDidLoad() }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.Default
     }

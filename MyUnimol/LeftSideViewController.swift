@@ -75,7 +75,9 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
         case 8:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
             print(indexPath.row)
+
             CacheManager.resetLoginInformation()
+            
             break;
             
         default:
@@ -84,11 +86,17 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             break;
         }
         
+       
         let centerNavigation = UINavigationController(rootViewController: mainWindowController)
-        //centerNavigation.navigationBar.hidden = true
         appDelegate.centerContainer!.centerViewController = centerNavigation
-        appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+            
+        if (indexPath.row != 8) {
+            appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+        } else {
+            appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.None
+        }
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+        
     }
     
     

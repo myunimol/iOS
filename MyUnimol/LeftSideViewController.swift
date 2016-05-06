@@ -17,13 +17,11 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         Utils.setNavigationControllerStatusBar(self, title: "", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -63,7 +61,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             break;
             
         case 4:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("UniversityNewsViewController") as! UniversityNewsViewController
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("UITabBarController") as! UITabBarController
             print(indexPath.row)
             break;
             

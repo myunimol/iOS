@@ -10,7 +10,6 @@ import UIKit
 
 class RecordBookCell: UITableViewCell {
 
-    
     @IBOutlet weak var examName: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var grade: UILabel!

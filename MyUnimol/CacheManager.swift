@@ -50,10 +50,6 @@ class CacheManager {
         NSUserDefaults.standardUserDefaults().setObject(json, forKey: key)
     }
     
-    static func storeStudentInfo(student: Dictionary<String, AnyObject>) {
-        NSUserDefaults.standardUserDefaults().setObject(student, forKey: "studentInfo")
-    }
-    
     /** 
      Get the `JSON` from `NSUserDefaults` for the key passed as parameter
      - parameter key: the key

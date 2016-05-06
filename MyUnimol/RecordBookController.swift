@@ -20,6 +20,7 @@ class RecordBookController: UIViewController, UITableViewDelegate {
         Utils.setNavigationControllerStatusBar(self, title: "Libretto", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
 
         self.recordBook = RecordBookClass.sharedInstance
+        // TODO implement the absence of connection of the empy record book (no exams done)
     }
     
     override func didReceiveMemoryWarning() {

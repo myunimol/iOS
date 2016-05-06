@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    
     func configureCenterViewController() -> UIViewController {
         let centerViewController: UIViewController
         if (avoidLogin) {

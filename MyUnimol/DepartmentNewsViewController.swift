@@ -14,6 +14,11 @@ class DepartmentNewsViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Utils.setNavigationControllerStatusBar(self, title: "Dipartimento", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.navigationItem.title = "Dipartimento"
     }
     
     override func didReceiveMemoryWarning() {

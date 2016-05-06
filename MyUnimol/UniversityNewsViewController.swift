@@ -18,13 +18,23 @@ class UniversityNewsViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.setTabNavigation("News", color: Utils.myUnimolBlue)
         
-        Utils.setNavigationControllerStatusBar(self, title: "News", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
-        
+        self.tableView.hidden = true
         ApiCall.getNews(self, table: self.tableView, kindOfNews: 0)
         
         self.news = NewsClass.sharedInstance
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.navigationItem.title = "News"
+        self.navigationController?.navigationBar.barTintColor = Utils.myUnimolBlueUIColor
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        self.tabBarController?.tabBar.tintColor = UIColor.blueColor()
+        self.tabBarController?.tabBar.barTintColor = Utils.myUnimolBlueUIColor
+        self.tabBarController?.tabBar.translucent = false
     }
     
     override func didReceiveMemoryWarning() {

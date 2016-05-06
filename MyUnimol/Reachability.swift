@@ -13,7 +13,7 @@ public class Reachability {
     /**
      Checks the availabilty for a connection
      - returns: a boolean value
-    */
+     */
     class func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))

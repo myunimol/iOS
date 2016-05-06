@@ -7,15 +7,26 @@
 //
 
 /**
-    Generic utility class
-*/
-
+ Generic utility class
+ */
 class Utils {
-    
+    /// the `UIView` which contain the loading sentences and the activity indicator
     static var messageFrame = UIView()
+    /// the activity indicator
     static var activityIndicator = UIActivityIndicatorView()
+    /// the label for the current sentences
     static var strLabel = UILabel()
     
+    /// various types of colors for MyUnimol UI
+    static let myUnimolBlue = CIColor(red: 75.0/255.0, green: 101.0/255.0, blue: 149.0/255.0, alpha: 1.0)
+    static let myUnimolBlueUIColor = UIColor(CIColor: Utils.myUnimolBlue)
+    
+    /**
+     Display an alert message for the passed `UIViewController`
+     - parameter targetVC: the view controller
+     - parameter title: the title of the message
+     - parameter message: the body of the message
+    */
     static func displayAlert(targetVC: UIViewController, title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         alertController.addAction((UIAlertAction(title: "OK", style: .Default, handler: {(action) -> Void in
@@ -23,6 +34,12 @@ class Utils {
         targetVC.presentViewController(alertController, animated: true) { }
     }
     
+    /**
+     Sets an activity indicator with a random sentence in the view passed as parameter
+     - parameter targetVC: the view
+     - parameter msg: the message
+     - parameter indicator: a boolean value which handle the presence of the activity indicator
+     */
     static func progressBarDisplayer(targetVC: UIViewController, msg:String, indicator:Bool ) {
         
         let height = myHeightForView(msg, width: 200)
@@ -40,12 +57,12 @@ class Utils {
         
         let frame = CGRectMake((screenWidth / 2) - (size / 2), (screeHeight / 2) - (height / 2), size, height)
         messageFrame = UIView(frame: frame)
-
+        
         messageFrame.layer.cornerRadius = 15
         messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
         if (indicator) {
             activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
-            activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50) // size of activity indicator view
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
             activityIndicator.center = CGPointMake(25, (height / 2));
             activityIndicator.startAnimating()
             messageFrame.addSubview(activityIndicator)
@@ -55,7 +72,7 @@ class Utils {
     }
     
     
-    static func myHeightForView(text: String, width: CGFloat) -> CGFloat {
+    private static func myHeightForView(text: String, width: CGFloat) -> CGFloat {
         let label = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -72,56 +89,25 @@ class Utils {
     /**
      Removes the progress bar from a given view
      - parameter targetVC: the view
-    */
+     */
     static func removeProgressBar(targetVC: UIViewController) {
         messageFrame.removeFromSuperview()
     }
     
+    /**
+     Customie the navigation controller bar for the view passed as parameter
+     - parameter myView: the view
+     - parameter title: the title of the view
+     - parameter color: the color of the bar
+     - parameter style: the style of the bar
+    */
     static func setNavigationControllerStatusBar(myView: UIViewController, title: String, color: CIColor, style: UIBarStyle) {
-        
         let navigation = myView.navigationController!
-        
         navigation.navigationBar.barStyle = style
         navigation.navigationBar.barTintColor = UIColor(CIColor: color)
         navigation.navigationBar.translucent = false
         navigation.navigationBar.tintColor = UIColor.whiteColor()
         myView.navigationItem.title = title
     }
-
-    /**
-     Store the credential for a given user in the NSUserDefault cache
-     - parameter username: the username
-     - parameter password: the password
-    */
-    static func saveUsernameAndPassoword (username: String, password: String) {
-        NSUserDefaults.standardUserDefaults().setObject(username, forKey: "username")
-        NSUserDefaults.standardUserDefaults().setObject(password, forKey: "password")
-    }
     
-    /**
-     Checks if a user is already stored in the permanent cache
-    */
-    static func userAlreadyExists() -> Bool {
-        let usersDefault = NSUserDefaults.standardUserDefaults()
-        
-        if usersDefault.objectForKey("username") != nil && usersDefault.objectForKey("password") != nil {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    /**
-     Return the username and password credential for a given user
-     - returns: a tuple with username and password
-    */
-    static func getUsernameAndPassword() -> (String, String) {
-        let username = NSUserDefaults.standardUserDefaults().objectForKey("username") as! String
-        let password = NSUserDefaults.standardUserDefaults().objectForKey("password") as! String
-        return (username, password)
-    }
-    
-    // various types of colors for MyUnimol UI
-    static let myUnimolBlue = CIColor(red: 75.0/255.0, green: 101.0/255.0, blue: 149.0/255.0, alpha: 1.0)
-    static let myUnimolBlueUIColor = UIColor(CIColor: Utils.myUnimolBlue)
 }

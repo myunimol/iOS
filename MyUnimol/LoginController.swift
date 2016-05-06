@@ -31,7 +31,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
         if username == "" || password == "" {
             Utils.displayAlert(self, title: "Oops!", message: "Username e/o password mancanti")
         } else {
-            ApiCall.areCredentialsValid(username, password: password, caller: self)
+            ApiCall.loginAndFetchDataForHome(username, password: password, caller: self)
         }
     }
     
@@ -43,7 +43,6 @@ class LoginController : UIViewController, UITextFieldDelegate {
         
         appDelegate.centerContainer!.centerViewController = centerNav
         appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
-        //appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
     override func viewDidLoad() { super.viewDidLoad() }
@@ -58,9 +57,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {}
     
-    /**
-     Remove the focus from a texfield
-    */
+    ///Remove the focus from a texfield
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }

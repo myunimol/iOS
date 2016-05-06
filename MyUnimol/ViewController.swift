@@ -31,7 +31,6 @@ class ViewController: UIViewController {
     // the starting degree for your graduation
     @IBOutlet weak var startingDegree: UILabel!
     
-    
     var recordBook: RecordBook?
     
     override func viewDidLoad() {
@@ -39,56 +38,68 @@ class ViewController: UIViewController {
         
         Utils.setNavigationControllerStatusBar(self, title: "Home", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
         
-        if Utils.userAlreadyExists() {
-            let (username, password) = Utils.getUsernameAndPassword()
-            
-            let parameters = [
-                "username" : username,
-                "password" : password,
-                "token"    : MyUnimolToken.TOKEN
-            ]
-            
-            Utils.progressBarDisplayer(self, msg: "Wait", indicator: true)
-            
-            // Request
-            Alamofire.request(.POST, MyUnimolEndPoints.GET_RECORD_BOOK, parameters: parameters)
-                .responseJSON { response in
-                    
-                    Utils.removeProgressBar(self)
-                    var statusCode : Int
-                    if let httpError = response.result.error {
-                        statusCode = httpError.code
-                    } else {
-                        statusCode = (response.response?.statusCode)!
-                    }
-                    
-                    if statusCode == 200 {
-                        
-                        self.recordBook = RecordBook(json: response.result.value as! JSON)
-                        let recordBookSingleton = RecordBookClass.sharedInstance
-                        recordBookSingleton.recordBook = self.recordBook
-                        
-                        let recordBook: RecordBookClass! = RecordBookClass.sharedInstance
-                        let grades = recordBook.recordBook?.examsGrades
-                        let degrees = recordBook.recordBook?.staringDegree
-                        
-                        self.average.text = "\(recordBook.recordBook!.average!)"
-                        self.startingDegree.text = "\((recordBook.recordBook?.average)! * 11 / 3)"
-                        print(degrees)
-                        
-                        self.animateButton()
-                        
-                        self.setGradesChart(grades!)
-                        self.setStartingDegreesChart(degrees!)
-                        
-                    } else if statusCode == 401 {
-                        Utils.displayAlert(self, title: "Oops!", message: "Abbiamo qualche problema")
-                    }
-            }
-            
-        }
+        
+        let recordBook: RecordBookClass! = RecordBookClass.sharedInstance
+        let grades = recordBook.recordBook?.examsGrades
+        let degrees = recordBook.recordBook?.staringDegree
+        
+        self.average.text = "\(recordBook.recordBook!.average!)"
+        self.startingDegree.text = "\((recordBook.recordBook?.average)! * 11 / 3)"
+        print(degrees)
+        
+        self.animateButton()
+        
+        self.setGradesChart(grades!)
+        self.setStartingDegreesChart(degrees!)
         
         
+        //        if Utils.userAlreadyExists() {
+        //            let (username, password) = Utils.getUsernameAndPassword()
+        //
+        //            let parameters = [
+        //                "username" : username,
+        //                "password" : password,
+        //                "token"    : MyUnimolToken.TOKEN
+        //            ]
+        //
+        //            Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
+        //
+        //            // Request
+        //            Alamofire.request(.POST, MyUnimolEndPoints.GET_RECORD_BOOK, parameters: parameters)
+        //                .responseJSON { response in
+        //
+        //                    Utils.removeProgressBar(self)
+        //                    var statusCode : Int
+        //                    if let httpError = response.result.error {
+        //                        statusCode = httpError.code
+        //                    } else {
+        //                        statusCode = (response.response?.statusCode)!
+        //                    }
+        //
+        //                    if statusCode == 200 {
+        //
+        //                        self.recordBook = RecordBook(json: response.result.value as! JSON)
+        //                        let recordBookSingleton = RecordBookClass.sharedInstance
+        //                        recordBookSingleton.recordBook = self.recordBook
+        //
+        //                        let recordBook: RecordBookClass! = RecordBookClass.sharedInstance
+        //                        let grades = recordBook.recordBook?.examsGrades
+        //                        let degrees = recordBook.recordBook?.staringDegree
+        //
+        //                        self.average.text = "\(recordBook.recordBook!.average!)"
+        //                        self.startingDegree.text = "\((recordBook.recordBook?.average)! * 11 / 3)"
+        //                        print(degrees)
+        //
+        //                        self.animateButton()
+        //
+        //                        self.setGradesChart(grades!)
+        //                        self.setStartingDegreesChart(degrees!)
+        //
+        //                    } else if statusCode == 401 {
+        //                        Utils.displayAlert(self, title: "Oops!", message: "Abbiamo qualche problema")
+        //                    }
+        //            }
+        //        }
     }
     
     func setGradesChart(grades: [Int]) {

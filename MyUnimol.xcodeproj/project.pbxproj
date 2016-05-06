@@ -34,6 +34,7 @@
 		1E94C4651CD6803000B9812D /* FirstPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4641CD6803000B9812D /* FirstPageController.swift */; };
 		1E94C4671CD86E6E00B9812D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4661CD86E6E00B9812D /* Reachability.swift */; };
 		1E94C4691CD872A500B9812D /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4681CD872A500B9812D /* CacheManager.swift */; };
+		1E94C46E1CDBBB4000B9812D /* LoadSentences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C46D1CDBBB4000B9812D /* LoadSentences.swift */; };
 		1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */; };
 		5D737390488590A8AFB3D405 /* Pods_MyUnimol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD278C60037F9C814D327609 /* Pods_MyUnimol.framework */; };
 		7EB8600C55DF70A9112606AB /* Pods_MyUnimolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */; };
@@ -95,6 +96,7 @@
 		1E94C4641CD6803000B9812D /* FirstPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstPageController.swift; sourceTree = "<group>"; };
 		1E94C4661CD86E6E00B9812D /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		1E94C4681CD872A500B9812D /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		1E94C46D1CDBBB4000B9812D /* LoadSentences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadSentences.swift; sourceTree = "<group>"; };
 		1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
 		6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF660E12398073C98C7DEFE /* Pods-MyUnimolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimolTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimolTests/Pods-MyUnimolTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		1E27AA0A1C69B42D009AD819 /* MyUnimol */ = {
 			isa = PBXGroup;
 			children = (
+				1E94C4701CDC5BE100B9812D /* home */,
 				1E92526B1C9D577400146C7E /* news */,
 				1E8ACFCE1C9B13960059AED2 /* taxes */,
 				1E8DABC51C8359CC0018FBAC /* recordBook */,
@@ -190,7 +193,6 @@
 				1E3821381C6A7A9A00D0E3A2 /* login */,
 				1E00EA501C69C27A0092F612 /* api */,
 				1E27AA0B1C69B42D009AD819 /* AppDelegate.swift */,
-				1E27AA0D1C69B42D009AD819 /* ViewController.swift */,
 				1E27AA0F1C69B42D009AD819 /* Main.storyboard */,
 				1E27AA121C69B42D009AD819 /* Assets.xcassets */,
 				1E27AA141C69B42D009AD819 /* LaunchScreen.storyboard */,
@@ -260,6 +262,7 @@
 			children = (
 				1E4F8E3C1C972F0F007D92E2 /* KDCircularProgress.swift */,
 				1E8DABBE1C7F6C000018FBAC /* Utils.swift */,
+				1E94C46D1CDBBB4000B9812D /* LoadSentences.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -282,6 +285,14 @@
 				1E9252701C9D5D3500146C7E /* NewsCell.swift */,
 			);
 			name = news;
+			sourceTree = "<group>";
+		};
+		1E94C4701CDC5BE100B9812D /* home */ = {
+			isa = PBXGroup;
+			children = (
+				1E27AA0D1C69B42D009AD819 /* ViewController.swift */,
+			);
+			name = home;
 			sourceTree = "<group>";
 		};
 		B03316ED1BF5BE1BD9AA517B /* Frameworks */ = {
@@ -581,6 +592,7 @@
 				1E94C4671CD86E6E00B9812D /* Reachability.swift in Sources */,
 				1E9252731C9D5EBA00146C7E /* DepartmentNewsViewController.swift in Sources */,
 				1E8DABC71C8359F10018FBAC /* RecordBookController.swift in Sources */,
+				1E94C46E1CDBBB4000B9812D /* LoadSentences.swift in Sources */,
 				1E94C4651CD6803000B9812D /* FirstPageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

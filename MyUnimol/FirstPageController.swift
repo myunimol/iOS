@@ -20,7 +20,7 @@ class FirstPageController: UIViewController {
         
         let (username, password) = CacheManager.getUserCredential()
             
-        ApiCall.areCredentialsValid(username!, password: password!, caller: self)
+        ApiCall.loginAndFetchDataForHome(username!, password: password!, caller: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -31,7 +31,6 @@ class FirstPageController: UIViewController {
         
         appDelegate.centerContainer!.centerViewController = centerNav
         appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
-        //appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
 
 

@@ -14,8 +14,7 @@ public class ParameterHandler {
     static let courseParameter = ["INFORMATICA" : "informatica",
                                   "SCIENZE BIOLOGICHE" : "scienzeBiologiche"]
     ///Stores the parameter for the department news API
-    static let departmentParameter = ["INFORMATICA" : "bioscienzeTerritorio",
-                                      "SCIENZE BIOLOGICHE" : "bioscienzeTerritorio"]
+    static let departmentParameter = ["Bioscienze e Territorio" : "bioscienzeTerritorio"]
     
     public static func getParametersForBoardNews() -> [String : String] {
         return ["token" : MyUnimolToken.TOKEN,

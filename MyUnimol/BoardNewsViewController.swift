@@ -19,11 +19,13 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let nib = UINib(nibName: "DefaultNewsCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "DefaultNewsCell")
+        
         self.tableView.hidden = true
         ApiCall.getNews(self, table: self.tableView, kindOfNews: 2)
         
         self.news = BoardNews.sharedInstance
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -45,7 +47,7 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("NewsCell", forIndexPath: indexPath) as! NewsCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("DefaultNewsCell", forIndexPath: indexPath) as! DefaultNewsCell
         
         let news = self.news?.news?.newsList[indexPath.row]
         cell.title.text = news?.title

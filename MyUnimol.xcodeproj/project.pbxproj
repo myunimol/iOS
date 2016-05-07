@@ -28,7 +28,6 @@
 		1E8DABC91C8368900018FBAC /* RecordBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DABC81C8368900018FBAC /* RecordBookCell.swift */; };
 		1E92526D1C9D579B00146C7E /* BoardNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92526C1C9D579B00146C7E /* BoardNewsViewController.swift */; };
 		1E92526F1C9D580500146C7E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92526E1C9D580500146C7E /* News.swift */; };
-		1E9252711C9D5D3500146C7E /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9252701C9D5D3500146C7E /* NewsCell.swift */; };
 		1E9252731C9D5EBA00146C7E /* DepartmentNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9252721C9D5EBA00146C7E /* DepartmentNewsViewController.swift */; };
 		1E9252751C9D5F0000146C7E /* UniversityNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9252741C9D5F0000146C7E /* UniversityNewsViewController.swift */; };
 		1E94C4651CD6803000B9812D /* FirstPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4641CD6803000B9812D /* FirstPageController.swift */; };
@@ -36,6 +35,8 @@
 		1E94C4691CD872A500B9812D /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4681CD872A500B9812D /* CacheManager.swift */; };
 		1E94C46E1CDBBB4000B9812D /* LoadSentences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C46D1CDBBB4000B9812D /* LoadSentences.swift */; };
 		1E94C4721CDDC35700B9812D /* ParameterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4711CDDC35700B9812D /* ParameterHandler.swift */; };
+		1E94C4751CDE0D2900B9812D /* DefaultNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4731CDE0D2900B9812D /* DefaultNewsCell.swift */; };
+		1E94C4761CDE0D2900B9812D /* DefaultNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */; };
 		1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */; };
 		5D737390488590A8AFB3D405 /* Pods_MyUnimol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD278C60037F9C814D327609 /* Pods_MyUnimol.framework */; };
 		7EB8600C55DF70A9112606AB /* Pods_MyUnimolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */; };
@@ -91,7 +92,6 @@
 		1E8DABC81C8368900018FBAC /* RecordBookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordBookCell.swift; sourceTree = "<group>"; };
 		1E92526C1C9D579B00146C7E /* BoardNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardNewsViewController.swift; sourceTree = "<group>"; };
 		1E92526E1C9D580500146C7E /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
-		1E9252701C9D5D3500146C7E /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		1E9252721C9D5EBA00146C7E /* DepartmentNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentNewsViewController.swift; sourceTree = "<group>"; };
 		1E9252741C9D5F0000146C7E /* UniversityNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversityNewsViewController.swift; sourceTree = "<group>"; };
 		1E94C4641CD6803000B9812D /* FirstPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstPageController.swift; sourceTree = "<group>"; };
@@ -99,6 +99,8 @@
 		1E94C4681CD872A500B9812D /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		1E94C46D1CDBBB4000B9812D /* LoadSentences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadSentences.swift; sourceTree = "<group>"; };
 		1E94C4711CDDC35700B9812D /* ParameterHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterHandler.swift; sourceTree = "<group>"; };
+		1E94C4731CDE0D2900B9812D /* DefaultNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNewsCell.swift; sourceTree = "<group>"; };
+		1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultNewsCell.xib; sourceTree = "<group>"; };
 		1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
 		6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF660E12398073C98C7DEFE /* Pods-MyUnimolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimolTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimolTests/Pods-MyUnimolTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -285,7 +287,8 @@
 				1E92526C1C9D579B00146C7E /* BoardNewsViewController.swift */,
 				1E9252721C9D5EBA00146C7E /* DepartmentNewsViewController.swift */,
 				1E9252741C9D5F0000146C7E /* UniversityNewsViewController.swift */,
-				1E9252701C9D5D3500146C7E /* NewsCell.swift */,
+				1E94C4731CDE0D2900B9812D /* DefaultNewsCell.swift */,
+				1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */,
 			);
 			name = news;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			files = (
 				1E27AA161C69B42D009AD819 /* LaunchScreen.storyboard in Resources */,
 				1E27AA131C69B42D009AD819 /* Assets.xcassets in Resources */,
+				1E94C4761CDE0D2900B9812D /* DefaultNewsCell.xib in Resources */,
 				1E27AA111C69B42D009AD819 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +579,7 @@
 			files = (
 				1E8ACFD01C9B13BE0059AED2 /* TaxesViewController.swift in Sources */,
 				1E4F8E3D1C972F0F007D92E2 /* KDCircularProgress.swift in Sources */,
+				1E94C4751CDE0D2900B9812D /* DefaultNewsCell.swift in Sources */,
 				1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */,
 				1E38213D1C6D00E300D0E3A2 /* models.swift in Sources */,
 				1E8DABC91C8368900018FBAC /* RecordBookCell.swift in Sources */,
@@ -586,7 +591,6 @@
 				1E27AA0C1C69B42D009AD819 /* AppDelegate.swift in Sources */,
 				1E94C4721CDDC35700B9812D /* ParameterHandler.swift in Sources */,
 				1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */,
-				1E9252711C9D5D3500146C7E /* NewsCell.swift in Sources */,
 				1E8ACFD21C9B14BF0059AED2 /* TaxesCell.swift in Sources */,
 				1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */,
 				1E00EA521C69C2900092F612 /* MyUnimolEndPoints.swift in Sources */,

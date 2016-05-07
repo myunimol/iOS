@@ -19,10 +19,12 @@ struct MyUnimolEndPoints {
     static let GET_TAXES            = BASE_URL  +   "getTaxes"
     static let GET_UNIVERSITY_NEWS  = BASE_URL  +   "getUniversityNews";
     static let GET_DEPARTMENT_NEWS  = BASE_URL  +   "getDepartmentNews";
+    ///EndPoint for the news about the student course
     static let GET_NEWS_BOARD       = BASE_URL  +   "getNewsBoard";
     //TODO
 }
 
 struct MyUnimolToken {
+    ///The token used to access webservices APIs
     static let TOKEN = "7a8999400fd7787d259cfb949e731e97"
 }

@@ -32,9 +32,27 @@ public struct NewsList {
     }
 }
 
-public class NewsClass {
+public class UniversityNews {
     
-    public static let sharedInstance = NewsClass()
+    public static let sharedInstance = UniversityNews()
+    
+    public var news: NewsList?
+    
+    private init() { }
+}
+
+public class DepartmentNews {
+    
+    public static let sharedInstance = DepartmentNews()
+    
+    public var news: NewsList?
+    
+    private init() { }
+}
+
+public class BoardNews {
+    
+    public static let sharedInstance = BoardNews()
     
     public var news: NewsList?
     

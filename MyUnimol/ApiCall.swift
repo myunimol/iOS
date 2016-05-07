@@ -210,23 +210,31 @@ class ApiCall {
      
      - parameter calling: the UIViewController that send the request
      - parameter table: the table to update
-     - parameter kindOfNews:    0 calls the university news
-                                1 calls the department news
-                                2 calls the board news
+     - parameter kindOfNews: 0 for university, 1 for department and 2 for course news
      */
     static func getNews(calling: UIViewController, table: UITableView, kindOfNews: Int) {
+                
+        var endPoint: String
+        var parameters : [String : String]
         
-        let (username, password) = CacheManager.getUserCredential()
-        
-        let parameters = [
-            "username" : username!,
-            "password" : password!,
-            "token"    : MyUnimolToken.TOKEN
-        ]
+        switch kindOfNews {
+        case 0:
+            endPoint = MyUnimolEndPoints.GET_UNIVERSITY_NEWS
+            parameters = ParameterHandler.getParameterForUniversityNews()
+        case 1:
+            endPoint = MyUnimolEndPoints.GET_DEPARTMENT_NEWS
+            parameters = ParameterHandler.getParametersForDepartmentNews()
+        case 2:
+            endPoint = MyUnimolEndPoints.GET_NEWS_BOARD
+            parameters = ParameterHandler.getParametersForBoardNews()
+        default:
+            endPoint = MyUnimolEndPoints.GET_NEWS_BOARD
+            parameters = ParameterHandler.getParametersForBoardNews()
+        }
         
         Utils.progressBarDisplayer(calling, msg: LoadSentences.getSentence(), indicator: true)
         
-        Alamofire.request(.POST, MyUnimolEndPoints.GET_TAXES, parameters: parameters)
+        Alamofire.request(.POST, endPoint, parameters: parameters)
             .responseJSON { response in
                 
                 Utils.removeProgressBar(calling)
@@ -241,9 +249,21 @@ class ApiCall {
                 print("Calling getNews! The response from server is: \(statusCode)")
                 
                 if (statusCode == 200) {
-                    
-                    let taxesSingleton = TaxClass.sharedInstance
-                    taxesSingleton.taxes = Taxes(json: response.result.value as! JSON)
+                                        
+                    switch kindOfNews {
+                    case 0:
+                        let boardNewsSingleton = UniversityNews.sharedInstance
+                        boardNewsSingleton.news = NewsList(json: response.result.value as! JSON)
+                    case 1:
+                        let boardNewsSingleton = DepartmentNews.sharedInstance
+                        boardNewsSingleton.news = NewsList(json: response.result.value as! JSON)
+                    case 2:
+                        let boardNewsSingleton = BoardNews.sharedInstance
+                        boardNewsSingleton.news = NewsList(json: response.result.value as! JSON)
+                    default:
+                        let boardNewsSingleton = BoardNews.sharedInstance
+                        boardNewsSingleton.news = NewsList(json: response.result.value as! JSON)
+                    }
                     
                 } else if (statusCode == 401) {
                     
@@ -252,6 +272,7 @@ class ApiCall {
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     table.reloadData()
+                    table.hidden = false
                 })
         }
     }

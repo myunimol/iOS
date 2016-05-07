@@ -47,6 +47,12 @@ class ViewController: UIViewController {
         self.startingDegree.text = "\((recordBook.recordBook?.average)! * 11 / 3)"
         print(degrees)
         
+        
+        let student = Student.sharedInstance
+        let info = student.studentInfo
+        print("\n*******", info!.department)
+        print("\n*******", info!.course)
+
         self.animateButton()
         
         self.setGradesChart(grades!)

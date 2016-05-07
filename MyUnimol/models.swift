@@ -11,13 +11,16 @@ import Gloss
 public struct StudentInfo {
     
     let availableExams : Int?
+    ///the course in which the student is enrolled
     let course : String?
     let courseLength : Int?
+    ///the department of the student course
     let department : String?
     let enrolledExams : Int?
     let name : String?
     let surname : String?
     let registrationDate : String?
+    ///the course and the year for the current student
     let studentClass : String?
     let studentId : String?
     
@@ -149,6 +152,14 @@ public class Student {
     public var studentInfo: StudentInfo?
     
     private init() { }
+    
+    public func getStudentCourse() -> String {
+        return (self.studentInfo?.course)!
+    }
+    
+    public func getStudentDepartment() -> String {
+        return (self.studentInfo?.department)!
+    }
     
 }
 

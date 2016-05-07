@@ -299,7 +299,7 @@
         <!--Avvisi-->
         <scene sceneID="0B8-9r-QPg">
             <objects>
-                <viewController storyboardIdentifier="UniversityNewsViewController" id="miy-Sj-i2z" customClass="UniversityNewsViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BoardNewsViewController" id="miy-Sj-i2z" customClass="BoardNewsViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xpq-DW-73K"/>
                         <viewControllerLayoutGuide type="bottom" id="nO9-0t-vW0"/>
@@ -308,22 +308,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cd8-DC-8W0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cd8-DC-8W0">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NewsCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" id="xdH-9a-YC4" customClass="NewsCell" customModule="MyUnimol" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" rowHeight="140" id="xdH-9a-YC4" customClass="NewsCell" customModule="MyUnimol" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xdH-9a-YC4" id="gGt-07-xNp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8a-AL-Iky">
+                                                    <rect key="frame" x="8" y="8" width="359" height="41"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-CZ-UYG">
+                                                    <rect key="frame" x="8" y="57" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Body" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2p-kx-kac">
+                                                    <rect key="frame" x="8" y="77" width="359" height="55"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="body" destination="v2p-kx-kac" id="o3X-9m-mF3"/>
+                                            <outlet property="date" destination="cdb-CZ-UYG" id="bbM-jL-qmX"/>
+                                            <outlet property="title" destination="a8a-AL-Iky" id="jb9-Bn-vfU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="miy-Sj-i2z" id="3LS-Ls-5M7"/>
-                                    <outlet property="delegate" destination="miy-Sj-i2z" id="0oy-Lm-wiE"/>
+                                    <outlet property="dataSource" destination="miy-Sj-i2z" id="35v-sb-diz"/>
+                                    <outlet property="delegate" destination="miy-Sj-i2z" id="W6e-MA-Smy"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -349,7 +374,7 @@
         <!--Dipartimento-->
         <scene sceneID="etu-1I-MRD">
             <objects>
-                <viewController id="bOa-9E-Dsa" customClass="DepartmentNewsViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DepartmentNewsViewController" id="bOa-9E-Dsa" customClass="DepartmentNewsViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bnd-sX-nzd"/>
                         <viewControllerLayoutGuide type="bottom" id="baR-N8-jQz"/>
@@ -369,7 +394,7 @@
         <!--Ateneo-->
         <scene sceneID="D8n-AI-DOQ">
             <objects>
-                <viewController id="yPb-lR-r7L" customClass="BoardNewsViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UniversityNewsViewController" id="yPb-lR-r7L" customClass="BoardNewsViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mZX-iP-oc1"/>
                         <viewControllerLayoutGuide type="bottom" id="2a6-w1-se5"/>

@@ -36,6 +36,10 @@ class UniversityNewsViewController: UIViewController, UITableViewDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        UIApplication.sharedApplication().openURL(NSURL(string: (self.news?.news?.newsList[indexPath.row].link)!)!)
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.news?.news?.newsList.count ?? 0
     }

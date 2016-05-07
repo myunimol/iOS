@@ -52,6 +52,7 @@
                     <constraint firstItem="ub8-1n-zzE" firstAttribute="top" secondItem="duS-T4-IPW" secondAttribute="bottom" constant="4" id="unF-ka-xE0"/>
                 </constraints>
             </tableViewCellContentView>
+            <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
             <connections>
                 <outlet property="body" destination="5fC-3z-yID" id="htc-Yi-xwI"/>
                 <outlet property="date" destination="ub8-1n-zzE" id="isq-D0-t4U"/>

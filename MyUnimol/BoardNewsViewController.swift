@@ -33,7 +33,7 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
         self.navigationController?.navigationBar.barTintColor = Utils.myUnimolBlueUIColor
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        self.tabBarController?.tabBar.tintColor = UIColor.blueColor()
+        self.tabBarController?.tabBar.tintColor = UIColor.whiteColor()
         self.tabBarController?.tabBar.barTintColor = Utils.myUnimolBlueUIColor
         self.tabBarController?.tabBar.translucent = false
     }

@@ -913,6 +913,105 @@
             </objects>
             <point key="canvasLocation" x="525.5" y="1794.5"/>
         </scene>
+        <!--EnrolledExams-->
+        <scene sceneID="mrA-BI-LsI">
+            <objects>
+                <viewController storyboardIdentifier="EnrolledExamsController" id="6k0-VN-h7c" userLabel="EnrolledExams" customClass="EnrolledExamsController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6cN-7K-cIs"/>
+                        <viewControllerLayoutGuide type="bottom" id="3si-sP-QEF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i8X-rZ-bt4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IId-3q-1xt">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6k0-VN-h7c" id="tUd-3M-gPg"/>
+                                    <outlet property="delegate" destination="6k0-VN-h7c" id="sCp-bo-cdh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="IId-3q-1xt" secondAttribute="trailing" constant="-20" id="XhJ-Co-3YH"/>
+                            <constraint firstItem="IId-3q-1xt" firstAttribute="leading" secondItem="i8X-rZ-bt4" secondAttribute="leadingMargin" constant="-20" id="Za5-Jj-pbu"/>
+                            <constraint firstItem="3si-sP-QEF" firstAttribute="top" secondItem="IId-3q-1xt" secondAttribute="bottom" id="rZJ-Ks-mha"/>
+                            <constraint firstItem="IId-3q-1xt" firstAttribute="top" secondItem="i8X-rZ-bt4" secondAttribute="topMargin" id="vie-sV-7Ug"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Prenotati" image="BookedExams" id="qtv-YQ-FnN"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="IId-3q-1xt" id="R8s-hz-XV8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JH3-6k-vek" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2165.5" y="2018.5"/>
+        </scene>
+        <!--AvailableExams-->
+        <scene sceneID="Ety-wb-Rn0">
+            <objects>
+                <viewController storyboardIdentifier="AvailableExamsController" id="RFe-6B-n3a" userLabel="AvailableExams" customClass="AvailableExamsController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gOf-0N-E0T"/>
+                        <viewControllerLayoutGuide type="bottom" id="3J2-A2-AuO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c5f-mo-Wz7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hoE-bU-DmK">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="RFe-6B-n3a" id="JkJ-EZ-wfU"/>
+                                    <outlet property="delegate" destination="RFe-6B-n3a" id="z7I-o4-j7X"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="hoE-bU-DmK" secondAttribute="trailing" constant="-20" id="4bD-2e-XoQ"/>
+                            <constraint firstItem="hoE-bU-DmK" firstAttribute="top" secondItem="c5f-mo-Wz7" secondAttribute="topMargin" id="Mv9-WR-dLC"/>
+                            <constraint firstItem="3J2-A2-AuO" firstAttribute="top" secondItem="hoE-bU-DmK" secondAttribute="bottom" id="Un7-3I-04E"/>
+                            <constraint firstItem="hoE-bU-DmK" firstAttribute="leading" secondItem="c5f-mo-Wz7" secondAttribute="leadingMargin" constant="-20" id="hOQ-dd-RGT"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Disponibili" image="AvailableExams" id="rHO-fO-kfI"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="hoE-bU-DmK" id="6h2-cF-Tda"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gjQ-do-8Ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2173.5" y="1240.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="scz-de-O6S">
+            <objects>
+                <tabBarController storyboardIdentifier="ExamsTabBarController" id="u5U-7J-sc6" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="2rq-ij-BKP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="RFe-6B-n3a" kind="relationship" relationship="viewControllers" id="lie-FS-Ykj"/>
+                        <segue destination="6k0-VN-h7c" kind="relationship" relationship="viewControllers" id="z8j-JT-KZc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OEN-b4-qCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353.5" y="1570.5"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rNy-ik-81R">
             <objects>
@@ -935,7 +1034,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AvailableExams" width="32" height="32"/>
         <image name="BoardNews" width="32" height="32"/>
+        <image name="BookedExams" width="32" height="32"/>
         <image name="DepartmentNews" width="32" height="32"/>
         <image name="MyUnimolBigLogo" width="1024" height="1024"/>
         <image name="UniversityNews" width="32" height="32"/>

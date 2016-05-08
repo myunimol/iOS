@@ -52,9 +52,14 @@ class Utils {
         strLabel.textColor = UIColor.whiteColor()
         
         let size: CGFloat = 260
+        var screeHeight: CGFloat
+        if (targetVC.isEqual(LoginController)) {
+            screeHeight = targetVC.view.frame.size.height
+        } else {
+            screeHeight = targetVC.view.frame.size.height - 64
+        }
         let screenWidth = targetVC.view.frame.size.width
-        let screeHeight = targetVC.view.frame.size.height
-        
+
         let frame = CGRectMake((screenWidth / 2) - (size / 2), (screeHeight / 2) - (height / 2), size, height)
         messageFrame = UIView(frame: frame)
         
@@ -108,6 +113,17 @@ class Utils {
         navigation.navigationBar.translucent = false
         navigation.navigationBar.tintColor = UIColor.whiteColor()
         myView.navigationItem.title = title
+    }
+    
+    static func setPlaceholderForEmptyTable(calling: UIViewController, message: String) {
+        let imageView = UIImageView(image: UIImage(named: "swag.png"))
+        imageView.frame = CGRect(x: (calling.view.frame.size.width - 120) / 2, y: 10, width: 120, height: 120)
+        let label = UILabel(frame: CGRectMake((calling.view.frame.size.width - 300) / 2, 140, 300, 50))
+        label.numberOfLines = 0
+        label.textAlignment = NSTextAlignment.Center
+        label.text = message
+        calling.view.addSubview(label)
+        calling.view.addSubview(imageView)
     }
     
 }

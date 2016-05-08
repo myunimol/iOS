@@ -11,7 +11,9 @@ import Foundation
 struct MyUnimolEndPoints {
     static let BASE_URL             =               "https://myunimol.it/api/"
     static let TEST_CREDENTIALS     = BASE_URL  +   "testCredentials"
+    ///Fetchs all the exams availble fot the current exam session
     static let GET_EXAM_SESSIONS    = BASE_URL  +   "getExamSessions"
+    ///Fetchs the exams for wich a student is enrolled
     static let GET_ENROLLED_EXAMS   = BASE_URL  +   "getEnrolledExams"
     static let ENROLL_EXAMS         = BASE_URL  +   "enrollExam"
     static let GET_RECORD_BOOK      = BASE_URL  +   "getRecordBook"
@@ -21,7 +23,6 @@ struct MyUnimolEndPoints {
     static let GET_DEPARTMENT_NEWS  = BASE_URL  +   "getDepartmentNews";
     ///EndPoint for the news about the student course
     static let GET_NEWS_BOARD       = BASE_URL  +   "getNewsBoard";
-    //TODO
 }
 
 struct MyUnimolToken {

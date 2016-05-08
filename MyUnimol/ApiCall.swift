@@ -205,6 +205,112 @@ class ApiCall {
         }
     }
     
+    static func getAvailableExams(calling: UIViewController, table: UITableView) {
+        
+        var isEmpty = false
+        let (username, password) = CacheManager.getUserCredential()
+        
+        let parameters = [
+            "username" : username!,
+            "password" : password!,
+            "token"    : MyUnimolToken.TOKEN
+        ]
+        
+        Utils.progressBarDisplayer(calling, msg: LoadSentences.getSentence(), indicator: true)
+        
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_EXAM_SESSIONS, parameters: parameters)
+            .responseJSON { response in
+                
+                Utils.removeProgressBar(calling)
+                
+                var statusCode : Int
+                if let httpError = response.result.error {
+                    statusCode = httpError.code
+                } else {
+                    statusCode = (response.response?.statusCode)!
+                }
+                
+                print("Calling getAvailableExams! The response from server is: \(statusCode)")
+                
+                if (statusCode == 200) {
+                    
+                    let availableExams = ExamsClass.sharedInstance
+                    availableExams.exams = ExamSessionList(json: response.result.value as! JSON)
+                    
+                    if(availableExams.exams?.examsList.count == 0) {
+                        isEmpty = true
+                    }
+                    
+                } else if (statusCode == 401) {
+                    Utils.displayAlert(calling, title: "Oops!", message: "Qualcosa di strano è successo")
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    if isEmpty {
+                        table.hidden = true
+                        Utils.setPlaceholderForEmptyTable(calling, message: "Non ci sono appelli disponibili")
+                    } else {
+                        table.reloadData()
+                        table.hidden = false
+                    }
+                })
+        }
+    }
+    
+    static func getEnrolledExams(calling: UIViewController, table: UITableView) {
+        
+        var isEmpty: Bool = false
+        
+        let (username, password) = CacheManager.getUserCredential()
+        
+        let parameters = [
+            "username" : username!,
+            "password" : password!,
+            "token"    : MyUnimolToken.TOKEN
+        ]
+        
+        Utils.progressBarDisplayer(calling, msg: LoadSentences.getSentence(), indicator: true)
+        
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_ENROLLED_EXAMS, parameters: parameters)
+            .responseJSON { response in
+                
+                Utils.removeProgressBar(calling)
+                
+                var statusCode : Int
+                if let httpError = response.result.error {
+                    statusCode = httpError.code
+                } else {
+                    statusCode = (response.response?.statusCode)!
+                }
+                
+                print("Calling getEnrolledExams! The response from server is: \(statusCode)")
+                
+                if (statusCode == 200) {
+                    
+                    let enrolledExams = EnrolledExamsClass.sharedInstance
+                    enrolledExams.exams = EnrolledExamsList(json: response.result.value as! JSON)
+                    
+                    if(enrolledExams.exams?.examsList.count == 0) {
+                        isEmpty = true
+                    }
+                    
+                } else if (statusCode == 401) {
+                    Utils.displayAlert(calling, title: "Oops!", message: "Qualcosa di strano è successo")
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    if (isEmpty) {
+                        table.hidden = true
+                        Utils.setPlaceholderForEmptyTable(calling, message: "Non ci sono appelli prenotati")
+                    } else {
+                        table.reloadData()
+                        table.hidden = false
+                    }
+                })
+        }
+    }
+    
+    
     /**
      Call the getNews service from server and instatiate the NewsClass singleton
      
@@ -213,7 +319,8 @@ class ApiCall {
      - parameter kindOfNews: 0 for university, 1 for department and 2 for course news
      */
     static func getNews(calling: UIViewController, table: UITableView, kindOfNews: Int) {
-                
+        
+        var isEmpty: Bool = false
         var endPoint: String
         var parameters : [String : String]
         
@@ -249,7 +356,7 @@ class ApiCall {
                 print("Calling getNews! The response from server is: \(statusCode)")
                 
                 if (statusCode == 200) {
-                                        
+                    
                     switch kindOfNews {
                     case 0:
                         let boardNewsSingleton = UniversityNews.sharedInstance
@@ -260,6 +367,9 @@ class ApiCall {
                     case 2:
                         let boardNewsSingleton = BoardNews.sharedInstance
                         boardNewsSingleton.news = NewsList(json: response.result.value as! JSON)
+                        if (boardNewsSingleton.news?.newsList.count == 0) {
+                            isEmpty = true
+                        }
                     default:
                         let boardNewsSingleton = BoardNews.sharedInstance
                         boardNewsSingleton.news = NewsList(json: response.result.value as! JSON)
@@ -271,8 +381,13 @@ class ApiCall {
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), {
-                    table.reloadData()
-                    table.hidden = false
+                    if isEmpty {
+                        table.hidden = true
+                        Utils.setPlaceholderForEmptyTable(calling, message: "Non ci sono news")
+                    } else {
+                        table.reloadData()
+                        table.hidden = false
+                    }
                 })
         }
     }

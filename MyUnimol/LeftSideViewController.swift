@@ -9,7 +9,7 @@
 import UIKit
 
 class LeftSideViewController: UIViewController, UITableViewDelegate {
-
+    
     @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var studentID: UILabel!
     
@@ -26,7 +26,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         let studentInfo = Student.sharedInstance
-
+        
         self.studentName.text = (studentInfo.studentInfo?.name)! + " " + (studentInfo.studentInfo?.surname)!
         self.studentID.text = studentInfo.studentInfo?.studentId
     }
@@ -37,45 +37,40 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DrawerCell", forIndexPath: indexPath) as! DrawerCell
-        
         cell.menuItemLabel.text = drawerMenuItems[indexPath.row]
         return cell
     }
     
-    // what happens after a tap in a cell
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var mainWindowController: UIViewController
         
         switch(indexPath.row) {
-        
+            
         case 0:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-            print(indexPath.row)
             break;
             
         case 1:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("RecordBookController") as! RecordBookController
-            print(indexPath.row)
+            break;
+            
+        case 3:
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ExamsTabBarController") as! UITabBarController
             break;
             
         case 4:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("UITabBarController") as! UITabBarController
-            print(indexPath.row)
             break;
             
         case 5:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TaxesViewController") as! TaxesViewController
-            print(indexPath.row)
             break;
             
         case 8:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
-            print(indexPath.row)
-
             CacheManager.resetLoginInformation()
-            
             break;
             
         default:
@@ -84,10 +79,10 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             break;
         }
         
-       
+        
         let centerNavigation = UINavigationController(rootViewController: mainWindowController)
         appDelegate.centerContainer!.centerViewController = centerNavigation
-            
+        
         if (indexPath.row != 8) {
             appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
         } else {

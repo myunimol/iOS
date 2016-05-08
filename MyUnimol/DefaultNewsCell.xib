@@ -62,6 +62,7 @@
                 </constraints>
             </tableViewCellContentView>
             <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="body" destination="5fC-3z-yID" id="htc-Yi-xwI"/>
                 <outlet property="date" destination="ub8-1n-zzE" id="isq-D0-t4U"/>

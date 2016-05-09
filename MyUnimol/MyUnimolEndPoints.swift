@@ -18,6 +18,7 @@ struct MyUnimolEndPoints {
     static let ENROLL_EXAMS         = BASE_URL  +   "enrollExam"
     static let GET_RECORD_BOOK      = BASE_URL  +   "getRecordBook"
     static let GET_ADDRESS_BOOK     = BASE_URL  +   "getAddressBook"
+    static let SEARCH_CONTACTS      = BASE_URL  +   "searchContacts"
     static let GET_TAXES            = BASE_URL  +   "getTaxes"
     static let GET_UNIVERSITY_NEWS  = BASE_URL  +   "getUniversityNews";
     static let GET_DEPARTMENT_NEWS  = BASE_URL  +   "getDepartmentNews";

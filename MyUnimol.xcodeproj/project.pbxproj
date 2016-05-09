@@ -16,8 +16,11 @@
 		1E27AA211C69B42D009AD819 /* MyUnimolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA201C69B42D009AD819 /* MyUnimolTests.swift */; };
 		1E27AA2C1C69B42D009AD819 /* MyUnimolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA2B1C69B42D009AD819 /* MyUnimolUITests.swift */; };
 		1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */; };
-		1E38213D1C6D00E300D0E3A2 /* models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38213C1C6D00E300D0E3A2 /* models.swift */; };
+		1E38213D1C6D00E300D0E3A2 /* RecordBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38213C1C6D00E300D0E3A2 /* RecordBook.swift */; };
 		1E4F8E3D1C972F0F007D92E2 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4F8E3C1C972F0F007D92E2 /* KDCircularProgress.swift */; };
+		1E66FBB31CDFA72800D61158 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66FBB21CDFA72800D61158 /* Contact.swift */; };
+		1E66FBB61CDFBF9A00D61158 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66FBB51CDFBF9A00D61158 /* ContactViewController.swift */; };
+		1E66FBB81CE05C5A00D61158 /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66FBB71CE05C5A00D61158 /* StudentInfo.swift */; };
 		1E8ACFD01C9B13BE0059AED2 /* TaxesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8ACFCF1C9B13BE0059AED2 /* TaxesViewController.swift */; };
 		1E8ACFD21C9B14BF0059AED2 /* TaxesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8ACFD11C9B14BF0059AED2 /* TaxesCell.swift */; };
 		1E8ACFD41C9B154F0059AED2 /* Tax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8ACFD31C9B154F0059AED2 /* Tax.swift */; };
@@ -40,7 +43,7 @@
 		1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */; };
 		1EFA572E1CDF1C5000FA74A4 /* DefaultExamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */; };
 		1EFA572F1CDF1C5000FA74A4 /* DefaultExamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EFA572D1CDF1C5000FA74A4 /* DefaultExamCell.xib */; };
-		1EFA57311CDF1DDA00FA74A4 /* Exams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA57301CDF1DDA00FA74A4 /* Exams.swift */; };
+		1EFA57311CDF1DDA00FA74A4 /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA57301CDF1DDA00FA74A4 /* Exam.swift */; };
 		1EFA57331CDF2BF300FA74A4 /* AvailableExamsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA57321CDF2BF300FA74A4 /* AvailableExamsController.swift */; };
 		1EFA57351CDF2C1E00FA74A4 /* EnrolledExamsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA57341CDF2C1E00FA74A4 /* EnrolledExamsController.swift */; };
 		5D737390488590A8AFB3D405 /* Pods_MyUnimol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD278C60037F9C814D327609 /* Pods_MyUnimol.framework */; };
@@ -84,8 +87,11 @@
 		1E27AA2B1C69B42D009AD819 /* MyUnimolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUnimolUITests.swift; sourceTree = "<group>"; };
 		1E27AA2D1C69B42D009AD819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		1E38213C1C6D00E300D0E3A2 /* models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = models.swift; sourceTree = "<group>"; };
+		1E38213C1C6D00E300D0E3A2 /* RecordBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordBook.swift; sourceTree = "<group>"; };
 		1E4F8E3C1C972F0F007D92E2 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
+		1E66FBB21CDFA72800D61158 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		1E66FBB51CDFBF9A00D61158 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		1E66FBB71CE05C5A00D61158 /* StudentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInfo.swift; sourceTree = "<group>"; };
 		1E8ACFCF1C9B13BE0059AED2 /* TaxesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxesViewController.swift; sourceTree = "<group>"; };
 		1E8ACFD11C9B14BF0059AED2 /* TaxesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxesCell.swift; sourceTree = "<group>"; };
 		1E8ACFD31C9B154F0059AED2 /* Tax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tax.swift; sourceTree = "<group>"; };
@@ -109,7 +115,7 @@
 		1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
 		1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultExamCell.swift; sourceTree = "<group>"; };
 		1EFA572D1CDF1C5000FA74A4 /* DefaultExamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultExamCell.xib; sourceTree = "<group>"; };
-		1EFA57301CDF1DDA00FA74A4 /* Exams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exams.swift; sourceTree = "<group>"; };
+		1EFA57301CDF1DDA00FA74A4 /* Exam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
 		1EFA57321CDF2BF300FA74A4 /* AvailableExamsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableExamsController.swift; sourceTree = "<group>"; };
 		1EFA57341CDF2C1E00FA74A4 /* EnrolledExamsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrolledExamsController.swift; sourceTree = "<group>"; };
 		6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +204,7 @@
 		1E27AA0A1C69B42D009AD819 /* MyUnimol */ = {
 			isa = PBXGroup;
 			children = (
+				1E66FBB41CDFBF7300D61158 /* contacts */,
 				1EFA572B1CDF1C3700FA74A4 /* exams */,
 				1E94C4701CDC5BE100B9812D /* home */,
 				1E92526B1C9D577400146C7E /* news */,
@@ -247,12 +254,22 @@
 		1E38213B1C6D00C600D0E3A2 /* beans */ = {
 			isa = PBXGroup;
 			children = (
-				1E38213C1C6D00E300D0E3A2 /* models.swift */,
+				1E38213C1C6D00E300D0E3A2 /* RecordBook.swift */,
 				1E8ACFD31C9B154F0059AED2 /* Tax.swift */,
 				1E92526E1C9D580500146C7E /* News.swift */,
-				1EFA57301CDF1DDA00FA74A4 /* Exams.swift */,
+				1EFA57301CDF1DDA00FA74A4 /* Exam.swift */,
+				1E66FBB21CDFA72800D61158 /* Contact.swift */,
+				1E66FBB71CE05C5A00D61158 /* StudentInfo.swift */,
 			);
 			name = beans;
+			sourceTree = "<group>";
+		};
+		1E66FBB41CDFBF7300D61158 /* contacts */ = {
+			isa = PBXGroup;
+			children = (
+				1E66FBB51CDFBF9A00D61158 /* ContactViewController.swift */,
+			);
+			name = contacts;
 			sourceTree = "<group>";
 		};
 		1E8ACFCE1C9B13960059AED2 /* taxes */ = {
@@ -604,19 +621,21 @@
 				1EFA572E1CDF1C5000FA74A4 /* DefaultExamCell.swift in Sources */,
 				1E8ACFD01C9B13BE0059AED2 /* TaxesViewController.swift in Sources */,
 				1E4F8E3D1C972F0F007D92E2 /* KDCircularProgress.swift in Sources */,
-				1EFA57311CDF1DDA00FA74A4 /* Exams.swift in Sources */,
+				1EFA57311CDF1DDA00FA74A4 /* Exam.swift in Sources */,
 				1E94C4751CDE0D2900B9812D /* DefaultNewsCell.swift in Sources */,
 				1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */,
-				1E38213D1C6D00E300D0E3A2 /* models.swift in Sources */,
+				1E38213D1C6D00E300D0E3A2 /* RecordBook.swift in Sources */,
 				1E8DABC91C8368900018FBAC /* RecordBookCell.swift in Sources */,
 				1E27AA0E1C69B42D009AD819 /* ViewController.swift in Sources */,
 				1E94C4691CD872A500B9812D /* CacheManager.swift in Sources */,
 				1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */,
 				1E92526D1C9D579B00146C7E /* BoardNewsViewController.swift in Sources */,
+				1E66FBB31CDFA72800D61158 /* Contact.swift in Sources */,
 				1E9252751C9D5F0000146C7E /* UniversityNewsViewController.swift in Sources */,
 				1E27AA0C1C69B42D009AD819 /* AppDelegate.swift in Sources */,
 				1E94C4721CDDC35700B9812D /* ParameterHandler.swift in Sources */,
 				1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */,
+				1E66FBB61CDFBF9A00D61158 /* ContactViewController.swift in Sources */,
 				1E8ACFD21C9B14BF0059AED2 /* TaxesCell.swift in Sources */,
 				1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */,
 				1E00EA521C69C2900092F612 /* MyUnimolEndPoints.swift in Sources */,
@@ -630,6 +649,7 @@
 				1EFA57351CDF2C1E00FA74A4 /* EnrolledExamsController.swift in Sources */,
 				1E94C46E1CDBBB4000B9812D /* LoadSentences.swift in Sources */,
 				1E94C4651CD6803000B9812D /* FirstPageController.swift in Sources */,
+				1E66FBB81CE05C5A00D61158 /* StudentInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

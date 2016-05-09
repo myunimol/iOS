@@ -56,6 +56,10 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("RecordBookController") as! RecordBookController
             break;
             
+        case 2:
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ContactViewController") as! ContactViewController
+            break;
+            
         case 3:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ExamsTabBarController") as! UITabBarController
             break;

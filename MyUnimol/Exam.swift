@@ -105,6 +105,10 @@ public class EnrolledExamsClass {
 }
 
 extension String {
+    /**
+     Returns a `NSDate` object from a given string, using the format dd/MM/yyyy
+     - returns: a string value for the given date
+    */
     var stringToDate: NSDate? {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -113,6 +117,10 @@ extension String {
 }
 
 extension NSDate {
+    /**
+     Returns a `String` for a given `NSDate` object, using the format dd/MM/yyyy
+     - returns: a `NSDate` object for the given string
+    */
     var dateToString: String? {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"

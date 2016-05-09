@@ -389,7 +389,55 @@ class ApiCall {
                         table.hidden = false
                     }
                 })
-        }
+        }//end of closure
+    }
+    
+    static func searchContact(calling: UIViewController, table: UITableView, searchString: String) {
+        
+        var isEmpty: Bool = false
+        
+        let parameters = ["token"  : MyUnimolToken.TOKEN,
+                          "search" : searchString]
+        
+        Utils.progressBarDisplayer(calling, msg: LoadSentences.getSentence(), indicator: true)
+        
+        Alamofire.request(.POST, MyUnimolEndPoints.SEARCH_CONTACTS, parameters: parameters)
+            .responseJSON { response in
+                
+                Utils.removeProgressBar(calling)
+                
+                var statusCode : Int
+                if let httpError = response.result.error {
+                    statusCode = httpError.code
+                } else {
+                    statusCode = (response.response?.statusCode)!
+                }
+                
+                print("Calling searchContact! The response from server is: \(statusCode)")
+                
+                if (statusCode == 200) {
+                    
+                    let contacts = ContactBean.sharedIntance
+                    contacts.contacts = ContactList(json: response.result.value as! JSON)
+                    
+                    if(contacts.contacts?.contacts.count == 0) {
+                        isEmpty = true
+                    }
+                    
+                } else if (statusCode == 401) {
+                    Utils.displayAlert(calling, title: "Oops!", message: "Qualcosa di strano è successo")
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    if (isEmpty) {
+                        table.hidden = true
+                        Utils.setPlaceholderForEmptyTable(calling, message: "Nessun contatto trovato")
+                    } else {
+                        table.reloadData()
+                        table.hidden = false
+                    }
+                })
+        }//end of closure
     }
     
 }

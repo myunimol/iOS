@@ -913,6 +913,63 @@
             </objects>
             <point key="canvasLocation" x="525.5" y="1794.5"/>
         </scene>
+        <!--Contact View Controller-->
+        <scene sceneID="iY7-fq-EKo">
+            <objects>
+                <viewController id="Xus-t7-0Pk" customClass="ContactViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GXo-DA-ELe"/>
+                        <viewControllerLayoutGuide type="bottom" id="l1l-T0-lzX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kwW-hI-qqH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="1Sx-k5-KgX">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Xus-t7-0Pk" id="Q3l-SG-yxN"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xmW-IF-lb0">
+                                <rect key="frame" x="-4" y="44" width="383" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xus-t7-0Pk" id="IpS-fv-HAH"/>
+                                    <outlet property="delegate" destination="Xus-t7-0Pk" id="pGz-Wk-ahe"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l1l-T0-lzX" firstAttribute="top" secondItem="xmW-IF-lb0" secondAttribute="bottom" id="0ao-RK-fFo"/>
+                            <constraint firstItem="1Sx-k5-KgX" firstAttribute="top" secondItem="kwW-hI-qqH" secondAttribute="topMargin" id="26p-Ao-uFH"/>
+                            <constraint firstItem="xmW-IF-lb0" firstAttribute="top" secondItem="1Sx-k5-KgX" secondAttribute="bottom" id="4dz-4z-TVb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xmW-IF-lb0" secondAttribute="trailing" constant="-20" id="93r-HZ-MFO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Sx-k5-KgX" secondAttribute="trailing" constant="-20" id="9Ez-zF-coa"/>
+                            <constraint firstItem="xmW-IF-lb0" firstAttribute="leading" secondItem="kwW-hI-qqH" secondAttribute="leadingMargin" constant="-20" id="MBf-xn-sNR"/>
+                            <constraint firstItem="1Sx-k5-KgX" firstAttribute="leading" secondItem="kwW-hI-qqH" secondAttribute="leadingMargin" constant="-20" id="yXp-tt-YNr"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="F1I-Wi-7R2" id="46b-Ym-Dtt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0yI-V2-kJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="F1I-Wi-7R2">
+                    <connections>
+                        <outlet property="delegate" destination="Xus-t7-0Pk" id="J7k-GR-VUV"/>
+                        <outlet property="searchBar" destination="1Sx-k5-KgX" id="Eeb-sY-xa3"/>
+                        <outlet property="searchContentsController" destination="Xus-t7-0Pk" id="rGH-2P-Vjj"/>
+                        <outlet property="searchResultsDataSource" destination="Xus-t7-0Pk" id="Plq-4O-zwY"/>
+                        <outlet property="searchResultsDelegate" destination="Xus-t7-0Pk" id="DBo-w2-RX5"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="525.5" y="2654.5"/>
+        </scene>
         <!--EnrolledExams-->
         <scene sceneID="mrA-BI-LsI">
             <objects>

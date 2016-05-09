@@ -8,6 +8,7 @@
 
 import Gloss
 
+///Store the info for a tax
 public struct Tax: Decodable {
     
     let billId: String?
@@ -29,8 +30,10 @@ public struct Tax: Decodable {
     }
 }
 
+///Contains a list of `Tax` objects
 public struct Taxes {
     
+    ///A list of `Tax` objects
     var taxes = [Tax]()
     
     init(json: JSON) {
@@ -38,6 +41,7 @@ public struct Taxes {
     }
 }
 
+///The singleton which contains all info about taxes
 public class TaxClass {
     
     public static let sharedInstance = TaxClass()

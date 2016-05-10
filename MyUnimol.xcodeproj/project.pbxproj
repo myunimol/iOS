@@ -41,6 +41,7 @@
 		1E94C4751CDE0D2900B9812D /* DefaultNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4731CDE0D2900B9812D /* DefaultNewsCell.swift */; };
 		1E94C4761CDE0D2900B9812D /* DefaultNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */; };
 		1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */; };
+		1EF37DE61CE24DFC0052A567 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF37DE51CE24DFC0052A567 /* ContactCell.swift */; };
 		1EFA572E1CDF1C5000FA74A4 /* DefaultExamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */; };
 		1EFA572F1CDF1C5000FA74A4 /* DefaultExamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EFA572D1CDF1C5000FA74A4 /* DefaultExamCell.xib */; };
 		1EFA57311CDF1DDA00FA74A4 /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA57301CDF1DDA00FA74A4 /* Exam.swift */; };
@@ -113,6 +114,7 @@
 		1E94C4731CDE0D2900B9812D /* DefaultNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNewsCell.swift; sourceTree = "<group>"; };
 		1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultNewsCell.xib; sourceTree = "<group>"; };
 		1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
+		1EF37DE51CE24DFC0052A567 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultExamCell.swift; sourceTree = "<group>"; };
 		1EFA572D1CDF1C5000FA74A4 /* DefaultExamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultExamCell.xib; sourceTree = "<group>"; };
 		1EFA57301CDF1DDA00FA74A4 /* Exam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				1E66FBB51CDFBF9A00D61158 /* ContactViewController.swift */,
+				1EF37DE51CE24DFC0052A567 /* ContactCell.swift */,
 			);
 			name = contacts;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				1EFA57311CDF1DDA00FA74A4 /* Exam.swift in Sources */,
 				1E94C4751CDE0D2900B9812D /* DefaultNewsCell.swift in Sources */,
 				1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */,
+				1EF37DE61CE24DFC0052A567 /* ContactCell.swift in Sources */,
 				1E38213D1C6D00E300D0E3A2 /* RecordBook.swift in Sources */,
 				1E8DABC91C8368900018FBAC /* RecordBookCell.swift in Sources */,
 				1E27AA0E1C69B42D009AD819 /* ViewController.swift in Sources */,

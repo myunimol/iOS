@@ -7,6 +7,7 @@
 //
 
 import Gloss
+import Alamofire
 
 ///Contains the info for a contact
 public struct Contact: Decodable {
@@ -26,13 +27,19 @@ public struct Contact: Decodable {
         self.externalTelephone = "externalTelephone" <~~ json
         self.email = "email" <~~ json
     }
+    
+    public static func getAllContacts(completionHandler: (Contacts?, NSError?) -> Void) {
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_ADDRESS_BOOK).responseAllContacts { response in
+            completionHandler(response.result.value, response.result.error)
+        }
+    }
 }
 
 ///Contains an arrays of `Contact` elements
-public struct ContactList {
+public class Contacts {
     
     ///An array of `Contacts`
-    var contacts = [Contact]()
+    var contacts: Array<Contact>?
     
     init(json: JSON) {
         self.contacts = [Contact].fromJSONArray(("contacts" <~~ json)!)
@@ -40,12 +47,43 @@ public struct ContactList {
 }
 
 ///The singleton which contains contacs infos
-public class ContactBean {
-    
-    public static let sharedIntance = ContactBean()
-    
-    ///The `ContactList` object which stores an array of `Contact` objects
-    public var contacts: ContactList?
-    
-    private init() { }
+//public class ContactBean {
+//
+//    public static let sharedIntance = ContactBean()
+//
+//    ///The `ContactList` object which stores an array of `Contact` objects
+//    public var contacts: ContactList?
+//
+//    private init() { }
+//}
+
+
+extension Alamofire.Request {
+    func responseAllContacts(completionHandler: Response<Contacts, NSError> -> Void) -> Self {
+        let responseSerializer = ResponseSerializer<Contacts, NSError> { request, response, data, error in
+            
+            guard error == nil else {
+                return .Failure(error!)
+            }
+            
+            guard let responseData = data else {
+                let failureReason = "Array could not be serialized because input data was nil"
+                let error = Error.errorWithCode(.DataSerializationFailed, failureReason: failureReason)
+                return .Failure(error)
+            }
+            
+            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            
+            switch result {
+            case .Success(let value):
+                print(value)
+                let contacts: Contacts = Contacts(json: value as! JSON)
+                return .Success(contacts)
+            case .Failure(let error):
+                return .Failure(error)
+            }
+        }
+        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
+    }
 }

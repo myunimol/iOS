@@ -10,9 +10,8 @@ import UIKit
 import Alamofire
 import Gloss
 
-class ContactViewController: UIViewController {
+class ContactViewController: UIViewController, UITableViewDelegate {
     
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     var contacts: Array<Contact>?
@@ -20,6 +19,8 @@ class ContactViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Utils.setNavigationControllerStatusBar(self, title: "Rubrica", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
+        self.tableView.hidden = true
         self.loadContacts()
     }
     
@@ -28,7 +29,7 @@ class ContactViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.contactsWrapper?.contacts?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -37,14 +38,16 @@ class ContactViewController: UIViewController {
         let contact = self.contactsWrapper?.contacts?[indexPath.row]
         cell.name.text = contact?.fullname
         cell.telephone.text = contact?.externalTelephone
+        cell.email.text = contact?.email  
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+        return 120
     }
 
     func loadContacts() {
+        Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         Contact.getAllContacts { contacts, error in
             guard error == nil else {
                 //TODO: error implementation
@@ -52,6 +55,8 @@ class ContactViewController: UIViewController {
             }
             self.contactsWrapper = contacts
             self.tableView.reloadData()
+            self.tableView.hidden = false
+            Utils.removeProgressBar(self)
         }
     }
     

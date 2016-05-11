@@ -9,11 +9,11 @@
 import UIKit
 
 class ContactCell: UITableViewCell {
-
     
     @IBOutlet weak var name: UILabel!
-    
+        
     @IBOutlet weak var telephone: UITextView!
+    @IBOutlet weak var email: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

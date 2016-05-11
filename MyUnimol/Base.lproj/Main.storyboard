@@ -925,33 +925,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xmW-IF-lb0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nBD-xu-NeU">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="1Sx-k5-KgX">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="Xus-t7-0Pk" id="Q3l-SG-yxN"/>
-                                    </connections>
-                                </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="gOI-C8-skP" customClass="ContactCell" customModule="MyUnimol" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="383" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactCell" rowHeight="120" id="Bn0-WP-rBV" customClass="ContactCell" customModule="MyUnimol" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="383" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gOI-C8-skP" id="dsI-9L-w94">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bn0-WP-rBV" id="zwH-mW-acu">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUZ-wD-5c7">
-                                                    <rect key="frame" x="24" y="8" width="334" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5B-zd-2cz">
+                                                    <rect key="frame" x="15" y="8" width="352" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Telephone" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1xE-cg-6kS">
-                                                    <rect key="frame" x="58" y="34" width="266" height="31"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="email" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wwc-kv-N4F">
+                                                    <rect key="frame" x="15" y="33" width="352" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="ocM-pg-9gi"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="telephone" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AVv-mH-9t9">
+                                                    <rect key="frame" x="29" y="66" width="324" height="53"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -959,53 +961,54 @@
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="UUZ-wD-5c7" secondAttribute="trailing" constant="17" id="1rg-kb-nXw"/>
-                                                <constraint firstItem="UUZ-wD-5c7" firstAttribute="leading" secondItem="dsI-9L-w94" secondAttribute="leadingMargin" constant="16" id="Ctz-DX-nvs"/>
-                                                <constraint firstItem="1xE-cg-6kS" firstAttribute="top" secondItem="UUZ-wD-5c7" secondAttribute="bottom" constant="6" id="Hvv-u7-x06"/>
-                                                <constraint firstItem="1xE-cg-6kS" firstAttribute="leading" secondItem="dsI-9L-w94" secondAttribute="leadingMargin" constant="50" id="JGF-h5-L2v"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="1xE-cg-6kS" secondAttribute="trailing" constant="51" id="dx0-Dg-vSc"/>
-                                                <constraint firstItem="1xE-cg-6kS" firstAttribute="centerY" secondItem="dsI-9L-w94" secondAttribute="centerY" id="lAa-Bm-xcQ"/>
-                                                <constraint firstItem="UUZ-wD-5c7" firstAttribute="top" secondItem="dsI-9L-w94" secondAttribute="topMargin" id="zaN-1E-0dZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="F5B-zd-2cz" secondAttribute="trailing" constant="8" id="027-48-FB4"/>
+                                                <constraint firstItem="AVv-mH-9t9" firstAttribute="top" secondItem="Wwc-kv-N4F" secondAttribute="bottom" constant="3" id="ArA-dd-1JE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Wwc-kv-N4F" secondAttribute="trailing" constant="8" id="Ash-FP-aav"/>
+                                                <constraint firstItem="AVv-mH-9t9" firstAttribute="leading" secondItem="zwH-mW-acu" secondAttribute="leadingMargin" constant="21" id="KsD-zR-wur"/>
+                                                <constraint firstItem="AVv-mH-9t9" firstAttribute="bottom" secondItem="zwH-mW-acu" secondAttribute="bottomMargin" constant="8" id="dWO-he-uha"/>
+                                                <constraint firstItem="Wwc-kv-N4F" firstAttribute="leading" secondItem="zwH-mW-acu" secondAttribute="leadingMargin" constant="7" id="der-oo-O5O"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Wwc-kv-N4F" secondAttribute="trailing" constant="54" id="ean-iW-L08"/>
+                                                <constraint firstItem="F5B-zd-2cz" firstAttribute="leading" secondItem="zwH-mW-acu" secondAttribute="leadingMargin" constant="7" id="flf-rT-hKi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="AVv-mH-9t9" secondAttribute="trailing" constant="22" id="jAU-QN-4dk"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Wwc-kv-N4F" secondAttribute="bottom" constant="48" id="yVr-AU-yYb"/>
+                                                <constraint firstItem="F5B-zd-2cz" firstAttribute="top" secondItem="zwH-mW-acu" secondAttribute="topMargin" id="yhf-ja-Mhi"/>
+                                                <constraint firstItem="Wwc-kv-N4F" firstAttribute="leading" secondItem="zwH-mW-acu" secondAttribute="leadingMargin" constant="53" id="ztk-nx-okd"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="ean-iW-L08"/>
+                                                    <exclude reference="ztk-nx-okd"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <outlet property="name" destination="UUZ-wD-5c7" id="0bQ-jh-BV4"/>
-                                            <outlet property="telephone" destination="1xE-cg-6kS" id="oAz-JY-Mg3"/>
+                                            <outlet property="email" destination="Wwc-kv-N4F" id="vT1-c4-9pO"/>
+                                            <outlet property="name" destination="F5B-zd-2cz" id="gF9-sn-H0z"/>
+                                            <outlet property="telephone" destination="AVv-mH-9t9" id="NHJ-ML-aRb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="Xus-t7-0Pk" id="IpS-fv-HAH"/>
-                                    <outlet property="delegate" destination="Xus-t7-0Pk" id="pGz-Wk-ahe"/>
+                                    <outlet property="dataSource" destination="Xus-t7-0Pk" id="8ag-wD-HkU"/>
+                                    <outlet property="delegate" destination="Xus-t7-0Pk" id="2eS-En-qqH"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="l1l-T0-lzX" firstAttribute="top" secondItem="xmW-IF-lb0" secondAttribute="bottom" id="0ao-RK-fFo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xmW-IF-lb0" secondAttribute="trailing" constant="-20" id="93r-HZ-MFO"/>
-                            <constraint firstItem="xmW-IF-lb0" firstAttribute="leading" secondItem="kwW-hI-qqH" secondAttribute="leadingMargin" constant="-20" id="MBf-xn-sNR"/>
-                            <constraint firstItem="xmW-IF-lb0" firstAttribute="top" secondItem="kwW-hI-qqH" secondAttribute="top" id="lhS-tb-0RW"/>
+                            <constraint firstItem="nBD-xu-NeU" firstAttribute="top" secondItem="kwW-hI-qqH" secondAttribute="topMargin" id="5zd-d9-g1X"/>
+                            <constraint firstItem="nBD-xu-NeU" firstAttribute="leading" secondItem="kwW-hI-qqH" secondAttribute="leadingMargin" constant="-20" id="CF1-PI-QNo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nBD-xu-NeU" secondAttribute="trailing" constant="-20" id="CR1-JE-oV9"/>
+                            <constraint firstItem="l1l-T0-lzX" firstAttribute="top" secondItem="nBD-xu-NeU" secondAttribute="bottom" id="eEm-dR-n6k"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="searchBar" destination="1Sx-k5-KgX" id="X3u-xM-hrQ"/>
-                        <outlet property="searchDisplayController" destination="F1I-Wi-7R2" id="46b-Ym-Dtt"/>
-                        <outlet property="table" destination="xmW-IF-lb0" id="5I5-mY-AAu"/>
+                        <outlet property="tableView" destination="nBD-xu-NeU" id="mJ7-RM-N8b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0yI-V2-kJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="F1I-Wi-7R2">
-                    <connections>
-                        <outlet property="delegate" destination="Xus-t7-0Pk" id="J7k-GR-VUV"/>
-                        <outlet property="searchBar" destination="1Sx-k5-KgX" id="Eeb-sY-xa3"/>
-                        <outlet property="searchContentsController" destination="Xus-t7-0Pk" id="rGH-2P-Vjj"/>
-                        <outlet property="searchResultsDataSource" destination="Xus-t7-0Pk" id="Plq-4O-zwY"/>
-                        <outlet property="searchResultsDelegate" destination="Xus-t7-0Pk" id="DBo-w2-RX5"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="525.5" y="2654.5"/>
         </scene>

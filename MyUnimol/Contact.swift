@@ -29,7 +29,8 @@ public struct Contact: Decodable {
     }
     
     public static func getAllContacts(completionHandler: (Contacts?, NSError?) -> Void) {
-        Alamofire.request(.POST, MyUnimolEndPoints.GET_ADDRESS_BOOK).responseAllContacts { response in
+        let parameters = ["token" : MyUnimolToken.TOKEN]
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_ADDRESS_BOOK, parameters: parameters).responseAllContacts { response in
             completionHandler(response.result.value, response.result.error)
         }
     }
@@ -45,18 +46,6 @@ public class Contacts {
         self.contacts = [Contact].fromJSONArray(("contacts" <~~ json)!)
     }
 }
-
-///The singleton which contains contacs infos
-//public class ContactBean {
-//
-//    public static let sharedIntance = ContactBean()
-//
-//    ///The `ContactList` object which stores an array of `Contact` objects
-//    public var contacts: ContactList?
-//
-//    private init() { }
-//}
-
 
 extension Alamofire.Request {
     func responseAllContacts(completionHandler: Response<Contacts, NSError> -> Void) -> Self {
@@ -77,7 +66,6 @@ extension Alamofire.Request {
             
             switch result {
             case .Success(let value):
-                print(value)
                 let contacts: Contacts = Contacts(json: value as! JSON)
                 return .Success(contacts)
             case .Failure(let error):

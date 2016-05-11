@@ -42,6 +42,7 @@
 		1E94C4761CDE0D2900B9812D /* DefaultNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */; };
 		1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */; };
 		1EF37DE61CE24DFC0052A567 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF37DE51CE24DFC0052A567 /* ContactCell.swift */; };
+		1EF37DEB1CE38AE90052A567 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF37DEA1CE38AE90052A567 /* WebViewController.swift */; };
 		1EFA572E1CDF1C5000FA74A4 /* DefaultExamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */; };
 		1EFA572F1CDF1C5000FA74A4 /* DefaultExamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EFA572D1CDF1C5000FA74A4 /* DefaultExamCell.xib */; };
 		1EFA57311CDF1DDA00FA74A4 /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA57301CDF1DDA00FA74A4 /* Exam.swift */; };
@@ -115,6 +116,7 @@
 		1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultNewsCell.xib; sourceTree = "<group>"; };
 		1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
 		1EF37DE51CE24DFC0052A567 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		1EF37DEA1CE38AE90052A567 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultExamCell.swift; sourceTree = "<group>"; };
 		1EFA572D1CDF1C5000FA74A4 /* DefaultExamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultExamCell.xib; sourceTree = "<group>"; };
 		1EFA57301CDF1DDA00FA74A4 /* Exam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		1E27AA0A1C69B42D009AD819 /* MyUnimol */ = {
 			isa = PBXGroup;
 			children = (
+				1EF37DE91CE38ACF0052A567 /* webView */,
 				1E66FBB41CDFBF7300D61158 /* contacts */,
 				1EFA572B1CDF1C3700FA74A4 /* exams */,
 				1E94C4701CDC5BE100B9812D /* home */,
@@ -331,6 +334,14 @@
 				1E27AA0D1C69B42D009AD819 /* ViewController.swift */,
 			);
 			name = home;
+			sourceTree = "<group>";
+		};
+		1EF37DE91CE38ACF0052A567 /* webView */ = {
+			isa = PBXGroup;
+			children = (
+				1EF37DEA1CE38AE90052A567 /* WebViewController.swift */,
+			);
+			name = webView;
 			sourceTree = "<group>";
 		};
 		1EFA572B1CDF1C3700FA74A4 /* exams */ = {
@@ -650,6 +661,7 @@
 				1E9252731C9D5EBA00146C7E /* DepartmentNewsViewController.swift in Sources */,
 				1EFA57331CDF2BF300FA74A4 /* AvailableExamsController.swift in Sources */,
 				1E8DABC71C8359F10018FBAC /* RecordBookController.swift in Sources */,
+				1EF37DEB1CE38AE90052A567 /* WebViewController.swift in Sources */,
 				1EFA57351CDF2C1E00FA74A4 /* EnrolledExamsController.swift in Sources */,
 				1E94C46E1CDBBB4000B9812D /* LoadSentences.swift in Sources */,
 				1E94C4651CD6803000B9812D /* FirstPageController.swift in Sources */,

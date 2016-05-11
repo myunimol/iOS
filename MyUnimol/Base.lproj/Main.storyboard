@@ -776,6 +776,25 @@
             </objects>
             <point key="canvasLocation" x="525.5" y="1042.5"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="ijg-D7-OMX">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="3rA-ID-f17" customClass="WebViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9LQ-Rz-gQj"/>
+                        <viewControllerLayoutGuide type="bottom" id="UhI-c6-hhc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sSk-iH-vjr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nuW-at-S33" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-140.5" y="1902.5"/>
+        </scene>
         <!--Taxes View Controller-->
         <scene sceneID="4mE-9D-XQC">
             <objects>
@@ -1005,10 +1024,19 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="searchDisplayController" destination="hWN-7h-B4q" id="d3g-h5-l0i"/>
                         <outlet property="tableView" destination="nBD-xu-NeU" id="mJ7-RM-N8b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0yI-V2-kJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="hWN-7h-B4q">
+                    <connections>
+                        <outlet property="delegate" destination="Xus-t7-0Pk" id="7SK-CF-437"/>
+                        <outlet property="searchContentsController" destination="Xus-t7-0Pk" id="FeP-Si-fgR"/>
+                        <outlet property="searchResultsDataSource" destination="Xus-t7-0Pk" id="KUB-mc-HLD"/>
+                        <outlet property="searchResultsDelegate" destination="Xus-t7-0Pk" id="hE7-Ms-WjN"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="525.5" y="2654.5"/>
         </scene>

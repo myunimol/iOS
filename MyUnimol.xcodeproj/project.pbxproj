@@ -40,6 +40,7 @@
 		1E94C4721CDDC35700B9812D /* ParameterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4711CDDC35700B9812D /* ParameterHandler.swift */; };
 		1E94C4751CDE0D2900B9812D /* DefaultNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4731CDE0D2900B9812D /* DefaultNewsCell.swift */; };
 		1E94C4761CDE0D2900B9812D /* DefaultNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */; };
+		1EA091601CE4E87000D9158B /* TipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0915F1CE4E87000D9158B /* TipsViewController.swift */; };
 		1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */; };
 		1EF37DE61CE24DFC0052A567 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF37DE51CE24DFC0052A567 /* ContactCell.swift */; };
 		1EF37DEB1CE38AE90052A567 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF37DEA1CE38AE90052A567 /* WebViewController.swift */; };
@@ -114,6 +115,7 @@
 		1E94C4711CDDC35700B9812D /* ParameterHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterHandler.swift; sourceTree = "<group>"; };
 		1E94C4731CDE0D2900B9812D /* DefaultNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNewsCell.swift; sourceTree = "<group>"; };
 		1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultNewsCell.xib; sourceTree = "<group>"; };
+		1EA0915F1CE4E87000D9158B /* TipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsViewController.swift; sourceTree = "<group>"; };
 		1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
 		1EF37DE51CE24DFC0052A567 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		1EF37DEA1CE38AE90052A567 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 		1E27AA0A1C69B42D009AD819 /* MyUnimol */ = {
 			isa = PBXGroup;
 			children = (
+				1EA0915E1CE4E84800D9158B /* userTips */,
 				1EF37DE91CE38ACF0052A567 /* webView */,
 				1E66FBB41CDFBF7300D61158 /* contacts */,
 				1EFA572B1CDF1C3700FA74A4 /* exams */,
@@ -334,6 +337,14 @@
 				1E27AA0D1C69B42D009AD819 /* ViewController.swift */,
 			);
 			name = home;
+			sourceTree = "<group>";
+		};
+		1EA0915E1CE4E84800D9158B /* userTips */ = {
+			isa = PBXGroup;
+			children = (
+				1EA0915F1CE4E87000D9158B /* TipsViewController.swift */,
+			);
+			name = userTips;
 			sourceTree = "<group>";
 		};
 		1EF37DE91CE38ACF0052A567 /* webView */ = {
@@ -648,6 +659,7 @@
 				1E66FBB31CDFA72800D61158 /* Contact.swift in Sources */,
 				1E9252751C9D5F0000146C7E /* UniversityNewsViewController.swift in Sources */,
 				1E27AA0C1C69B42D009AD819 /* AppDelegate.swift in Sources */,
+				1EA091601CE4E87000D9158B /* TipsViewController.swift in Sources */,
 				1E94C4721CDDC35700B9812D /* ParameterHandler.swift in Sources */,
 				1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */,
 				1E66FBB61CDFBF9A00D61158 /* ContactViewController.swift in Sources */,

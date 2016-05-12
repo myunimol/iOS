@@ -50,8 +50,8 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
             contact = self.contactsWrapper?.contacts?[indexPath.row]
         }
         cell.name.text = contact?.fullname
-        cell.telephone.text = contact?.externalTelephone
-        cell.email.text = contact?.email  
+        cell.telephone.text = "📞 " + (contact?.externalTelephone)!
+        cell.email.text = "📧 " + (contact?.email)!
         return cell
     }
     

@@ -72,9 +72,14 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TaxesViewController") as! TaxesViewController
             break;
             
+        case 6:
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TipsViewController") as! TipsViewController
+            break;
+            
         case 7:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
             break;
+            
         case 8:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
             CacheManager.resetLoginInformation()

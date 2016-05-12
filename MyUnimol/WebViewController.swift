@@ -13,10 +13,22 @@ class WebViewController: UIViewController, WKNavigationDelegate {
 
     var webView: WKWebView?
     
-    private var request : NSURLRequest {
+    private var request: NSURLRequest {
         let baseUrl = "https://unimol.esse3.cineca.it/auth/Logon.do"
         let URL = NSURL(string: baseUrl)!
         return NSURLRequest(URL: URL)
+    }
+    
+    private var removeBannerURL: NSURLRequest {
+        let baseUrl = "javascript:cookies.set()"
+        let URL = NSURL(string: baseUrl)!
+        return NSURLRequest(URL: URL)
+    }
+    
+    private var userScript: WKUserScript {
+        let source = "javascript:cookies.set()"
+        let userScript = WKUserScript(source: source, injectionTime: .AtDocumentStart, forMainFrameOnly: false)
+        return userScript
     }
     
     /* Start the network activity indicator when the web view is loading */
@@ -51,13 +63,18 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         /* Create our preferences on how the web page should be loaded */
         let preferences = WKPreferences()
-        preferences.javaScriptEnabled = false
+        preferences.javaScriptEnabled = true
         
         // Hide the navigation bar for this view
         self.navigationController?.navigationBarHidden = true
+        
+        let userContentController = WKUserContentController()
+        userContentController.addUserScript(self.userScript)
+        
         /* Create a configuration for our preferences */
         let configuration = WKWebViewConfiguration()
         configuration.preferences = preferences
+        configuration.userContentController = userContentController
         
         /* Now instantiate the web view */
         webView = WKWebView(frame: view.bounds, configuration: configuration)

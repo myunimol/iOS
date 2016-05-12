@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -795,6 +796,71 @@
             </objects>
             <point key="canvasLocation" x="-140.5" y="1902.5"/>
         </scene>
+        <!--Tips View Controller-->
+        <scene sceneID="Obd-sl-Dw4">
+            <objects>
+                <viewController storyboardIdentifier="TipsViewController" id="xuV-IR-3h5" customClass="TipsViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j6m-a2-kHj"/>
+                        <viewControllerLayoutGuide type="bottom" id="w8h-Mk-Ugv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j3Q-3G-ywb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vuoi segnalare un bug o suggerirci dei miglioramenti? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyp-ZK-2sy">
+                                <rect key="frame" x="17" y="48" width="351" height="66"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamMolise" translatesAutoresizingMaskIntoConstraints="NO" id="YPd-gl-kxy">
+                                <rect key="frame" x="92" y="281" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YPd-gl-kxy" secondAttribute="height" multiplier="1:1" id="T8R-PH-L0N"/>
+                                    <constraint firstAttribute="height" constant="200" id="eSO-0r-tXD"/>
+                                    <constraint firstAttribute="height" constant="200" id="fUy-cb-2R2"/>
+                                    <constraint firstAttribute="width" secondItem="YPd-gl-kxy" secondAttribute="height" multiplier="1:1" id="wbS-1f-REk"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eSO-0r-tXD"/>
+                                        <exclude reference="fUy-cb-2R2"/>
+                                        <exclude reference="wbS-1f-REk"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qia-Yw-6bT">
+                                <rect key="frame" x="131" y="154" width="112" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="112" id="l4P-RF-eVj"/>
+                                </constraints>
+                                <state key="normal" title="Contattaci!"/>
+                                <connections>
+                                    <action selector="send:" destination="xuV-IR-3h5" eventType="touchUpInside" id="7ad-MM-mN1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qia-Yw-6bT" firstAttribute="centerX" secondItem="j3Q-3G-ywb" secondAttribute="centerX" id="AX6-IH-izv"/>
+                            <constraint firstItem="YPd-gl-kxy" firstAttribute="centerX" secondItem="fyp-ZK-2sy" secondAttribute="centerX" id="QdM-E0-R2n"/>
+                            <constraint firstItem="YPd-gl-kxy" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="76" id="bQa-jS-Sro"/>
+                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="top" secondItem="j6m-a2-kHj" secondAttribute="bottom" constant="28" id="gl8-HO-644"/>
+                            <constraint firstItem="Qia-Yw-6bT" firstAttribute="top" secondItem="fyp-ZK-2sy" secondAttribute="bottom" constant="40" id="i4d-Hn-i2l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fyp-ZK-2sy" secondAttribute="trailing" constant="-9" id="iXt-gM-5gz"/>
+                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="1" id="sWx-4q-K1t"/>
+                            <constraint firstItem="YPd-gl-kxy" firstAttribute="top" secondItem="Qia-Yw-6bT" secondAttribute="bottom" constant="97" id="suE-29-wbb"/>
+                            <constraint firstItem="Qia-Yw-6bT" firstAttribute="top" secondItem="j3Q-3G-ywb" secondAttribute="top" constant="154" id="wFB-AV-U58"/>
+                            <constraint firstItem="w8h-Mk-Ugv" firstAttribute="top" secondItem="YPd-gl-kxy" secondAttribute="bottom" constant="186" id="wcH-V3-PAh"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8W-yr-cOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-140.5" y="2720.5"/>
+        </scene>
         <!--Taxes View Controller-->
         <scene sceneID="4mE-9D-XQC">
             <objects>
@@ -1169,6 +1235,7 @@
         <image name="UniversityNews" width="32" height="32"/>
         <image name="bg_header_logo" width="800" height="450"/>
         <image name="launcher_ic" width="192" height="192"/>
+        <image name="teamMolise" width="760" height="762"/>
         <image name="voto_bg" width="127" height="126"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -37,12 +37,24 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         decisionHandler(.Allow)
     }
     
+    /// Perform automatic login
+    func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
+        if challenge.protectionSpace.host == "unimol.esse3.cineca.it" {
+            let user = "g.grano"
+            let password = "undell3gas"
+            let credential = NSURLCredential(user: user, password: password, persistence: NSURLCredentialPersistence.ForSession)
+            challenge.sender?.useCredential(credential, forAuthenticationChallenge: challenge)
+            completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
+        }
+    }
     
     override func viewDidLoad() {
         /* Create our preferences on how the web page should be loaded */
         let preferences = WKPreferences()
         preferences.javaScriptEnabled = false
         
+        // Hide the navigation bar for this view
+        self.navigationController?.navigationBarHidden = true
         /* Create a configuration for our preferences */
         let configuration = WKWebViewConfiguration()
         configuration.preferences = preferences
@@ -50,23 +62,12 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         /* Now instantiate the web view */
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         
-        if let theWebView = webView{
+        if let theWebView = webView {
             /* Load a web page into our web view */
-            //let url = NSURL(string: "http://www.apple.com")
             let urlRequest = self.request
             theWebView.loadRequest(urlRequest)
             theWebView.navigationDelegate = self
             view.addSubview(theWebView)
-        }
-    }
-    
-    func connection(connection: NSURLConnection, willSendRequestForAuthenticationChallenge challenge: NSURLAuthenticationChallenge){
-        
-        if challenge.protectionSpace.host == "unimol.esse3.cineca.it/auth/Logon.do" {
-            let user = "g.grano"
-            let password = "undell3gas"
-            let credential = NSURLCredential(user: user, password: password, persistence: NSURLCredentialPersistence.ForSession)
-            challenge.sender!.useCredential(credential, forAuthenticationChallenge: challenge)
         }
     }
 }

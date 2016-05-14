@@ -14,7 +14,6 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
-    //var contacts: Array<Contact>?
     var contactsWrapper: Contacts?
     var contactSearchResults: Array<Contact>?
     var shouldShowSearchResults = false

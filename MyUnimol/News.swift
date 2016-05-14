@@ -7,7 +7,9 @@
 //
 
 import Gloss
+import Alamofire
 
+/// Info about a generic news
 public struct News: Decodable {
     
     let date: String?
@@ -21,9 +23,29 @@ public struct News: Decodable {
         self.text = "text" <~~ json
         self.link = "link" <~~ json
     }
+    
+    public static func getBoardNews(completionHandler: (NewsList?, NSError?) -> Void) {
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_NEWS_BOARD, parameters: ParameterHandler.getParametersForBoardNews()).responseGenericNews { response in
+            completionHandler(response.result.value, response.result.error)
+        }
+    }
+    
+    public static func getDepartmentNews(completionHandler: (NewsList?, NSError?) -> Void) {
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_DEPARTMENT_NEWS, parameters: ParameterHandler.getParametersForDepartmentNews()).responseGenericNews { response in
+            completionHandler(response.result.value, response.result.error)
+        }
+    }
+    
+    public static func getUniversityNews(completionHandler: (NewsList?, NSError?) -> Void) {
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_UNIVERSITY_NEWS, parameters: ParameterHandler.getParameterForUniversityNews()).responseGenericNews { response in
+            completionHandler(response.result.value, response.result.error)
+        }
+    }
 }
 
-public struct NewsList {
+
+/// Contains an array of `News` elements
+public class NewsList {
     
     var newsList = [News]()
     
@@ -32,29 +54,31 @@ public struct NewsList {
     }
 }
 
-public class UniversityNews {
-    
-    public static let sharedInstance = UniversityNews()
-    
-    public var news: NewsList?
-    
-    private init() { }
-}
-
-public class DepartmentNews {
-    
-    public static let sharedInstance = DepartmentNews()
-    
-    public var news: NewsList?
-    
-    private init() { }
-}
-
-public class BoardNews {
-    
-    public static let sharedInstance = BoardNews()
-    
-    public var news: NewsList?
-    
-    private init() { }
+extension Alamofire.Request {
+    func responseGenericNews(completionHandler: Response<NewsList, NSError> -> Void) -> Self {
+        let responseSerializer = ResponseSerializer<NewsList, NSError> { request, response, data, error in
+            
+            guard error == nil else {
+                return .Failure(error!)
+            }
+            
+            guard let responseData = data else {
+                let failureReason = "Array could not be serialized because input data was nil"
+                let error = Error.errorWithCode(.DataSerializationFailed, failureReason: failureReason)
+                return .Failure(error)
+            }
+            
+            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            
+            switch result {
+            case .Success(let value):
+                let news: NewsList = NewsList(json: value as! JSON)
+                return .Success(news)
+            case .Failure(let error):
+                return .Failure(error)
+            }
+        }
+        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
+    }
 }

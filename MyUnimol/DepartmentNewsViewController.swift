@@ -12,7 +12,9 @@ import Gloss
 
 class DepartmentNewsViewController: UIViewController, UITableViewDelegate {
     
-    var news: DepartmentNews!
+    //var news: DepartmentNews!
+    var news: Array<News>?
+
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,9 +25,21 @@ class DepartmentNewsViewController: UIViewController, UITableViewDelegate {
         self.tableView.registerNib(nib, forCellReuseIdentifier: "DefaultNewsCell")
         
         self.tableView.hidden = true
-        ApiCall.getNews(self, table: self.tableView, kindOfNews: 1)
-        
-        self.news = DepartmentNews.sharedInstance
+        self.loadNews()
+    }
+    
+    func loadNews() {
+        Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
+        News.getDepartmentNews { news, error in
+            guard error == nil else {
+                //TODO: error implementation
+                return
+            }
+            self.news = news?.newsList
+            self.tableView.reloadData()
+            self.tableView.hidden = false
+            Utils.removeProgressBar(self)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,17 +51,17 @@ class DepartmentNewsViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        UIApplication.sharedApplication().openURL(NSURL(string: (self.news?.news?.newsList[indexPath.row].link)!)!)
+        UIApplication.sharedApplication().openURL(NSURL(string: (self.news?[indexPath.row].link)!)!)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.news?.news?.newsList.count ?? 0
+        return self.news?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DefaultNewsCell", forIndexPath: indexPath) as! DefaultNewsCell
         
-        let news = self.news?.news?.newsList[indexPath.row]
+        let news = self.news?[indexPath.row]
         cell.title.text = news?.title
         cell.date.text = news?.date
         cell.body.text = news?.text

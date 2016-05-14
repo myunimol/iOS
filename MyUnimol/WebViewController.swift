@@ -19,12 +19,6 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         return NSURLRequest(URL: URL)
     }
     
-    private var removeBannerURL: NSURLRequest {
-        let baseUrl = "javascript:cookies.set()"
-        let URL = NSURL(string: baseUrl)!
-        return NSURLRequest(URL: URL)
-    }
-    
     private var userScript: WKUserScript {
         let source = "javascript:cookies.set()"
         let userScript = WKUserScript(source: source, injectionTime: .AtDocumentStart, forMainFrameOnly: false)

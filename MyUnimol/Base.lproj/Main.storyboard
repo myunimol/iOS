@@ -809,7 +809,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vuoi segnalare un bug o suggerirci dei miglioramenti? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyp-ZK-2sy">
-                                <rect key="frame" x="17" y="48" width="351" height="66"/>
+                                <rect key="frame" x="17" y="48" width="351" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -830,30 +830,39 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qia-Yw-6bT">
-                                <rect key="frame" x="131" y="154" width="112" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wr-uk-9ph">
+                                <rect key="frame" x="134" y="141" width="108" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="112" id="l4P-RF-eVj"/>
+                                    <constraint firstAttribute="height" constant="38" id="2b0-cw-fac"/>
+                                    <constraint firstAttribute="width" constant="108" id="GVf-k3-4QU"/>
                                 </constraints>
-                                <state key="normal" title="Contattaci!"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Scrivici!"/>
                                 <connections>
-                                    <action selector="send:" destination="xuV-IR-3h5" eventType="touchUpInside" id="7ad-MM-mN1"/>
+                                    <action selector="sendMail:" destination="xuV-IR-3h5" eventType="touchUpInside" id="C5x-8O-wuF"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Qia-Yw-6bT" firstAttribute="centerX" secondItem="j3Q-3G-ywb" secondAttribute="centerX" id="AX6-IH-izv"/>
+                            <constraint firstItem="0Wr-uk-9ph" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="122" id="2Gc-SR-bZZ"/>
+                            <constraint firstItem="0Wr-uk-9ph" firstAttribute="centerX" secondItem="j3Q-3G-ywb" secondAttribute="centerX" id="9a9-0j-mxg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Wr-uk-9ph" secondAttribute="trailing" constant="113" id="Ggb-do-UkD"/>
                             <constraint firstItem="YPd-gl-kxy" firstAttribute="centerX" secondItem="fyp-ZK-2sy" secondAttribute="centerX" id="QdM-E0-R2n"/>
+                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="top" secondItem="j6m-a2-kHj" secondAttribute="bottom" constant="28" id="Uwn-x9-vBG"/>
                             <constraint firstItem="YPd-gl-kxy" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="76" id="bQa-jS-Sro"/>
+                            <constraint firstItem="0Wr-uk-9ph" firstAttribute="top" secondItem="fyp-ZK-2sy" secondAttribute="bottom" constant="52" id="bZw-Hg-oNm"/>
                             <constraint firstItem="fyp-ZK-2sy" firstAttribute="top" secondItem="j6m-a2-kHj" secondAttribute="bottom" constant="28" id="gl8-HO-644"/>
-                            <constraint firstItem="Qia-Yw-6bT" firstAttribute="top" secondItem="fyp-ZK-2sy" secondAttribute="bottom" constant="40" id="i4d-Hn-i2l"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fyp-ZK-2sy" secondAttribute="trailing" constant="-9" id="iXt-gM-5gz"/>
                             <constraint firstItem="fyp-ZK-2sy" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="1" id="sWx-4q-K1t"/>
-                            <constraint firstItem="YPd-gl-kxy" firstAttribute="top" secondItem="Qia-Yw-6bT" secondAttribute="bottom" constant="97" id="suE-29-wbb"/>
-                            <constraint firstItem="Qia-Yw-6bT" firstAttribute="top" secondItem="j3Q-3G-ywb" secondAttribute="top" constant="154" id="wFB-AV-U58"/>
                             <constraint firstItem="w8h-Mk-Ugv" firstAttribute="top" secondItem="YPd-gl-kxy" secondAttribute="bottom" constant="186" id="wcH-V3-PAh"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2Gc-SR-bZZ"/>
+                                <exclude reference="Ggb-do-UkD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -1239,6 +1248,6 @@
         <image name="voto_bg" width="127" height="126"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AfS-jD-Ety"/>
+        <segue reference="39a-fF-qkU"/>
     </inferredMetricsTieBreakers>
 </document>

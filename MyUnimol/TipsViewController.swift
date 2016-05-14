@@ -11,8 +11,7 @@ import MessageUI
 
 class TipsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
-    /// Triggers the mailing
-    @IBAction func send(sender: AnyObject) {
+    @IBAction func sendMail(sender: AnyObject) {
         let mailComposerController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
             self.presentViewController(mailComposerController, animated: true, completion: nil)
@@ -20,7 +19,6 @@ class TipsViewController: UIViewController, MFMailComposeViewControllerDelegate 
             self.showSendMailErrorAlert()
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         Utils.setNavigationControllerStatusBar(self, title: "Suggerimenti", color: Utils.myUnimolBlue, style: UIBarStyle.Black)

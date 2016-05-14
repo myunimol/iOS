@@ -7,8 +7,9 @@
 //
 
 import Gloss
+import Alamofire
 
-///Store the info for a tax
+/// Store the info for a tax
 public struct Tax: Decodable {
     
     let billId: String?
@@ -28,10 +29,17 @@ public struct Tax: Decodable {
         self.amount = "amount" <~~ json
         self.statusPayment = "statusPayment" <~~ json
     }
+    
+    public static func getAllTaxes(completionHandler: (Taxes?, NSError?) -> Void) {
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_TAXES, parameters: ParameterHandler.getStandardParameters()).responseAllTaxes { response in
+            completionHandler(response.result.value, response.result.error)
+        }
+    }
+
 }
 
 ///Contains a list of `Tax` objects
-public struct Taxes {
+public class Taxes {
     
     ///A list of `Tax` objects
     var taxes = [Tax]()
@@ -41,13 +49,32 @@ public struct Taxes {
     }
 }
 
-///The singleton which contains all info about taxes
-public class TaxClass {
-    
-    public static let sharedInstance = TaxClass()
-    
-    public var taxes: Taxes?
-    
-    private init() { }
+extension Alamofire.Request {
+    func responseAllTaxes(completionHandler: Response<Taxes, NSError> -> Void) -> Self {
+        let responseSerializer = ResponseSerializer<Taxes, NSError> { request, response, data, error in
+            
+            guard error == nil else {
+                return .Failure(error!)
+            }
+            
+            guard let responseData = data else {
+                let failureReason = "Array could not be serialized because input data was nil"
+                let error = Error.errorWithCode(.DataSerializationFailed, failureReason: failureReason)
+                return .Failure(error)
+            }
+            
+            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            
+            switch result {
+            case .Success(let value):
+                let taxes: Taxes = Taxes(json: value as! JSON)
+                return .Success(taxes)
+            case .Failure(let error):
+                return .Failure(error)
+            }
+        }
+        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
+    }
 }
 

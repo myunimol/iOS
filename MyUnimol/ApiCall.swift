@@ -153,56 +153,5 @@ class ApiCall {
                 }
         }
     }
-    
-    
-    /**
-     Call the getTaxes service from server, instantiating the TaxClass singleton.
-     Update the asyncronous the table passed as parameter
-     
-     - parameter calling: the UIViewController that send the request
-     - parameter table: the table to update
-     */
-    static func getTaxes(calling: UIViewController, table: UITableView) {
-        
-        let (username, password) = CacheManager.getUserCredential()
-        
-        let parameters = [
-            "username" : username!,
-            "password" : password!,
-            "token"    : MyUnimolToken.TOKEN
-        ]
-        
-        Utils.progressBarDisplayer(calling, msg: LoadSentences.getSentence(), indicator: true)
-        
-        Alamofire.request(.POST, MyUnimolEndPoints.GET_TAXES, parameters: parameters)
-            .responseJSON { response in
-                
-                Utils.removeProgressBar(calling)
-                
-                var statusCode : Int
-                if let httpError = response.result.error {
-                    statusCode = httpError.code
-                } else {
-                    statusCode = (response.response?.statusCode)!
-                }
-                
-                print("Calling getTaxes! The response from server is: \(statusCode)")
-                
-                if (statusCode == 200) {
-                    
-                    let taxesSingleton = TaxClass.sharedInstance
-                    taxesSingleton.taxes = Taxes(json: response.result.value as! JSON)
-                    
-                } else if (statusCode == 401) {
-                    
-                    Utils.displayAlert(calling, title: "Oops!", message: "Qualcosa di strano è successo")
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), {
-                    table.reloadData()
-                    table.hidden = false
-                })
-        }
-    }    
 }
 

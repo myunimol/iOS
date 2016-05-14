@@ -809,13 +809,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vuoi segnalare un bug o suggerirci dei miglioramenti? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyp-ZK-2sy">
-                                <rect key="frame" x="17" y="48" width="351" height="41"/>
+                                <rect key="frame" x="17" y="48" width="341" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamMolise" translatesAutoresizingMaskIntoConstraints="NO" id="YPd-gl-kxy">
-                                <rect key="frame" x="92" y="281" width="200" height="200"/>
+                                <rect key="frame" x="92" y="290" width="191" height="191"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YPd-gl-kxy" secondAttribute="height" multiplier="1:1" id="T8R-PH-L0N"/>
                                     <constraint firstAttribute="height" constant="200" id="eSO-0r-tXD"/>
@@ -848,19 +848,25 @@
                             <constraint firstItem="0Wr-uk-9ph" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="122" id="2Gc-SR-bZZ"/>
                             <constraint firstItem="0Wr-uk-9ph" firstAttribute="centerX" secondItem="j3Q-3G-ywb" secondAttribute="centerX" id="9a9-0j-mxg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0Wr-uk-9ph" secondAttribute="trailing" constant="113" id="Ggb-do-UkD"/>
+                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="centerX" secondItem="j3Q-3G-ywb" secondAttribute="centerX" id="L1k-GF-yA4"/>
+                            <constraint firstItem="YPd-gl-kxy" firstAttribute="top" secondItem="0Wr-uk-9ph" secondAttribute="bottom" constant="111" id="OjC-17-Oy3"/>
                             <constraint firstItem="YPd-gl-kxy" firstAttribute="centerX" secondItem="fyp-ZK-2sy" secondAttribute="centerX" id="QdM-E0-R2n"/>
                             <constraint firstItem="fyp-ZK-2sy" firstAttribute="top" secondItem="j6m-a2-kHj" secondAttribute="bottom" constant="28" id="Uwn-x9-vBG"/>
                             <constraint firstItem="YPd-gl-kxy" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="76" id="bQa-jS-Sro"/>
                             <constraint firstItem="0Wr-uk-9ph" firstAttribute="top" secondItem="fyp-ZK-2sy" secondAttribute="bottom" constant="52" id="bZw-Hg-oNm"/>
                             <constraint firstItem="fyp-ZK-2sy" firstAttribute="top" secondItem="j6m-a2-kHj" secondAttribute="bottom" constant="28" id="gl8-HO-644"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fyp-ZK-2sy" secondAttribute="trailing" constant="-9" id="iXt-gM-5gz"/>
+                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="centerX" secondItem="j3Q-3G-ywb" secondAttribute="centerX" id="nAL-HJ-uLi"/>
                             <constraint firstItem="fyp-ZK-2sy" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="1" id="sWx-4q-K1t"/>
                             <constraint firstItem="w8h-Mk-Ugv" firstAttribute="top" secondItem="YPd-gl-kxy" secondAttribute="bottom" constant="186" id="wcH-V3-PAh"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="iXt-gM-5gz"/>
+                                <exclude reference="nAL-HJ-uLi"/>
                                 <exclude reference="2Gc-SR-bZZ"/>
                                 <exclude reference="Ggb-do-UkD"/>
+                                <exclude reference="OjC-17-Oy3"/>
                             </mask>
                         </variation>
                     </view>

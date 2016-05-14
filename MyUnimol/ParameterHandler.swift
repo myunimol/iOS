@@ -30,4 +30,12 @@ public class ParameterHandler {
         return ["token" : MyUnimolToken.TOKEN]
     }
     
+    public static func getStandardParameters() -> [String : String] {
+        let (username, password) = CacheManager.getUserCredential()
+        
+        return ["username" : username!,
+                "password" : password!,
+                "token"    : MyUnimolToken.TOKEN]
+        
+    }
 }

@@ -7,9 +7,10 @@
 //
 
 import Gloss
+import Alamofire
 
-///Contains info for an exam of the current session
-public struct ExamSessionStruct: Decodable {
+/// Info about an exam of the current session (already enrolled or not yet)
+public struct SessionExam: Decodable {
     
     let name: String?
     let cfu: String?
@@ -19,6 +20,11 @@ public struct ExamSessionStruct: Decodable {
     let room: String?
     let notes: String?
     let id: String?
+    
+    /// Enrollement position (only for enrolled exams)
+    let enrollmentPosition: String?
+    /// Total number of enrolled (only for enrolled ones)
+    let enrolled: String?
     
     public init?(json: JSON) {
         self.name = "name" <~~ json
@@ -31,77 +37,62 @@ public struct ExamSessionStruct: Decodable {
         self.room = "room" <~~ json
         self.notes = "notes" <~~ json
         self.id = "id" <~~ json
-    }
-}
-
-///Contains info for an enrolled exam
-public struct EnrolledExamStruct: Decodable {
-    
-    let name: String?
-    let cfu: String?
-    let professor: String?
-    let date: NSDate?
-    let expiringDate: NSDate?
-    let room: String?
-    let enrollmentPosition: String?
-    let enrolled: String?
-    let notes: String?
-    
-    public init?(json: JSON) {
-        self.name = "name" <~~ json
-        self.cfu = "cfu" <~~ json
-        self.professor = "professor" <~~ json
-        let auxDate: String? = "date" <~~ json
-        self.date = auxDate?.stringToDate
-        let auxExpiring: String? = "expiringDate" <~~ json
-        self.expiringDate = auxExpiring?.stringToDate
-        self.room = "room" <~~ json
+        
         self.enrollmentPosition = "enrollmentPosition" <~~ json
         self.enrolled = "enrolled" <~~ json
-        self.notes = "notes" <~~ json
+    }
+    
+    public static func getSessionExams(completionHandler: (SessionExams?, NSError?) -> Void) {
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_EXAM_SESSIONS, parameters: ParameterHandler.getStandardParameters()).responseSessionExams { response in
+            completionHandler(response.result.value, response.result.error)
+        }
+    }
+    
+    public static func getEnrolledExams(completionHandler: (SessionExams?, NSError?) -> Void) {
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_ENROLLED_EXAMS, parameters: ParameterHandler.getStandardParameters()).responseSessionExams { response in
+            completionHandler(response.result.value, response.result.error)
+        }
     }
 }
 
-///The list of available exams
-public struct ExamSessionList {
+/// Contains a list of `TodoExam` for the current section
+public struct SessionExams {
     
-    ///a list of all available exams
-    var examsList = [ExamSessionStruct]()
+    /// A list of all available exams
+    var examsList = [SessionExam]()
     
     init(json: JSON) {
-        self.examsList = [ExamSessionStruct].fromJSONArray(("exams" <~~ json)!)
+        self.examsList = [SessionExam].fromJSONArray(("exams" <~~ json)!)
     }
 }
 
-///The list of enrolled exams
-public struct EnrolledExamsList {
-    
-    ///a list with all enrolled exams
-    var examsList = [EnrolledExamStruct]()
-    
-    init(json: JSON) {
-        self.examsList = [EnrolledExamStruct].fromJSONArray(("exams" <~~ json)!)
+extension Alamofire.Request {
+    func responseSessionExams(completionHandler: Response<SessionExams, NSError> -> Void) -> Self {
+        let responseSerializer = ResponseSerializer<SessionExams, NSError> { request, response, data, error in
+            
+            guard error == nil else {
+                return .Failure(error!)
+            }
+            
+            guard let responseData = data else {
+                let failureReason = "Array could not be serialized because input data was nil"
+                let error = Error.errorWithCode(.DataSerializationFailed, failureReason: failureReason)
+                return .Failure(error)
+            }
+            
+            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            
+            switch result {
+            case .Success(let value):
+                let exams: SessionExams = SessionExams(json: value as! JSON)
+                return .Success(exams)
+            case .Failure(let error):
+                return .Failure(error)
+            }
+        }
+        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
     }
-}
-
-///Singleton for the list of available exams
-public class ExamsClass {
-    
-    public static let sharedInstance = ExamsClass()
-    
-    public var exams: ExamSessionList?
-    
-    private init() { }
-}
-
-///Singleton for the list of enrolled exams
-public class EnrolledExamsClass {
-    
-    public static let sharedInstance = EnrolledExamsClass()
-    
-    public var exams: EnrolledExamsList?
-    
-    private init() { }
 }
 
 extension String {

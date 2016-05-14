@@ -12,7 +12,7 @@ import Gloss
 
 class EnrolledExamsController: UIViewController, UITableViewDelegate {
 
-    var exams:  EnrolledExamsClass!
+    var exams: Array<SessionExam>?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,8 +23,21 @@ class EnrolledExamsController: UIViewController, UITableViewDelegate {
         self.tableView.registerNib(nib, forCellReuseIdentifier: "DefaultExamCell")
         
         self.tableView.hidden = true
-        ApiCall.getEnrolledExams(self, table: self.tableView)
-        self.exams = EnrolledExamsClass.sharedInstance
+        self.loadExams()
+    }
+    
+    func loadExams() {
+        Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
+        SessionExam.getEnrolledExams { exams, error in
+            guard error == nil else {
+                //TODO: error implementation
+                return
+            }
+            self.exams = exams?.examsList
+            self.tableView.reloadData()
+            self.tableView.hidden = false
+            Utils.removeProgressBar(self)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,13 +55,13 @@ class EnrolledExamsController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.exams.exams?.examsList.count ?? 0
+        return self.exams?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DefaultExamCell", forIndexPath: indexPath) as! DefaultExamCell
         
-        let exam = self.exams.exams?.examsList[indexPath.row]
+        let exam = self.exams?[indexPath.row]
         cell.examName.text = exam?.name
         cell.professor.text = exam?.professor
         cell.examDate.text = exam?.date?.dateToString

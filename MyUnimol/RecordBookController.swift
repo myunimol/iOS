@@ -13,12 +13,13 @@ import Gloss
 class RecordBookController: UIViewController, UITableViewDelegate {
 
     var recordBook: RecordBookClass!
+    var rec: RecordBook?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Utils.setNavigationControllerStatusBar(self, title: "Libretto", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
-
+        print(rec?.average)
         self.recordBook = RecordBookClass.sharedInstance
         // TODO implement the absence of connection of the empy record book (no exams done)
     }

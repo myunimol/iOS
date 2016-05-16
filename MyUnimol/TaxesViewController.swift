@@ -28,7 +28,7 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
     
     func loadTaxes() {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
-            Tax.getAllTaxes { taxes, error in
+        Tax.getAllTaxes { taxes, error in
             guard error == nil else {
                 //TODO: error implementation
                 return

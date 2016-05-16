@@ -82,7 +82,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             
         case 8:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
-            CacheManager.resetLoginInformation()
+            CacheManager.resetCredentials()
             break;
             
         default:

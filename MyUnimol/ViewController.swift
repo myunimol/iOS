@@ -37,27 +37,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         Utils.setNavigationControllerStatusBar(self, title: "Home", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
+        // get record book from singleton object
+        self.recordBook = RecordBookClass.sharedInstance.recordBook
+        let grades = recordBook?.examsGrades
+        let degrees = recordBook?.staringDegree
         
-        
-        let recordBook: RecordBookClass! = RecordBookClass.sharedInstance
-        let grades = recordBook.recordBook?.examsGrades
-        let degrees = recordBook.recordBook?.staringDegree
-        
-        self.average.text = "\(recordBook.recordBook!.average!)"
-        self.startingDegree.text = "\((recordBook.recordBook?.average)! * 11 / 3)"
-        print(degrees)
-        
-        
-        let student = Student.sharedInstance
-        let info = student.studentInfo
-        print("\n*******", info!.department)
-        print("\n*******", info!.course)
+        self.average.text = "\(recordBook!.weightedAverage!)"
+        self.startingDegree.text = "\((recordBook?.average)! * 11 / 3)"
         
         self.animateButton()
         
         self.setGradesChart(grades!)
         self.setStartingDegreesChart(degrees!)
     }
+    
     
     func setGradesChart(grades: [Int]) {
         self.lineChartView.noDataTextDescription = "Nessun esame verbalizzato"

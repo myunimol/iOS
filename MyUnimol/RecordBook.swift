@@ -7,8 +7,9 @@
 //
 
 import Gloss
+import Alamofire
 
-
+/// A single done exam in student career
 public struct Exam: Decodable {
     
     let name : String?
@@ -29,12 +30,15 @@ public struct Exam: Decodable {
     }
 }
 
-public struct RecordBook {
+/// Info about student career (exams, average and starting degree)
+public class RecordBook {
 
+    /// Average degree
     let average : Double?
+    /// A list of `Exam` objects
     var exams = [Exam]()
-    let weightedAverage : String?
-    
+    /// Weighted average
+    let weightedAverage : Double?
     // exams with a numeric grade
     var examsGrades = [Int]()
     // progression of final starting degree
@@ -66,6 +70,12 @@ public struct RecordBook {
         }
     }
     
+    public static func getRecordBook(completionHandler: (RecordBook?, NSError?) -> Void) {
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_RECORD_BOOK, parameters: ParameterHandler.getStandardParameters()).responseRecordBook { response in
+            completionHandler(response.result.value, response.result.error)
+        }
+    }
+    
     func orderExamsByDate(exam1: Exam, exam2: Exam) -> Bool {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
@@ -74,10 +84,10 @@ public struct RecordBook {
         let date2 = dateFormatter.dateFromString(exam2.date!)
         
         return date1?.timeIntervalSince1970 < date2?.timeIntervalSince1970
-
     }
 }
 
+/// Singleton which contains a `RecordBookClass` istance
 public class RecordBookClass {
     
     public static let sharedInstance = RecordBookClass()
@@ -85,6 +95,38 @@ public class RecordBookClass {
     public var recordBook: RecordBook?
     
     private init() { }
+}
+
+extension Alamofire.Request {
+    func responseRecordBook(completionHandler: Response<RecordBook, NSError> -> Void) -> Self {
+        let responseSerializer = ResponseSerializer<RecordBook, NSError> { request, response, data, error in
+            
+            guard error == nil else {
+                return .Failure(error!)
+            }
+            
+            guard let responseData = data else {
+                let failureReason = "Array could not be serialized because input data was nil"
+                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
+                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
+                return .Failure(error)
+            }
+            
+            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            
+            switch result {
+            case .Success(let value):
+                let recordBook: RecordBook = RecordBook(json: value as! JSON)
+                // store info about exams into the singleton class
+                RecordBookClass.sharedInstance.recordBook = recordBook
+                return .Success(recordBook)
+            case .Failure(let error):
+                return .Failure(error)
+            }
+        }
+        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
+    }
 }
 
 extension Decoder {

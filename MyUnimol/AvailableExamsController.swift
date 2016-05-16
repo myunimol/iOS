@@ -34,8 +34,13 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
                 return
             }
             self.exams = exams?.examsList
-            self.tableView.reloadData()
-            self.tableView.hidden = false
+            if (self.exams?.count == 0) {
+                self.tableView.hidden = true
+                Utils.setPlaceholderForEmptyTable(self, message: "Non ci sono appelli disponibili")
+            } else {
+                self.tableView.reloadData()
+                self.tableView.hidden = false
+            }
             Utils.removeProgressBar(self)
         }
     }

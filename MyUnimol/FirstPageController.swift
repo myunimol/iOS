@@ -19,9 +19,32 @@ class FirstPageController: UIViewController {
         self.view.backgroundColor = Utils.myUnimolBlueUIColor
         
         let (username, password) = CacheManager.getUserCredential()
-            
-        ApiCall.loginAndFetchDataForHome(username!, password: password!, caller: self)
+        self.loginAndGetStudentInfo(username!, password: password!)        
     }
+    
+    func loginAndGetStudentInfo(username: String, password: String) {
+        Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
+        StudentInfo.getCredentials(username, password: password) { studentInfo, error in
+            guard error == nil else {
+                //TODO: error implementation
+                return
+            }
+            Utils.removeProgressBar(self)
+            self.getRecordBook()
+        }
+    }
+    
+    func getRecordBook() {
+        RecordBook.getRecordBook { recordBook, error in
+            guard error == nil else {
+                //TODO: error implementation
+                return
+            }
+            self.performSegueWithIdentifier("ViewController", sender: self)
+            Utils.removeProgressBar(self)
+        }
+    }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

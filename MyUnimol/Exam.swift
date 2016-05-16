@@ -76,7 +76,8 @@ extension Alamofire.Request {
             
             guard let responseData = data else {
                 let failureReason = "Array could not be serialized because input data was nil"
-                let error = Error.errorWithCode(.DataSerializationFailed, failureReason: failureReason)
+                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
+                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
                 return .Failure(error)
             }
             

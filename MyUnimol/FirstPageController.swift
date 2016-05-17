@@ -18,7 +18,7 @@ class FirstPageController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = Utils.myUnimolBlueUIColor
         
-        let (username, password) = CacheManager.getUserCredential()
+        let (username, password) = CacheManager.sharedInstance.getUserCredential()
         self.loginAndGetStudentInfo(username!, password: password!)        
     }
     

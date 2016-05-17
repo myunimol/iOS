@@ -8,6 +8,7 @@ target 'MyUnimol' do
     pod 'MMDrawerController', '~> 0.5.7'
     pod 'Gloss', '~> 0.6'
     pod 'Charts'
+    pod 'HanekeSwift'
 end
 
 target 'MyUnimolTests' do

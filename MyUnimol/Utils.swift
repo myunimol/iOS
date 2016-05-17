@@ -43,7 +43,6 @@ class Utils {
     static func progressBarDisplayer(targetVC: UIViewController, msg:String, indicator:Bool ) {
         
         let height = myHeightForView(msg, width: 200)
-        print(height)
         
         strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: height))
         strLabel.numberOfLines = 0
@@ -76,7 +75,6 @@ class Utils {
         targetVC.view.addSubview(messageFrame)
     }
     
-    
     private static func myHeightForView(text: String, width: CGFloat) -> CGFloat {
         let label = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))
         label.numberOfLines = 0
@@ -90,11 +88,7 @@ class Utils {
         }
     }
     
-    
-    /**
-     Removes the progress bar from a given view
-     - parameter targetVC: the view
-     */
+    /// Removes the progress bar from a given view
     static func removeProgressBar(targetVC: UIViewController) {
         messageFrame.removeFromSuperview()
     }
@@ -115,6 +109,7 @@ class Utils {
         myView.navigationItem.title = title
     }
     
+    /// Sets a placeholder in a view with no data
     static func setPlaceholderForEmptyTable(calling: UIViewController, message: String) {
         let imageView = UIImageView(image: UIImage(named: "swag.png"))
         imageView.frame = CGRect(x: (calling.view.frame.size.width - 120) / 2, y: 10, width: 120, height: 120)
@@ -124,6 +119,12 @@ class Utils {
         label.text = message
         calling.view.addSubview(label)
         calling.view.addSubview(imageView)
+    }
+    
+    /// Set a table view to visible and reload data
+    static func reloadTable(table: UITableView) {
+        table.reloadData()
+        table.hidden = false
     }
     
 }

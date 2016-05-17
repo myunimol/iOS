@@ -23,7 +23,15 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         Utils.setNavigationControllerStatusBar(self, title: "Pagamenti", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
         
         self.tableView.hidden = true
-        self.loadTaxes()
+        if !Reachability.isConnectedToNetwork() {
+            CacheManager.sharedInstance.getJsonByString("tax") { json in
+                let taxes = Taxes(json: json)
+                self.taxes = taxes.taxes
+                Utils.reloadTable(self.tableView)
+            }
+        } else {
+            self.loadTaxes()
+        }
     }
     
     func loadTaxes() {
@@ -34,12 +42,10 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
                 return
             }
             self.taxes = taxes?.taxes
-            self.tableView.reloadData()
-            self.tableView.hidden = false
+            Utils.reloadTable(self.tableView)
             Utils.removeProgressBar(self)
         }
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

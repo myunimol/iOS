@@ -41,7 +41,6 @@
 		1E94C4751CDE0D2900B9812D /* DefaultNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4731CDE0D2900B9812D /* DefaultNewsCell.swift */; };
 		1E94C4761CDE0D2900B9812D /* DefaultNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */; };
 		1EA091601CE4E87000D9158B /* TipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0915F1CE4E87000D9158B /* TipsViewController.swift */; };
-		1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */; };
 		1EF37DE61CE24DFC0052A567 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF37DE51CE24DFC0052A567 /* ContactCell.swift */; };
 		1EF37DEB1CE38AE90052A567 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF37DEA1CE38AE90052A567 /* WebViewController.swift */; };
 		1EFA572E1CDF1C5000FA74A4 /* DefaultExamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */; };
@@ -116,7 +115,6 @@
 		1E94C4731CDE0D2900B9812D /* DefaultNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNewsCell.swift; sourceTree = "<group>"; };
 		1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultNewsCell.xib; sourceTree = "<group>"; };
 		1EA0915F1CE4E87000D9158B /* TipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsViewController.swift; sourceTree = "<group>"; };
-		1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
 		1EF37DE51CE24DFC0052A567 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		1EF37DEA1CE38AE90052A567 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultExamCell.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 			children = (
 				1E94C4711CDDC35700B9812D /* ParameterHandler.swift */,
 				1E00EA511C69C2900092F612 /* MyUnimolEndPoints.swift */,
-				1EEB89A71C9BD8A4003016B6 /* ApiCall.swift */,
 				1E94C4661CD86E6E00B9812D /* Reachability.swift */,
 				1E94C4681CD872A500B9812D /* CacheManager.swift */,
 			);
@@ -664,7 +661,6 @@
 				1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */,
 				1E66FBB61CDFBF9A00D61158 /* ContactViewController.swift in Sources */,
 				1E8ACFD21C9B14BF0059AED2 /* TaxesCell.swift in Sources */,
-				1EEB89A81C9BD8A4003016B6 /* ApiCall.swift in Sources */,
 				1E00EA521C69C2900092F612 /* MyUnimolEndPoints.swift in Sources */,
 				1E8ACFD41C9B154F0059AED2 /* Tax.swift in Sources */,
 				1E8DABBF1C7F6C000018FBAC /* Utils.swift in Sources */,
@@ -827,6 +823,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimol";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/giograno/team_molise/MyUnimol/MyUnimol/MyUnimol-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -840,6 +837,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimol";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/giograno/team_molise/MyUnimol/MyUnimol/MyUnimol-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

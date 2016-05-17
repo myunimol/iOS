@@ -94,13 +94,13 @@ extension Alamofire.Request {
             
             let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
             let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
-            
-            print(request)
+
             switch result {
             case .Success(let value):
                 // stores credentials into NsUsersDefaults and info in singleton
                 let studentInfo: StudentInfo = StudentInfo(json: value as! JSON)!
-                CacheManager.storeCredentials(username, password: password)
+                CacheManager.sharedInstance.storeCredentials(username, password: password)
+                CacheManager.sharedInstance.storeJsonInCacheByKey("studentInfo", json: value as! JSON)
                 Student.sharedInstance.studentInfo = studentInfo
                 return .Success(studentInfo)
             case .Failure(let error):

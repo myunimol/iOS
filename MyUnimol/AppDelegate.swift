@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        self.avoidLogin = CacheManager.areCredentialsStored()
+        self.avoidLogin = CacheManager.sharedInstance.areCredentialsStored()
         
         let firstViewController = configureCenterViewController()
         let leftViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LeftSideViewController") as! LeftSideViewController

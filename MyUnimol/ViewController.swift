@@ -49,6 +49,10 @@ class ViewController: UIViewController {
         
         self.setGradesChart(grades!)
         self.setStartingDegreesChart(degrees!)
+        
+//        CacheManager.sharedInstance.getJsonByString("studentInfo") { json in
+//            print(json)
+//        }
     }
     
     

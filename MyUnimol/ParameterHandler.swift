@@ -31,7 +31,7 @@ public class ParameterHandler {
     }
     
     public static func getStandardParameters() -> [String : String] {
-        let (username, password) = CacheManager.getUserCredential()
+        let (username, password) = CacheManager.sharedInstance.getUserCredential()
         
         return ["username" : username!,
                 "password" : password!,

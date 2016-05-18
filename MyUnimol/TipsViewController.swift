@@ -19,6 +19,7 @@ class TipsViewController: UIViewController, MFMailComposeViewControllerDelegate 
             self.showSendMailErrorAlert()
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Utils.setNavigationControllerStatusBar(self, title: "Suggerimenti", color: Utils.myUnimolBlue, style: UIBarStyle.Black)

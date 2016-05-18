@@ -24,7 +24,7 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         
         self.tableView.hidden = true
         if !Reachability.isConnectedToNetwork() {
-            CacheManager.sharedInstance.getJsonByString("tax") { json in
+            CacheManager.sharedInstance.getJsonByString(CacheManager.TAX) { json in
                 let taxes = Taxes(json: json)
                 self.taxes = taxes.taxes
                 Utils.reloadTable(self.tableView)

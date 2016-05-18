@@ -120,6 +120,8 @@ extension Alamofire.Request {
                 let recordBook: RecordBook = RecordBook(json: value as! JSON)
                 // store info about exams into the singleton class
                 RecordBookClass.sharedInstance.recordBook = recordBook
+                // store json in cache
+                CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.RECORD_BOOK, json: value as! JSON)
                 return .Success(recordBook)
             case .Failure(let error):
                 return .Failure(error)

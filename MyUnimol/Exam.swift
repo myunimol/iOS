@@ -50,7 +50,7 @@ public struct SessionExam: Decodable {
     
     public static func getEnrolledExams(completionHandler: (SessionExams?, NSError?) -> Void) {
         Alamofire.request(.POST, MyUnimolEndPoints.GET_ENROLLED_EXAMS, parameters: ParameterHandler.getStandardParameters()).responseSessionExams { response in
-            completionHandler(response.result.value, response.result.error)
+                completionHandler(response.result.value, response.result.error)
         }
     }
 }

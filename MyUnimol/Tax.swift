@@ -70,7 +70,8 @@ extension Alamofire.Request {
             switch result {
             case .Success(let value):
                 let taxes: Taxes = Taxes(json: value as! JSON)
-                CacheManager.sharedInstance.storeJsonInCacheByKey("tax", json: value as! JSON)
+                // store in cache
+                CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.TAX, json: value as! JSON)
                 return .Success(taxes)
             case .Failure(let error):
                 return .Failure(error)

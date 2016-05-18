@@ -47,10 +47,7 @@ class LoadSentences {
         "\"Gestante\": participio presente o preservativo imperfetto?"
     ]
     
-    /**
-     Returns a random loading sentence
-     - returns: a sentence
-    */
+    /// Returns a random loading sentence
     static func getSentence() -> String {
         return self.sentences.randomItem()
     }

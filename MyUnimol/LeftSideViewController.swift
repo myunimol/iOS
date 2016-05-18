@@ -82,7 +82,9 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             
         case 8:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
+            // remove credentials and refresh cache
             CacheManager.sharedInstance.resetCredentials()
+            CacheManager.sharedInstance.refreshCache()
             break;
             
         default:

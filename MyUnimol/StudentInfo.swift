@@ -99,8 +99,9 @@ extension Alamofire.Request {
             case .Success(let value):
                 // stores credentials into NsUsersDefaults and info in singleton
                 let studentInfo: StudentInfo = StudentInfo(json: value as! JSON)!
+                // store credentials and json in cache
                 CacheManager.sharedInstance.storeCredentials(username, password: password)
-                CacheManager.sharedInstance.storeJsonInCacheByKey("studentInfo", json: value as! JSON)
+                CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.STUDENT_INFO, json: value as! JSON)
                 Student.sharedInstance.studentInfo = studentInfo
                 return .Success(studentInfo)
             case .Failure(let error):

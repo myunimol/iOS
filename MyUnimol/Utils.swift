@@ -6,9 +6,7 @@
 //  Copyright © 2016 Giovanni Grano. All rights reserved.
 //
 
-/**
- Generic utility class
- */
+/// Generic utility class
 class Utils {
     /// the `UIView` which contain the loading sentences and the activity indicator
     static var messageFrame = UIView()
@@ -23,10 +21,11 @@ class Utils {
     
     /**
      Display an alert message for the passed `UIViewController`
-     - parameter targetVC: the view controller
-     - parameter title: the title of the message
-     - parameter message: the body of the message
-    */
+     - parameters:
+        - targetVC: the view controller
+        - title: the title of the message
+        - message: the body of the message
+     */
     static func displayAlert(targetVC: UIViewController, title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         alertController.addAction((UIAlertAction(title: "OK", style: .Default, handler: {(action) -> Void in
@@ -36,9 +35,10 @@ class Utils {
     
     /**
      Sets an activity indicator with a random sentence in the view passed as parameter
-     - parameter targetVC: the view
-     - parameter msg: the message
-     - parameter indicator: a boolean value which handle the presence of the activity indicator
+     - parameters:
+        - targetVC: the view
+        - msg: the message
+        - indicator: a boolean value which handle the presence of the activity indicator
      */
     static func progressBarDisplayer(targetVC: UIViewController, msg:String, indicator:Bool ) {
         
@@ -58,7 +58,7 @@ class Utils {
             screeHeight = targetVC.view.frame.size.height - 64
         }
         let screenWidth = targetVC.view.frame.size.width
-
+        
         let frame = CGRectMake((screenWidth / 2) - (size / 2), (screeHeight / 2) - (height / 2), size, height)
         messageFrame = UIView(frame: frame)
         
@@ -94,12 +94,13 @@ class Utils {
     }
     
     /**
-     Customie the navigation controller bar for the view passed as parameter
-     - parameter myView: the view
-     - parameter title: the title of the view
-     - parameter color: the color of the bar
-     - parameter style: the style of the bar
-    */
+     Customize the navigation controller bar for the view passed as parameter
+     - parameters:
+        - myView: the view
+        - title: the title of the view
+        - color: the color of the bar
+        - style: the style of the bar
+     */
     static func setNavigationControllerStatusBar(myView: UIViewController, title: String, color: CIColor, style: UIBarStyle) {
         let navigation = myView.navigationController!
         navigation.navigationBar.barStyle = style

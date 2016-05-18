@@ -18,10 +18,25 @@ class CacheManager {
     
     private let userDefaults = NSUserDefaults.standardUserDefaults()
     
+    /// key for student info cache
+    static let STUDENT_INFO = "studentInfo"
+    /// key for record book cache
+    static let RECORD_BOOK = "recordBook"
+    /// key for available exams cache
+    static let EXAMS_AVAILABLE = "examsAvailable"
+    /// key for enrolled exams cache
+    static let EXAMS_ENROLLED = "examsEnrolled"
+    /// key for tax cache
+    static let TAX = "tax"
+    /// key for board news cache
+    static let BOARD_NEWS = "boardNews"
+    /// key for department news cache
+    static let DEPARTMENT_NEWS = "departmentNews"
+    /// key for university news cache
+    static let UNIVERSITY_NEWS = "universityNews"
+    
     init() {}
-    
-    static let STUDENT_INFO_KEY = "studentInfo"
-    
+        
     // Stores the credentials in NSUserDefaults
     internal func storeCredentials(username: String, password: String) {
         self.userDefaults.setObject(username, forKey: "username")
@@ -51,15 +66,20 @@ class CacheManager {
     }
     
     /// Store a `Gloss.JSON` into `NSUserDefaults` for a given key
-    func storeJsonInCacheByKey(key: String, json: Gloss.JSON) {
+    internal func storeJsonInCacheByKey(key: String, json: Gloss.JSON) {
         self.cache.set(value: json, key: key)
     }
     
     /// Returns a `Gloss.JSON` object for a given key
-    func getJsonByString(key: String, completionHandler: (json: Gloss.JSON) -> Void) {
+    internal func getJsonByString(key: String, completionHandler: (json: Gloss.JSON) -> Void) {
         self.cache.fetch(key: key).onSuccess { json in
             return completionHandler(json: json)
         }
+    }
+    
+    /// Refresh the cache
+    internal func refreshCache() {
+        self.cache.removeAll()
     }
 }
 

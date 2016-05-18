@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 
 class WebViewController: UIViewController, WKNavigationDelegate {
-
+    
     var webView: WKWebView?
     
     private var request: NSURLRequest {
@@ -55,30 +55,35 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     }
     
     override func viewDidLoad() {
-        /* Create our preferences on how the web page should be loaded */
-        let preferences = WKPreferences()
-        preferences.javaScriptEnabled = true
+        
+        if !Reachability.isConnectedToNetwork() {
+            Utils.displayAlert(self, title: "Ops! Abbiamo un problema!", message: "Connessione assente!")
+        } else {
+            /* Create our preferences on how the web page should be loaded */
+            let preferences = WKPreferences()
+            preferences.javaScriptEnabled = true
+            
+            let userContentController = WKUserContentController()
+            userContentController.addUserScript(self.userScript)
+            
+            /* Create a configuration for our preferences */
+            let configuration = WKWebViewConfiguration()
+            configuration.preferences = preferences
+            configuration.userContentController = userContentController
+            
+            /* Now instantiate the web view */
+            webView = WKWebView(frame: view.bounds, configuration: configuration)
+            
+            if let theWebView = webView {
+                /* Load a web page into our web view */
+                let urlRequest = self.request
+                theWebView.loadRequest(urlRequest)
+                theWebView.navigationDelegate = self
+                view.addSubview(theWebView)
+            }
+        } // else for connection available
         
         // Hide the navigation bar for this view
         self.navigationController?.navigationBarHidden = true
-        
-        let userContentController = WKUserContentController()
-        userContentController.addUserScript(self.userScript)
-        
-        /* Create a configuration for our preferences */
-        let configuration = WKWebViewConfiguration()
-        configuration.preferences = preferences
-        configuration.userContentController = userContentController
-        
-        /* Now instantiate the web view */
-        webView = WKWebView(frame: view.bounds, configuration: configuration)
-        
-        if let theWebView = webView {
-            /* Load a web page into our web view */
-            let urlRequest = self.request
-            theWebView.loadRequest(urlRequest)
-            theWebView.navigationDelegate = self
-            view.addSubview(theWebView)
-        }
     }
 }

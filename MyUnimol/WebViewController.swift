@@ -46,9 +46,8 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     /// Perform automatic login
     func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
         if challenge.protectionSpace.host == "unimol.esse3.cineca.it" {
-            let user = "g.grano"
-            let password = "undell3gas"
-            let credential = NSURLCredential(user: user, password: password, persistence: NSURLCredentialPersistence.ForSession)
+            let (user, password) = CacheManager.sharedInstance.getUserCredential()
+            let credential = NSURLCredential(user: user!, password: password!, persistence: NSURLCredentialPersistence.ForSession)
             challenge.sender?.useCredential(credential, forAuthenticationChallenge: challenge)
             completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
         }

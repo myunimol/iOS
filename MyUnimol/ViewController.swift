@@ -43,16 +43,13 @@ class ViewController: UIViewController {
         let degrees = recordBook?.staringDegree
         
         self.average.text = "\(recordBook!.weightedAverage!)"
-        self.startingDegree.text = "\((recordBook?.average)! * 11 / 3)"
+        let auxDegree = Double(round((recordBook?.average)! * 11 / 3)*100/100)
+        self.startingDegree.text = "\(auxDegree)"
         
         self.animateButton()
         
         self.setGradesChart(grades!)
         self.setStartingDegreesChart(degrees!)
-        
-//        CacheManager.sharedInstance.getJsonByString("studentInfo") { json in
-//            print(json)
-//        }
     }
     
     

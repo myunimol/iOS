@@ -80,10 +80,11 @@ public class RecordBook {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
-        let date1 = dateFormatter.dateFromString(exam1.date!)
-        let date2 = dateFormatter.dateFromString(exam2.date!)
-        
-        return date1?.timeIntervalSince1970 < date2?.timeIntervalSince1970
+        if let date1 = exam1.date, let date2 = exam2.date {
+            return dateFormatter.dateFromString(date1)?.timeIntervalSince1970 < dateFormatter.dateFromString(date2)?.timeIntervalSince1970
+        } else {
+            return true
+        }
     }
 }
 

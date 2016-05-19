@@ -19,7 +19,19 @@ class FirstPageController: UIViewController {
         self.view.backgroundColor = Utils.myUnimolBlueUIColor
         
         let (username, password) = CacheManager.sharedInstance.getUserCredential()
-        self.loginAndGetStudentInfo(username!, password: password!)        
+        
+        if !Reachability.isConnectedToNetwork() {
+            // no connection available
+            CacheManager.sharedInstance.getJsonByString(CacheManager.STUDENT_INFO) { json in
+                Student.sharedInstance.studentInfo = StudentInfo(json: json)
+                CacheManager.sharedInstance.getJsonByString(CacheManager.RECORD_BOOK) { json in
+                    RecordBookClass.sharedInstance.recordBook = RecordBook(json: json)
+                    self.performSegueWithIdentifier("ViewController", sender: self)
+                }
+            }
+        } else {
+            self.loginAndGetStudentInfo(username!, password: password!)
+        }
     }
     
     func loginAndGetStudentInfo(username: String, password: String) {

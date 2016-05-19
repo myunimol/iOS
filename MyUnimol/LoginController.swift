@@ -12,7 +12,7 @@ import Gloss
 
 class LoginController : UIViewController, UITextFieldDelegate {
     
-    typealias CompletionHandler = (success: Bool) -> Void
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var usernameField: UITextField!
     
@@ -24,6 +24,8 @@ class LoginController : UIViewController, UITextFieldDelegate {
     var password: String = ""
     
     @IBAction func login(sender: AnyObject) {
+        self.usernameField.delegate = self
+        self.passwordField.delegate = self
         
         self.username = self.usernameField.text!
         self.password = self.passwordField.text!
@@ -83,10 +85,5 @@ class LoginController : UIViewController, UITextFieldDelegate {
     ///Remove the focus from a texfield
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }

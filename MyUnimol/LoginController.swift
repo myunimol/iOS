@@ -23,10 +23,11 @@ class LoginController : UIViewController, UITextFieldDelegate {
     var username: String = ""
     var password: String = ""
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     @IBAction func login(sender: AnyObject) {
-        self.usernameField.delegate = self
-        self.passwordField.delegate = self
-        
         self.username = self.usernameField.text!
         self.password = self.passwordField.text!
         
@@ -59,6 +60,30 @@ class LoginController : UIViewController, UITextFieldDelegate {
             Utils.removeProgressBar(self)
         }
     }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+
+        let keyboardSize: CGFloat = 260
+        let bottomCoordinate = self.view.frame.origin.y + self.view.frame.size.height
+        let textFieldCoordinate = textField.frame.origin.y
+
+        if (bottomCoordinate - textFieldCoordinate < keyboardSize) {
+            // the text field finish under the keyboard
+            let remanence = keyboardSize - (bottomCoordinate - textFieldCoordinate)
+            print(remanence)
+            self.scrollView.setContentOffset(CGPointMake(0, remanence), animated: true)
+
+        }
+    }
+        
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -69,8 +94,6 @@ class LoginController : UIViewController, UITextFieldDelegate {
         appDelegate.centerContainer!.centerViewController = centerNav
         appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
     }
-    
-    override func viewDidLoad() { super.viewDidLoad() }
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true

@@ -1,2 +1,3 @@
-# myUnimol
-Official My Unimol client for iOS
+MyUnimol
+========
+Official iOS client for MyUnimol

@@ -47,16 +47,50 @@ class LoadSentences {
         "\"Gestante\": participio presente o preservativo imperfetto?"
     ]
     
+    static let HIGH: Double = 27
+    static let LOW: Double = 23
+    
+    static let high: [String : String] = ["Hai una media invidiabile" : "wtf",
+                                          "Ottima carriera universitaria" : "swag"]
+    
+    static let medium: [String : String] = ["Continua così..." : "swag",
+                                            "Keep on pushin'" : "swag"]
+    
+    static let low: [String: String] = ["Impegnati di più" : "sad",
+                                        "Che fai stasera?" : "swag"]
+    
     /// Returns a random loading sentence
     static func getSentence() -> String {
         return self.sentences.randomItem()
     }
     
+    /// Gets a random home greating and an icon to display, based on the average
+    static func getRandomHomeSentence(average: Double) -> [String : String] {
+        switch average {
+        case _ where average > HIGH:
+            return self.high.randomItem()
+        case _ where average > LOW && average < HIGH:
+            return self.medium.randomItem()
+        case _ where average < LOW:
+            return self.low.randomItem()
+        default:
+            return ["Ma che razzi di voti hai?!": "wtf"]
+        }
+    }
 }
 
 extension Array {
     func randomItem() -> Element {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
+    }
+}
+
+extension Dictionary {
+    func randomItem() -> Dictionary {
+        let index = Int(arc4random_uniform(UInt32(self.count)))
+        let key = Array(self.keys)[index]
+        let value = self[key]
+        return [key : value!]
     }
 }

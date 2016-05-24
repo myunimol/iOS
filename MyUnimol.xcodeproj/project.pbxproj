@@ -259,7 +259,6 @@
 		1E38213B1C6D00C600D0E3A2 /* beans */ = {
 			isa = PBXGroup;
 			children = (
-				1E38213C1C6D00E300D0E3A2 /* RecordBook.swift */,
 				1E8ACFD31C9B154F0059AED2 /* Tax.swift */,
 				1E92526E1C9D580500146C7E /* News.swift */,
 				1EFA57301CDF1DDA00FA74A4 /* Exam.swift */,
@@ -302,6 +301,7 @@
 			children = (
 				1E4F8E3C1C972F0F007D92E2 /* KDCircularProgress.swift */,
 				1E8DABBE1C7F6C000018FBAC /* Utils.swift */,
+				1E38213C1C6D00E300D0E3A2 /* RecordBook.swift */,
 				1E94C46D1CDBBB4000B9812D /* LoadSentences.swift */,
 			);
 			name = utils;

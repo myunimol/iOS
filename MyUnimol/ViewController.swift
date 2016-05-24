@@ -30,6 +30,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var average: UILabel!
     // the starting degree for your graduation
     @IBOutlet weak var startingDegree: UILabel!
+    /// the image based on avarage
+    @IBOutlet weak var iconAverage: UIImageView!
+    /// the home greating
+    @IBOutlet weak var homeGreating: UILabel!
     
     var recordBook: RecordBook?
     
@@ -50,8 +54,18 @@ class ViewController: UIViewController {
         
         self.setGradesChart(grades!)
         self.setStartingDegreesChart(degrees!)
+        self.setGreating((recordBook?.weightedAverage)!)
     }
     
+    func setGreating(average: Double) {
+        let dict = LoadSentences.getRandomHomeSentence(average)
+        let index = dict.startIndex.advancedBy(0)
+        let sentence = dict.keys[index]
+        let imageRef = "\(dict.values[index]).png"
+        let image = UIImage(named: imageRef)
+        self.iconAverage.image = image
+        self.homeGreating.text = sentence
+    }
     
     func setGradesChart(grades: [Int]) {
         self.lineChartView.noDataTextDescription = "Nessun esame verbalizzato"

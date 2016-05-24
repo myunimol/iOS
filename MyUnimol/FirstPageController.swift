@@ -41,8 +41,16 @@ class FirstPageController: UIViewController {
                 //TODO: error implementation
                 return
             }
-            Utils.removeProgressBar(self)
-            self.getRecordBook()
+            if studentInfo!.areCredentialsValid {
+                self.getRecordBook()
+            } else {
+                // login not valid
+                Utils.displayAlert(self, title: "Questo non era previsto!", message: "Riapri MyUnimol")
+                Utils.removeProgressBar(self)
+                CacheManager.sharedInstance.resetCredentials()
+                CacheManager.sharedInstance.refreshCache()
+                exit(0)
+            }
         }
     }
     

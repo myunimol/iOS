@@ -17,6 +17,7 @@
 		1E27AA2C1C69B42D009AD819 /* MyUnimolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA2B1C69B42D009AD819 /* MyUnimolUITests.swift */; };
 		1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */; };
 		1E38213D1C6D00E300D0E3A2 /* RecordBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38213C1C6D00E300D0E3A2 /* RecordBook.swift */; };
+		1E44FA341CF4C55600F9DECA /* APIMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44FA331CF4C55600F9DECA /* APIMessage.swift */; };
 		1E4F8E3D1C972F0F007D92E2 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4F8E3C1C972F0F007D92E2 /* KDCircularProgress.swift */; };
 		1E66FBB31CDFA72800D61158 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66FBB21CDFA72800D61158 /* Contact.swift */; };
 		1E66FBB61CDFBF9A00D61158 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E66FBB51CDFBF9A00D61158 /* ContactViewController.swift */; };
@@ -90,6 +91,7 @@
 		1E27AA2D1C69B42D009AD819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1E38213C1C6D00E300D0E3A2 /* RecordBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordBook.swift; sourceTree = "<group>"; };
+		1E44FA331CF4C55600F9DECA /* APIMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIMessage.swift; sourceTree = "<group>"; };
 		1E4F8E3C1C972F0F007D92E2 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		1E66FBB21CDFA72800D61158 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		1E66FBB51CDFBF9A00D61158 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				1EFA57301CDF1DDA00FA74A4 /* Exam.swift */,
 				1E66FBB21CDFA72800D61158 /* Contact.swift */,
 				1E66FBB71CE05C5A00D61158 /* StudentInfo.swift */,
+				1E44FA331CF4C55600F9DECA /* APIMessage.swift */,
 			);
 			name = beans;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				1E94C4671CD86E6E00B9812D /* Reachability.swift in Sources */,
 				1E9252731C9D5EBA00146C7E /* DepartmentNewsViewController.swift in Sources */,
 				1EFA57331CDF2BF300FA74A4 /* AvailableExamsController.swift in Sources */,
+				1E44FA341CF4C55600F9DECA /* APIMessage.swift in Sources */,
 				1E8DABC71C8359F10018FBAC /* RecordBookController.swift in Sources */,
 				1EF37DEB1CE38AE90052A567 /* WebViewController.swift in Sources */,
 				1EFA57351CDF2C1E00FA74A4 /* EnrolledExamsController.swift in Sources */,

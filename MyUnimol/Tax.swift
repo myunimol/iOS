@@ -35,7 +35,6 @@ public struct Tax: Decodable {
             completionHandler(response.result.value, response.result.error)
         }
     }
-
 }
 
 ///Contains a list of `Tax` objects

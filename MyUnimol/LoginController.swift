@@ -18,7 +18,9 @@ class LoginController : UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var passwordField: UITextField!
     
-    var isLogged: Bool?
+    @IBOutlet weak var loginButton: UIButton!
+    
+    var isButtonTapped: Bool = false
     
     var username: String = ""
     var password: String = ""
@@ -28,6 +30,8 @@ class LoginController : UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func login(sender: AnyObject) {
+        self.loginButton.enabled = false
+        
         self.username = self.usernameField.text!
         self.password = self.passwordField.text!
         
@@ -40,13 +44,22 @@ class LoginController : UIViewController, UITextFieldDelegate {
     
     func loginAndGetStudentInfo(username: String, password: String) {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
-            StudentInfo.getCredentials(username, password: password) { studentInfo, error in
+        StudentInfo.getCredentials(username, password: password) { studentInfo, error in
             guard error == nil else {
                 //TODO: error implementation
                 return
             }
-            Utils.removeProgressBar(self)
-            self.getRecordBook()
+            if studentInfo!.areCredentialsValid {
+                self.getRecordBook()
+            } else {
+                // login not valid
+                Utils.displayAlert(self, title: "Credenziali non valide", message: "Controlla username e password")
+                self.loginButton.enabled = true
+                self.usernameField.text = ""
+                self.passwordField.text = ""
+                Utils.removeProgressBar(self)
+            }
+            
         }
     }
     
@@ -58,21 +71,22 @@ class LoginController : UIViewController, UITextFieldDelegate {
             }
             self.performSegueWithIdentifier("ViewController", sender: self)
             Utils.removeProgressBar(self)
+            self.loginButton.enabled = true
         }
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-
+        
         let keyboardSize: CGFloat = 260
         let bottomCoordinate = self.view.frame.origin.y + self.view.frame.size.height
         let textFieldCoordinate = textField.frame.origin.y
-
+        
         if (bottomCoordinate - textFieldCoordinate < keyboardSize) {
             // the textField goes under the keyboard
             let remanence = keyboardSize - (bottomCoordinate - textFieldCoordinate)
             print(remanence)
             self.scrollView.setContentOffset(CGPointMake(0, remanence), animated: true)
-
+            
         }
     }
     
@@ -84,7 +98,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         

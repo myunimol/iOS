@@ -9,7 +9,7 @@
 import Gloss
 import Alamofire
 
-public struct StudentInfo {
+public class StudentInfo {
     
     let availableExams : Int?
     ///the course in which the student is enrolled
@@ -24,6 +24,9 @@ public struct StudentInfo {
     ///the course and the year for the current student
     let studentClass : String?
     let studentId : String?
+    
+    /// true if the API server returns a valid users; false otherwise
+    var areCredentialsValid: Bool
     
     init?(json: JSON) {
         self.availableExams = "availableExams" <~~ json
@@ -42,6 +45,8 @@ public struct StudentInfo {
         self.registrationDate = "registrationDate" <~~ json
         self.studentClass = "studentClass" <~~ json
         self.studentId = "studentID" <~~ json
+        
+        self.areCredentialsValid = true
     }
     
     public static func getCredentials(username: String, password: String, completionHandler: (StudentInfo?, NSError?) -> Void) {
@@ -97,12 +102,17 @@ extension Alamofire.Request {
 
             switch result {
             case .Success(let value):
-                // stores credentials into NsUsersDefaults and info in singleton
+                let api: APIMessage = APIMessage(json: value as! JSON)!
                 let studentInfo: StudentInfo = StudentInfo(json: value as! JSON)!
-                // store credentials and json in cache
-                CacheManager.sharedInstance.storeCredentials(username, password: password)
-                CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.STUDENT_INFO, json: value as! JSON)
-                Student.sharedInstance.studentInfo = studentInfo
+                if api.result != "failure" {
+                    // successfull login; store credentials in cache
+                    CacheManager.sharedInstance.storeCredentials(username, password: password)
+                    CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.STUDENT_INFO, json: value as! JSON)
+                    Student.sharedInstance.studentInfo = studentInfo
+                } else {
+                    // login failed
+                    studentInfo.areCredentialsValid = false
+                }
                 return .Success(studentInfo)
             case .Failure(let error):
                 return .Failure(error)

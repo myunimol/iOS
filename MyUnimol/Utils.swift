@@ -22,9 +22,9 @@ class Utils {
     /**
      Display an alert message for the passed `UIViewController`
      - parameters:
-        - targetVC: the view controller
-        - title: the title of the message
-        - message: the body of the message
+     - targetVC: the view controller
+     - title: the title of the message
+     - message: the body of the message
      */
     static func displayAlert(targetVC: UIViewController, title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
@@ -36,9 +36,9 @@ class Utils {
     /**
      Sets an activity indicator with a random sentence in the view passed as parameter
      - parameters:
-        - targetVC: the view
-        - msg: the message
-        - indicator: a boolean value which handle the presence of the activity indicator
+     - targetVC: the view
+     - msg: the message
+     - indicator: a boolean value which handle the presence of the activity indicator
      */
     static func progressBarDisplayer(targetVC: UIViewController, msg:String, indicator:Bool ) {
         
@@ -96,10 +96,10 @@ class Utils {
     /**
      Customize the navigation controller bar for the view passed as parameter
      - parameters:
-        - myView: the view
-        - title: the title of the view
-        - color: the color of the bar
-        - style: the style of the bar
+     - myView: the view
+     - title: the title of the view
+     - color: the color of the bar
+     - style: the style of the bar
      */
     static func setNavigationControllerStatusBar(myView: UIViewController, title: String, color: CIColor, style: UIBarStyle) {
         let navigation = myView.navigationController!
@@ -126,6 +126,19 @@ class Utils {
     static func reloadTable(table: UITableView) {
         table.reloadData()
         table.hidden = false
+    }
+    
+    /// Returns the app number of version
+    static func getAppVersion() -> String {
+        if let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String {
+            return version
+        }
+        return "no version info"
+    }
+    
+    /// Returns the SO version
+    static func getSOVersion() -> String {
+        return UIDevice.currentDevice().systemVersion;
     }
     
     /// The privacy policy message

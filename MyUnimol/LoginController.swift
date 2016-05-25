@@ -31,12 +31,12 @@ class LoginController : UIViewController, UITextFieldDelegate {
     
     @IBAction func login(sender: AnyObject) {
         self.loginButton.enabled = false
-        
         self.username = self.usernameField.text!
         self.password = self.passwordField.text!
         
         if username == "" || password == "" {
             Utils.displayAlert(self, title: "Oops!", message: "Username e/o password mancanti")
+            self.loginButton.enabled = true
         } else {
             self.loginAndGetStudentInfo(username, password: password)
         }

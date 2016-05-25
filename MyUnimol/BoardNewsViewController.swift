@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import Gloss
+import SafariServices
 
 class BoardNewsViewController: UIViewController, UITableViewDelegate {
     
@@ -55,7 +56,8 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        UIApplication.sharedApplication().openURL(NSURL(string: (self.news?[indexPath.row].link)!)!)
+        let svc = SFSafariViewController(URL: NSURL(string: (self.news?[indexPath.row].link)!)!)
+        self.presentViewController(svc, animated: true, completion: nil)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

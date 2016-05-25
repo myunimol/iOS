@@ -452,7 +452,7 @@
 				TargetAttributes = {
 					1E27AA071C69B42D009AD819 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 93Y79F553H;
+						DevelopmentTeam = 25858497LK;
 					};
 					1E27AA1B1C69B42D009AD819 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -822,11 +822,14 @@
 			baseConfigurationReference = 1C3307CB1C55B7B9B4034D26 /* Pods-MyUnimol.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyUnimol/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimol";
+				PRODUCT_BUNDLE_IDENTIFIER = rocks.teammolise.myunimol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/giograno/team_molise/MyUnimol/MyUnimol/MyUnimol-Bridging-Header.h";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyUnimol/MyUnimol-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -836,11 +839,14 @@
 			baseConfigurationReference = BE7CF3F73A13DF2FF231028E /* Pods-MyUnimol.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyUnimol/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Team-Molise.MyUnimol";
+				PRODUCT_BUNDLE_IDENTIFIER = rocks.teammolise.myunimol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/giograno/team_molise/MyUnimol/MyUnimol/MyUnimol-Bridging-Header.h";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyUnimol/MyUnimol-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

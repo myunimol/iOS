@@ -128,4 +128,7 @@ class Utils {
         table.hidden = false
     }
     
+    /// The privacy policy message
+    static let privacyStatement = "ATTENZIONE: MyUnimol non è un\'applicazione ufficiale dell\'Università degli Studi del Molise. Tutti i dati vengono reperiti dal portale dello Studente dell\'Università degli Studi del Molise.\n\nEffettuando l\'accesso si esprime il proprio consenso al download automatico dei propri dati (quali nome, cognome, voto degli esami, corso di studi...) dal portale.\n\nPer maggiori info toc-toc@myunimol.it."
+    
 }

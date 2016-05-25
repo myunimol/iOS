@@ -61,7 +61,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiH-Gv-xTz">
-                                        <rect key="frame" x="151" y="396" width="80" height="38"/>
+                                        <rect key="frame" x="225" y="396" width="80" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="80f-61-scs"/>
                                             <constraint firstAttribute="width" constant="80" id="Nxy-zw-1jg"/>
@@ -78,14 +78,28 @@
                                             <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mrO-bO-GxF"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKd-3l-nji">
+                                        <rect key="frame" x="77" y="400" width="94" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
+                                        <state key="normal" title="Privacy">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showPrivacy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XLU-Nk-bod"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="UKd-3l-nji" firstAttribute="leading" secondItem="OcS-5i-YSL" secondAttribute="leading" id="04n-UU-nwK"/>
                                     <constraint firstItem="OcS-5i-YSL" firstAttribute="top" secondItem="hvP-tw-lev" secondAttribute="bottom" constant="33" id="4DV-EL-WMc"/>
                                     <constraint firstItem="CiH-Gv-xTz" firstAttribute="top" secondItem="OcS-5i-YSL" secondAttribute="bottom" constant="47" id="8ef-Qv-5u1"/>
                                     <constraint firstItem="9ba-ES-wW4" firstAttribute="centerX" secondItem="Hss-BV-SeU" secondAttribute="centerX" id="D5P-y4-6Lz"/>
+                                    <constraint firstItem="UKd-3l-nji" firstAttribute="centerY" secondItem="CiH-Gv-xTz" secondAttribute="centerY" id="K1g-xi-NLh"/>
+                                    <constraint firstItem="UKd-3l-nji" firstAttribute="top" secondItem="OcS-5i-YSL" secondAttribute="bottom" constant="51" id="OgX-66-HtF"/>
+                                    <constraint firstItem="CiH-Gv-xTz" firstAttribute="leading" secondItem="UKd-3l-nji" secondAttribute="trailing" constant="54" id="PnY-H4-Eik"/>
                                     <constraint firstItem="9ba-ES-wW4" firstAttribute="top" secondItem="Hss-BV-SeU" secondAttribute="top" constant="37" id="Q8L-In-xw2"/>
                                     <constraint firstItem="hvP-tw-lev" firstAttribute="top" secondItem="9ba-ES-wW4" secondAttribute="bottom" constant="39" id="cLL-N7-r2G"/>
-                                    <constraint firstItem="CiH-Gv-xTz" firstAttribute="centerX" secondItem="Hss-BV-SeU" secondAttribute="centerX" id="gYx-rQ-40X"/>
+                                    <constraint firstItem="CiH-Gv-xTz" firstAttribute="centerX" secondItem="Hss-BV-SeU" secondAttribute="centerX" constant="73.5" id="gYx-rQ-40X"/>
                                     <constraint firstItem="hvP-tw-lev" firstAttribute="centerX" secondItem="Hss-BV-SeU" secondAttribute="centerX" id="mjp-bO-w6U"/>
                                     <constraint firstItem="OcS-5i-YSL" firstAttribute="centerX" secondItem="Hss-BV-SeU" secondAttribute="centerX" id="rbn-JW-y44"/>
                                     <constraint firstAttribute="bottom" secondItem="CiH-Gv-xTz" secondAttribute="bottom" constant="233" id="sQx-gU-q84"/>
@@ -1323,6 +1337,6 @@
         <image name="voto_bg" width="127" height="126"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AfS-jD-Ety"/>
+        <segue reference="39a-fF-qkU"/>
     </inferredMetricsTieBreakers>
 </document>

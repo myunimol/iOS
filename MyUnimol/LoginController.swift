@@ -42,6 +42,10 @@ class LoginController : UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func showPrivacy(sender: AnyObject) {
+        Utils.displayAlert(self, title: "Privacy", message: Utils.privacyStatement)
+    }
+    
     func loginAndGetStudentInfo(username: String, password: String) {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         StudentInfo.getCredentials(username, password: password) { studentInfo, error in

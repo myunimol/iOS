@@ -16,10 +16,9 @@ class FirstPageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = Utils.myUnimolBlueUIColor
         
         let (username, password) = CacheManager.sharedInstance.getUserCredential()
-        
+    
         if !Reachability.isConnectedToNetwork() {
             // no connection available
             CacheManager.sharedInstance.getJsonByString(CacheManager.STUDENT_INFO) { json in
@@ -35,7 +34,6 @@ class FirstPageController: UIViewController {
     }
     
     func loginAndGetStudentInfo(username: String, password: String) {
-        Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         StudentInfo.getCredentials(username, password: password) { studentInfo, error in
             guard error == nil else {
                 //TODO: error implementation
@@ -46,7 +44,6 @@ class FirstPageController: UIViewController {
             } else {
                 // login not valid
                 Utils.displayAlert(self, title: "Questo non era previsto!", message: "Riapri MyUnimol")
-                Utils.removeProgressBar(self)
                 CacheManager.sharedInstance.resetCredentials()
                 CacheManager.sharedInstance.refreshCache()
                 exit(0)
@@ -61,7 +58,6 @@ class FirstPageController: UIViewController {
                 return
             }
             self.performSegueWithIdentifier("ViewController", sender: self)
-            Utils.removeProgressBar(self)
         }
     }
 

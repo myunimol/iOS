@@ -17,6 +17,7 @@ class Utils {
     
     /// various types of colors for MyUnimol UI
     static let myUnimolBlue = CIColor(red: 75.0/255.0, green: 101.0/255.0, blue: 149.0/255.0, alpha: 1.0)
+    static let myUnimolBack = CIColor(red: 75.0/255.0, green: 101.0/255.0, blue: 149.0/255.0, alpha: 0.9)
     static let myUnimolBlueUIColor = UIColor(CIColor: Utils.myUnimolBlue)
     
     /**
@@ -44,10 +45,12 @@ class Utils {
         
         let height = myHeightForView(msg, width: 200)
         
-        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: height))
+        strLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: height))
         strLabel.numberOfLines = 0
         strLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         strLabel.text = msg
+        strLabel.textAlignment = .Center
+        strLabel.center = CGPointMake(125, (height/2 + 20.0))
         strLabel.textColor = UIColor.whiteColor()
         
         let size: CGFloat = 260
@@ -63,11 +66,12 @@ class Utils {
         messageFrame = UIView(frame: frame)
         
         messageFrame.layer.cornerRadius = 15
-        messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
+        
+        messageFrame.backgroundColor = UIColor(CIColor: Utils.myUnimolBack)
         if (indicator) {
-            activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+            activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
             activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-            activityIndicator.center = CGPointMake(25, (height / 2));
+            activityIndicator.center = CGPointMake(125, 35)
             activityIndicator.startAnimating()
             messageFrame.addSubview(activityIndicator)
         }
@@ -82,9 +86,9 @@ class Utils {
         label.text = text
         label.sizeToFit()
         if (label.frame.height <= 50) {
-            return 50.0
+            return 50.0 + 75.0
         } else {
-            return label.frame.height
+            return label.frame.height + 75.0
         }
     }
     

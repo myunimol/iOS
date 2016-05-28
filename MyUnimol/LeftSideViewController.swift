@@ -119,7 +119,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
         }
         
         
-        if (indexPath.row != 8) {
+        if (indexPath.row != 9) {
             appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
         } else {
             appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.None

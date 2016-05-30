@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T66-Lv-PGj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T66-Lv-PGj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hss-BV-SeU">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hss-BV-SeU">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OcS-5i-YSL">
@@ -149,6 +149,7 @@
         <!--First Page Controller-->
         <scene sceneID="nay-tU-IHt">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5dd-DU-qxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FirstPageController" id="T66-Lv-PGj" customClass="FirstPageController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kdy-Pt-47n"/>
@@ -176,7 +177,6 @@
                         <segue destination="Ud3-ra-Nbs" kind="show" identifier="ViewController" id="AfS-jD-Ety"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5dd-DU-qxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-516.5" y="742.5"/>
         </scene>
@@ -428,7 +428,7 @@
                             <constraint firstItem="Cd8-DC-8W0" firstAttribute="top" secondItem="xpq-DW-73K" secondAttribute="bottom" id="kbu-Xh-28W"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Avvisi" image="BoardNews" id="ay4-iw-wUp"/>
+                    <tabBarItem key="tabBarItem" title="Avvisi" image="User Male-50" id="ay4-iw-wUp"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -482,7 +482,7 @@
                             <constraint firstItem="baR-N8-jQz" firstAttribute="top" secondItem="RGP-FI-MDC" secondAttribute="bottom" id="yoh-ps-vMm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Dipartimento" image="DepartmentNews" id="D2e-vN-jRU"/>
+                    <tabBarItem key="tabBarItem" title="Dipartimento" image="Department-50" id="D2e-vN-jRU"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="RGP-FI-MDC" id="2qa-Vj-y33"/>
@@ -534,7 +534,7 @@
                             <constraint firstItem="CBj-nV-DQD" firstAttribute="top" secondItem="NNU-0Y-bIa" secondAttribute="topMargin" id="tju-5I-3cX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ateneo" image="UniversityNews" id="WmF-Mv-SEl">
+                    <tabBarItem key="tabBarItem" title="Ateneo" image="University-50" id="WmF-Mv-SEl">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -1241,7 +1241,7 @@
                             <constraint firstItem="IId-3q-1xt" firstAttribute="top" secondItem="i8X-rZ-bt4" secondAttribute="topMargin" id="vie-sV-7Ug"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Prenotati" image="BookedExams" id="qtv-YQ-FnN"/>
+                    <tabBarItem key="tabBarItem" title="Prenotati" image="Neutral-50" id="qtv-YQ-FnN"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="IId-3q-1xt" id="R8s-hz-XV8"/>
@@ -1281,7 +1281,7 @@
                             <constraint firstItem="hoE-bU-DmK" firstAttribute="leading" secondItem="c5f-mo-Wz7" secondAttribute="leadingMargin" constant="-20" id="hOQ-dd-RGT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Disponibili" image="AvailableExams" id="rHO-fO-kfI"/>
+                    <tabBarItem key="tabBarItem" title="Disponibili" image="Nerd-50" id="rHO-fO-kfI"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="hoE-bU-DmK" id="6h2-cF-Tda"/>
@@ -1332,12 +1332,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AvailableExams" width="32" height="32"/>
-        <image name="BoardNews" width="32" height="32"/>
-        <image name="BookedExams" width="32" height="32"/>
-        <image name="DepartmentNews" width="32" height="32"/>
+        <image name="Department-50" width="25" height="25"/>
         <image name="MyUnimolBigLogo" width="1024" height="1024"/>
-        <image name="UniversityNews" width="32" height="32"/>
+        <image name="Nerd-50" width="25" height="25"/>
+        <image name="Neutral-50" width="25" height="25"/>
+        <image name="University-50" width="25" height="25"/>
+        <image name="User Male-50" width="25" height="25"/>
         <image name="bg_header_logo" width="800" height="450"/>
         <image name="launcher_ic" width="192" height="192"/>
         <image name="teamMolise" width="760" height="762"/>

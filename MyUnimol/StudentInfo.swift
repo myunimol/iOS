@@ -8,6 +8,7 @@
 
 import Gloss
 import Alamofire
+import Foundation
 
 public class StudentInfo {
     
@@ -36,17 +37,21 @@ public class StudentInfo {
         self.enrolledExams = "enrolledExams" <~~ json
         
         let auxName: String? = "name" <~~ json
-        self.name = auxName?.firstCharacterUpperCase()
+        self.name = auxName?.capitalizedString
         
         let auxSurname: String? = "surname" <~~ json
-        self.surname = auxSurname?.firstCharacterUpperCase()
+        self.surname = auxSurname?.capitalizedString
         
-        self.surname?.firstCharacterUpperCase()
         self.registrationDate = "registrationDate" <~~ json
         self.studentClass = "studentClass" <~~ json
         self.studentId = "studentID" <~~ json
         
         self.areCredentialsValid = true
+        
+        // Easter love egg
+        if (self.surname == "Di Cristino") && (self.name == "Francesca") {
+            self.surname! += " ❤️"
+        }
     }
     
     public static func getCredentials(username: String, password: String, completionHandler: (StudentInfo?, NSError?) -> Void) {
@@ -119,13 +124,5 @@ extension Alamofire.Request {
             }
         }
         return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
-    }
-}
-
-extension String {
-    func firstCharacterUpperCase() -> String {
-        let lowercaseString = self.lowercaseString
-        
-        return lowercaseString.stringByReplacingCharactersInRange(lowercaseString.startIndex...lowercaseString.startIndex, withString: String(lowercaseString[lowercaseString.startIndex]).uppercaseString)
     }
 }

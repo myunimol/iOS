@@ -35,8 +35,13 @@ class UniversityNewsViewController: UIViewController, UITableViewDelegate {
                 return
             }
             self.news = news?.newsList
-            self.tableView.reloadData()
-            self.tableView.hidden = false
+            if (self.news?.count == 0) {
+                self.tableView.hidden = true
+                Utils.setPlaceholderForEmptyTable(self, message: "Nulla da segnalare al momento!")
+            } else {
+                self.tableView.reloadData()
+                self.tableView.hidden = false
+            }
             Utils.removeProgressBar(self)
         }
     }

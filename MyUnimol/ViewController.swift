@@ -137,12 +137,7 @@ class ViewController: UIViewController {
         let totalCFU = RecordBookClass.sharedInstance.recordBook?.totalCFU
         let courseLenght = Student.sharedInstance.studentInfo?.courseLength
         
-        var completeCFU: Int
-        if courseLenght == 3 {
-            completeCFU = 180
-        } else {
-            completeCFU = 120
-        }
+        let completeCFU: Int = courseLenght! * 60
         
         var percentage = totalCFU! * 100 / completeCFU
         

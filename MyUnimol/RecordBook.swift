@@ -21,7 +21,7 @@ public struct Exam: Decodable {
 
     public init?(json: JSON) {
         
-        self.name = Decoder.getExamName("name", json: json)
+        self.name = Decoder.getExamName("name", json: json).capitalizedString
         self.cfu = "cfu" <~~ json
         self.vote = "vote" <~~ json
         self.date = "date" <~~ json
@@ -57,7 +57,11 @@ public class RecordBook {
         var accumulator = 0
         
         for exam in self.exams {
-            self.totalCFU += exam.cfu!
+            let date = exam.date
+            if date != nil {
+                totalCFU += exam.cfu!
+            }
+            
             if let grade = exam.vote?.integerValue {
                 cfuCounter += exam.cfu!
                 accumulator += exam.cfu! * grade

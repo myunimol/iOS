@@ -61,7 +61,7 @@ public class ParameterHandler {
             courseParameter = "scienzeBiologicheMaster"
         } else if (studentCourse.lowercaseString.rangeOfString("scienze biologiche") != nil) {
             courseParameter = "scienzeBiologiche"
-        } else if (studentCourse.lowercaseString.rangeOfString("medicina chirurgia") != nil) {
+        } else if (studentCourse.lowercaseString.rangeOfString("medicina e chirurgia") != nil) {
             courseParameter = "medicina"
         } else if (studentCourse.lowercaseString.rangeOfString("economia aziendale") != nil) {
             courseParameter = "economia"

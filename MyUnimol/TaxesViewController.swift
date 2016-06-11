@@ -38,7 +38,9 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         Tax.getAllTaxes { taxes, error in
             guard error == nil else {
-                //TODO: error implementation
+                Utils.removeProgressBar(self)
+                Utils.displayAlert(self, title: "Abbiamo un problema", message: "Per qualche strano motivo non riusciamo a caricare questa pagina!")
+                self.performSegueWithIdentifier("ViewController", sender: self)
                 return
             }
             self.taxes = taxes?.taxes

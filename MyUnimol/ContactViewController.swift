@@ -74,7 +74,9 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         Contact.getAllContacts { contacts, error in
             guard error == nil else {
-                //TODO: error implementation
+                Utils.removeProgressBar(self)
+                Utils.displayAlert(self, title: "Abbiamo un problema", message: "Per qualche strano motivo non riusciamo a recuperare i tuoi contatti")
+                self.performSegueWithIdentifier("ViewController", sender: self)
                 return
             }
             self.contactsWrapper = contacts

@@ -51,8 +51,10 @@ class LoginController : UIViewController, UITextFieldDelegate {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         StudentInfo.getCredentials(username, password: password) { studentInfo, error in
             guard error == nil else {
-                //TODO: error implementation
-                return
+                Utils.displayAlert(self, title: "Questo non era previsto!", message: "Riapri MyUnimol")
+                CacheManager.sharedInstance.resetCredentials()
+                CacheManager.sharedInstance.refreshCache()
+                exit(0)
             }
             if studentInfo!.areCredentialsValid {
                 self.getRecordBook()
@@ -70,8 +72,10 @@ class LoginController : UIViewController, UITextFieldDelegate {
     func getRecordBook() {
         RecordBook.getRecordBook { recordBook, error in
             guard error == nil else {
-                //TODO: error implementation
-                return
+                Utils.displayAlert(self, title: "Questo non era previsto!", message: "Riapri MyUnimol")
+                CacheManager.sharedInstance.resetCredentials()
+                CacheManager.sharedInstance.refreshCache()
+                exit(0)
             }
             self.performSegueWithIdentifier("ViewController", sender: self)
             Utils.removeProgressBar(self)

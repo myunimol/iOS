@@ -36,8 +36,10 @@ class FirstPageController: UIViewController {
     func loginAndGetStudentInfo(username: String, password: String) {
         StudentInfo.getCredentials(username, password: password) { studentInfo, error in
             guard error == nil else {
-                //TODO: error implementation
-                return
+                Utils.displayAlert(self, title: "Questo non era previsto!", message: "Riapri MyUnimol")
+                CacheManager.sharedInstance.resetCredentials()
+                CacheManager.sharedInstance.refreshCache()
+                exit(0)
             }
             if studentInfo!.areCredentialsValid {
                 self.getRecordBook()
@@ -54,8 +56,10 @@ class FirstPageController: UIViewController {
     func getRecordBook() {
         RecordBook.getRecordBook { recordBook, error in
             guard error == nil else {
-                //TODO: error implementation
-                return
+                Utils.displayAlert(self, title: "Questo non era previsto!", message: "Riapri MyUnimol")
+                CacheManager.sharedInstance.resetCredentials()
+                CacheManager.sharedInstance.refreshCache()
+                exit(0)
             }
             self.performSegueWithIdentifier("ViewController", sender: self)
         }

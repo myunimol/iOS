@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -30,6 +31,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyUnimolBigLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Pne-mQ-utf">
                                 <rect key="frame" x="87" y="123" width="200" height="200"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="Pne-mQ-utf" secondAttribute="height" multiplier="1:1" id="bRe-Ou-uzh"/>
                                     <constraint firstAttribute="height" constant="200" id="j4d-DT-VKf"/>
                                 </constraints>
                             </imageView>

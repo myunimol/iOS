@@ -47,16 +47,6 @@
                                             <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mrO-bO-GxF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoE-xE-APy">
-                                        <rect key="frame" x="83" y="595" width="222" height="27"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="27" id="tQm-aj-42T"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <state key="normal" title="Made with ❤️ by #TeamMolise">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Effettua il login con le credenziali che usi per accedere al Portale dello Studente 😀👍😎" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cC-ig-zZX">
                                         <rect key="frame" x="77" y="213" width="228" height="61"/>
                                         <constraints>
@@ -96,28 +86,37 @@
                                             <action selector="showPrivacy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XLU-Nk-bod"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made with ❤️ by #TeamMolise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzC-Nu-ynw">
+                                        <rect key="frame" x="63" y="593" width="256" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="pF1-8X-yz8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Zop-Rm-0l7" secondAttribute="trailing" constant="49" id="15m-hM-Jfx"/>
                                     <constraint firstItem="Zop-Rm-0l7" firstAttribute="centerX" secondItem="6cC-ig-zZX" secondAttribute="centerX" id="1Qj-fv-crO"/>
                                     <constraint firstItem="9ba-ES-wW4" firstAttribute="centerX" secondItem="Zop-Rm-0l7" secondAttribute="centerX" id="2CR-9J-o3m"/>
                                     <constraint firstItem="6cC-ig-zZX" firstAttribute="trailing" secondItem="hvP-tw-lev" secondAttribute="trailing" id="6sE-yB-AhP"/>
+                                    <constraint firstItem="VzC-Nu-ynw" firstAttribute="top" secondItem="Hss-BV-SeU" secondAttribute="top" constant="593" id="8P8-3A-HR6"/>
                                     <constraint firstItem="9ba-ES-wW4" firstAttribute="centerX" secondItem="Hss-BV-SeU" secondAttribute="centerX" id="8XW-Ii-H4g"/>
                                     <constraint firstAttribute="bottom" secondItem="UKd-3l-nji" secondAttribute="bottom" constant="30" id="FWJ-gd-2nJ"/>
                                     <constraint firstItem="OcS-5i-YSL" firstAttribute="top" secondItem="hvP-tw-lev" secondAttribute="bottom" constant="33" id="H2M-wR-HQq"/>
-                                    <constraint firstItem="EoE-xE-APy" firstAttribute="leading" secondItem="Hss-BV-SeU" secondAttribute="leading" constant="83" id="Izc-zI-6aM"/>
-                                    <constraint firstItem="EoE-xE-APy" firstAttribute="top" secondItem="Hss-BV-SeU" secondAttribute="top" constant="595" id="J6i-pb-rJL"/>
+                                    <constraint firstItem="VzC-Nu-ynw" firstAttribute="leading" secondItem="Hss-BV-SeU" secondAttribute="leading" constant="63" id="IzK-m1-vlW"/>
                                     <constraint firstItem="hvP-tw-lev" firstAttribute="trailing" secondItem="OcS-5i-YSL" secondAttribute="trailing" id="PWZ-qA-1hq"/>
                                     <constraint firstItem="Zop-Rm-0l7" firstAttribute="top" secondItem="9ba-ES-wW4" secondAttribute="bottom" id="QW9-3o-R4o"/>
                                     <constraint firstItem="OcS-5i-YSL" firstAttribute="trailing" secondItem="CiH-Gv-xTz" secondAttribute="trailing" id="ShY-E2-kQa"/>
                                     <constraint firstItem="6cC-ig-zZX" firstAttribute="leading" secondItem="hvP-tw-lev" secondAttribute="leading" id="TNs-hz-Rfl"/>
-                                    <constraint firstItem="CiH-Gv-xTz" firstAttribute="trailing" secondItem="EoE-xE-APy" secondAttribute="trailing" id="WfL-gC-FeI"/>
                                     <constraint firstItem="hvP-tw-lev" firstAttribute="leading" secondItem="OcS-5i-YSL" secondAttribute="leading" id="afH-2h-9rB"/>
+                                    <constraint firstItem="VzC-Nu-ynw" firstAttribute="centerX" secondItem="UKd-3l-nji" secondAttribute="centerX" id="bpv-Bu-eO6"/>
                                     <constraint firstItem="6cC-ig-zZX" firstAttribute="top" secondItem="Zop-Rm-0l7" secondAttribute="bottom" constant="46" id="f4N-SB-BHY"/>
+                                    <constraint firstItem="UKd-3l-nji" firstAttribute="top" secondItem="VzC-Nu-ynw" secondAttribute="bottom" constant="8" symbolic="YES" id="g6H-T8-WEo"/>
                                     <constraint firstItem="6cC-ig-zZX" firstAttribute="leading" secondItem="Hss-BV-SeU" secondAttribute="leading" constant="77" id="h2f-62-sru"/>
                                     <constraint firstItem="CiH-Gv-xTz" firstAttribute="top" secondItem="OcS-5i-YSL" secondAttribute="bottom" constant="20" id="id6-70-fqp"/>
                                     <constraint firstItem="OcS-5i-YSL" firstAttribute="leading" secondItem="CiH-Gv-xTz" secondAttribute="leading" id="lMT-aa-LlT"/>
-                                    <constraint firstItem="UKd-3l-nji" firstAttribute="top" secondItem="EoE-xE-APy" secondAttribute="bottom" id="m9a-Oo-bQm"/>
                                     <constraint firstItem="hvP-tw-lev" firstAttribute="top" secondItem="6cC-ig-zZX" secondAttribute="bottom" constant="30" id="uS3-Zm-Ps1"/>
                                     <constraint firstItem="CiH-Gv-xTz" firstAttribute="centerX" secondItem="UKd-3l-nji" secondAttribute="centerX" id="vLL-31-VyS"/>
                                     <constraint firstItem="9ba-ES-wW4" firstAttribute="top" secondItem="Hss-BV-SeU" secondAttribute="top" constant="25" id="y2b-bz-DP3"/>

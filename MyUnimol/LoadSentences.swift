@@ -51,13 +51,19 @@ class LoadSentences {
     static let LOW: Double = 23
     
     static let high: [String : String] = ["Hai una media invidiabile" : "wtf",
-                                          "Ottima carriera universitaria" : "swag"]
+                                          "Ottima carriera universitaria" : "swag",
+                                          "Palà e che voti!" : "wtf",
+                                          "Fai brutto!" : "swag",
+                                          "Ué che secchio!":"sad",
+                                          "Palà che media!": "wtf"]
     
     static let medium: [String : String] = ["Continua così..." : "swag",
-                                            "Keep on pushin'" : "swag"]
+                                            "Keep on pushin'" : "swag",
+                                            "Vai alla grande!":"swag"]
     
     static let low: [String: String] = ["Impegnati di più" : "sad",
-                                        "Che fai stasera?" : "swag"]
+                                        "Che fai stasera?" : "swag",
+                                        "Eh jamm ja!":"sad"]
     
     /// Returns a random loading sentence
     static func getSentence() -> String {

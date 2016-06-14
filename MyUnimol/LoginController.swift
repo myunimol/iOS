@@ -51,10 +51,12 @@ class LoginController : UIViewController, UITextFieldDelegate {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         StudentInfo.getCredentials(username, password: password) { studentInfo, error in
             guard error == nil else {
-                Utils.displayAlert(self, title: "Questo non era previsto!", message: "Riapri MyUnimol")
+                Utils.removeProgressBar(self)
+                Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️")
+                self.loginButton.enabled = true
                 CacheManager.sharedInstance.resetCredentials()
                 CacheManager.sharedInstance.refreshCache()
-                exit(0)
+                return
             }
             if studentInfo!.areCredentialsValid {
                 self.getRecordBook()
@@ -62,7 +64,8 @@ class LoginController : UIViewController, UITextFieldDelegate {
                 // login not valid
                 Utils.displayAlert(self, title: "Credenziali non valide", message: "Controlla username e password")
                 self.loginButton.enabled = true
-                self.passwordField.text = ""
+//                sometimes we just put wrong ending char
+//                self.passwordField.text = ""
                 Utils.removeProgressBar(self)
             }
             
@@ -72,10 +75,9 @@ class LoginController : UIViewController, UITextFieldDelegate {
     func getRecordBook() {
         RecordBook.getRecordBook { recordBook, error in
             guard error == nil else {
-                Utils.displayAlert(self, title: "Questo non era previsto!", message: "Riapri MyUnimol")
-                CacheManager.sharedInstance.resetCredentials()
-                CacheManager.sharedInstance.refreshCache()
-                exit(0)
+                Utils.removeProgressBar(self)
+                Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️")
+                return
             }
             self.performSegueWithIdentifier("ViewController", sender: self)
             Utils.removeProgressBar(self)

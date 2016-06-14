@@ -52,6 +52,9 @@ public class StudentInfo {
         if (self.surname == "Di Cristino") && (self.name == "Francesca") {
             self.surname! += " ❤️"
         }
+        if (self.surname == "Merola") && (self.name == "Matteo") {
+            self.surname! += " 🔝"
+        }
     }
     
     public static func getCredentials(username: String, password: String, completionHandler: (StudentInfo?, NSError?) -> Void) {

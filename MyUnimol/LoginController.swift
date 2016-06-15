@@ -104,7 +104,6 @@ class LoginController : UIViewController, UITextFieldDelegate {
         if (bottomCoordinate - textFieldCoordinate < keyboardSize) {
             // the textField goes under the keyboard
             let remanence = keyboardSize - (bottomCoordinate - textFieldCoordinate)
-            print(remanence)
             self.scrollView.setContentOffset(CGPointMake(0, remanence), animated: true)
             
         }

@@ -117,8 +117,8 @@ class Utils {
     /// Sets a placeholder in a view with no data
     static func setPlaceholderForEmptyTable(calling: UIViewController, message: String) {
         let imageView = UIImageView(image: UIImage(named: "swag.png"))
-        imageView.frame = CGRect(x: (calling.view.frame.size.width - 120) / 2, y: 10, width: 120, height: 120)
-        let label = UILabel(frame: CGRectMake((calling.view.frame.size.width - 300) / 2, 140, 300, 50))
+        imageView.frame = CGRect(x: (calling.view.frame.size.width - 120) / 2, y: 50, width: 120, height: 120)
+        let label = UILabel(frame: CGRectMake((calling.view.frame.size.width - 300) / 2, 180, 300, 50))
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.Center
         label.text = message

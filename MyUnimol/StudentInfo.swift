@@ -52,8 +52,12 @@ public class StudentInfo {
         if (self.surname == "Di Cristino") && (self.name == "Francesca") {
             self.surname! += " ❤️"
         }
+        // Matt's Easter Eggs
         if (self.surname == "Merola") && (self.name == "Matteo") {
             self.surname! += " 🔝"
+        }
+        if (self.surname == "Grano") && (self.name == "Giovanni") {
+            self.surname! += " 🇨🇱"
         }
     }
     

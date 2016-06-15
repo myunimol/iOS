@@ -38,7 +38,7 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
                         Utils.removeProgressBar(self)
                     } else {
                         Utils.removeProgressBar(self)
-                        Utils.displayAlert(self, title: "😨 Ooopss...", message: "Per qualche strano motivo non riusciamo a recuperare gli esami disponibili 😔")
+                        Utils.displayAlert(self, title: "😨 Ooopss...", message: "Per qualche strano motivo non riusciamo a recuperare le info sulle tasse pagate 😔")
                         Utils.goToMainPage()
                     }
                 }

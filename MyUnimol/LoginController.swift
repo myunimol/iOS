@@ -39,8 +39,8 @@ class LoginController : UIViewController, UITextFieldDelegate {
             // no available connection
             Utils.displayAlert(self, title: "😨 Ooopss...", message: "Sembra che tu non abbia una connessione disponibile 👎")
             self.loginButton.enabled = true
-            self.usernameField.text = ""
-            self.passwordField.text = ""
+//            self.usernameField.text = ""
+//            self.passwordField.text = ""
             return
         } else {
             if username == "" || password == "" {

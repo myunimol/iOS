@@ -69,20 +69,37 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         //Place the search bar view to the tableView header view
         self.tableView.tableHeaderView = self.searchController.searchBar
     }
-
+    
     func loadContacts() {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         Contact.getAllContacts { contacts, error in
             guard error == nil else {
-                Utils.removeProgressBar(self)
-                Utils.displayAlert(self, title: "Abbiamo un problema", message: "Per qualche strano motivo non riusciamo a recuperare i tuoi contatti")
-                self.performSegueWithIdentifier("ViewController", sender: self)
+            
+                self.recoverFromCache { _ in
+                    if (self.contactsWrapper != nil) {
+                        self.tableView.reloadData()
+                        self.tableView.hidden = false
+                        Utils.removeProgressBar(self)
+                    } else {
+                        Utils.removeProgressBar(self)
+                        Utils.displayAlert(self, title: "😨 Ooopss...", message: "Per qualche strano motivo non riusciamo a recuperare i tuoi contatti 😔")
+                        Utils.goToMainPage()
+                    }
+                }
+                
                 return
             }
             self.contactsWrapper = contacts
             self.tableView.reloadData()
             self.tableView.hidden = false
             Utils.removeProgressBar(self)
+        }
+    }
+    
+    func recoverFromCache(completion: (Void)-> Void) {
+        CacheManager.sharedInstance.getJsonByString(CacheManager.CONTACTS) { json in
+            self.contactsWrapper = Contacts(json: json)
+            return completion()
         }
     }
     
@@ -96,7 +113,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.contactSearchResults = self.contactsWrapper?.contacts!.filter({( aContact: Contact) -> Bool in
             return aContact.fullname!.lowercaseString.rangeOfString(searchText!.lowercaseString) != nil
         })
-
+        
         self.tableView.reloadData()
     }
     

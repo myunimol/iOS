@@ -36,10 +36,12 @@ class FirstPageController: UIViewController {
     func loginAndGetStudentInfo(username: String, password: String) {
         StudentInfo.getCredentials(username, password: password) { studentInfo, error in
             guard error == nil else {
-                Utils.displayAlert(self, title: "Questo non era previsto!", message: "Riapri MyUnimol")
+                Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️")
                 CacheManager.sharedInstance.resetCredentials()
                 CacheManager.sharedInstance.refreshCache()
-                exit(0)
+                
+                Utils.goToLogin()
+                return
             }
             if studentInfo!.areCredentialsValid {
                 self.getRecordBook()

@@ -148,4 +148,25 @@ class Utils {
     /// The privacy policy message
     static let privacyStatement = "ATTENZIONE: MyUnimol non è un\'applicazione ufficiale dell\'Università degli Studi del Molise. Tutti i dati vengono reperiti dal portale dello Studente dell\'Università degli Studi del Molise.\n\nEffettuando l\'accesso si esprime il proprio consenso al download automatico dei propri dati (quali nome, cognome, voto degli esami, corso di studi...) dal portale.\n\nPer maggiori info toc-toc@myunimol.it."
     
+    /// Returns to the app home page
+    static func goToMainPage() {
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let centerViewContainer = appDelegate.mainStoryBoard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let centerNav = UINavigationController(rootViewController: centerViewContainer)
+        
+        appDelegate.centerContainer!.centerViewController = centerNav
+        appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+    }
+    
+    /// Returns to the login page
+    static func goToLogin() {
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let centerViewContainer = appDelegate.mainStoryBoard.instantiateViewControllerWithIdentifier("LoginController") as! ViewController
+        let centerNav = UINavigationController(rootViewController: centerViewContainer)
+        
+        appDelegate.centerContainer!.centerViewController = centerNav
+        appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.None
+    }
 }

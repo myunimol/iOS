@@ -27,7 +27,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func login(sender: AnyObject) {
@@ -35,11 +35,20 @@ class LoginController : UIViewController, UITextFieldDelegate {
         self.username = self.usernameField.text!
         self.password = self.passwordField.text!
         
-        if username == "" || password == "" {
-            Utils.displayAlert(self, title: "Oops!", message: "Username e/o password mancanti")
+        if !Reachability.isConnectedToNetwork() {
+            // no available connection
+            Utils.displayAlert(self, title: "😨 Ooopss...", message: "Sembra che tu non abbia una connessione dispobile 😔")
             self.loginButton.enabled = true
+            self.usernameField.text = ""
+            self.passwordField.text = ""
+            return
         } else {
-            self.loginAndGetStudentInfo(username, password: password)
+            if username == "" || password == "" {
+                Utils.displayAlert(self, title: "Oops!", message: "Username e/o password mancanti")
+                self.loginButton.enabled = true
+            } else {
+                self.loginAndGetStudentInfo(username, password: password)
+            }
         }
     }
     
@@ -64,8 +73,8 @@ class LoginController : UIViewController, UITextFieldDelegate {
                 // login not valid
                 Utils.displayAlert(self, title: "Credenziali non valide", message: "Controlla username e password")
                 self.loginButton.enabled = true
-//                sometimes we just put wrong ending char
-//                self.passwordField.text = ""
+                self.usernameField.text = ""
+                self.passwordField.text = ""
                 Utils.removeProgressBar(self)
             }
             

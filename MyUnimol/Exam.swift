@@ -87,6 +87,20 @@ extension Alamofire.Request {
             switch result {
             case .Success(let value):
                 let exams: SessionExams = SessionExams(json: value as! JSON)
+                
+                // store in cache
+                let endpoint = (request?.URL)!
+                switch endpoint {
+                case MyUnimolEndPoints.GET_EXAM_SESSIONS:
+                    CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.EXAMS_AVAILABLE, json: value as! JSON)
+                    break
+                case MyUnimolEndPoints.GET_ENROLLED_EXAMS:
+                    CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.EXAMS_ENROLLED, json: value as! JSON)
+                    break
+                default:
+                    break
+                }
+                
                 return .Success(exams)
             case .Failure(let error):
                 return .Failure(error)

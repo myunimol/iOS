@@ -34,6 +34,8 @@ class CacheManager {
     static let DEPARTMENT_NEWS = "departmentNews"
     /// key for university news cache
     static let UNIVERSITY_NEWS = "universityNews"
+    /// key for contacts cache
+    static let CONTACTS = "contacts"
     
     init() {}
         

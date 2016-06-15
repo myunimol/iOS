@@ -69,12 +69,30 @@ extension Alamofire.Request {
                 return .Failure(error)
             }
             
+            print(request?.URL)
             let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
             let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
             
             switch result {
             case .Success(let value):
                 let news: NewsList = NewsList(json: value as! JSON)
+                
+                // store in cache
+                let endpoint = (request?.URL)!
+                switch endpoint {
+                case MyUnimolEndPoints.GET_NEWS_BOARD:
+                    CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.BOARD_NEWS, json: value as! JSON)
+                    break
+                case MyUnimolEndPoints.GET_DEPARTMENT_NEWS:
+                    CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.DEPARTMENT_NEWS, json: value as! JSON)
+                    break
+                case MyUnimolEndPoints.GET_UNIVERSITY_NEWS:
+                    CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.UNIVERSITY_NEWS, json: value as! JSON)
+                    break
+                default:
+                    break
+                }
+                
                 return .Success(news)
             case .Failure(let error):
                 return .Failure(error)

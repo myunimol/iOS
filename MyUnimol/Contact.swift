@@ -68,6 +68,10 @@ extension Alamofire.Request {
             switch result {
             case .Success(let value):
                 let contacts: Contacts = Contacts(json: value as! JSON)
+                
+                // store in cache
+                CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.CONTACTS, json: value as! JSON)
+                
                 return .Success(contacts)
             case .Failure(let error):
                 return .Failure(error)

@@ -163,7 +163,7 @@ class Utils {
     static func goToLogin() {
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        let centerViewContainer = appDelegate.mainStoryBoard.instantiateViewControllerWithIdentifier("LoginController") as! ViewController
+        let centerViewContainer = appDelegate.mainStoryBoard.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
         let centerNav = UINavigationController(rootViewController: centerViewContainer)
         
         appDelegate.centerContainer!.centerViewController = centerNav

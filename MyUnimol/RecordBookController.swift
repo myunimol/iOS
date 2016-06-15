@@ -20,8 +20,8 @@ class RecordBookController: UIViewController, UITableViewDelegate {
         Utils.setNavigationControllerStatusBar(self, title: "Libretto", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
         
         if !Reachability.isConnectedToNetwork() {
-            CacheManager.sharedInstance.getJsonByString(CacheManager.RECORD_BOOK) { json in
-                let recordBook = RecordBook(json: json)
+            CacheManager.sharedInstance.getJsonByString(CacheManager.RECORD_BOOK) { json, error in
+                let recordBook = RecordBook(json: json!)
                 self.recordBook = recordBook
             }
         } else {

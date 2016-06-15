@@ -69,7 +69,6 @@ extension Alamofire.Request {
                 return .Failure(error)
             }
             
-            print(request?.URL)
             let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
             let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
             

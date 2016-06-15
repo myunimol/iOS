@@ -38,7 +38,7 @@ class CacheManager {
     static let CONTACTS = "contacts"
     
     init() {}
-        
+    
     // Stores the credentials in NSUserDefaults
     internal func storeCredentials(username: String, password: String) {
         self.userDefaults.setObject(username, forKey: "username")
@@ -50,7 +50,7 @@ class CacheManager {
         self.userDefaults.setObject(nil, forKey: "username")
         self.userDefaults.setObject(nil, forKey: "password")
     }
-
+    
     // Returns user credentials, if stored; otherwise returns nil
     internal func getUserCredential() -> (String?, String?) {
         let username = self.userDefaults.objectForKey("username") as? String
@@ -73,9 +73,11 @@ class CacheManager {
     }
     
     /// Returns a `Gloss.JSON` object for a given key
-    internal func getJsonByString(key: String, completionHandler: (json: Gloss.JSON) -> Void) {
+    internal func getJsonByString(key: String, completionHandler: (json: Gloss.JSON?, error: NSError?) -> Void) {
         self.cache.fetch(key: key).onSuccess { json in
-            return completionHandler(json: json)
+            return completionHandler(json: json, error: nil)
+            }.onFailure { error in
+                return completionHandler(json: nil, error: error)
         }
     }
     

@@ -88,7 +88,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 
                 return
-            }
+            } // end error
             self.contactsWrapper = contacts
             self.tableView.reloadData()
             self.tableView.hidden = false
@@ -96,9 +96,11 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func recoverFromCache(completion: (Void)-> Void) {
-        CacheManager.sharedInstance.getJsonByString(CacheManager.CONTACTS) { json in
-            self.contactsWrapper = Contacts(json: json)
+    private func recoverFromCache(completion: (Void)-> Void) {
+        CacheManager.sharedInstance.getJsonByString(CacheManager.CONTACTS) { json, error in
+            if (json != nil) {
+                self.contactsWrapper = Contacts(json: json!)
+            }
             return completion()
         }
     }

@@ -21,11 +21,18 @@ class FirstPageController: UIViewController {
     
         if !Reachability.isConnectedToNetwork() {
             // no connection available
-            CacheManager.sharedInstance.getJsonByString(CacheManager.STUDENT_INFO) { json in
-                Student.sharedInstance.studentInfo = StudentInfo(json: json)
-                CacheManager.sharedInstance.getJsonByString(CacheManager.RECORD_BOOK) { json in
-                    RecordBookClass.sharedInstance.recordBook = RecordBook(json: json)
-                    self.performSegueWithIdentifier("ViewController", sender: self)
+            CacheManager.sharedInstance.getJsonByString(CacheManager.STUDENT_INFO) { json, error in
+                if (json != nil) {
+                    Student.sharedInstance.studentInfo = StudentInfo(json: json!)
+                } else {
+                    self.showErrorAndGoToLogin()
+                }
+                CacheManager.sharedInstance.getJsonByString(CacheManager.RECORD_BOOK) { json, error in
+                    if (json != nil) {
+                        RecordBookClass.sharedInstance.recordBook = RecordBook(json: json!)
+                    } else {
+                        self.showErrorAndGoToLogin()
+                    }
                 }
             }
         } else {
@@ -36,10 +43,7 @@ class FirstPageController: UIViewController {
     func loginAndGetStudentInfo(username: String, password: String) {
         StudentInfo.getCredentials(username, password: password) { studentInfo, error in
             guard error == nil else {
-                Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️")
-                CacheManager.sharedInstance.resetCredentials()
-                CacheManager.sharedInstance.refreshCache()
-                Utils.goToLogin()
+                self.showErrorAndGoToLogin()
                 return
             }
             if studentInfo!.areCredentialsValid {
@@ -49,7 +53,7 @@ class FirstPageController: UIViewController {
                 Utils.displayAlert(self, title: "Ops 😨", message: "Credenziali non valide!")
                 CacheManager.sharedInstance.resetCredentials()
                 CacheManager.sharedInstance.refreshCache()
-                self.performSegueWithIdentifier("LoginController", sender: self)
+                Utils.goToLogin()
                 return
             }
         }
@@ -58,13 +62,12 @@ class FirstPageController: UIViewController {
     func getRecordBook() {
         RecordBook.getRecordBook { recordBook, error in
             guard error == nil else {
-                Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️")
+                self.showErrorAndGoToLogin()
                 return
             }
             self.performSegueWithIdentifier("ViewController", sender: self)
         }
     }
-
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -75,7 +78,14 @@ class FirstPageController: UIViewController {
         appDelegate.centerContainer!.centerViewController = centerNav
         appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
     }
-
+    
+    /// Showed when an API strange error occurs; shows an alert dialog and returns to login page
+    private func showErrorAndGoToLogin() {
+        Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️! Ritenta tra poco 💪")
+        CacheManager.sharedInstance.resetCredentials()
+        CacheManager.sharedInstance.refreshCache()
+        Utils.goToLogin()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

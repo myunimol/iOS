@@ -33,20 +33,41 @@ class DepartmentNewsViewController: UIViewController, UITableViewDelegate {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         News.getDepartmentNews { news, error in
             guard error == nil else {
-                Utils.removeProgressBar(self)
-                Utils.displayAlert(self, title: "Abbiamo un problema", message: "Per qualche strano motivo non riusciamo a caricare questa pagina!")
-                self.performSegueWithIdentifier("ViewController", sender: self)
+                
+                self.recoverFromCache { _ in
+                    if (self.news != nil) {
+                        self.tableView.reloadData()
+                        self.tableView.hidden = false
+                        Utils.removeProgressBar(self)
+                    } else {
+                        Utils.removeProgressBar(self)
+                        Utils.displayAlert(self, title: "😨 Ooopss...", message: "Per qualche strano motivo non riusciamo a recuperare gli esami disponibili 😔")
+                        Utils.goToMainPage()
+                    }
+                }
+                
                 return
-            }
+                
+            } // end errors
             self.news = news?.newsList
             if (self.news?.count == 0) {
                 self.tableView.hidden = true
-                Utils.setPlaceholderForEmptyTable(self, message: "Nulla da segnalare al momento!")
+                Utils.setPlaceholderForEmptyTable(self, message: "Nulla da segnalare al momento! 😎")
             } else {
                 self.tableView.reloadData()
                 self.tableView.hidden = false
             }
             Utils.removeProgressBar(self)
+        }
+    }
+    
+    private func recoverFromCache(completion: (Void)-> Void) {
+        CacheManager.sharedInstance.getJsonByString(CacheManager.DEPARTMENT_NEWS) { json, error in
+            if (json != nil) {
+                let auxNews: NewsList = NewsList(json: json!)
+                self.news = auxNews.newsList
+            }
+            return completion()
         }
     }
     

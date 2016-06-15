@@ -23,29 +23,48 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         Utils.setNavigationControllerStatusBar(self, title: "Pagamenti", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
         
         self.tableView.hidden = true
-        if !Reachability.isConnectedToNetwork() {
-            CacheManager.sharedInstance.getJsonByString(CacheManager.TAX) { json in
-                let taxes = Taxes(json: json)
-                self.taxes = taxes.taxes
-                Utils.reloadTable(self.tableView)
-            }
-        } else {
-            self.loadTaxes()
-        }
+        self.loadTaxes()
     }
     
     func loadTaxes() {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         Tax.getAllTaxes { taxes, error in
             guard error == nil else {
-                Utils.removeProgressBar(self)
-                Utils.displayAlert(self, title: "Abbiamo un problema", message: "Per qualche strano motivo non riusciamo a caricare questa pagina!")
-                self.performSegueWithIdentifier("ViewController", sender: self)
+                
+                self.recoverFromCache { _ in
+                    if (self.taxes != nil) {
+                        self.tableView.reloadData()
+                        self.tableView.hidden = false
+                        Utils.removeProgressBar(self)
+                    } else {
+                        Utils.removeProgressBar(self)
+                        Utils.displayAlert(self, title: "😨 Ooopss...", message: "Per qualche strano motivo non riusciamo a recuperare gli esami disponibili 😔")
+                        Utils.goToMainPage()
+                    }
+                }
+                
                 return
-            }
+                
+            } // end errors
             self.taxes = taxes?.taxes
-            Utils.reloadTable(self.tableView)
+            if (self.taxes?.count == 0) {
+                self.tableView.hidden = true
+                Utils.setPlaceholderForEmptyTable(self, message: "Niente soldi da sborsare per ora! 😎")
+            } else {
+                self.tableView.reloadData()
+                self.tableView.hidden = false
+            }
             Utils.removeProgressBar(self)
+        }
+    }
+    
+    private func recoverFromCache(completion: (Void)-> Void) {
+        CacheManager.sharedInstance.getJsonByString(CacheManager.TAX) { json, error in
+            if (json != nil) {
+                let auxTaxes: Taxes = Taxes(json: json!)
+                self.taxes = auxTaxes.taxes
+            }
+            return completion()
         }
     }
     

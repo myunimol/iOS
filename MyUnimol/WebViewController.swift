@@ -56,7 +56,8 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         
         if !Reachability.isConnectedToNetwork() {
-            Utils.displayAlert(self, title: "Ops! Abbiamo un problema!", message: "Connessione assente!")
+            Utils.displayAlert(self, title: "😨 Ooopss...", message: "Forse non hai una connessione disponibile per accedere al tuo portale 😔")
+            Utils.goToMainPage()
         } else {
             /* Create our preferences on how the web page should be loaded */
             let preferences = WKPreferences()

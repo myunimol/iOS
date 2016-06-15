@@ -30,11 +30,22 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         SessionExam.getSessionExams { exams, error in
             guard error == nil else {
-                Utils.removeProgressBar(self)
-                Utils.displayAlert(self, title: "Abbiamo un problema", message: "Per qualche strano motivo non riusciamo a caricare questa pagina!")
-                self.performSegueWithIdentifier("ViewController", sender: self)
+                
+                self.recoverFromCache { _ in
+                    if (self.exams != nil) {
+                        self.tableView.reloadData()
+                        self.tableView.hidden = false
+                        Utils.removeProgressBar(self)
+                    } else {
+                        Utils.removeProgressBar(self)
+                        Utils.displayAlert(self, title: "😨 Ooopss...", message: "Per qualche strano motivo non riusciamo a recuperare gli esami disponibili 😔")
+                        Utils.goToMainPage()
+                    }
+                }
+                
                 return
-            }
+
+            } // end error
             self.exams = exams?.examsList
             if (self.exams?.count == 0) {
                 self.tableView.hidden = true
@@ -44,6 +55,16 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
                 self.tableView.hidden = false
             }
             Utils.removeProgressBar(self)
+        }
+    }
+    
+    private func recoverFromCache(completion: (Void)-> Void) {
+        CacheManager.sharedInstance.getJsonByString(CacheManager.EXAMS_AVAILABLE) { json, error in
+            if (json != nil) {
+                let auxExams: SessionExams = SessionExams(json: json!)
+                self.exams = auxExams.examsList
+            }
+            return completion()
         }
     }
     

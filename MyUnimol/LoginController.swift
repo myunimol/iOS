@@ -37,7 +37,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
         
         if !Reachability.isConnectedToNetwork() {
             // no available connection
-            Utils.displayAlert(self, title: "😨 Ooopss...", message: "Sembra che tu non abbia una connessione dispobile 😔")
+            Utils.displayAlert(self, title: "😨 Ooopss...", message: "Sembra che tu non abbia una connessione disponibile 👎")
             self.loginButton.enabled = true
             self.usernameField.text = ""
             self.passwordField.text = ""
@@ -61,7 +61,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
         StudentInfo.getCredentials(username, password: password) { studentInfo, error in
             guard error == nil else {
                 Utils.removeProgressBar(self)
-                Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️")
+                Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️! Ritenta tra poco 💪")
                 self.loginButton.enabled = true
                 return
             }
@@ -69,7 +69,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
                 self.getRecordBook()
             } else {
                 // login not valid
-                Utils.displayAlert(self, title: "Credenziali non valide", message: "Controlla username e password")
+                Utils.displayAlert(self, title: "Credenziali non valide 😱", message: "Controlla username e password 😎")
                 self.loginButton.enabled = true
                 self.usernameField.text = ""
                 self.passwordField.text = ""
@@ -83,7 +83,10 @@ class LoginController : UIViewController, UITextFieldDelegate {
         RecordBook.getRecordBook { recordBook, error in
             guard error == nil else {
                 Utils.removeProgressBar(self)
-                Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️")
+                Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️! Ritenta tra poco 💪")
+                self.loginButton.enabled = true
+                self.usernameField.text = ""
+                self.passwordField.text = ""
                 return
             }
             self.performSegueWithIdentifier("ViewController", sender: self)

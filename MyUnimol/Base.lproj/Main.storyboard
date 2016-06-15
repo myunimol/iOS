@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T66-Lv-PGj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T66-Lv-PGj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -896,58 +895,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vuoi segnalare un bug o suggerirci dei miglioramenti? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyp-ZK-2sy">
-                                <rect key="frame" x="17" y="48" width="341" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamMolise" translatesAutoresizingMaskIntoConstraints="NO" id="YPd-gl-kxy">
-                                <rect key="frame" x="92" y="290" width="191" height="191"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="YPd-gl-kxy" secondAttribute="height" multiplier="1:1" id="T8R-PH-L0N"/>
-                                    <constraint firstAttribute="height" constant="200" id="eSO-0r-tXD"/>
-                                    <constraint firstAttribute="height" constant="200" id="fUy-cb-2R2"/>
-                                    <constraint firstAttribute="width" secondItem="YPd-gl-kxy" secondAttribute="height" multiplier="1:1" id="wbS-1f-REk"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="eSO-0r-tXD"/>
-                                        <exclude reference="fUy-cb-2R2"/>
-                                        <exclude reference="wbS-1f-REk"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wr-uk-9ph">
-                                <rect key="frame" x="134" y="141" width="108" height="38"/>
+                                <rect key="frame" x="44" y="501" width="287" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="2b0-cw-fac"/>
-                                    <constraint firstAttribute="width" constant="108" id="GVf-k3-4QU"/>
+                                    <constraint firstAttribute="height" constant="38" id="9Gh-Ya-7RC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Scrivici!"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
+                                <state key="normal" title="toc-toc@myunimol.it"/>
                                 <connections>
                                     <action selector="sendMail:" destination="xuV-IR-3h5" eventType="touchUpInside" id="C5x-8O-wuF"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mail" translatesAutoresizingMaskIntoConstraints="NO" id="NVa-UU-7fY">
+                                <rect key="frame" x="67" y="193" width="240" height="240"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invia una 💌 a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fu-7u-ACt">
+                                <rect key="frame" x="113" y="472" width="148" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="JiW-bX-6aE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vuoi segnalare un bug o suggerirci dei miglioramenti? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyp-ZK-2sy">
+                                <rect key="frame" x="17" y="101" width="341" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="dmv-Wd-6zd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3fu-7u-ACt" firstAttribute="centerX" secondItem="0Wr-uk-9ph" secondAttribute="centerX" id="0Es-4J-uym"/>
                             <constraint firstItem="0Wr-uk-9ph" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="122" id="2Gc-SR-bZZ"/>
-                            <constraint firstItem="0Wr-uk-9ph" firstAttribute="centerX" secondItem="j3Q-3G-ywb" secondAttribute="centerX" id="9a9-0j-mxg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0Wr-uk-9ph" secondAttribute="trailing" constant="113" id="Ggb-do-UkD"/>
-                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="centerX" secondItem="j3Q-3G-ywb" secondAttribute="centerX" id="L1k-GF-yA4"/>
-                            <constraint firstItem="YPd-gl-kxy" firstAttribute="top" secondItem="0Wr-uk-9ph" secondAttribute="bottom" constant="111" id="OjC-17-Oy3"/>
-                            <constraint firstItem="YPd-gl-kxy" firstAttribute="centerX" secondItem="fyp-ZK-2sy" secondAttribute="centerX" id="QdM-E0-R2n"/>
-                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="top" secondItem="j6m-a2-kHj" secondAttribute="bottom" constant="28" id="Uwn-x9-vBG"/>
-                            <constraint firstItem="YPd-gl-kxy" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="76" id="bQa-jS-Sro"/>
-                            <constraint firstItem="0Wr-uk-9ph" firstAttribute="top" secondItem="fyp-ZK-2sy" secondAttribute="bottom" constant="52" id="bZw-Hg-oNm"/>
-                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="top" secondItem="j6m-a2-kHj" secondAttribute="bottom" constant="28" id="gl8-HO-644"/>
+                            <constraint firstItem="3fu-7u-ACt" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="97" id="HJQ-Hu-NRv"/>
+                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="1" id="IAV-34-Fd6"/>
+                            <constraint firstItem="w8h-Mk-Ugv" firstAttribute="top" secondItem="0Wr-uk-9ph" secondAttribute="bottom" constant="128" id="IhS-ar-z9h"/>
+                            <constraint firstItem="NVa-UU-7fY" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="51" id="LD2-6u-86X"/>
+                            <constraint firstItem="3fu-7u-ACt" firstAttribute="top" secondItem="NVa-UU-7fY" secondAttribute="bottom" constant="39" id="LSw-90-bHG"/>
+                            <constraint firstItem="NVa-UU-7fY" firstAttribute="centerX" secondItem="j3Q-3G-ywb" secondAttribute="centerX" id="Q2i-WN-Rqa"/>
+                            <constraint firstItem="0Wr-uk-9ph" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="28" id="SM8-Dt-i95"/>
+                            <constraint firstItem="NVa-UU-7fY" firstAttribute="top" secondItem="fyp-ZK-2sy" secondAttribute="bottom" constant="51" id="gvd-76-ceM"/>
+                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="top" secondItem="j6m-a2-kHj" secondAttribute="bottom" constant="81" id="gwO-o1-ADM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fyp-ZK-2sy" secondAttribute="trailing" constant="-9" id="iXt-gM-5gz"/>
+                            <constraint firstItem="0Wr-uk-9ph" firstAttribute="top" secondItem="3fu-7u-ACt" secondAttribute="bottom" constant="8" symbolic="YES" id="iw0-Ab-KD4"/>
                             <constraint firstItem="fyp-ZK-2sy" firstAttribute="centerX" secondItem="j3Q-3G-ywb" secondAttribute="centerX" id="nAL-HJ-uLi"/>
-                            <constraint firstItem="YPd-gl-kxy" firstAttribute="top" secondItem="0Wr-uk-9ph" secondAttribute="bottom" constant="111" id="noT-Io-iao"/>
-                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="leading" secondItem="j3Q-3G-ywb" secondAttribute="leadingMargin" constant="1" id="sWx-4q-K1t"/>
-                            <constraint firstItem="w8h-Mk-Ugv" firstAttribute="top" secondItem="YPd-gl-kxy" secondAttribute="bottom" constant="186" id="wcH-V3-PAh"/>
+                            <constraint firstItem="NVa-UU-7fY" firstAttribute="centerX" secondItem="3fu-7u-ACt" secondAttribute="centerX" id="oqt-Bz-HHV"/>
+                            <constraint firstItem="fyp-ZK-2sy" firstAttribute="centerX" secondItem="NVa-UU-7fY" secondAttribute="centerX" id="w8k-P9-DzR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -955,7 +954,6 @@
                                 <exclude reference="nAL-HJ-uLi"/>
                                 <exclude reference="2Gc-SR-bZZ"/>
                                 <exclude reference="Ggb-do-UkD"/>
-                                <exclude reference="OjC-17-Oy3"/>
                             </mask>
                         </variation>
                     </view>
@@ -963,7 +961,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8W-yr-cOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-140.5" y="2720.5"/>
+            <point key="canvasLocation" x="-152.5" y="2720.5"/>
         </scene>
         <!--Taxes View Controller-->
         <scene sceneID="4mE-9D-XQC">
@@ -1332,6 +1330,7 @@
     </scenes>
     <resources>
         <image name="Department-50" width="25" height="25"/>
+        <image name="Mail" width="350" height="350"/>
         <image name="MyUnimolBigLogo" width="1024" height="1024"/>
         <image name="Nerd-50" width="25" height="25"/>
         <image name="Neutral-50" width="25" height="25"/>
@@ -1339,7 +1338,6 @@
         <image name="User Male-50" width="25" height="25"/>
         <image name="bg_header_logo" width="800" height="450"/>
         <image name="launcher_ic" width="192" height="192"/>
-        <image name="teamMolise" width="760" height="762"/>
         <image name="voto_bg" width="127" height="126"/>
     </resources>
     <inferredMetricsTieBreakers>

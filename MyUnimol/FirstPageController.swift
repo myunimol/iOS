@@ -30,6 +30,7 @@ class FirstPageController: UIViewController {
                 CacheManager.sharedInstance.getJsonByString(CacheManager.RECORD_BOOK) { json, error in
                     if (json != nil) {
                         RecordBookClass.sharedInstance.recordBook = RecordBook(json: json!)
+                        self.performSegueWithIdentifier("ViewController", sender: self)
                     } else {
                         self.showErrorAndGoToLogin()
                     }

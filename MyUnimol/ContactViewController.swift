@@ -62,7 +62,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
-        self.searchController.searchBar.placeholder = "Ricerca qui..."
+        self.searchController.searchBar.placeholder = "Cerca..."
         self.searchController.searchBar.delegate = self
         self.definesPresentationContext = false
         self.searchController.hidesNavigationBarDuringPresentation = false

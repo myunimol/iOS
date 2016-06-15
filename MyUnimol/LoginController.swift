@@ -63,8 +63,6 @@ class LoginController : UIViewController, UITextFieldDelegate {
                 Utils.removeProgressBar(self)
                 Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️")
                 self.loginButton.enabled = true
-                CacheManager.sharedInstance.resetCredentials()
-                CacheManager.sharedInstance.refreshCache()
                 return
             }
             if studentInfo!.areCredentialsValid {

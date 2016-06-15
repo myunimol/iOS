@@ -28,8 +28,8 @@ class TipsViewController: UIViewController, MFMailComposeViewControllerDelegate 
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposer = MFMailComposeViewController()
         mailComposer.mailComposeDelegate = self
-        mailComposer.setToRecipients(["tot-toc@teammolise.rocks"])
-        mailComposer.setSubject("Feedback myUnimol@iOS")
+        mailComposer.setToRecipients(["tot-toc@myunimol.it"])
+        mailComposer.setSubject("Feedback MyUnimol@iOS")
         mailComposer.setMessageBody("\n\nApp Version: \(Utils.getAppVersion())\niOS version: \(Utils.getSOVersion())\nCorso: \(Student.sharedInstance.getStudentCourse())\nDipartimento: \(Student.sharedInstance.getStudentDepartment())", isHTML: false)
         return mailComposer
     }

@@ -59,16 +59,6 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    //Test for careers
-    func loadCareers() {
-        Career.getAllCareers { taxes, error in
-            guard error == nil else {
-                return
-            } // end errors
-            Utils.displayAlert(self, title: "IT WORKS", message: "YEPPA 😎")
-        }
-    }
-    
     private func recoverFromCache(completion: (Void)-> Void) {
         CacheManager.sharedInstance.getJsonByString(CacheManager.TAX) { json, error in
             if (json != nil) {

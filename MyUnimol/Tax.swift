@@ -12,21 +12,21 @@ import Alamofire
 /// Store the info for a tax
 public struct Tax: Decodable {
     
-    let billId: String?
-    let bullettinCode: String?
-    let year: String?
-    let description: String?
-    let expiringDate: String?
-    let amount: Double?
-    let statusPayment: String?
+    let billId        : String?
+    let bullettinCode : String?
+    let year          : String?
+    let description   : String?
+    let expiringDate  : String?
+    let amount        : Double?
+    let statusPayment : String?
     
     public init?(json: JSON) {
-        self.billId = "billId" <~~ json
+        self.billId        = "billId" <~~ json
         self.bullettinCode = "bullettinCode" <~~ json
-        self.year = "year" <~~ json
-        self.description = "description" <~~ json
-        self.expiringDate = "expiringDate" <~~ json
-        self.amount = "amount" <~~ json
+        self.year          = "year" <~~ json
+        self.description   = "description" <~~ json
+        self.expiringDate  = "expiringDate" <~~ json
+        self.amount        = "amount" <~~ json
         self.statusPayment = "statusPayment" <~~ json
     }
     

@@ -12,16 +12,16 @@ import Alamofire
 /// Info about a generic news
 public struct News: Decodable {
     
-    let date: String?
-    let title: String?
-    let text: String?
-    let link: String?
+    let date  : String?
+    let title : String?
+    let text  : String?
+    let link  : String?
     
     public init(json: JSON) {
-        self.date = "date" <~~ json
+        self.date  = "date" <~~ json
         self.title = "title" <~~ json
-        self.text = "text" <~~ json
-        self.link = "link" <~~ json
+        self.text  = "text" <~~ json
+        self.link  = "link" <~~ json
     }
     
     public static func getBoardNews(completionHandler: (NewsList?, NSError?) -> Void) {

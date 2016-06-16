@@ -12,39 +12,39 @@ import Foundation
 
 public class StudentInfo {
     
-    let availableExams : Int?
+    let availableExams      : Int?
     ///the course in which the student is enrolled
-    let course : String?
-    let courseLength : Int?
+    let course              : String?
+    let courseLength        : Int?
     ///the department of the student course
-    let department : String?
-    let enrolledExams : Int?
-    let name : String?
-    let surname : String?
-    let registrationDate : String?
+    let department          : String?
+    let enrolledExams       : Int?
+    let name                : String?
+    let surname             : String?
+    let registrationDate    : String?
     ///the course and the year for the current student
-    let studentClass : String?
-    let studentId : String?
+    let studentClass        : String?
+    let studentId           : String?
     
     /// true if the API server returns a valid users; false otherwise
-    var areCredentialsValid: Bool
+    var areCredentialsValid : Bool
     
     init?(json: JSON) {
-        self.availableExams = "availableExams" <~~ json
-        self.course = "course" <~~ json
-        self.courseLength = "courseLength" <~~ json
-        self.department = "department" <~~ json
-        self.enrolledExams = "enrolledExams" <~~ json
+        self.availableExams      = "availableExams" <~~ json
+        self.course              = "course" <~~ json
+        self.courseLength        = "courseLength" <~~ json
+        self.department          = "department" <~~ json
+        self.enrolledExams       = "enrolledExams" <~~ json
         
-        let auxName: String? = "name" <~~ json
-        self.name = auxName?.capitalizedString
+        let auxName: String?     = "name" <~~ json
+        self.name                = auxName?.capitalizedString
         
-        let auxSurname: String? = "surname" <~~ json
-        self.surname = auxSurname?.capitalizedString
+        let auxSurname: String?  = "surname" <~~ json
+        self.surname             = auxSurname?.capitalizedString
         
-        self.registrationDate = "registrationDate" <~~ json
-        self.studentClass = "studentClass" <~~ json
-        self.studentId = "studentID" <~~ json
+        self.registrationDate    = "registrationDate" <~~ json
+        self.studentClass        = "studentClass" <~~ json
+        self.studentId           = "studentID" <~~ json
         
         self.areCredentialsValid = true
         

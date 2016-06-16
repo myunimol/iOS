@@ -10,8 +10,10 @@ import Foundation
 import Gloss
 import Haneke
 
+/// A singleton class which handles caching
 class CacheManager {
     
+    /// the `CacheManager` singleton object
     static let sharedInstance = CacheManager()
     
     private let cache = Cache<Gloss.JSON>(name: "myUnimolCache")
@@ -36,6 +38,8 @@ class CacheManager {
     static let UNIVERSITY_NEWS = "universityNews"
     /// key for contacts cache
     static let CONTACTS = "contacts"
+    /// key for careers cache
+    static let CAREERS = "careers"
     
     init() {}
     

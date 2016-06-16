@@ -15,6 +15,7 @@
 		1E27AA161C69B42D009AD819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E27AA141C69B42D009AD819 /* LaunchScreen.storyboard */; };
 		1E27AA211C69B42D009AD819 /* MyUnimolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA201C69B42D009AD819 /* MyUnimolTests.swift */; };
 		1E27AA2C1C69B42D009AD819 /* MyUnimolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27AA2B1C69B42D009AD819 /* MyUnimolUITests.swift */; };
+		1E2ED1D31D130C8400801041 /* Career.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2ED1D21D130C8400801041 /* Career.swift */; };
 		1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */; };
 		1E38213D1C6D00E300D0E3A2 /* RecordBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38213C1C6D00E300D0E3A2 /* RecordBook.swift */; };
 		1E44FA341CF4C55600F9DECA /* APIMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44FA331CF4C55600F9DECA /* APIMessage.swift */; };
@@ -89,6 +90,7 @@
 		1E27AA271C69B42D009AD819 /* MyUnimolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyUnimolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E27AA2B1C69B42D009AD819 /* MyUnimolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUnimolUITests.swift; sourceTree = "<group>"; };
 		1E27AA2D1C69B42D009AD819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E2ED1D21D130C8400801041 /* Career.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Career.swift; sourceTree = "<group>"; };
 		1E3821391C6A7AAD00D0E3A2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1E38213C1C6D00E300D0E3A2 /* RecordBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordBook.swift; sourceTree = "<group>"; };
 		1E44FA331CF4C55600F9DECA /* APIMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIMessage.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		1E38213B1C6D00C600D0E3A2 /* beans */ = {
 			isa = PBXGroup;
 			children = (
+				1E2ED1D21D130C8400801041 /* Career.swift */,
 				1E8ACFD31C9B154F0059AED2 /* Tax.swift */,
 				1E92526E1C9D580500146C7E /* News.swift */,
 				1EFA57301CDF1DDA00FA74A4 /* Exam.swift */,
@@ -644,6 +647,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EFA572E1CDF1C5000FA74A4 /* DefaultExamCell.swift in Sources */,
+				1E2ED1D31D130C8400801041 /* Career.swift in Sources */,
 				1E8ACFD01C9B13BE0059AED2 /* TaxesViewController.swift in Sources */,
 				1E4F8E3D1C972F0F007D92E2 /* KDCircularProgress.swift in Sources */,
 				1EFA57311CDF1DDA00FA74A4 /* Exam.swift in Sources */,
@@ -822,8 +826,8 @@
 			baseConfigurationReference = 1C3307CB1C55B7B9B4034D26 /* Pods-MyUnimol.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Giovanni Grano (Q2U9U59EA6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Giovanni Grano (Q2U9U59EA6)";
 				INFOPLIST_FILE = MyUnimol/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "rocks.teammolise.myunimol-ios";
@@ -839,8 +843,8 @@
 			baseConfigurationReference = BE7CF3F73A13DF2FF231028E /* Pods-MyUnimol.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Giovanni Grano (Q2U9U59EA6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Giovanni Grano (Q2U9U59EA6)";
 				INFOPLIST_FILE = MyUnimol/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "rocks.teammolise.myunimol-ios";

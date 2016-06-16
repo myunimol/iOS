@@ -12,20 +12,20 @@ import Alamofire
 ///Contains the info for a contact
 public struct Contact: Decodable {
     
-    let fullname: String?
-    let role: String?
-    let building: String?
-    let internalTelephone: String?
-    let externalTelephone: String?
-    let email: String?
+    let fullname          : String?
+    let role              : String?
+    let building          : String?
+    let internalTelephone : String?
+    let externalTelephone : String?
+    let email             : String?
     
     public init?(json: JSON) {
-        self.fullname = "fullname" <~~ json
-        self.role = "role" <~~ json
-        self.building = "building" <~~ json
+        self.fullname          = "fullname" <~~ json
+        self.role              = "role" <~~ json
+        self.building          = "building" <~~ json
         self.internalTelephone = "internalTelephone" <~~ json
         self.externalTelephone = "externalTelephone" <~~ json
-        self.email = "email" <~~ json
+        self.email             = "email" <~~ json
     }
     
     public static func getAllContacts(completionHandler: (Contacts?, NSError?) -> Void) {

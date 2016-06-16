@@ -24,6 +24,7 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         
         self.tableView.hidden = true
         self.loadTaxes()
+        self.loadCareers()
     }
     
     func loadTaxes() {
@@ -55,6 +56,16 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
                 self.tableView.hidden = false
             }
             Utils.removeProgressBar(self)
+        }
+    }
+    
+    //Test for careers
+    func loadCareers() {
+        Career.getAllCareers { taxes, error in
+            guard error == nil else {
+                return
+            } // end errors
+            Utils.displayAlert(self, title: "IT WORKS", message: "YEPPA 😎")
         }
     }
     

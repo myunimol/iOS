@@ -12,34 +12,34 @@ import Alamofire
 /// Info about an exam of the current session (already enrolled or not yet)
 public struct SessionExam: Decodable {
     
-    let name: String?
-    let cfu: String?
-    let professor: String?
-    let date: NSDate?
-    let expiringDate: NSDate?
-    let room: String?
-    let notes: String?
-    let id: String?
+    let name               : String?
+    let cfu                : String?
+    let professor          : String?
+    let date               : NSDate?
+    let expiringDate       : NSDate?
+    let room               : String?
+    let notes              : String?
+    let id                 : String?
     
     /// Enrollement position (only for enrolled exams)
-    let enrollmentPosition: String?
+    let enrollmentPosition : String?
     /// Total number of enrolled (only for enrolled ones)
-    let enrolled: String?
+    let enrolled           : String?
     
     public init?(json: JSON) {
-        self.name = "name" <~~ json
-        self.cfu = "cfu" <~~ json
-        self.professor = "professor" <~~ json
-        let auxDate: String? = "date" <~~ json
-        self.date = auxDate?.stringToDate
+        self.name                = "name" <~~ json
+        self.cfu                 = "cfu" <~~ json
+        self.professor           = "professor" <~~ json
+        let auxDate: String?     = "date" <~~ json
+        self.date                = auxDate?.stringToDate
         let auxExpiring: String? = "expiringDate" <~~ json
-        self.expiringDate = auxExpiring?.stringToDate
-        self.room = "room" <~~ json
-        self.notes = "notes" <~~ json
-        self.id = "id" <~~ json
+        self.expiringDate        = auxExpiring?.stringToDate
+        self.room                = "room" <~~ json
+        self.notes               = "notes" <~~ json
+        self.id                  = "id" <~~ json
         
-        self.enrollmentPosition = "enrollmentPosition" <~~ json
-        self.enrolled = "enrolled" <~~ json
+        self.enrollmentPosition  = "enrollmentPosition" <~~ json
+        self.enrolled            = "enrolled" <~~ json
     }
     
     public static func getSessionExams(completionHandler: (SessionExams?, NSError?) -> Void) {

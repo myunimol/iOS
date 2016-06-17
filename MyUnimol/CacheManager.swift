@@ -53,6 +53,7 @@ class CacheManager {
     internal func resetCredentials() {
         self.userDefaults.setObject(nil, forKey: "username")
         self.userDefaults.setObject(nil, forKey: "password")
+        self.userDefaults.setObject(nil, forKey: CacheManager.CAREERS)
     }
     
     // Returns user credentials, if stored; otherwise returns nil
@@ -69,6 +70,17 @@ class CacheManager {
             return true
         }
         return false
+    }
+    
+    /// Stores the user default career in `NSUserDefaults`
+    internal func storeCareer(careerId: String) {
+        self.userDefaults.setObject(careerId, forKey: CacheManager.CAREERS)
+    }
+    
+    /// Gets the user default career in `NSUserDefaults`
+    internal func getCareer() -> (String?) {
+        let career = self.userDefaults.objectForKey(CacheManager.CAREERS) as? String
+        return career
     }
     
     /// Store a `Gloss.JSON` into `NSUserDefaults` for a given key

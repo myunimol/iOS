@@ -28,9 +28,16 @@ public class ParameterHandler {
     public static func getStandardParameters() -> [String : String] {
         let (username, password) = CacheManager.sharedInstance.getUserCredential()
         
-        return ["username" : username!,
-                "password" : password!,
-                "token"    : MyUnimolToken.TOKEN]
+        if let careerId = CacheManager.sharedInstance.getCareer() {
+            return ["username" : username!,
+                    "password" : password!,
+                    "token"    : MyUnimolToken.TOKEN,
+                    "careerId" : careerId]
+        } else {
+            return ["username" : username!,
+                    "password" : password!,
+                    "token"    : MyUnimolToken.TOKEN]
+        }
     }
     
     private class func guessDepartmentParameter(studentDepartment: String) -> String {

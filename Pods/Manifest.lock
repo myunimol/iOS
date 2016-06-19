@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (3.4.0)
-  - Charts (2.2.4):
-    - Charts/Core (= 2.2.4)
-  - Charts/Core (2.2.4)
+  - Alamofire (3.4.1)
+  - Charts (2.2.5):
+    - Charts/Core (= 2.2.5)
+  - Charts/Core (2.2.5)
   - Gloss (0.7.3)
   - HanekeSwift (0.10.1)
   - MMDrawerController (0.5.7):
@@ -17,6 +17,7 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.5.7):
     - MMDrawerController/Core
+  - SCLAlertView (0.5.9)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
@@ -24,14 +25,16 @@ DEPENDENCIES:
   - Gloss (~> 0.6)
   - HanekeSwift
   - MMDrawerController (~> 0.5.7)
+  - SCLAlertView
 
 SPEC CHECKSUMS:
-  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
-  Charts: a9e735c83c6d376ade20f6612dcf0ba217394a49
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
   Gloss: c97a95d6279821f35fa0138700bce0391bce87c1
   HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
+  SCLAlertView: d7c6a48c7d340e60206d4ed0e8ebcbff3b9d2a44
 
-PODFILE CHECKSUM: ccffebbe823165376217222596588cd13e963251
+PODFILE CHECKSUM: 14ef324b73166f1e5a35aa0e16fa63f0859c851c
 
 COCOAPODS: 1.0.0.beta.5

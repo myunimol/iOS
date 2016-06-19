@@ -89,6 +89,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$CONFIGURATION_BUILD_DIR/Gloss/Gloss.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/HanekeSwift/Haneke.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MMDrawerController/MMDrawerController.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SCLAlertView/SCLAlertView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework"
@@ -96,4 +97,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$CONFIGURATION_BUILD_DIR/Gloss/Gloss.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/HanekeSwift/Haneke.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MMDrawerController/MMDrawerController.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SCLAlertView/SCLAlertView.framework"
 fi

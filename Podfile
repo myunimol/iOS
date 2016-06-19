@@ -9,6 +9,7 @@ target 'MyUnimol' do
     pod 'Gloss', '~> 0.6'
     pod 'Charts'
     pod 'HanekeSwift'
+    pod 'SCLAlertView'
 end
 
 target 'MyUnimolTests' do

@@ -62,9 +62,19 @@ public class StudentInfo {
     }
     
     public static func getCredentials(username: String, password: String, completionHandler: (StudentInfo?, NSError?) -> Void) {
-        let parameters = ["username" : username,
+        
+        var parameters = ["":""]
+        
+        if let careerId = CacheManager.sharedInstance.getCareer() {
+            parameters = ["username" : username,
+                          "password" : password,
+                          "token"    : MyUnimolToken.TOKEN,
+                          "careerId" : careerId]
+        } else {
+            parameters = ["username" : username,
                           "password" : password,
                           "token"    : MyUnimolToken.TOKEN]
+        }
         
         Alamofire.request(.POST, MyUnimolEndPoints.TEST_CREDENTIALS, parameters: parameters)
             .responseCredentials(username, password: password) { response in
@@ -111,7 +121,7 @@ extension Alamofire.Request {
             
             let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
             let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
-
+            
             switch result {
             case .Success(let value):
                 let api: APIMessage = APIMessage(json: value as! JSON)!

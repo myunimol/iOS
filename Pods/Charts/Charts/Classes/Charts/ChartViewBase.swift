@@ -9,7 +9,7 @@
 //  A port of MPAndroidChart for iOS
 //  Licensed under Apache License 2.0
 //
-//  https://github.com/danielgindi/ios-charts
+//  https://github.com/danielgindi/Charts
 //
 //  Based on https://github.com/PhilJay/MPAndroidChart/commit/c42b880
 
@@ -83,7 +83,6 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
     public var infoTextColor: NSUIColor! = NSUIColor(red: 247.0/255.0, green: 189.0/255.0, blue: 51.0/255.0, alpha: 1.0) // orange
     
     /// description text that appears in the bottom right corner of the chart
-    //public var descriptionText = "Description"
     public var descriptionText = ""
     
     /// if true, units are drawn next to the values in the chart
@@ -356,7 +355,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
         if (font == nil)
         {
             #if os(tvOS)
-                // 23 is the smallest recommened font size on the TV
+                // 23 is the smallest recommended font size on the TV
                 font = NSUIFont.systemFontOfSize(23, weight: UIFontWeightMedium)
             #else
                 font = NSUIFont.systemFontOfSize(NSUIFont.systemFontSize())
@@ -451,6 +450,13 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
     
     /// Highlights the value at the given x-index in the given DataSet.
     /// Provide -1 as the x-index to undo all highlighting.
+    public func highlightValue(xIndex xIndex: Int, dataSetIndex: Int)
+    {
+        highlightValue(xIndex: xIndex, dataSetIndex: dataSetIndex, callDelegate: true)
+    }
+    
+    /// Highlights the value at the given x-index in the given DataSet.
+    /// Provide -1 as the x-index to undo all highlighting.
     public func highlightValue(xIndex xIndex: Int, dataSetIndex: Int, callDelegate: Bool)
     {
         guard let data = _data else
@@ -483,14 +489,19 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
         {
             // set the indices to highlight
             entry = _data?.getEntryForHighlight(h!)
-            if (entry === nil || entry!.xIndex != h?.xIndex)
+            if (entry == nil)
             {
                 h = nil
-                entry = nil
                 _indicesToHighlight.removeAll(keepCapacity: false)
             }
             else
             {
+                if self is BarLineChartViewBase
+                    && (self as! BarLineChartViewBase).isHighlightFullBarEnabled
+                {
+                    h = ChartHighlight(xIndex: h!.xIndex, value: Double.NaN, dataIndex: -1, dataSetIndex: -1, stackIndex: -1)
+                }
+                
                 _indicesToHighlight = [h!]
             }
         }
@@ -531,7 +542,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
             let highlight = _indicesToHighlight[i]
             let xIndex = highlight.xIndex
 
-            let deltaX = _xAxis.axisRange
+            let deltaX = _xAxis?.axisRange ?? (Double(_data?.xValCount ?? 0) - 1)
             if xIndex <= Int(deltaX) && xIndex <= Int(CGFloat(deltaX) * _animator.phaseX)
             {
                 let e = _data?.getEntryForHighlight(highlight)

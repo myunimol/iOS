@@ -43,6 +43,7 @@
 		1E94C4751CDE0D2900B9812D /* DefaultNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E94C4731CDE0D2900B9812D /* DefaultNewsCell.swift */; };
 		1E94C4761CDE0D2900B9812D /* DefaultNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */; };
 		1EA091601CE4E87000D9158B /* TipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0915F1CE4E87000D9158B /* TipsViewController.swift */; };
+		1EE7F9A71D1548BF000E5341 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE7F9A61D1548BF000E5341 /* UIUtils.swift */; };
 		1EF37DE61CE24DFC0052A567 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF37DE51CE24DFC0052A567 /* ContactCell.swift */; };
 		1EF37DEB1CE38AE90052A567 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF37DEA1CE38AE90052A567 /* WebViewController.swift */; };
 		1EFA572E1CDF1C5000FA74A4 /* DefaultExamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */; };
@@ -119,6 +120,7 @@
 		1E94C4731CDE0D2900B9812D /* DefaultNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNewsCell.swift; sourceTree = "<group>"; };
 		1E94C4741CDE0D2900B9812D /* DefaultNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultNewsCell.xib; sourceTree = "<group>"; };
 		1EA0915F1CE4E87000D9158B /* TipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsViewController.swift; sourceTree = "<group>"; };
+		1EE7F9A61D1548BF000E5341 /* UIUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
 		1EF37DE51CE24DFC0052A567 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		1EF37DEA1CE38AE90052A567 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultExamCell.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				1E8DABBE1C7F6C000018FBAC /* Utils.swift */,
 				1E38213C1C6D00E300D0E3A2 /* RecordBook.swift */,
 				1E94C46D1CDBBB4000B9812D /* LoadSentences.swift */,
+				1EE7F9A61D1548BF000E5341 /* UIUtils.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				1E27AA0E1C69B42D009AD819 /* ViewController.swift in Sources */,
 				1E94C4691CD872A500B9812D /* CacheManager.swift in Sources */,
 				1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */,
+				1EE7F9A71D1548BF000E5341 /* UIUtils.swift in Sources */,
 				1E92526D1C9D579B00146C7E /* BoardNewsViewController.swift in Sources */,
 				1E66FBB31CDFA72800D61158 /* Contact.swift in Sources */,
 				1E9252751C9D5F0000146C7E /* UniversityNewsViewController.swift in Sources */,
@@ -826,8 +830,8 @@
 			baseConfigurationReference = 1C3307CB1C55B7B9B4034D26 /* Pods-MyUnimol.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Giovanni Grano (Q2U9U59EA6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Giovanni Grano (Q2U9U59EA6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyUnimol/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "rocks.teammolise.myunimol-ios";
@@ -843,8 +847,8 @@
 			baseConfigurationReference = BE7CF3F73A13DF2FF231028E /* Pods-MyUnimol.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Giovanni Grano (Q2U9U59EA6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Giovanni Grano (Q2U9U59EA6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyUnimol/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "rocks.teammolise.myunimol-ios";

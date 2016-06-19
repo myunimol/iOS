@@ -27,8 +27,8 @@ public struct Career: Decodable {
     }
     
     public static func getAllCareers(completionHandler: (Careers?, NSError?) -> Void) {
-        let parameters = ParameterHandler.getStandardParameters()
-        Alamofire.request(.POST, MyUnimolEndPoints.GET_CAREERS, parameters: parameters).responseAllCareers { response in
+        
+        Alamofire.request(.POST, MyUnimolEndPoints.GET_CAREERS, parameters: ParameterHandler.getStandardParameters()).responseAllCareers { response in
             completionHandler(response.result.value, response.result.error)
         }
     }
@@ -38,14 +38,14 @@ public struct Career: Decodable {
 /// Stores an array of all student careers
 public class Careers {
     
-    var carrers: Array<Career>?
+    var careers: Array<Career>?
     
     init(json: JSON) {
-        self.carrers = [Career].fromJSONArray(("careers" <~~ json)!)
+        self.careers = [Career].fromJSONArray(("careers" <~~ json)!)
     }
     
     public func getNumberOfCareers() -> Int {
-        return self.carrers?.count ?? 0
+        return self.careers?.count ?? 0
     }
 }
 
@@ -66,7 +66,7 @@ extension Alamofire.Request {
             
             let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
             let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
-            
+
             switch result {
             case .Success(let value):
                 let careers: Careers = Careers(json: value as! JSON)

@@ -24,7 +24,6 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         
         self.tableView.hidden = true
         self.loadTaxes()
-        self.loadCareers()
     }
     
     func loadTaxes() {
@@ -58,7 +57,7 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
             Utils.removeProgressBar(self)
         }
     }
-    
+        
     private func recoverFromCache(completion: (Void)-> Void) {
         CacheManager.sharedInstance.getJsonByString(CacheManager.TAX) { json, error in
             if (json != nil) {

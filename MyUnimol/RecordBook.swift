@@ -13,20 +13,20 @@ import Alamofire
 public struct Exam: Decodable {
     
     let name : String?
-    let cfu : Int?
+    let cfu  : Int?
     let vote : String?
     let date : String?
     let year : String?
-    let id : String?
-
+    let id   : String?
+    
     public init?(json: JSON) {
         
         self.name = Decoder.getExamName("name", json: json).capitalizedString
-        self.cfu = "cfu" <~~ json
+        self.cfu  = "cfu" <~~ json
         self.vote = "vote" <~~ json
         self.date = "date" <~~ json
         self.year = "year" <~~ json
-        self.id = "id" <~~ json
+        self.id   = "id" <~~ json
     }
 }
 
@@ -57,20 +57,19 @@ public class RecordBook {
         var accumulator = 0
         
         for exam in self.exams {
-            let date = exam.date
-            if date != nil {
+            if exam.vote != "/" {
                 totalCFU += exam.cfu!
             }
             
-            if let grade = exam.vote?.integerValue {
+            if let grade = exam.vote?.getDegreeByString {
                 cfuCounter += exam.cfu!
                 accumulator += exam.cfu! * grade
                 
                 self.examsGrades.append(grade)
-                let currentAverage = (Double(accumulator) / Double(cfuCounter))
-                
-                self.staringDegree.append(Int((currentAverage * 11) / 3))
+                let currentAverage: Double = (Double(accumulator) / Double(cfuCounter))
+                self.staringDegree.append(Int(round(currentAverage * 11 / 3)))
             }
+            print(self.staringDegree)
         }
     }
     
@@ -156,7 +155,11 @@ extension String {
     var doubleValue:Double? {
         return NumberFormatter.instance.numberFromString(self)?.doubleValue
     }
-    var integerValue:Int? {
+    /// Returns an exam degree or a nil value; for 30L it returns 30
+    var getDegreeByString:Int? {
+        if (self == "30L") {
+            return 30
+        }
         return NumberFormatter.instance.numberFromString(self)?.integerValue
     }
 }

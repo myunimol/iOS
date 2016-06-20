@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         let degrees = recordBook?.staringDegree
         
         self.average.text = "\(recordBook!.weightedAverage!)"
-        let auxDegree = Double(round((recordBook?.average)! * 11 / 3)*100/100)
+        let auxDegree = Int(round((recordBook?.weightedAverage)! * 11 / 3))
         self.startingDegree.text = "\(auxDegree)"
         
         self.animateButton()
@@ -123,13 +123,11 @@ class ViewController: UIViewController {
         rightAxis.drawLabelsEnabled = false
         
         self.barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .EaseInBounce)
-        
     }
     
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func animateButton() {

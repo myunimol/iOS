@@ -77,6 +77,14 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
         self.tabBarController?.tabBar.tintColor = UIColor.whiteColor()
         self.tabBarController?.tabBar.barTintColor = Utils.myUnimolBlueUIColor
         self.tabBarController?.tabBar.translucent = false
+        
+        let menuButton = UIBarButtonItem(image: UIImage(named: "menu"),
+                                         style: UIBarButtonItemStyle.Plain ,
+                                         target: self, action: #selector(UIViewController.menuClicked(_:)))
+        
+        menuButton.tintColor = UIColor.whiteColor()
+        
+        self.tabBarController?.navigationItem.leftBarButtonItem = menuButton
     }
     
     override func didReceiveMemoryWarning() {

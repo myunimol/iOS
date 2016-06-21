@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         self.lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .EaseInBounce)
         
     }
-    
+        
     func setStartingDegreesChart(startingDegrees: [Int]) {
         self.barChartView.noDataTextDescription = "Nessun esame verbalizzato"
         self.barChartView.noDataText = "Non hai ancora esami a libretto"

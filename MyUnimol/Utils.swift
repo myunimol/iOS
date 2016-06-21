@@ -8,6 +8,9 @@
 
 /// Generic utility class
 class Utils {
+    
+    let instance = Utils()
+    
     /// the `UIView` which contain the loading sentences and the activity indicator
     static var messageFrame = UIView()
     /// the activity indicator
@@ -112,6 +115,12 @@ class Utils {
         navigation.navigationBar.translucent = false
         navigation.navigationBar.tintColor = UIColor.whiteColor()
         myView.navigationItem.title = title
+    
+        let menuButton = UIBarButtonItem(image: UIImage(named: "menu"),
+                                         style: UIBarButtonItemStyle.Plain ,
+                                         target: myView, action: #selector(UIViewController.menuClicked(_:)))
+        
+        myView.navigationItem.leftBarButtonItem = menuButton
     }
     
     /// Sets a placeholder in a view with no data
@@ -170,3 +179,4 @@ class Utils {
         appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.None
     }
 }
+

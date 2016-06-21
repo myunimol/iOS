@@ -17,8 +17,6 @@ class FirstPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let (username, password) = CacheManager.sharedInstance.getUserCredential()
-    
         if !Reachability.isConnectedToNetwork() {
             // no connection available
             CacheManager.sharedInstance.getJsonByString(CacheManager.STUDENT_INFO) { json, error in
@@ -37,12 +35,12 @@ class FirstPageController: UIViewController {
                 }
             }
         } else {
-            self.loginAndGetStudentInfo(username!, password: password!)
+            self.loginAndGetStudentInfo()
         }
     }
     
-    func loginAndGetStudentInfo(username: String, password: String) {
-        StudentInfo.getCredentials(username, password: password) { studentInfo, error in
+    func loginAndGetStudentInfo() {
+        StudentInfo.getCredentials { studentInfo, error in
             guard error == nil else {
                 self.showErrorAndGoToLogin()
                 return

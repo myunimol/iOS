@@ -69,7 +69,6 @@ public class RecordBook {
                 let currentAverage: Double = (Double(accumulator) / Double(cfuCounter))
                 self.staringDegree.append(Int(round(currentAverage * 11 / 3)))
             }
-            print(self.staringDegree)
         }
     }
     

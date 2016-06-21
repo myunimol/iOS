@@ -61,23 +61,10 @@ public class StudentInfo {
         }
     }
     
-    public static func getCredentials(username: String, password: String, completionHandler: (StudentInfo?, NSError?) -> Void) {
+    public static func getCredentials(completionHandler: (StudentInfo?, NSError?) -> Void) {
         
-        var parameters = ["":""]
-        
-        if let careerId = CacheManager.sharedInstance.getCareer() {
-            parameters = ["username" : username,
-                          "password" : password,
-                          "token"    : MyUnimolToken.TOKEN,
-                          "careerId" : careerId]
-        } else {
-            parameters = ["username" : username,
-                          "password" : password,
-                          "token"    : MyUnimolToken.TOKEN]
-        }
-        
-        Alamofire.request(.POST, MyUnimolEndPoints.TEST_CREDENTIALS, parameters: parameters)
-            .responseCredentials(username, password: password) { response in
+        Alamofire.request(.POST, MyUnimolEndPoints.TEST_CREDENTIALS, parameters: ParameterHandler.getStandardParameters())
+            .responseCredentials { response in
                 completionHandler(response.result.value, response.result.error)
         }
     }
@@ -105,7 +92,7 @@ public class Student {
 }
 
 extension Alamofire.Request {
-    func responseCredentials(username: String, password: String, completionHandler: Response<StudentInfo, NSError> -> Void) -> Self {
+    func responseCredentials(completionHandler: Response<StudentInfo, NSError> -> Void) -> Self {
         let responseSerializer = ResponseSerializer<StudentInfo, NSError> { request, response, data, error in
             
             guard error == nil else {
@@ -128,7 +115,6 @@ extension Alamofire.Request {
                 let studentInfo: StudentInfo = StudentInfo(json: value as! JSON)!
                 if api.result != "failure" {
                     // successfull login; store credentials in cache
-                    CacheManager.sharedInstance.storeCredentials(username, password: password)
                     CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.STUDENT_INFO, json: value as! JSON)
                     Student.sharedInstance.studentInfo = studentInfo
                 } else {

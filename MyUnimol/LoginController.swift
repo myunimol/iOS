@@ -46,7 +46,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
                 Utils.displayAlert(self, title: "Oops!", message: "Username e/o password mancanti")
                 self.loginButton.enabled = true
             } else {
-                self.loginAndGetCareer(username, password: password)
+                self.getCareerAndLogin(username, password: password)
             }
         }
     }
@@ -55,33 +55,36 @@ class LoginController : UIViewController, UITextFieldDelegate {
         Utils.displayAlert(self, title: "Privacy", message: Utils.privacyStatement)
     }
     
-    func loginAndGetCareer(username: String, password: String) {
+    func getCareerAndLogin(username: String, password: String) {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
-        StudentInfo.getCredentials(username, password: password) { studentInfo, error in
+        Career.getAllCareers(username, password: password) { careers, error in
             guard error == nil else {
                 Utils.removeProgressBar(self)
                 Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️! Ritenta tra poco 💪")
                 self.loginButton.enabled = true
                 return
-            } // error guard
-            if studentInfo!.areCredentialsValid {
-                self.getCareers()
-            } else {
-                // login not valid
-                Utils.displayAlert(self, title: "Credenziali non valide 😱", message: "Controlla username e password 😎")
-                self.loginButton.enabled = true
-                self.usernameField.text = ""
-                self.passwordField.text = ""
-                Utils.removeProgressBar(self)
             }
-        }
+            if (careers!.areCredentialsValid == true) {
+                let careers: Careers? = careers
+                if (careers == nil || careers!.careers?.count == 0) {
+                    self.getStudentInfo(false)
+                } else {
+                    Utils.removeProgressBar(self)
+                    UIUtils.alertForCareerChoice(careers!) { _ in
+                        self.getStudentInfo(true)
+                    }
+                }
+            } else {
+                self.displayWrongCredentials()
+            }
+        } // end completion block
     }
     
-    func loginAndGetStudentInfo(username: String, password: String, addSentenceBar: Bool) {
+    func getStudentInfo(addSentenceBar: Bool) {
         if addSentenceBar {
             Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         }
-        StudentInfo.getCredentials(username, password: password) { studentInfo, error in
+        StudentInfo.getCredentials { studentInfo, error in
             guard error == nil else {
                 Utils.removeProgressBar(self)
                 Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️! Ritenta tra poco 💪")
@@ -111,26 +114,6 @@ class LoginController : UIViewController, UITextFieldDelegate {
             self.performSegueWithIdentifier("ViewController", sender: self)
             Utils.removeProgressBar(self)
             self.loginButton.enabled = true
-        }
-    }
-    
-    func getCareers() {
-        Career.getAllCareers { careers, error in
-            guard error == nil else {
-                self.opsGiveMeAnError()
-                return
-            }
-            let (username, password) = CacheManager.sharedInstance.getUserCredential()
-            let careers: Careers? = careers
-            if (careers == nil || careers!.careers?.count == 0) {
-                self.loginAndGetStudentInfo(username!, password: password!, addSentenceBar: false)
-            } else {
-                Utils.removeProgressBar(self)
-                UIUtils.alertForCareerChoice(careers!) { _ in
-                    self.loginAndGetStudentInfo(username!, password: password!, addSentenceBar: true)
-                }
-                
-            }
         }
     }
     
@@ -189,6 +172,13 @@ class LoginController : UIViewController, UITextFieldDelegate {
         self.loginButton.enabled = true
         self.usernameField.text = ""
         self.passwordField.text = ""
+    }
+    
+    /// Displays a messsage fro wrong credentials
+    private func displayWrongCredentials() {
+        Utils.removeProgressBar(self)
+        Utils.displayAlert(self, title: "Credenziali non valide 😱", message: "Controlla username e password 😎")
+        self.loginButton.enabled = true
     }
 }
 

@@ -78,7 +78,7 @@ extension Alamofire.Request {
                 
                 // store in cache
                 let endpoint = (request?.URL)!
-                switch endpoint {
+                switch endpoint.absoluteString {
                 case MyUnimolEndPoints.GET_NEWS_BOARD:
                     CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.BOARD_NEWS, json: value as! JSON)
                     break

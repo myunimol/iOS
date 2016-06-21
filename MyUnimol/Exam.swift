@@ -90,7 +90,7 @@ extension Alamofire.Request {
                 
                 // store in cache
                 let endpoint = (request?.URL)!
-                switch endpoint {
+                switch endpoint.absoluteString {
                 case MyUnimolEndPoints.GET_EXAM_SESSIONS:
                     CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.EXAMS_AVAILABLE, json: value as! JSON)
                     break

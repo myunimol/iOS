@@ -282,7 +282,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhQ-tI-Hi1">
-                                                <rect key="frame" x="19" y="1014" width="336" height="41"/>
+                                                <rect key="frame" x="168" y="1014" width="38" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="OAN-7q-FER"/>
                                                 </constraints>
@@ -305,8 +305,8 @@
                                             <constraint firstItem="W8I-ta-KxW" firstAttribute="centerX" secondItem="xrs-30-d7B" secondAttribute="centerX" id="3Kp-tQ-ddn"/>
                                             <constraint firstItem="Flc-s1-maD" firstAttribute="top" secondItem="gq8-tU-0MG" secondAttribute="bottom" constant="56" id="7Rc-gb-8w2"/>
                                             <constraint firstItem="Flc-s1-maD" firstAttribute="top" secondItem="gq8-tU-0MG" secondAttribute="bottom" constant="50" id="8E2-8r-TjJ"/>
+                                            <constraint firstItem="hhQ-tI-Hi1" firstAttribute="centerX" secondItem="xrs-30-d7B" secondAttribute="centerX" id="9Ff-AP-UAr"/>
                                             <constraint firstItem="Flc-s1-maD" firstAttribute="centerX" secondItem="xrs-30-d7B" secondAttribute="centerX" id="9aR-KJ-2A6"/>
-                                            <constraint firstItem="hhQ-tI-Hi1" firstAttribute="top" secondItem="OsI-oB-PO3" secondAttribute="bottom" constant="18" id="AXm-o2-nH4"/>
                                             <constraint firstAttribute="bottom" secondItem="Flc-s1-maD" secondAttribute="bottom" constant="263" id="CIK-5e-LWM"/>
                                             <constraint firstItem="OsI-oB-PO3" firstAttribute="centerX" secondItem="xrs-30-d7B" secondAttribute="centerX" id="FcJ-Jv-jk4"/>
                                             <constraint firstItem="ubY-3L-yzm" firstAttribute="centerX" secondItem="xrs-30-d7B" secondAttribute="centerX" id="H9j-uI-bng"/>
@@ -330,9 +330,6 @@
                                             <constraint firstItem="Cfh-ec-omp" firstAttribute="centerX" secondItem="9yq-68-dHU" secondAttribute="centerX" id="lek-rI-rYV"/>
                                             <constraint firstItem="Flc-s1-maD" firstAttribute="leading" secondItem="xrs-30-d7B" secondAttribute="leading" constant="52" id="sbo-YW-jw9"/>
                                             <constraint firstItem="Flc-s1-maD" firstAttribute="leading" secondItem="gq8-tU-0MG" secondAttribute="leading" id="uhh-cj-7Dh"/>
-                                            <constraint firstItem="OsI-oB-PO3" firstAttribute="centerX" secondItem="hhQ-tI-Hi1" secondAttribute="centerX" id="vv0-CR-zNG"/>
-                                            <constraint firstItem="hhQ-tI-Hi1" firstAttribute="leading" secondItem="xrs-30-d7B" secondAttribute="leading" constant="19" id="wi9-U9-KvZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="hhQ-tI-Hi1" secondAttribute="trailing" constant="20" id="zR7-ST-VsP"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">

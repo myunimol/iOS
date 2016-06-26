@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T66-Lv-PGj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T66-Lv-PGj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -829,7 +829,7 @@
                                             <constraint firstAttribute="width" constant="128" id="gNg-Nm-2un"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyUnimol v1.0.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tq-Vs-CKg">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyUnimol v1.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tq-Vs-CKg">
                                         <rect key="frame" x="20" y="193" width="335" height="52"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="UEt-DY-z6u"/>
@@ -881,7 +881,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se vuoi collaborare ocn noi a rendere MyUnimol ancora più utile contattaci a toc-toc@myunimol.it" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjS-wZ-EAf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se vuoi collaborare con noi a rendere MyUnimol ancora più utile contattaci a toc-toc@myunimol.it" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjS-wZ-EAf">
                                         <rect key="frame" x="20" y="559" width="335" height="58"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="4eO-6R-dyD"/>
@@ -921,7 +921,6 @@
                                     <constraint firstItem="NbE-Mx-XNL" firstAttribute="trailing" secondItem="gry-bs-wns" secondAttribute="trailing" id="SAd-ql-WJe"/>
                                     <constraint firstItem="zFU-xf-ADv" firstAttribute="top" secondItem="TQU-oz-ppl" secondAttribute="top" constant="718" id="SKo-ea-0n0"/>
                                     <constraint firstItem="gry-bs-wns" firstAttribute="top" secondItem="bZw-ey-3st" secondAttribute="bottom" constant="57" id="TX7-07-JNa"/>
-                                    <constraint firstAttribute="height" constant="755" id="Wd6-SM-m9W"/>
                                     <constraint firstItem="bZw-ey-3st" firstAttribute="top" secondItem="X02-kA-mFS" secondAttribute="bottom" constant="15" id="Wot-R4-hT8"/>
                                     <constraint firstAttribute="bottom" secondItem="zFU-xf-ADv" secondAttribute="bottom" constant="16" id="Ykb-pC-Fhk"/>
                                     <constraint firstItem="gry-bs-wns" firstAttribute="leading" secondItem="pjS-wZ-EAf" secondAttribute="leading" id="een-aO-ojC"/>

@@ -317,7 +317,6 @@
 				1E8DABBE1C7F6C000018FBAC /* Utils.swift */,
 				1E94C46D1CDBBB4000B9812D /* LoadSentences.swift */,
 				1EE7F9A61D1548BF000E5341 /* UIUtils.swift */,
-				C998D3951D1FE85A0023C93E /* HelpUsViewController.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -362,6 +361,7 @@
 		1EA0915E1CE4E84800D9158B /* userTips */ = {
 			isa = PBXGroup;
 			children = (
+				C998D3951D1FE85A0023C93E /* HelpUsViewController.swift */,
 				1EA0915F1CE4E87000D9158B /* TipsViewController.swift */,
 			);
 			name = userTips;

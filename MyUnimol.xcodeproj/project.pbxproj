@@ -54,6 +54,7 @@
 		1EFA57351CDF2C1E00FA74A4 /* EnrolledExamsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA57341CDF2C1E00FA74A4 /* EnrolledExamsController.swift */; };
 		5D737390488590A8AFB3D405 /* Pods_MyUnimol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD278C60037F9C814D327609 /* Pods_MyUnimol.framework */; };
 		7EB8600C55DF70A9112606AB /* Pods_MyUnimolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */; };
+		C998D3961D1FE85A0023C93E /* HelpUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998D3951D1FE85A0023C93E /* HelpUsViewController.swift */; };
 		EB9F673E5837124DCC806FBE /* Pods_MyUnimolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD01AF9A662744C7925F1F75 /* Pods_MyUnimolUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +136,7 @@
 		A0EA6B7FA1990CCBE6F19A54 /* Pods-MyUnimolUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimolUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimolUITests/Pods-MyUnimolUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BD278C60037F9C814D327609 /* Pods_MyUnimol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7CF3F73A13DF2FF231028E /* Pods-MyUnimol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimol.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimol/Pods-MyUnimol.release.xcconfig"; sourceTree = "<group>"; };
+		C998D3951D1FE85A0023C93E /* HelpUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpUsViewController.swift; sourceTree = "<group>"; };
 		CD01AF9A662744C7925F1F75 /* Pods_MyUnimolUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimolUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -315,6 +317,7 @@
 				1E8DABBE1C7F6C000018FBAC /* Utils.swift */,
 				1E94C46D1CDBBB4000B9812D /* LoadSentences.swift */,
 				1EE7F9A61D1548BF000E5341 /* UIUtils.swift */,
+				C998D3951D1FE85A0023C93E /* HelpUsViewController.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				1EE7F9A71D1548BF000E5341 /* UIUtils.swift in Sources */,
 				1E92526D1C9D579B00146C7E /* BoardNewsViewController.swift in Sources */,
 				1E66FBB31CDFA72800D61158 /* Contact.swift in Sources */,
+				C998D3961D1FE85A0023C93E /* HelpUsViewController.swift in Sources */,
 				1E9252751C9D5F0000146C7E /* UniversityNewsViewController.swift in Sources */,
 				1E27AA0C1C69B42D009AD819 /* AppDelegate.swift in Sources */,
 				1EA091601CE4E87000D9158B /* TipsViewController.swift in Sources */,

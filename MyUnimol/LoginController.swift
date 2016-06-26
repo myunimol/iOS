@@ -175,8 +175,9 @@ class LoginController : UIViewController, UITextFieldDelegate {
         Utils.removeProgressBar(self)
         Utils.displayAlert(self, title: "Credenziali non valide 😱", message: "Controlla username e password 😎")
         self.loginButton.enabled = true
-        self.usernameField.text = ""
-        self.passwordField.text = ""
+        // DO NOT reset text field, preserve as much user input as we can
+        //self.usernameField.text = ""
+        //self.passwordField.text = ""
     }
 }
 

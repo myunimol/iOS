@@ -14,7 +14,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var studentID: UILabel!
     
-    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "News", "Pagamenti", "Suggerimenti", "#MyUnimol su Facebook", "Il mio Portale", "Logout"]
+    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "News", "Pagamenti", "Suggerimenti", "#MyUnimol su Facebook", "Il mio Portale", "Logout", "v1.1 \"Fabiana\""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,7 +109,12 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             CacheManager.sharedInstance.resetCredentials()
             CacheManager.sharedInstance.refreshCache()
             break;
-            
+        case 10:
+            mainWindowController =
+            self.storyboard?.instantiateViewControllerWithIdentifier("HelpUsViewController") as!
+            HelpUsViewController
+            let centerNavigation = UINavigationController(rootViewController: mainWindowController)
+            appDelegate.centerContainer!.centerViewController = centerNavigation
         default:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)

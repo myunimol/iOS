@@ -61,14 +61,30 @@ public class StudentInfo {
         }
     }
     
+    // TODO: implement fetch from cache and background API
     public static func getCredentials(completionHandler: (StudentInfo?, NSError?) -> Void) {
         
+        CacheManager.sharedInstance.getJsonByString(CacheManager.STUDENT_INFO) { json, error in
+            if (json != nil) {
+                let studentInfo = StudentInfo(json: json!)
+                Student.sharedInstance.studentInfo = studentInfo
+                refresh()
+                completionHandler(studentInfo, nil)
+            } else {
+                Alamofire.request(.POST, MyUnimolEndPoints.TEST_CREDENTIALS, parameters: ParameterHandler.getStandardParameters())
+                    .responseCredentials { response in
+                        completionHandler(response.result.value, response.result.error)
+                } // newtwork call
+            }
+        } //end get from cache
+    }
+    
+    private static func refresh() {
         Alamofire.request(.POST, MyUnimolEndPoints.TEST_CREDENTIALS, parameters: ParameterHandler.getStandardParameters())
-            .responseCredentials { response in
-                completionHandler(response.result.value, response.result.error)
-        }
+            .responseCredentials { _ in }
     }
 }
+
 
 /// Singleton wich contains an istance of `StudentInfo`
 public class Student {

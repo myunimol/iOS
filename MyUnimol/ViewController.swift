@@ -40,6 +40,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // force the contraints for elements in left slider
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.centerContainer?.bouncePreviewForDrawerSide(MMDrawerSide.Left, distance: 0.1, completion: nil)
+        
         Utils.setNavigationControllerStatusBar(self, title: "Home", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
         // get record book from singleton object
         self.recordBook = RecordBookClass.sharedInstance.recordBook

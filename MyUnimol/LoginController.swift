@@ -95,11 +95,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
                 self.getRecordBook()
             } else {
                 // login not valid
-                Utils.displayAlert(self, title: "Credenziali non valide 😱", message: "Controlla username e password 😎")
-                self.loginButton.enabled = true
-                self.usernameField.text = ""
-                self.passwordField.text = ""
-                Utils.removeProgressBar(self)
+                self.displayWrongCredentials()
             }
             
         }
@@ -179,6 +175,8 @@ class LoginController : UIViewController, UITextFieldDelegate {
         Utils.removeProgressBar(self)
         Utils.displayAlert(self, title: "Credenziali non valide 😱", message: "Controlla username e password 😎")
         self.loginButton.enabled = true
+        self.usernameField.text = ""
+        self.passwordField.text = ""
     }
 }
 

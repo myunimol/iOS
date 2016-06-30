@@ -45,6 +45,7 @@
 		1E9B774C1D19C3F100D22B15 /* ButtonSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9B774B1D19C3F000D22B15 /* ButtonSelectorController.swift */; };
 		1EA091601CE4E87000D9158B /* TipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0915F1CE4E87000D9158B /* TipsViewController.swift */; };
 		1EE7F9A71D1548BF000E5341 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE7F9A61D1548BF000E5341 /* UIUtils.swift */; };
+		1EF379781D2428B200159A7A /* BookExamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF379771D2428B200159A7A /* BookExamController.swift */; };
 		1EF37DE61CE24DFC0052A567 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF37DE51CE24DFC0052A567 /* ContactCell.swift */; };
 		1EF37DEB1CE38AE90052A567 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF37DEA1CE38AE90052A567 /* WebViewController.swift */; };
 		1EFA572E1CDF1C5000FA74A4 /* DefaultExamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */; };
@@ -124,6 +125,7 @@
 		1E9B774B1D19C3F000D22B15 /* ButtonSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonSelectorController.swift; sourceTree = "<group>"; };
 		1EA0915F1CE4E87000D9158B /* TipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsViewController.swift; sourceTree = "<group>"; };
 		1EE7F9A61D1548BF000E5341 /* UIUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
+		1EF379771D2428B200159A7A /* BookExamController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookExamController.swift; sourceTree = "<group>"; };
 		1EF37DE51CE24DFC0052A567 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		1EF37DEA1CE38AE90052A567 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultExamCell.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				1EFA57321CDF2BF300FA74A4 /* AvailableExamsController.swift */,
+				1EF379771D2428B200159A7A /* BookExamController.swift */,
 				1EFA57341CDF2C1E00FA74A4 /* EnrolledExamsController.swift */,
 				1EFA572C1CDF1C5000FA74A4 /* DefaultExamCell.swift */,
 				1EFA572D1CDF1C5000FA74A4 /* DefaultExamCell.xib */,
@@ -700,6 +703,7 @@
 				1EFA57351CDF2C1E00FA74A4 /* EnrolledExamsController.swift in Sources */,
 				1E9B774C1D19C3F100D22B15 /* ButtonSelectorController.swift in Sources */,
 				1E94C46E1CDBBB4000B9812D /* LoadSentences.swift in Sources */,
+				1EF379781D2428B200159A7A /* BookExamController.swift in Sources */,
 				1E94C4651CD6803000B9812D /* FirstPageController.swift in Sources */,
 				1E66FBB81CE05C5A00D61158 /* StudentInfo.swift in Sources */,
 			);

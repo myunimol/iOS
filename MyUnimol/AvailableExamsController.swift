@@ -101,9 +101,24 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
         cell.examName.text = exam?.name
         cell.professor.text = exam?.professor
         cell.examDate.text = exam?.date?.dateToString
-        cell.expiringDate.text = exam?.expiringDate?.dateToString
+        cell.expiringDate.text = "Scadenza: \(exam!.expiringDate!.dateToString!)"
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // perform segue
+        self.performSegueWithIdentifier("BookExam", sender: self)
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "BookExam" {
+            if let indexPath = tableView.indexPathForSelectedRow, let exam = self.exams?[indexPath.row] {
+                let destinationViewController = segue.destinationViewController as! BookExamController
+                destinationViewController.exam = exam
+            }
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

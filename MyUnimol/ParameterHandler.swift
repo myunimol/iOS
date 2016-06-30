@@ -23,6 +23,15 @@ public class ParameterHandler {
     public static func getParameterForUniversityNews() -> [String : String] {
         return ["token" : MyUnimolToken.TOKEN]
     }
+
+    /// Returns the parameters for an exam enrollment
+    public static func getParameterForExamEnroll(id: String) -> [String : String] {
+        let (username, password) = CacheManager.sharedInstance.getUserCredential()
+        return ["username" : username!,
+                "password" : password!,
+                "token"    : MyUnimolToken.TOKEN,
+                "id"       : id]
+    }
     
     /// Returns the stadard parameters for API (a `Dictionary` with username, password and token)
     public static func getStandardParameters() -> [String : String] {

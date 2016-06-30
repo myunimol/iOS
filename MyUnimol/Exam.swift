@@ -53,6 +53,12 @@ public struct SessionExam: Decodable {
                 completionHandler(response.result.value, response.result.error)
         }
     }
+
+    public static func enroll(id: String, completionHandler: (APIMessage?, NSError?) -> Void) {
+        Alamofire.request(.POST, MyUnimolEndPoints.ENROLL_EXAMS, parameters: ParameterHandler.getParameterForExamEnroll(id)).responseEnrollExam { response in
+                completionHandler(response.result.value, response.result.error)
+        }
+    }
 }
 
 /// Contains a list of `TodoExam` for the current section
@@ -102,6 +108,34 @@ extension Alamofire.Request {
                 }
                 
                 return .Success(exams)
+            case .Failure(let error):
+                return .Failure(error)
+            }
+        }
+        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
+    }
+
+    func responseEnrollExam(completionHandler: Response<APIMessage, NSError> -> Void) -> Self {
+        let responseSerializer = ResponseSerializer<APIMessage, NSError> { request, response, data, error in
+            
+            guard error == nil else {
+                return .Failure(error!)
+            }
+            
+            guard let responseData = data else {
+                let failureReason = "Array could not be serialized because input data was nil"
+                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
+                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
+                return .Failure(error)
+            }
+            
+            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            
+            switch result {
+            case .Success(let value):
+                let api: APIMessage = APIMessage(json: value as! JSON)!
+                return .Success(api)
             case .Failure(let error):
                 return .Failure(error)
             }

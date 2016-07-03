@@ -95,6 +95,8 @@ public class ParameterHandler {
             courseParameter = "scienzeTecnologieAlimentari"
         } else if (studentCourse.lowercaseString.rangeOfString("agraria") != nil) {
             courseParameter = "agraria"
+        } else if (studentCourse.lowercaseString.rangeOfString("scienze e tecnologie agrarie<") != nil) {
+            courseParameter = "agraria"
         } else if (studentCourse.lowercaseString.rangeOfString("tecnologie forestali ambientali") != nil) {
             courseParameter = "tecnologieForestaliAmbientali"
         } else if (studentCourse.lowercaseString.rangeOfString("lettere") != nil) {

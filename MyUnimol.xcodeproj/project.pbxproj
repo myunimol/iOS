@@ -52,6 +52,16 @@
 		1EFA57311CDF1DDA00FA74A4 /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA57301CDF1DDA00FA74A4 /* Exam.swift */; };
 		1EFA57331CDF2BF300FA74A4 /* AvailableExamsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA57321CDF2BF300FA74A4 /* AvailableExamsController.swift */; };
 		1EFA57351CDF2C1E00FA74A4 /* EnrolledExamsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA57341CDF2C1E00FA74A4 /* EnrolledExamsController.swift */; };
+		52410F6C1D4BC6F700F40A68 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52410F6B1D4BC6F700F40A68 /* CalendarViewController.swift */; };
+		527E8E7D1D4E19B800FE9AE4 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E7C1D4E19B800FE9AE4 /* CalendarCell.swift */; };
+		527E8E841D4E8B1400FE9AE4 /* FootherCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E831D4E8B1400FE9AE4 /* FootherCalendarCell.swift */; };
+		527E8E861D4E920500FE9AE4 /* HeaderCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E851D4E920500FE9AE4 /* HeaderCalendarCell.swift */; };
+		527E8E8A1D4F30C700FE9AE4 /* CalendarDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E891D4F30C700FE9AE4 /* CalendarDataViewController.swift */; };
+		527E8E8C1D4F42E800FE9AE4 /* CalendarDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E8B1D4F42E800FE9AE4 /* CalendarDataCell.swift */; };
+		52CE08A11D50C83700DB22B7 /* MyUnimol.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52CE089F1D50C83700DB22B7 /* MyUnimol.xcdatamodeld */; };
+		52CE08A71D50D2E600DB22B7 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE08A61D50D2E600DB22B7 /* CoreDataController.swift */; };
+		52CE08AA1D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE08A81D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift */; };
+		52CE08AB1D50E2DE00DB22B7 /* Orario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE08A91D50E2DE00DB22B7 /* Orario.swift */; };
 		5D737390488590A8AFB3D405 /* Pods_MyUnimol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD278C60037F9C814D327609 /* Pods_MyUnimol.framework */; };
 		7EB8600C55DF70A9112606AB /* Pods_MyUnimolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */; };
 		C998D3961D1FE85A0023C93E /* HelpUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998D3951D1FE85A0023C93E /* HelpUsViewController.swift */; };
@@ -131,6 +141,16 @@
 		1EFA57301CDF1DDA00FA74A4 /* Exam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
 		1EFA57321CDF2BF300FA74A4 /* AvailableExamsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableExamsController.swift; sourceTree = "<group>"; };
 		1EFA57341CDF2C1E00FA74A4 /* EnrolledExamsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrolledExamsController.swift; sourceTree = "<group>"; };
+		52410F6B1D4BC6F700F40A68 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		527E8E7C1D4E19B800FE9AE4 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		527E8E831D4E8B1400FE9AE4 /* FootherCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootherCalendarCell.swift; sourceTree = "<group>"; };
+		527E8E851D4E920500FE9AE4 /* HeaderCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCalendarCell.swift; sourceTree = "<group>"; };
+		527E8E891D4F30C700FE9AE4 /* CalendarDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataViewController.swift; sourceTree = "<group>"; };
+		527E8E8B1D4F42E800FE9AE4 /* CalendarDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataCell.swift; sourceTree = "<group>"; };
+		52CE08A01D50C83700DB22B7 /* MyUnimol.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyUnimol.xcdatamodel; sourceTree = "<group>"; };
+		52CE08A61D50D2E600DB22B7 /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		52CE08A81D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Orario+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		52CE08A91D50E2DE00DB22B7 /* Orario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orario.swift; sourceTree = "<group>"; };
 		6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF660E12398073C98C7DEFE /* Pods-MyUnimolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimolTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimolTests/Pods-MyUnimolTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0EA6B7FA1990CCBE6F19A54 /* Pods-MyUnimolUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimolUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimolUITests/Pods-MyUnimolUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -217,6 +237,7 @@
 		1E27AA0A1C69B42D009AD819 /* MyUnimol */ = {
 			isa = PBXGroup;
 			children = (
+				52410F6A1D4BC6AD00F40A68 /* calendar */,
 				1E9B774A1D19C3C500D22B15 /* protocols */,
 				1EA0915E1CE4E84800D9158B /* userTips */,
 				1EF37DE91CE38ACF0052A567 /* webView */,
@@ -232,7 +253,9 @@
 				1E3821381C6A7A9A00D0E3A2 /* login */,
 				1E00EA501C69C27A0092F612 /* api */,
 				1E27AA0B1C69B42D009AD819 /* AppDelegate.swift */,
+				52CE08A61D50D2E600DB22B7 /* CoreDataController.swift */,
 				1E27AA0F1C69B42D009AD819 /* Main.storyboard */,
+				52CE089F1D50C83700DB22B7 /* MyUnimol.xcdatamodeld */,
 				1E27AA121C69B42D009AD819 /* Assets.xcassets */,
 				1E27AA141C69B42D009AD819 /* LaunchScreen.storyboard */,
 				1E27AA171C69B42D009AD819 /* Info.plist */,
@@ -386,6 +409,21 @@
 			name = exams;
 			sourceTree = "<group>";
 		};
+		52410F6A1D4BC6AD00F40A68 /* calendar */ = {
+			isa = PBXGroup;
+			children = (
+				52CE08A81D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift */,
+				52CE08A91D50E2DE00DB22B7 /* Orario.swift */,
+				52410F6B1D4BC6F700F40A68 /* CalendarViewController.swift */,
+				527E8E7C1D4E19B800FE9AE4 /* CalendarCell.swift */,
+				527E8E831D4E8B1400FE9AE4 /* FootherCalendarCell.swift */,
+				527E8E851D4E920500FE9AE4 /* HeaderCalendarCell.swift */,
+				527E8E891D4F30C700FE9AE4 /* CalendarDataViewController.swift */,
+				527E8E8B1D4F42E800FE9AE4 /* CalendarDataCell.swift */,
+			);
+			name = calendar;
+			sourceTree = "<group>";
+		};
 		B03316ED1BF5BE1BD9AA517B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,12 +441,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E27AA301C69B42D009AD819 /* Build configuration list for PBXNativeTarget "MyUnimol" */;
 			buildPhases = (
-				0B94D7F18DD115C98681A7CB /* 📦 Check Pods Manifest.lock */,
+				0B94D7F18DD115C98681A7CB /* [CP] Check Pods Manifest.lock */,
 				1E27AA041C69B42D009AD819 /* Sources */,
 				1E27AA051C69B42D009AD819 /* Frameworks */,
 				1E27AA061C69B42D009AD819 /* Resources */,
-				5EE59C1FEED13FC5AACA202F /* 📦 Embed Pods Frameworks */,
-				6ADFBC14C996AE757594F881 /* 📦 Copy Pods Resources */,
+				5EE59C1FEED13FC5AACA202F /* [CP] Embed Pods Frameworks */,
+				6ADFBC14C996AE757594F881 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -423,12 +461,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E27AA331C69B42D009AD819 /* Build configuration list for PBXNativeTarget "MyUnimolTests" */;
 			buildPhases = (
-				ED1DCD37D0388C9B29360A5D /* 📦 Check Pods Manifest.lock */,
+				ED1DCD37D0388C9B29360A5D /* [CP] Check Pods Manifest.lock */,
 				1E27AA181C69B42D009AD819 /* Sources */,
 				1E27AA191C69B42D009AD819 /* Frameworks */,
 				1E27AA1A1C69B42D009AD819 /* Resources */,
-				DB4DA0CC7F11D92F4634A181 /* 📦 Embed Pods Frameworks */,
-				23BD6A9642F82B8FD94E8460 /* 📦 Copy Pods Resources */,
+				DB4DA0CC7F11D92F4634A181 /* [CP] Embed Pods Frameworks */,
+				23BD6A9642F82B8FD94E8460 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -444,11 +482,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E27AA361C69B42D009AD819 /* Build configuration list for PBXNativeTarget "MyUnimolUITests" */;
 			buildPhases = (
-				91AA8F70CBAEEFA1A314600A /* 📦 Check Pods Manifest.lock */,
+				91AA8F70CBAEEFA1A314600A /* [CP] Check Pods Manifest.lock */,
 				1E27AA231C69B42D009AD819 /* Sources */,
 				1E27AA241C69B42D009AD819 /* Frameworks */,
 				1E27AA251C69B42D009AD819 /* Resources */,
-				8A5B8B3C420B40FD3DA55C8D /* 📦 Copy Pods Resources */,
+				8A5B8B3C420B40FD3DA55C8D /* [CP] Copy Pods Resources */,
+				1CE7AF01A65907EE7BC7C801 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -536,29 +575,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0B94D7F18DD115C98681A7CB /* 📦 Check Pods Manifest.lock */ = {
+		0B94D7F18DD115C98681A7CB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		23BD6A9642F82B8FD94E8460 /* 📦 Copy Pods Resources */ = {
+		1CE7AF01A65907EE7BC7C801 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyUnimolUITests/Pods-MyUnimolUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23BD6A9642F82B8FD94E8460 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,14 +620,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyUnimolTests/Pods-MyUnimolTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5EE59C1FEED13FC5AACA202F /* 📦 Embed Pods Frameworks */ = {
+		5EE59C1FEED13FC5AACA202F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,14 +635,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyUnimol/Pods-MyUnimol-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6ADFBC14C996AE757594F881 /* 📦 Copy Pods Resources */ = {
+		6ADFBC14C996AE757594F881 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,14 +650,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyUnimol/Pods-MyUnimol-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A5B8B3C420B40FD3DA55C8D /* 📦 Copy Pods Resources */ = {
+		8A5B8B3C420B40FD3DA55C8D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,29 +665,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyUnimolUITests/Pods-MyUnimolUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		91AA8F70CBAEEFA1A314600A /* 📦 Check Pods Manifest.lock */ = {
+		91AA8F70CBAEEFA1A314600A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		DB4DA0CC7F11D92F4634A181 /* 📦 Embed Pods Frameworks */ = {
+		DB4DA0CC7F11D92F4634A181 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,19 +695,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyUnimolTests/Pods-MyUnimolTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ED1DCD37D0388C9B29360A5D /* 📦 Check Pods Manifest.lock */ = {
+		ED1DCD37D0388C9B29360A5D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -663,6 +717,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				527E8E8A1D4F30C700FE9AE4 /* CalendarDataViewController.swift in Sources */,
+				52410F6C1D4BC6F700F40A68 /* CalendarViewController.swift in Sources */,
 				1EFA572E1CDF1C5000FA74A4 /* DefaultExamCell.swift in Sources */,
 				1E2ED1D31D130C8400801041 /* Career.swift in Sources */,
 				1E8ACFD01C9B13BE0059AED2 /* TaxesViewController.swift in Sources */,
@@ -672,27 +728,35 @@
 				1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */,
 				1EF37DE61CE24DFC0052A567 /* ContactCell.swift in Sources */,
 				1E38213D1C6D00E300D0E3A2 /* RecordBook.swift in Sources */,
+				52CE08A11D50C83700DB22B7 /* MyUnimol.xcdatamodeld in Sources */,
 				1E8DABC91C8368900018FBAC /* RecordBookCell.swift in Sources */,
 				1E27AA0E1C69B42D009AD819 /* ViewController.swift in Sources */,
 				1E94C4691CD872A500B9812D /* CacheManager.swift in Sources */,
+				527E8E7D1D4E19B800FE9AE4 /* CalendarCell.swift in Sources */,
 				1E38213A1C6A7AAD00D0E3A2 /* LoginController.swift in Sources */,
 				1EE7F9A71D1548BF000E5341 /* UIUtils.swift in Sources */,
 				1E92526D1C9D579B00146C7E /* BoardNewsViewController.swift in Sources */,
 				1E66FBB31CDFA72800D61158 /* Contact.swift in Sources */,
+				527E8E8C1D4F42E800FE9AE4 /* CalendarDataCell.swift in Sources */,
 				C998D3961D1FE85A0023C93E /* HelpUsViewController.swift in Sources */,
 				1E9252751C9D5F0000146C7E /* UniversityNewsViewController.swift in Sources */,
 				1E27AA0C1C69B42D009AD819 /* AppDelegate.swift in Sources */,
 				1EA091601CE4E87000D9158B /* TipsViewController.swift in Sources */,
+				52CE08A71D50D2E600DB22B7 /* CoreDataController.swift in Sources */,
 				1E94C4721CDDC35700B9812D /* ParameterHandler.swift in Sources */,
 				1E8DABB91C76EDC30018FBAC /* LeftSideViewController.swift in Sources */,
 				1E66FBB61CDFBF9A00D61158 /* ContactViewController.swift in Sources */,
+				527E8E841D4E8B1400FE9AE4 /* FootherCalendarCell.swift in Sources */,
 				1E8ACFD21C9B14BF0059AED2 /* TaxesCell.swift in Sources */,
 				1E00EA521C69C2900092F612 /* MyUnimolEndPoints.swift in Sources */,
 				1E8ACFD41C9B154F0059AED2 /* Tax.swift in Sources */,
+				52CE08AA1D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift in Sources */,
 				1E8DABBF1C7F6C000018FBAC /* Utils.swift in Sources */,
+				527E8E861D4E920500FE9AE4 /* HeaderCalendarCell.swift in Sources */,
 				1E92526F1C9D580500146C7E /* News.swift in Sources */,
 				1E94C4671CD86E6E00B9812D /* Reachability.swift in Sources */,
 				1E9252731C9D5EBA00146C7E /* DepartmentNewsViewController.swift in Sources */,
+				52CE08AB1D50E2DE00DB22B7 /* Orario.swift in Sources */,
 				1EFA57331CDF2BF300FA74A4 /* AvailableExamsController.swift in Sources */,
 				1E44FA341CF4C55600F9DECA /* APIMessage.swift in Sources */,
 				1E8DABC71C8359F10018FBAC /* RecordBookController.swift in Sources */,
@@ -967,6 +1031,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		52CE089F1D50C83700DB22B7 /* MyUnimol.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				52CE08A01D50C83700DB22B7 /* MyUnimol.xcdatamodel */,
+			);
+			currentVersion = 52CE08A01D50C83700DB22B7 /* MyUnimol.xcdatamodel */;
+			path = MyUnimol.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1E27AA001C69B42D009AD819 /* Project object */;
 }

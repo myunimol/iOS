@@ -3,7 +3,7 @@ PODS:
   - Charts (2.2.5):
     - Charts/Core (= 2.2.5)
   - Charts/Core (2.2.5)
-  - Gloss (0.7.3)
+  - Gloss (0.7.4)
   - HanekeSwift (0.10.1)
   - MMDrawerController (0.5.7):
     - MMDrawerController/Core (= 0.5.7)
@@ -30,11 +30,11 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
-  Gloss: c97a95d6279821f35fa0138700bce0391bce87c1
+  Gloss: d86009ef4d12c221d889c4e3f9e1eb547ee6251d
   HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
   SCLAlertView: d7c6a48c7d340e60206d4ed0e8ebcbff3b9d2a44
 
 PODFILE CHECKSUM: 14ef324b73166f1e5a35aa0e16fa63f0859c851c
 
-COCOAPODS: 1.0.0.beta.5
+COCOAPODS: 1.1.0.beta.1

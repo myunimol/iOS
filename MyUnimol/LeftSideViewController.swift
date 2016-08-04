@@ -14,7 +14,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var studentID: UILabel!
     
-    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "News", "Pagamenti", "Suggerimenti", "#MyUnimol su Facebook", "Il mio Portale", "Logout", "v1.1 \"Fabiana\""]
+    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "Orario", "News", "Pagamenti", "Suggerimenti", "#MyUnimol su Facebook", "Il mio Portale", "Logout", "v1.1 \"Fabiana\""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,36 +72,41 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
-            
         case 4:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("UITabBarController") as! UITabBarController
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("CalendarViewController") as! CalendarViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
         case 5:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TaxesViewController") as! TaxesViewController
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("UITabBarController") as! UITabBarController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
         case 6:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TipsViewController") as! TipsViewController
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TaxesViewController") as! TaxesViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
         case 7:
-            shareAppOnFacebook()
+            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TipsViewController") as! TipsViewController
+            let centerNavigation = UINavigationController(rootViewController: mainWindowController)
+            appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
         case 8:
+            shareAppOnFacebook()
+            break;
+            
+        case 9:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
-        case 9:
+        case 10:
             mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
@@ -109,7 +114,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             CacheManager.sharedInstance.resetCredentials()
             CacheManager.sharedInstance.refreshCache()
             break;
-        case 10:
+        case 11:
             mainWindowController =
             self.storyboard?.instantiateViewControllerWithIdentifier("HelpUsViewController") as!
             HelpUsViewController

@@ -55,9 +55,9 @@
 		52410F6C1D4BC6F700F40A68 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52410F6B1D4BC6F700F40A68 /* CalendarViewController.swift */; };
 		527E8E7D1D4E19B800FE9AE4 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E7C1D4E19B800FE9AE4 /* CalendarCell.swift */; };
 		527E8E841D4E8B1400FE9AE4 /* FootherCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E831D4E8B1400FE9AE4 /* FootherCalendarCell.swift */; };
-		527E8E861D4E920500FE9AE4 /* HeaderCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E851D4E920500FE9AE4 /* HeaderCalendarCell.swift */; };
 		527E8E8A1D4F30C700FE9AE4 /* CalendarDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E891D4F30C700FE9AE4 /* CalendarDataViewController.swift */; };
 		527E8E8C1D4F42E800FE9AE4 /* CalendarDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E8B1D4F42E800FE9AE4 /* CalendarDataCell.swift */; };
+		52BFB18F1D54E94300695990 /* HeaderCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BFB18E1D54E94300695990 /* HeaderCalendarCell.swift */; };
 		52CE08A11D50C83700DB22B7 /* MyUnimol.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52CE089F1D50C83700DB22B7 /* MyUnimol.xcdatamodeld */; };
 		52CE08A71D50D2E600DB22B7 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE08A61D50D2E600DB22B7 /* CoreDataController.swift */; };
 		52CE08AA1D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE08A81D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift */; };
@@ -144,9 +144,9 @@
 		52410F6B1D4BC6F700F40A68 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		527E8E7C1D4E19B800FE9AE4 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		527E8E831D4E8B1400FE9AE4 /* FootherCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootherCalendarCell.swift; sourceTree = "<group>"; };
-		527E8E851D4E920500FE9AE4 /* HeaderCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCalendarCell.swift; sourceTree = "<group>"; };
 		527E8E891D4F30C700FE9AE4 /* CalendarDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataViewController.swift; sourceTree = "<group>"; };
 		527E8E8B1D4F42E800FE9AE4 /* CalendarDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataCell.swift; sourceTree = "<group>"; };
+		52BFB18E1D54E94300695990 /* HeaderCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCalendarCell.swift; sourceTree = "<group>"; };
 		52CE08A01D50C83700DB22B7 /* MyUnimol.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyUnimol.xcdatamodel; sourceTree = "<group>"; };
 		52CE08A61D50D2E600DB22B7 /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		52CE08A81D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Orario+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -414,10 +414,10 @@
 			children = (
 				52CE08A81D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift */,
 				52CE08A91D50E2DE00DB22B7 /* Orario.swift */,
+				52BFB18E1D54E94300695990 /* HeaderCalendarCell.swift */,
 				52410F6B1D4BC6F700F40A68 /* CalendarViewController.swift */,
 				527E8E7C1D4E19B800FE9AE4 /* CalendarCell.swift */,
 				527E8E831D4E8B1400FE9AE4 /* FootherCalendarCell.swift */,
-				527E8E851D4E920500FE9AE4 /* HeaderCalendarCell.swift */,
 				527E8E891D4F30C700FE9AE4 /* CalendarDataViewController.swift */,
 				527E8E8B1D4F42E800FE9AE4 /* CalendarDataCell.swift */,
 			);
@@ -723,6 +723,7 @@
 				1E2ED1D31D130C8400801041 /* Career.swift in Sources */,
 				1E8ACFD01C9B13BE0059AED2 /* TaxesViewController.swift in Sources */,
 				1E4F8E3D1C972F0F007D92E2 /* KDCircularProgress.swift in Sources */,
+				52BFB18F1D54E94300695990 /* HeaderCalendarCell.swift in Sources */,
 				1EFA57311CDF1DDA00FA74A4 /* Exam.swift in Sources */,
 				1E94C4751CDE0D2900B9812D /* DefaultNewsCell.swift in Sources */,
 				1E8DABBC1C7728D60018FBAC /* DrawerCell.swift in Sources */,
@@ -752,7 +753,6 @@
 				1E8ACFD41C9B154F0059AED2 /* Tax.swift in Sources */,
 				52CE08AA1D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift in Sources */,
 				1E8DABBF1C7F6C000018FBAC /* Utils.swift in Sources */,
-				527E8E861D4E920500FE9AE4 /* HeaderCalendarCell.swift in Sources */,
 				1E92526F1C9D580500146C7E /* News.swift in Sources */,
 				1E94C4671CD86E6E00B9812D /* Reachability.swift in Sources */,
 				1E9252731C9D5EBA00146C7E /* DepartmentNewsViewController.swift in Sources */,

@@ -10,8 +10,6 @@ import UIKit
 
 class CalendarDataCell: UITableViewCell {
     
-    // TODO :- Qualche propietà dovrà essere eliminata
-    
     @IBOutlet weak var matsDataField: UITextField!
     @IBOutlet weak var commentDataField: UITextField!
     @IBOutlet weak var inizioLbl: UILabel!
@@ -23,8 +21,6 @@ class CalendarDataCell: UITableViewCell {
     
     var frameAdded = false
     var selectedCellRow :Int? = Int()
-    //var startHourNSDate: NSDate?
-    //var endHourNSDate: NSDate?
     
     class var expandedHeight: CGFloat { get { return 200 } }
     class var defaultHeight: CGFloat { get { return 44 } }
@@ -82,13 +78,20 @@ class CalendarDataCell: UITableViewCell {
         guard !CoreDataController.sharedIstanceCData.matsDataField.isEmpty else {return}
         guard !CoreDataController.sharedIstanceCData.commentDataField.isEmpty else {return}
         // TODO Inserire controlli per l'orario
-        
         let materia = CoreDataController.sharedIstanceCData.matsDataField
         let commento = CoreDataController.sharedIstanceCData.commentDataField
         let data_inizio = CoreDataController.sharedIstanceCData.startHourNSDate
         let data_termine = CoreDataController.sharedIstanceCData.endHourNSDate
-        CoreDataController.sharedIstanceCData.addOrario(materia, commento: commento, data_inizio: data_inizio, data_termine: data_termine)
-    }
+        CoreDataController.sharedIstanceCData.addOrario(materia, commento: commento, data_inizio: data_inizio, data_termine: data_termine, day: CoreDataController.sharedIstanceCData.dayOfTheWeek)
+        
+        // Svuoto le variabili in caso l'utente non inserisce i valori nei text field materia e commenti
+        // Non è possibile fare un controllo diretto sulle @IBOutlet dei data field in quanto abbandonata la cella
+        // risultano nil, il guard rimane impostato sulle variabili del singleton che devono essere azzerate dopo ogni
+        // inserimento aktrimenti verrebbero memorizzati nel core data i valori rimasti in memoria
+        CoreDataController.sharedIstanceCData.matsDataField = ""
+        CoreDataController.sharedIstanceCData.commentDataField = ""
+        
+            }
     
     override func awakeFromNib() {
         super.awakeFromNib()

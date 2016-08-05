@@ -63,12 +63,17 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate {
 
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("saveCell", forIndexPath: indexPath) as! CalendarDataCell
-        //cell.matsLbl.text = "Materia"
+        cell.saveBtnLbl.addTarget(self, action: #selector(CalendarDataViewController.makeSegue(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         return cell
     }
+    
+    func makeSegue(button:UIButton) {
+        // Si possono inserire funzioni di controllo prima di cambiare view
+        self.performSegueWithIdentifier("returnToCalendar", sender: button)
+    }
 
-    // Con questo delegato del textField catturiamo ogni carattere digitato nel campo, compreso il backspace in modo da poterlo memorizzare
-    // nelle propietà relative
+    // Con questo delegato del textField catturiamo ogni carattere digitato nel campo, compreso il backspace in modo 
+    // da poterlo memorizzare nelle propietà relative
     func textField(textField: UITextField, shouldChangeCharactersInRange range:NSRange, replacementString string: String) -> Bool {
         if textField.tag == 0 {
             CoreDataController.sharedIstanceCData.matsDataField = "" + textField.text!+string
@@ -77,7 +82,6 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate {
         }
         return true
     }
-    
     
     // ############################## METODI PER IL RIDIMENSIONAMENTO DELLE CELLE DEL DATE PICKER ########################
    

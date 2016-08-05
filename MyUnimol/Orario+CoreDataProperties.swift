@@ -18,5 +18,6 @@ extension Orario {
     @NSManaged var commento: String?
     @NSManaged var data_inizio: NSDate?
     @NSManaged var data_termine: NSDate?
+    @NSManaged var day: String?
 
 }

@@ -9,7 +9,9 @@
 import UIKit
 
 class HeaderCalendarCell: UITableViewCell {
-
+ 
+@IBOutlet weak var segmentControlIndex: UISegmentedControl!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +22,4 @@ class HeaderCalendarCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

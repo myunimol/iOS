@@ -4,9 +4,10 @@
         <attribute name="commento" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="data_inizio" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="data_termine" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="materia" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Orario" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Orario" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

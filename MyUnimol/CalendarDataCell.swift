@@ -10,12 +10,12 @@ import UIKit
 
 class CalendarDataCell: UITableViewCell {
     
-    @IBOutlet weak var matsDataField: UITextField!
-    @IBOutlet weak var commentDataField: UITextField!
-    @IBOutlet weak var inizioLbl: UILabel!
-    @IBOutlet weak var terminaLbl: UILabel!
-    @IBOutlet weak var startHourLbl: UILabel!
-    @IBOutlet weak var endHourLbl: UILabel!
+    @IBOutlet weak var matsDataField: UITextField! // Data Field della materia
+    @IBOutlet weak var commentDataField: UITextField! // Data Field dei commenti
+    @IBOutlet weak var inizioLbl: UILabel! // Label Inizio
+    @IBOutlet weak var terminaLbl: UILabel! // label Termina
+    @IBOutlet weak var startHourLbl: UILabel! // Label ora inizio delle lezioni
+    @IBOutlet weak var endHourLbl: UILabel! // Label ora termine delle lezioni
     @IBOutlet weak var saveBtnLbl: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -33,9 +33,11 @@ class CalendarDataCell: UITableViewCell {
         if selectedCellRow == 2 {
             CoreDataController.sharedIstanceCData.startHourNSDate = dateFormatter.dateFromString(strDate)!
             startHourLbl.text = strDate
+            CoreDataController.sharedIstanceCData.labelOraInizioToString = strDate
         } else {
             CoreDataController.sharedIstanceCData.endHourNSDate = dateFormatter.dateFromString(strDate)!
             endHourLbl.text = strDate
+            CoreDataController.sharedIstanceCData.labelOraTermineToString = strDate
         }
     }
     
@@ -87,7 +89,7 @@ class CalendarDataCell: UITableViewCell {
         // Svuoto le variabili in caso l'utente non inserisce i valori nei text field materia e commenti
         // Non è possibile fare un controllo diretto sulle @IBOutlet dei data field in quanto abbandonata la cella
         // risultano nil, il guard rimane impostato sulle variabili del singleton che devono essere azzerate dopo ogni
-        // inserimento aktrimenti verrebbero memorizzati nel core data i valori rimasti in memoria
+        // inserimento altrimenti verrebbero memorizzati nel core data i valori rimasti in memoria
         CoreDataController.sharedIstanceCData.matsDataField = ""
         CoreDataController.sharedIstanceCData.commentDataField = ""
         

@@ -17,13 +17,15 @@ class CoreDataController {
     
     var context: NSManagedObjectContext
     
-    // Le cinque propietà serviranno per memorizzare i valori contenuti nei rispettivi text field 
+    // Le sette propietà serviranno per memorizzare i valori contenuti nei rispettivi text field 
     // della classe CalendarDataViewController
     var matsDataField :String
     var commentDataField :String
     var startHourNSDate: NSDate
     var endHourNSDate: NSDate
     var dayOfTheWeek: String
+    var labelOraInizioToString :String!
+    var labelOraTermineToString :String!
     
     
     private init() {

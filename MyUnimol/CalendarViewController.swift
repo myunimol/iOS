@@ -22,19 +22,19 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     let getIndexDay = {(value: String) -> Day in
         switch(value) {
         case "monday":
-            return Day.monday
+            return .monday
         case "tuesday":
-            return Day.tuesday
+            return .tuesday
         case "wednesday":
-            return Day.wednesday
+            return .wednesday
         case "thursday":
-            return Day.thursday
+            return .thursday
         case "friday":
-            return Day.friday
+            return .friday
         default:
             break
         }
-        return Day.monday
+        return .monday
     }
     
     override func viewDidLoad() {

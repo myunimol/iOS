@@ -51,12 +51,20 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate {
             return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCellWithIdentifier("startDateCell", forIndexPath: indexPath) as! CalendarDataCell
+            let currentDay = NSDate()
+            let dateFormatter:NSDateFormatter = NSDateFormatter()
+            dateFormatter.locale = NSLocale(localeIdentifier: "it-IT")
+            dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
+            cell.startHourLbl.text = dateFormatter.stringFromDate(currentDay)
             cell.selectedCellRow = indexPath.row
             cell.inizioLbl.text = "Inizio"
-            
             return cell
         } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCellWithIdentifier("endDateCell", forIndexPath: indexPath) as! CalendarDataCell
+            let currentDay = NSDate()
+            let dateFormatter:NSDateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            cell.endHourLbl.text = dateFormatter.stringFromDate(currentDay)
             cell.selectedCellRow = indexPath.row
             cell.terminaLbl.text = "Termina"
             return cell
@@ -102,6 +110,14 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate {
         }
         if indexPaths.count > 0 {
             tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+            if indexPath.row == 2 {
+                let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as! CalendarDataCell
+                currentCell.startHourLbl.text = CoreDataController.sharedIstanceCData.labelOraInizioToString
+            } else if indexPath.row == 3 {
+                let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as! CalendarDataCell
+                currentCell.endHourLbl.text = CoreDataController.sharedIstanceCData.labelOraTermineToString
+            }
+
         }
     }
     
@@ -114,6 +130,10 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        // Lasciamo l'altezza di default in caso vengano selezionate le celle 0 (materia) 1 (commenti) e 4 (save)
+        if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 4 {
+            return CalendarDataCell.defaultHeight
+        }
         if indexPath == selectedIndexPath {
             return CalendarDataCell.expandedHeight
         } else {

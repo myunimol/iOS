@@ -1353,7 +1353,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hoE-bU-DmK">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -1415,19 +1415,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZL-nO-ZAt">
-                                <rect key="frame" x="118" y="313" width="139" height="36"/>
+                                <rect key="frame" x="118" y="304" width="139" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="139" id="4Am-CJ-2hu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="Prenota 😎"/>
+                                <connections>
+                                    <action selector="bookExam:" destination="8eI-sS-whr" eventType="touchUpInside" id="wws-BK-Rpc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="244" text="Fissato il: 20/02/2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtP-VS-Dt1">
-                                <rect key="frame" x="33" y="236" width="309" height="27"/>
+                                <rect key="frame" x="33" y="236" width="309" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ok" translatesAutoresizingMaskIntoConstraints="NO" id="0Wv-KD-hUd">
+                                <rect key="frame" x="157" y="292" width="60" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="6WP-zI-WDR"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1438,7 +1447,10 @@
                             <constraint firstItem="5F6-db-gGS" firstAttribute="top" secondItem="0zl-M5-iI8" secondAttribute="bottom" constant="32" id="BWm-Uu-OUm"/>
                             <constraint firstItem="OZL-nO-ZAt" firstAttribute="top" secondItem="OtP-VS-Dt1" secondAttribute="bottom" constant="50" id="HNK-7S-xUO"/>
                             <constraint firstItem="WXw-aD-AO0" firstAttribute="leading" secondItem="1kb-Lx-hUi" secondAttribute="leadingMargin" constant="12" id="Mz4-wd-IVV"/>
+                            <constraint firstItem="0Wv-KD-hUd" firstAttribute="top" secondItem="OtP-VS-Dt1" secondAttribute="bottom" constant="38" id="QHU-QA-ebY"/>
                             <constraint firstItem="WXw-aD-AO0" firstAttribute="centerX" secondItem="OtP-VS-Dt1" secondAttribute="centerX" id="Wq9-us-oZv"/>
+                            <constraint firstItem="0Wv-KD-hUd" firstAttribute="centerX" secondItem="OZL-nO-ZAt" secondAttribute="centerX" id="XKG-If-MsH"/>
+                            <constraint firstItem="0Wv-KD-hUd" firstAttribute="centerY" secondItem="OZL-nO-ZAt" secondAttribute="centerY" id="bbU-bl-Y7l"/>
                             <constraint firstItem="x9T-hD-DcQ" firstAttribute="top" secondItem="5F6-db-gGS" secondAttribute="bottom" constant="33" id="fOj-8i-pBC"/>
                             <constraint firstItem="x9T-hD-DcQ" firstAttribute="leading" secondItem="OtP-VS-Dt1" secondAttribute="leading" id="goe-ZD-Ocx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5F6-db-gGS" secondAttribute="trailing" constant="12" id="gr7-SF-Iy0"/>
@@ -1453,9 +1465,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="date" destination="OtP-VS-Dt1" id="GPj-C2-fqt"/>
+                        <outlet property="enrollButton" destination="OZL-nO-ZAt" id="ZN1-5O-sva"/>
                         <outlet property="examName" destination="5F6-db-gGS" id="J2R-HV-MqZ"/>
+                        <outlet property="okButton" destination="0Wv-KD-hUd" id="h0d-lj-y6N"/>
                         <outlet property="professorName" destination="WXw-aD-AO0" id="n9R-e0-9sV"/>
-                        <segue destination="RFe-6B-n3a" kind="show" identifier="undoSegue" id="Rgs-yC-PeB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C7Z-br-uar" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1512,10 +1525,10 @@
         <image name="User Male-50" width="25" height="25"/>
         <image name="bg_header_logo" width="800" height="450"/>
         <image name="launcher_ic" width="192" height="192"/>
+        <image name="ok" width="1024" height="1024"/>
         <image name="voto_bg" width="127" height="126"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Rgs-yC-PeB"/>
         <segue reference="39a-fF-qkU"/>
     </inferredMetricsTieBreakers>
 </document>

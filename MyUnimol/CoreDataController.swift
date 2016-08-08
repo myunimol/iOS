@@ -17,15 +17,15 @@ class CoreDataController {
     
     var context: NSManagedObjectContext
     
-    // Le sette propietà serviranno per memorizzare i valori contenuti nei rispettivi text field 
+    // Le seguenti propietà serviranno per memorizzare i valori contenuti nei rispettivi text field
     // della classe CalendarDataViewController
     var matsDataField :String
     var commentDataField :String
     var startHourNSDate: NSDate
     var endHourNSDate: NSDate
     var dayOfTheWeek: String
-    var labelOraInizioToString :String!
-    var labelOraTermineToString :String!
+    var labelOraInizioToString :String?
+    var labelOraTermineToString :String?
     
     
     private init() {
@@ -67,7 +67,7 @@ class CoreDataController {
             /*
             for x in array {
                 let book = x
-                print("[CDC] Materia \(book.materia!) - Commento \(book.commento!)")
+                print("Materia \(book.materia!) - Commento \(book.commento!)")
             }
              */
             
@@ -93,7 +93,6 @@ class CoreDataController {
             print("Problema salvataggio Materia: \(newOrario.materia!) in memoria")
             print("Stampo l'errore: \n \(errore) \n")
         }
-        
-        print("Orario \(newOrario.materia!) salvato in memoria correttamente")
+        //print("Orario \(newOrario.materia!) salvato in memoria correttamente")
     }
 }

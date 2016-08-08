@@ -15,7 +15,6 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +54,13 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate {
             let dateFormatter:NSDateFormatter = NSDateFormatter()
             dateFormatter.locale = NSLocale(localeIdentifier: "it-IT")
             dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
-            cell.startHourLbl.text = dateFormatter.stringFromDate(currentDay)
+            
+            if CoreDataController.sharedIstanceCData.labelOraInizioToString == nil {
+                cell.startHourLbl.text = dateFormatter.stringFromDate(currentDay)
+            } else {
+                cell.startHourLbl.text = CoreDataController.sharedIstanceCData.labelOraInizioToString
+            }
+            
             cell.selectedCellRow = indexPath.row
             cell.inizioLbl.text = "Inizio"
             return cell
@@ -64,7 +69,13 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate {
             let currentDay = NSDate()
             let dateFormatter:NSDateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "HH:mm"
-            cell.endHourLbl.text = dateFormatter.stringFromDate(currentDay)
+            
+            if CoreDataController.sharedIstanceCData.labelOraTermineToString == nil {
+                cell.endHourLbl.text = dateFormatter.stringFromDate(currentDay)
+            } else {
+                cell.endHourLbl.text = CoreDataController.sharedIstanceCData.labelOraTermineToString
+            }
+            
             cell.selectedCellRow = indexPath.row
             cell.terminaLbl.text = "Termina"
             return cell
@@ -110,14 +121,6 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate {
         }
         if indexPaths.count > 0 {
             tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
-            if indexPath.row == 2 {
-                let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as! CalendarDataCell
-                currentCell.startHourLbl.text = CoreDataController.sharedIstanceCData.labelOraInizioToString
-            } else if indexPath.row == 3 {
-                let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as! CalendarDataCell
-                currentCell.endHourLbl.text = CoreDataController.sharedIstanceCData.labelOraTermineToString
-            }
-
         }
     }
     

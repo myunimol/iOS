@@ -19,7 +19,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         case monday = 0, tuesday, wednesday, thursday, friday
     }
     
-    let getIndexDay = {(value: String) -> Day in
+    let getIndexDay = {(value: String)  -> Day in
         switch(value) {
         case "monday":
             return .monday
@@ -41,8 +41,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         Utils.setNavigationControllerStatusBar(self, title: "Orario", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
         self.tableView.hidden = false
-        self.tableView.backgroundColor = Utils.myUnimolBlueUIColor
         getSegmentController(getIndexDay(CoreDataController.sharedIstanceCData.dayOfTheWeek))
+        makeButton()
         
         // recupero i dati relativi al giorno Lunedì (o al current day) dal CoreData e lo assegno all'arrayOrario
         let array_orario = CoreDataController.sharedIstanceCData.loadAllOrario(CoreDataController.sharedIstanceCData.dayOfTheWeek)
@@ -59,7 +59,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Set up Frame and SegmentedControl
         let frame = UIScreen.mainScreen().bounds
-        customSC.frame = CGRectMake(frame.minX + 10, frame.minY /*+ 50*/, frame.width - 20, 36/*frame.height*0.1*/)
+        customSC.frame = CGRectMake(frame.minX , frame.minY, frame.width, 36)
         
         // Style the Segmented Control
         customSC.layer.cornerRadius = 5.0  // Don't let background bleed
@@ -113,29 +113,18 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOrario!.count
     }
-    
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let  footerCell = tableView.dequeueReusableCellWithIdentifier("FooterCell") as! FootherCalendarCell
-        footerCell.addEvent.addTarget(self, action: #selector(CalendarViewController.changeFormView), forControlEvents: .TouchUpInside)
-
-        return footerCell
-    }
 
     func changeFormView() {
         self.performSegueWithIdentifier("eventSegue", sender: self)
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 100.0
-    }
-    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40.0
     }
-    
+ 
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! HeaderCalendarCell
-        headerCell.backgroundColor = Utils.myUnimolBlueUIColor
+        headerCell.backgroundColor = UIColor.whiteColor()
         return headerCell
     }
     
@@ -143,7 +132,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return 100
     }
 
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CalendarCell", forIndexPath: indexPath) as! CalendarCell
         let dateFormatter = NSDateFormatter()
@@ -155,6 +143,23 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         cell.start_hour.text = dateFormatter.stringFromDate(arrayOrario![indexPath.row].data_inizio!)
         cell.end_hour.text = dateFormatter.stringFromDate(arrayOrario![indexPath.row].data_termine!)
         return cell
+    }
+    
+    func makeButton() {
+        
+        let frame = UIScreen.mainScreen().bounds
+        let btn = UIButton(frame: CGRect(x: frame.maxX - 70, y: frame.maxY - 150, width: 60, height: 60))
+        if let image = UIImage(named: "voto_bg.png") {
+            btn.setImage(image, forState: .Normal)
+        }
+        btn.addTarget(self, action: #selector(self.buttonAction), forControlEvents: .TouchUpInside)
+        self.view.addSubview(btn)
+    }
+    
+    func buttonAction(sender: UIButton!) {
+        //guard sender == customButton else { return }
+        self.performSegueWithIdentifier("eventSegue", sender: self)
+        // Do anything you actually want to do here
     }
     
     // delegati per attivare il delete su swipe delle cell

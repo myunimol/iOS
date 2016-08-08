@@ -1392,39 +1392,6 @@
                                             <outlet property="start_hour" destination="rO6-RR-AGW" id="2Bj-5J-pIR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FooterCell" rowHeight="100" id="0cs-Ef-CRE" customClass="FootherCalendarCell" customModule="MyUnimol" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="168" width="383" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0cs-Ef-CRE" id="Fgf-7Z-WX1">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxh-je-sID">
-                                                    <rect key="frame" x="304" y="20" width="60" height="60"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="rAk-P6-E2o"/>
-                                                        <constraint firstAttribute="height" constant="60" id="uCI-1Y-jhw"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button" image="voto_bg"/>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3v-LR-nvD">
-                                                    <rect key="frame" x="327" y="37" width="14" height="26"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="b3v-LR-nvD" firstAttribute="centerX" secondItem="fxh-je-sID" secondAttribute="centerX" id="Ppe-32-Jow"/>
-                                                <constraint firstItem="b3v-LR-nvD" firstAttribute="centerY" secondItem="fxh-je-sID" secondAttribute="centerY" id="j3c-9O-asu"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="fxh-je-sID" secondAttribute="trailing" constant="11" id="sza-LU-hGj"/>
-                                                <constraint firstItem="fxh-je-sID" firstAttribute="centerY" secondItem="Fgf-7Z-WX1" secondAttribute="centerY" id="ypz-Pv-GCE"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="addEvent" destination="fxh-je-sID" id="W1H-a9-NSC"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </prototypes>
                                 <sections/>
                                 <connections>

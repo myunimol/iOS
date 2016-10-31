@@ -63,6 +63,7 @@
 		52CE08AB1D50E2DE00DB22B7 /* Orario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE08A91D50E2DE00DB22B7 /* Orario.swift */; };
 		5D737390488590A8AFB3D405 /* Pods_MyUnimol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD278C60037F9C814D327609 /* Pods_MyUnimol.framework */; };
 		7EB8600C55DF70A9112606AB /* Pods_MyUnimolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFEDD9FF3520444A0703FEE /* Pods_MyUnimolTests.framework */; };
+		C93406B41DC792F800B8CE4F /* PartyAllNightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93406B31DC792F800B8CE4F /* PartyAllNightView.swift */; };
 		C998D3961D1FE85A0023C93E /* HelpUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998D3951D1FE85A0023C93E /* HelpUsViewController.swift */; };
 		EB9F673E5837124DCC806FBE /* Pods_MyUnimolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD01AF9A662744C7925F1F75 /* Pods_MyUnimolUITests.framework */; };
 /* End PBXBuildFile section */
@@ -154,6 +155,7 @@
 		A0EA6B7FA1990CCBE6F19A54 /* Pods-MyUnimolUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimolUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimolUITests/Pods-MyUnimolUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BD278C60037F9C814D327609 /* Pods_MyUnimol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7CF3F73A13DF2FF231028E /* Pods-MyUnimol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUnimol.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyUnimol/Pods-MyUnimol.release.xcconfig"; sourceTree = "<group>"; };
+		C93406B31DC792F800B8CE4F /* PartyAllNightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyAllNightView.swift; sourceTree = "<group>"; };
 		C998D3951D1FE85A0023C93E /* HelpUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpUsViewController.swift; sourceTree = "<group>"; };
 		CD01AF9A662744C7925F1F75 /* Pods_MyUnimolUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyUnimolUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -417,6 +419,7 @@
 				527E8E7C1D4E19B800FE9AE4 /* CalendarCell.swift */,
 				527E8E891D4F30C700FE9AE4 /* CalendarDataViewController.swift */,
 				527E8E8B1D4F42E800FE9AE4 /* CalendarDataCell.swift */,
+				C93406B31DC792F800B8CE4F /* PartyAllNightView.swift */,
 			);
 			name = calendar;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				1E44FA341CF4C55600F9DECA /* APIMessage.swift in Sources */,
 				1E8DABC71C8359F10018FBAC /* RecordBookController.swift in Sources */,
 				1EF37DEB1CE38AE90052A567 /* WebViewController.swift in Sources */,
+				C93406B41DC792F800B8CE4F /* PartyAllNightView.swift in Sources */,
 				1EFA57351CDF2C1E00FA74A4 /* EnrolledExamsController.swift in Sources */,
 				1E9B774C1D19C3F100D22B15 /* ButtonSelectorController.swift in Sources */,
 				1E94C46E1CDBBB4000B9812D /* LoadSentences.swift in Sources */,

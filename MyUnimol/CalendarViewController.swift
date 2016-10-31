@@ -14,9 +14,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     
     var arrayOrario: [Orario]?
+    var add_course_btn: UIButton = UIButton()
     
     enum Day: Int {
-        case monday = 0, tuesday, wednesday, thursday, friday
+        case monday = 0, tuesday, wednesday, thursday, friday, saturday
     }
     
     let getIndexDay = {(value: String)  -> Day in
@@ -31,6 +32,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             return .thursday
         case "friday":
             return .friday
+        case "saturday":
+            return .saturday
         default:
             break
         }
@@ -50,7 +53,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func getSegmentController(day: Day) {
-        let items = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì"]
+        let items = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"]
         let customSC = UISegmentedControl(items: items)
         customSC.selectedSegmentIndex = day.rawValue
         
@@ -90,16 +93,33 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             segmentControllerHandle("friday")
             sender.selectedSegmentIndex = 4
             break
+        case 5:
+            segmentControllerHandle("saturday")
+            sender.selectedSegmentIndex = 5
+            break
         default:
             break
         }
     }
     
     func segmentControllerHandle(currentDay: String) {
-        let retrieveOrariofromCoreData = CoreDataController.sharedIstanceCData.loadAllOrario(currentDay)
-        self.arrayOrario = retrieveOrariofromCoreData
-        CoreDataController.sharedIstanceCData.dayOfTheWeek = currentDay
-        self.tableView.reloadData()
+        if currentDay=="saturday" {
+            let party_view : PartyAllNightView = PartyAllNightView(frame: CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height))
+
+            self.tableView.backgroundView = party_view
+            self.tableView.separatorStyle = .None
+            self.arrayOrario = []
+            self.tableView.reloadData()
+            self.add_course_btn.hidden=true
+        } else {
+            self.tableView.separatorStyle = .SingleLine
+            self.tableView.backgroundView = nil
+            self.add_course_btn.hidden=false
+            let retrieveOrariofromCoreData = CoreDataController.sharedIstanceCData.loadAllOrario(currentDay)
+            self.arrayOrario = retrieveOrariofromCoreData
+            CoreDataController.sharedIstanceCData.dayOfTheWeek = currentDay
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -154,8 +174,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         }
         btn.setTitle("+", forState: .Normal)
         btn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        btn.titleLabel!.font = UIFont.systemFontOfSize(30)
+        btn.titleLabel!.font = UIFont.boldSystemFontOfSize(27)
         btn.addTarget(self, action: #selector(self.buttonAction), forControlEvents: .TouchUpInside)
+        self.add_course_btn = btn
         self.view.addSubview(btn)
     }
     

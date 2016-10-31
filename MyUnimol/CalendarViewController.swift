@@ -150,8 +150,11 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         let frame = UIScreen.mainScreen().bounds
         let btn = UIButton(frame: CGRect(x: frame.maxX - 70, y: frame.maxY - 150, width: 60, height: 60))
         if let image = UIImage(named: "voto_bg.png") {
-            btn.setImage(image, forState: .Normal)
+            btn.setBackgroundImage(image, forState: .Normal)
         }
+        btn.setTitle("+", forState: .Normal)
+        btn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        btn.titleLabel!.font = UIFont.systemFontOfSize(30)
         btn.addTarget(self, action: #selector(self.buttonAction), forControlEvents: .TouchUpInside)
         self.view.addSubview(btn)
     }

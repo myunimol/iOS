@@ -18,80 +18,80 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Utils.setNavigationControllerStatusBar(self, title: "", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
+        Utils.setNavigationControllerStatusBar(self, title: "", color: Utils.myUnimolBlue, style: UIBarStyle.black)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         let studentInfo = Student.sharedInstance
         
         self.studentName.text = (studentInfo.studentInfo?.name)! + " " + (studentInfo.studentInfo?.surname)!
         self.studentID.text = studentInfo.studentInfo?.studentId
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return drawerMenuItems.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DrawerCell", forIndexPath: indexPath) as! DrawerCell
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DrawerCell", for: indexPath) as! DrawerCell
         cell.menuItemLabel.text = drawerMenuItems[indexPath.row]
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         var mainWindowController: UIViewController
         
         switch(indexPath.row) {
             
         case 0:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
         case 1:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("RecordBookController") as! RecordBookController
+            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "RecordBookController") as! RecordBookController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
         case 2:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ContactViewController") as! ContactViewController
+            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "ContactViewController") as! ContactViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
         case 3:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ExamsTabBarController") as! UITabBarController
+            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "ExamsTabBarController") as! UITabBarController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
         case 4:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("CalendarViewController") as! CalendarViewController
+            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "CalendarViewController") as! CalendarViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
         case 5:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("UITabBarController") as! UITabBarController
+            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "UITabBarController") as! UITabBarController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
         case 6:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TaxesViewController") as! TaxesViewController
+            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "TaxesViewController") as! TaxesViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
         case 7:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("TipsViewController") as! TipsViewController
+            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "TipsViewController") as! TipsViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
@@ -101,13 +101,13 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             break;
             
         case 9:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
+            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
         case 10:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginController
+            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "LoginController") as! LoginController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             // remove credentials and refresh cache
@@ -116,12 +116,12 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             break;
         case 11:
             mainWindowController =
-            self.storyboard?.instantiateViewControllerWithIdentifier("HelpUsViewController") as!
+            self.storyboard?.instantiateViewController(withIdentifier: "HelpUsViewController") as!
             HelpUsViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
         default:
-            mainWindowController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             print("I am in the default section")
@@ -130,25 +130,25 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
         
         
         if (indexPath.row != 9) {
-            appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+            appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
         } else {
-            appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.None
+            appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode()
         }
-        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+        appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
         
         
     }
     
     func shareAppOnFacebook() {
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook) {
             let fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            fbShare.addURL(NSURL(string: "https://myunimol.it/"))
-            self.presentViewController(fbShare, animated: true, completion: nil)
+            fbShare.add(URL(string: "https://myunimol.it/"))
+            self.present(fbShare, animated: true, completion: nil)
             
         } else {
-            let alert = UIAlertController(title: "Facebook", message: "Connetti un account Facebook per condividere", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Facebook", message: "Connetti un account Facebook per condividere", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

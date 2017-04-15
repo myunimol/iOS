@@ -21,8 +21,8 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Utils.setNavigationControllerStatusBar(self, title: "Rubrica", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
-        self.tableView.hidden = true
+        Utils.setNavigationControllerStatusBar(self, title: "Rubrica", color: Utils.myUnimolBlue, style: UIBarStyle.black)
+        self.tableView.isHidden = true
         self.configureSearchController()
         self.loadContacts()
     }
@@ -31,7 +31,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.didReceiveMemoryWarning()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (shouldShowSearchResults) {
             return contactSearchResults?.count ?? 0
         } else {
@@ -39,8 +39,8 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) as! ContactCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactCell
         
         var contact: Contact?
         if (shouldShowSearchResults) {
@@ -54,7 +54,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     
@@ -72,13 +72,13 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func loadContacts() {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
-        Contact.getAllContacts { contacts, error in
-            guard error == nil else {
+        Contact.getAllContacts { contacts in
+            guard contacts != nil else {
             
                 self.recoverFromCache { _ in
                     if (self.contactsWrapper != nil) {
                         self.tableView.reloadData()
-                        self.tableView.hidden = false
+                        self.tableView.isHidden = false
                         Utils.removeProgressBar(self)
                     } else {
                         Utils.removeProgressBar(self)
@@ -91,13 +91,13 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
             } // end error
             self.contactsWrapper = contacts
             self.tableView.reloadData()
-            self.tableView.hidden = false
+            self.tableView.isHidden = false
             Utils.removeProgressBar(self)
         }
     }
     
-    private func recoverFromCache(completion: (Void)-> Void) {
-        CacheManager.sharedInstance.getJsonByString(CacheManager.CONTACTS) { json, error in
+    fileprivate func recoverFromCache(_ completion: @escaping (Void)-> Void) {
+        CacheManager.sharedInstance.getJsonByString(CacheManager.CONTACTS) { json in
             if (json != nil) {
                 self.contactsWrapper = Contacts(json: json!)
             }
@@ -105,7 +105,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         let searchText = self.searchController.searchBar.text
         
         if (self.contactsWrapper?.contacts == nil) {
@@ -113,25 +113,25 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         }
         self.contactSearchResults = self.contactsWrapper?.contacts!.filter({( aContact: Contact) -> Bool in
-            return aContact.fullname!.lowercaseString.rangeOfString(searchText!.lowercaseString) != nil
+            return aContact.fullname!.lowercased().range(of: searchText!.lowercased()) != nil
         })
         
         self.tableView.reloadData()
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         shouldShowSearchResults = true
         self.tableView.reloadData()
     }
     
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         shouldShowSearchResults = false
         self.tableView.reloadData()
     }
     
     ///Delegate method that will display the search results and will resign the search field from first responder once the Search button in the keyboard gets tapped
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if !shouldShowSearchResults {
             shouldShowSearchResults = true
             self.tableView.reloadData()

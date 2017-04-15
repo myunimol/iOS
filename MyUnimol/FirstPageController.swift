@@ -19,16 +19,16 @@ class FirstPageController: UIViewController {
         
         if !Reachability.isConnectedToNetwork() {
             // no connection available
-            CacheManager.sharedInstance.getJsonByString(CacheManager.STUDENT_INFO) { json, error in
+            CacheManager.sharedInstance.getJsonByString(CacheManager.STUDENT_INFO) { json in
                 if (json != nil) {
                     Student.sharedInstance.studentInfo = StudentInfo(json: json!)
                 } else {
                     self.showErrorAndGoToLogin()
                 }
-                CacheManager.sharedInstance.getJsonByString(CacheManager.RECORD_BOOK) { json, error in
+                CacheManager.sharedInstance.getJsonByString(CacheManager.RECORD_BOOK) { json in
                     if (json != nil) {
                         RecordBookClass.sharedInstance.recordBook = RecordBook(json: json!)
-                        self.performSegueWithIdentifier("ViewController", sender: self)
+                        self.performSegue(withIdentifier: "ViewController", sender: self)
                     } else {
                         self.showErrorAndGoToLogin()
                     }
@@ -40,8 +40,8 @@ class FirstPageController: UIViewController {
     }
     
     func loginAndGetStudentInfo() {
-        StudentInfo.getCredentials { studentInfo, error in
-            guard error == nil else {
+        StudentInfo.getCredentials { studentInfo in
+            guard studentInfo != nil else {
                 self.showErrorAndGoToLogin()
                 return
             }
@@ -59,27 +59,27 @@ class FirstPageController: UIViewController {
     }
     
     func getRecordBook() {
-        RecordBook.getRecordBook { recordBook, error in
-            guard error == nil else {
+        RecordBook.getRecordBook { recordBook in
+            guard recordBook != nil else {
                 self.showErrorAndGoToLogin()
                 return
             }
-            self.performSegueWithIdentifier("ViewController", sender: self)
+            self.performSegue(withIdentifier: "ViewController", sender: self)
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        let centerViewContainer = appDelegate.mainStoryBoard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let centerViewContainer = appDelegate.mainStoryBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         let centerNav = UINavigationController(rootViewController: centerViewContainer)
         
         appDelegate.centerContainer!.centerViewController = centerNav
-        appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+        appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
     }
     
     /// Showed when an API strange error occurs; shows an alert dialog and returns to login page
-    private func showErrorAndGoToLogin() {
+    fileprivate func showErrorAndGoToLogin() {
         Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️! Ritenta tra poco 💪")
         CacheManager.sharedInstance.resetCredentials()
         CacheManager.sharedInstance.refreshCache()

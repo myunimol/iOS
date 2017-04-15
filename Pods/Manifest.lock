@@ -1,9 +1,9 @@
 PODS:
-  - Alamofire (3.4.1)
-  - Charts (2.2.5):
-    - Charts/Core (= 2.2.5)
-  - Charts/Core (2.2.5)
-  - Gloss (0.7.4)
+  - Alamofire (4.4.0)
+  - Charts (3.0.1):
+    - Charts/Core (= 3.0.1)
+  - Charts/Core (3.0.1)
+  - Gloss (1.2.1)
   - HanekeSwift (0.10.1)
   - MMDrawerController (0.5.7):
     - MMDrawerController/Core (= 0.5.7)
@@ -17,24 +17,34 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.5.7):
     - MMDrawerController/Core
-  - SCLAlertView (0.5.9)
+  - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.0)
+  - Alamofire (~> 4.0)
   - Charts
-  - Gloss (~> 0.6)
-  - HanekeSwift
+  - Gloss (~> 1.2)
+  - HanekeSwift (from `https://github.com/Haneke/HanekeSwift.git`, branch `feature/swift-3`)
   - MMDrawerController (~> 0.5.7)
   - SCLAlertView
 
+EXTERNAL SOURCES:
+  HanekeSwift:
+    :branch: feature/swift-3
+    :git: https://github.com/Haneke/HanekeSwift.git
+
+CHECKOUT OPTIONS:
+  HanekeSwift:
+    :commit: 1157a124ec699f4ad926cb054f1d0bfce88ae7a9
+    :git: https://github.com/Haneke/HanekeSwift.git
+
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
-  Gloss: d86009ef4d12c221d889c4e3f9e1eb547ee6251d
-  HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
+  Gloss: 9ab33b8ede01e4232571d43a6bf9259b85d1de69
+  HanekeSwift: 4113367892828e7700d24a384027de6ebc79aad1
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
-  SCLAlertView: d7c6a48c7d340e60206d4ed0e8ebcbff3b9d2a44
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: 14ef324b73166f1e5a35aa0e16fa63f0859c851c
+PODFILE CHECKSUM: 504d94c63aa269c4c6ad3c580979c5f70fd3a74a
 
-COCOAPODS: 1.1.0.beta.1
+COCOAPODS: 1.2.1.beta.1

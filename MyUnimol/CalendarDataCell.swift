@@ -25,17 +25,17 @@ class CalendarDataCell: UITableViewCell {
     class var expandedHeight: CGFloat { get { return 200 } }
     class var defaultHeight: CGFloat { get { return 44 } }
     
-    @IBAction func datePickerAct(sender: AnyObject) {
-        let dateFormatter = NSDateFormatter()
+    @IBAction func datePickerAct(_ sender: AnyObject) {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        let strDate = dateFormatter.stringFromDate(datePicker.date)
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        let strDate = dateFormatter.string(from: datePicker.date)
         if selectedCellRow == 2 {
-            CoreDataController.sharedIstanceCData.startHourNSDate = dateFormatter.dateFromString(strDate)!
+            CoreDataController.sharedIstanceCData.startHourNSDate = dateFormatter.date(from: strDate)!
             startHourLbl.text = strDate
             CoreDataController.sharedIstanceCData.labelOraInizioToString = strDate
         } else {
-            CoreDataController.sharedIstanceCData.endHourNSDate = dateFormatter.dateFromString(strDate)!
+            CoreDataController.sharedIstanceCData.endHourNSDate = dateFormatter.date(from: strDate)!
             endHourLbl.text = strDate
             CoreDataController.sharedIstanceCData.labelOraTermineToString = strDate
         }
@@ -45,13 +45,13 @@ class CalendarDataCell: UITableViewCell {
     
     func checkHeight() {
         if datePicker != nil {
-            datePicker.hidden = (frame.size.height < CalendarDataCell.expandedHeight)
+            datePicker.isHidden = (frame.size.height < CalendarDataCell.expandedHeight)
         }
     }
     
     func watchFrameChanges() {
         if(!frameAdded) {
-            addObserver(self, forKeyPath: "frame", options: .New, context: nil)
+            addObserver(self, forKeyPath: "frame", options: .new, context: nil)
             checkHeight()
             frameAdded = true
         }
@@ -64,7 +64,7 @@ class CalendarDataCell: UITableViewCell {
         }
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "frame" {
             checkHeight()
         }
@@ -76,7 +76,7 @@ class CalendarDataCell: UITableViewCell {
     
     // ###################################################################################################################################
     
-    @IBAction func saveBtnAct(sender: AnyObject) {
+    @IBAction func saveBtnAct(_ sender: AnyObject) {
         guard !CoreDataController.sharedIstanceCData.matsDataField.isEmpty else {return}
         guard !CoreDataController.sharedIstanceCData.commentDataField.isEmpty else {return}
         // TODO Inserire controlli per l'orario
@@ -99,7 +99,7 @@ class CalendarDataCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 

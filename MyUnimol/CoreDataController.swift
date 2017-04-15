@@ -21,28 +21,28 @@ class CoreDataController {
     // della classe CalendarDataViewController
     var matsDataField :String
     var commentDataField :String
-    var startHourNSDate: NSDate
-    var endHourNSDate: NSDate
+    var startHourNSDate: Date
+    var endHourNSDate: Date
     var dayOfTheWeek: String
     var labelOraInizioToString :String?
     var labelOraTermineToString :String?
     
     
-    private init() {
-        let application = UIApplication.sharedApplication().delegate as! AppDelegate
+    fileprivate init() {
+        let application = UIApplication.shared.delegate as! AppDelegate
         self.context = application.managedObjectContext
         self.matsDataField = String()
         self.commentDataField = String()
-        self.startHourNSDate = NSDate()
-        self.endHourNSDate = NSDate()
+        self.startHourNSDate = Date()
+        self.endHourNSDate = Date()
         self.dayOfTheWeek = "monday"
     }
     
-    func loadAllOrario(perDay: String) -> [Orario] {
+    func loadAllOrario(_ perDay: String) -> [Orario] {
         print("Recupero tutti gli Orari dal context ")
         
         var array = [Orario]()
-        let fetchRequest = NSFetchRequest(entityName: "Orario")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Orario")
         
         // Add Sort Descriptors
         // L'ordinamento è impostato in base all'ora di inizio della singola materia
@@ -59,7 +59,7 @@ class CoreDataController {
         fetchRequest.returnsObjectsAsFaults = false
         
         do {
-            array = try self.context.executeFetchRequest(fetchRequest) as! [Orario]
+            array = try self.context.fetch(fetchRequest) as! [Orario]
             
             guard array.count > 0 else {print("Non ci sono elementi da leggere "); return []}
             
@@ -79,9 +79,9 @@ class CoreDataController {
     }
     
     /// Funzione per il salvataggio dei dati sul Core Data
-    func addOrario(materia: String, commento: String, data_inizio: NSDate, data_termine: NSDate, day: String) {
-        let entity = NSEntityDescription.entityForName("Orario", inManagedObjectContext: self.context)
-        let newOrario = Orario(entity: entity!, insertIntoManagedObjectContext: self.context)
+    func addOrario(_ materia: String, commento: String, data_inizio: Date, data_termine: Date, day: String) {
+        let entity = NSEntityDescription.entity(forEntityName: "Orario", in: self.context)
+        let newOrario = Orario(entity: entity!, insertInto: self.context)
         newOrario.materia = materia
         newOrario.commento = commento
         newOrario.data_inizio = data_inizio

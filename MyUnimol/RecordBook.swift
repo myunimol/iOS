@@ -8,6 +8,19 @@
 
 import Gloss
 import Alamofire
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 /// A single done exam in student career
 public struct Exam: Decodable {
@@ -21,7 +34,7 @@ public struct Exam: Decodable {
     
     public init?(json: JSON) {
         
-        self.name = Decoder.getExamName("name", json: json).capitalizedString
+        self.name = Decoder.getExamName("name", json: json).capitalized
         self.cfu  = "cfu" <~~ json
         self.vote = "vote" <~~ json
         self.date = "date" <~~ json
@@ -31,7 +44,7 @@ public struct Exam: Decodable {
 }
 
 /// Info about student career (exams, average and starting degree)
-public class RecordBook {
+open class RecordBook {
 
     /// Average degree
     let average : Double?
@@ -48,10 +61,10 @@ public class RecordBook {
     
     init(json: JSON) {
         self.average = "average" <~~ json
-        self.exams = [Exam].fromJSONArray(("exams" <~~ json)!)
+        self.exams = [Exam].from(jsonArray: ("exams" <~~ json)!)!
         self.weightedAverage = "weightedAverage" <~~ json
         
-        self.exams.sortInPlace(orderExamsByDate)
+        self.exams.sorted(by: orderExamsByDate)
         
         var cfuCounter = 0
         var accumulator = 0
@@ -72,18 +85,21 @@ public class RecordBook {
         }
     }
     
-    public static func getRecordBook(completionHandler: (RecordBook?, NSError?) -> Void) {
-        Alamofire.request(.POST, MyUnimolEndPoints.GET_RECORD_BOOK, parameters: ParameterHandler.getStandardParameters()).responseRecordBook { response in
-            completionHandler(response.result.value, response.result.error)
+    open static func getRecordBook(_ completionHandler: @escaping (RecordBook?) -> Void) {
+        Alamofire.request(
+            MyUnimolEndPoints.GET_RECORD_BOOK,
+            method: .post,
+            parameters: ParameterHandler.getStandardParameters()).responseRecordBook { response in
+                completionHandler(response.value!)
         }
     }
     
-    func orderExamsByDate(exam1: Exam, exam2: Exam) -> Bool {
-        let dateFormatter = NSDateFormatter()
+    func orderExamsByDate(_ exam1: Exam, exam2: Exam) -> Bool {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
         if let date1 = exam1.date, let date2 = exam2.date {
-            return dateFormatter.dateFromString(date1)?.timeIntervalSince1970 < dateFormatter.dateFromString(date2)?.timeIntervalSince1970
+            return dateFormatter.date(from: date1)?.timeIntervalSince1970 < dateFormatter.date(from: date2)?.timeIntervalSince1970
         } else {
             return true
         }
@@ -91,43 +107,48 @@ public class RecordBook {
 }
 
 /// Singleton which contains a `RecordBookClass` istance
-public class RecordBookClass {
+open class RecordBookClass {
     
-    public static let sharedInstance = RecordBookClass()
+    open static let sharedInstance = RecordBookClass()
     
-    public var recordBook: RecordBook?
+    open var recordBook: RecordBook?
     
-    private init() { }
+    fileprivate init() { }
 }
 
-extension Alamofire.Request {
-    func responseRecordBook(completionHandler: Response<RecordBook, NSError> -> Void) -> Self {
-        let responseSerializer = ResponseSerializer<RecordBook, NSError> { request, response, data, error in
+extension Alamofire.DataRequest {
+    func responseRecordBook(_ completionHandler: @escaping (DataResponse<RecordBook>) -> Void) -> Self {
+        let responseSerializer = DataResponseSerializer<RecordBook> { request, response, data, error in
             
             guard error == nil else {
-                return .Failure(error!)
+                return .failure(BackendError.network(error: error!))
             }
             
-            guard let responseData = data else {
-                let failureReason = "Array could not be serialized because input data was nil"
-                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
-                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
-                return .Failure(error)
-            }
+//            guard let responseData = data else {
+//                let failureReason = "Array could not be serialized because input data was nil"
+//                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
+//                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
+//                  let error = NSError(domain: error.debugDescription, code: response?.statusCode, userInfo: nil)
+//                return .Failure(error)
+//            }
             
-            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
-            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            let JSONResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, data, error)
+            
+            guard case let .success(jsonObject) = result else {
+                return .failure(BackendError.jsonSerialization(error: result.error!))
+            }
             
             switch result {
-            case .Success(let value):
+            case .success(let value):
                 let recordBook: RecordBook = RecordBook(json: value as! JSON)
                 // store info about exams into the singleton class
                 RecordBookClass.sharedInstance.recordBook = recordBook
                 // store json in cache
                 CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.RECORD_BOOK, json: value as! JSON)
-                return .Success(recordBook)
-            case .Failure(let error):
-                return .Failure(error)
+                return .success(recordBook)
+            case .failure(let error):
+                return .failure(error)
             }
         }
         return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
@@ -136,10 +157,10 @@ extension Alamofire.Request {
 
 extension Decoder {
     
-    static func getExamName(key: String, json: JSON) -> (String) {
-        let string = json.valueForKeyPath(key) as? String
-        if string!.containsString(" - ") {
-            var idAndName = string!.componentsSeparatedByString(" - ")
+    static func getExamName(_ key: String, json: JSON) -> (String) {
+        let string = json.valueForKeyPath(keyPath: key) as? String
+        if string!.contains(" - ") {
+            var idAndName = string!.components(separatedBy: " - ")
             return (idAndName[1])
         } else {
             return string!
@@ -149,17 +170,17 @@ extension Decoder {
 
 extension String {
     struct NumberFormatter {
-        static let instance = NSNumberFormatter()
+        static let instance = Foundation.NumberFormatter()
     }
     var doubleValue:Double? {
-        return NumberFormatter.instance.numberFromString(self)?.doubleValue
+        return NumberFormatter.instance.number(from: self)?.doubleValue
     }
     /// Returns an exam degree or a nil value; for 30L it returns 30
     var getDegreeByString:Int? {
         if (self == "30L") {
             return 30
         }
-        return NumberFormatter.instance.numberFromString(self)?.integerValue
+        return NumberFormatter.instance.number(from: self)?.intValue
     }
 }
 

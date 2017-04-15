@@ -33,15 +33,13 @@ public extension Array where Element: Decodable {
     
     /**
      Returns array of new objects created from provided JSON array.
-     
-     Note: The returned array will have only objects that successfully
-     decoded.
+     If any decodings fail, nil is returned.
      
      - parameter jsonArray: Array of JSON representations of objects.
      
      - returns: Array of objects created from JSON.
      */
-    static func fromJSONArray(jsonArray: [JSON]) -> [Element] {
+    static func from(jsonArray: [JSON]) -> [Element]? {
         var models: [Element] = []
         
         for json in jsonArray {
@@ -49,7 +47,37 @@ public extension Array where Element: Decodable {
             
             if let model = model {
                 models.append(model)
+            } else {
+                return nil
             }
+        }
+        
+        return models
+    }
+    
+    /**
+     Initializes array of model objects from provided data.
+     
+     - parameter data: Raw JSON array data.
+     
+     - returns: Array with model objects when decoding is successful, empty otherwise.
+     */
+    
+    /**
+     Returns array of new objects created from provided data.
+     If creation of JSON or any decodings fail, nil is returned.
+     
+     - parameter data:       Raw JSON data.
+     - parameter serializer: Serializer to use when creating JSON from data.
+     - parameter ooptions:   Options for reading the JSON data.
+     
+     - returns: Object or nil.
+     */
+    static func from(data: Data, serializer: JSONSerializer = GlossJSONSerializer(), options: JSONSerialization.ReadingOptions = .mutableContainers) -> [Element]? {
+        guard
+            let jsonArray = (try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)) as? [JSON],
+            let models = [Element].from(jsonArray: jsonArray) else {
+                return nil
         }
         
         return models
@@ -65,9 +93,7 @@ public extension Array where Element: Encodable {
     
     /**
      Encodes array of objects as JSON array.
-     
-     Note: The returned array will have only JSON from objects
-     that were successfully encoded.
+     If any encodings fail, nil is returned.
      
      - returns: Array of JSON created from objects.
      */
@@ -77,6 +103,8 @@ public extension Array where Element: Encodable {
         for json in self {
             if let json = json.toJSON() {
                 jsonArray.append(json)
+            } else {
+                return nil
             }
         }
         

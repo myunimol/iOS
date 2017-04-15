@@ -10,7 +10,7 @@ import Gloss
 import Alamofire
 import Foundation
 
-public class StudentInfo {
+open class StudentInfo {
     
     let availableExams      : Int?
     ///the course in which the student is enrolled
@@ -37,10 +37,10 @@ public class StudentInfo {
         self.enrolledExams       = "enrolledExams" <~~ json
         
         let auxName: String?     = "name" <~~ json
-        self.name                = auxName?.capitalizedString
+        self.name                = auxName?.capitalized
         
         let auxSurname: String?  = "surname" <~~ json
-        self.surname             = auxSurname?.capitalizedString
+        self.surname             = auxSurname?.capitalized
         
         self.registrationDate    = "registrationDate" <~~ json
         self.studentClass        = "studentClass" <~~ json
@@ -62,71 +62,75 @@ public class StudentInfo {
     }
     
     // TODO: implement fetch from cache and background API
-    public static func getCredentials(completionHandler: (StudentInfo?, NSError?) -> Void) {
+    open static func getCredentials(_ completionHandler: @escaping (StudentInfo?) -> Void) {
         
-        CacheManager.sharedInstance.getJsonByString(CacheManager.STUDENT_INFO) { json, error in
+        CacheManager.sharedInstance.getJsonByString(CacheManager.STUDENT_INFO) { json in
             if (json != nil) {
                 let studentInfo = StudentInfo(json: json!)
                 Student.sharedInstance.studentInfo = studentInfo
                 refresh()
-                completionHandler(studentInfo, nil)
+                completionHandler(studentInfo)
             } else {
-                Alamofire.request(.POST, MyUnimolEndPoints.TEST_CREDENTIALS, parameters: ParameterHandler.getStandardParameters())
+                Alamofire.request(MyUnimolEndPoints.TEST_CREDENTIALS, method: .post, parameters: ParameterHandler.getStandardParameters())
                     .responseCredentials { response in
-                        completionHandler(response.result.value, response.result.error)
+                        completionHandler(response.value!)
                 } // newtwork call
             }
         } //end get from cache
     }
     
-    private static func refresh() {
-        Alamofire.request(.POST, MyUnimolEndPoints.TEST_CREDENTIALS, parameters: ParameterHandler.getStandardParameters())
+    fileprivate static func refresh() {
+        Alamofire.request(MyUnimolEndPoints.TEST_CREDENTIALS, method: .post, parameters: ParameterHandler.getStandardParameters())
             .responseCredentials { _ in }
     }
 }
 
 
 /// Singleton wich contains an istance of `StudentInfo`
-public class Student {
+open class Student {
     
-    public static let sharedInstance = Student()
+    open static let sharedInstance = Student()
     
-    public var studentInfo: StudentInfo?
+    open var studentInfo: StudentInfo?
     
-    private init() { }
+    fileprivate init() { }
     
     /// Returns the student course
-    public func getStudentCourse() -> String {
+    open func getStudentCourse() -> String {
         return (self.studentInfo?.course)!
     }
     
     /// Returns the student department
-    public func getStudentDepartment() -> String {
+    open func getStudentDepartment() -> String {
         return (self.studentInfo?.department)!
     }
     
 }
 
-extension Alamofire.Request {
-    func responseCredentials(completionHandler: Response<StudentInfo, NSError> -> Void) -> Self {
-        let responseSerializer = ResponseSerializer<StudentInfo, NSError> { request, response, data, error in
+extension Alamofire.DataRequest {
+    func responseCredentials(_ completionHandler: @escaping (DataResponse<StudentInfo>) -> Void) -> Self {
+        let responseSerializer = DataResponseSerializer<StudentInfo> { request, response, data, error in
             
             guard error == nil else {
-                return .Failure(error!)
+                return .failure(BackendError.network(error: error!))
             }
             
-            guard let responseData = data else {
-                let failureReason = "Array could not be serialized because input data was nil"
-                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
-                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
-                return .Failure(error)
-            }
+//            guard let responseData = data else {
+//                let failureReason = "Array could not be serialized because input data was nil"
+//                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
+//                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
+//                return .Failure(error)
+//            }
             
-            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
-            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            let JSONResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, data, error)
+            
+            guard case let .success(jsonObject) = result else {
+                return .failure(BackendError.jsonSerialization(error: result.error!))
+            }
             
             switch result {
-            case .Success(let value):
+            case .success(let value):
                 let api: APIMessage = APIMessage(json: value as! JSON)!
                 let studentInfo: StudentInfo = StudentInfo(json: value as! JSON)!
                 if api.result != "failure" {
@@ -137,9 +141,9 @@ extension Alamofire.Request {
                     // login failed
                     studentInfo.areCredentialsValid = false
                 }
-                return .Success(studentInfo)
-            case .Failure(let error):
-                return .Failure(error)
+                return .success(studentInfo)
+            case .failure(let error):
+                return .failure(error)
             }
         }
         return response(responseSerializer: responseSerializer, completionHandler: completionHandler)

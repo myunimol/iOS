@@ -7,12 +7,12 @@
 //
 
 protocol ButtonSelectorController {
-    func menuClicked(sender: UIBarButtonItem)
+    func menuClicked(_ sender: UIBarButtonItem)
 }
 
 extension UIViewController: ButtonSelectorController {
-    func menuClicked(sender: UIBarButtonItem) {
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+    func menuClicked(_ sender: UIBarButtonItem) {
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
     }
 }

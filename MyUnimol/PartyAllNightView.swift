@@ -44,23 +44,23 @@ class PartyAllNightView : UIView {
     func addCustomView() {
         let random_index = Int(arc4random_uniform(UInt32(self.titles.count)))
         let title_label : UILabel = UILabel()
-        title_label.frame = CGRectMake(50, 50, self.frame.width-100, 100)
-        title_label.backgroundColor=UIColor.whiteColor()
-        title_label.textAlignment = .Center
-        title_label.textColor = UIColor.blackColor()
+        title_label.frame = CGRect(x: 50, y: 50, width: self.frame.width-100, height: 100)
+        title_label.backgroundColor=UIColor.white
+        title_label.textAlignment = .center
+        title_label.textColor = UIColor.black
         title_label.text = self.titles[random_index]
-        title_label.font = UIFont.boldSystemFontOfSize(30)
-        title_label.hidden=false
+        title_label.font = UIFont.boldSystemFont(ofSize: 30)
+        title_label.isHidden=false
         self.addSubview(title_label)
         
         let bottom_line_label : UILabel = UILabel()
-        bottom_line_label.frame = CGRectMake(25, (self.frame.width-200+150), self.frame.width-50, 100)
-        bottom_line_label.backgroundColor=UIColor.whiteColor()
-        bottom_line_label.textAlignment = .Center
-        bottom_line_label.textColor = UIColor.blackColor()
+        bottom_line_label.frame = CGRect(x: 25, y: (self.frame.width-200+150), width: self.frame.width-50, height: 100)
+        bottom_line_label.backgroundColor=UIColor.white
+        bottom_line_label.textAlignment = .center
+        bottom_line_label.textColor = UIColor.black
         bottom_line_label.text = self.bottom_lines[random_index]
         bottom_line_label.numberOfLines = 2
-        bottom_line_label.hidden=false
+        bottom_line_label.isHidden=false
         self.addSubview(bottom_line_label)
         
         let img_name = self.images[random_index]+".png"

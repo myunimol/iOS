@@ -20,21 +20,21 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         
         let nib = UINib(nibName: "DefaultExamCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "DefaultExamCell")
+        self.tableView.register(nib, forCellReuseIdentifier: "DefaultExamCell")
         
-        self.tableView.hidden = true
+        self.tableView.isHidden = true
         self.loadExams()
     }
     
     func loadExams() {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
-        SessionExam.getSessionExams { exams, error in
-            guard error == nil else {
+        SessionExam.getSessionExams { exams in
+            guard exams != nil else {
                 
                 self.recoverFromCache { _ in
                     if (self.exams != nil) {
                         self.tableView.reloadData()
-                        self.tableView.hidden = false
+                        self.tableView.isHidden = false
                         Utils.removeProgressBar(self)
                     } else {
                         Utils.removeProgressBar(self)
@@ -48,18 +48,18 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
             } // end error
             self.exams = exams?.examsList
             if (self.exams?.count == 0) {
-                self.tableView.hidden = true
+                self.tableView.isHidden = true
                 Utils.setPlaceholderForEmptyTable(self, message: "Non ci sono appelli disponibili")
             } else {
                 self.tableView.reloadData()
-                self.tableView.hidden = false
+                self.tableView.isHidden = false
             }
             Utils.removeProgressBar(self)
         }
     }
     
-    private func recoverFromCache(completion: (Void)-> Void) {
-        CacheManager.sharedInstance.getJsonByString(CacheManager.EXAMS_AVAILABLE) { json, error in
+    fileprivate func recoverFromCache(_ completion: @escaping (Void)-> Void) {
+        CacheManager.sharedInstance.getJsonByString(CacheManager.EXAMS_AVAILABLE) { json in
             if (json != nil) {
                 let auxExams: SessionExams = SessionExams(json: json!)
                 self.exams = auxExams.examsList
@@ -68,20 +68,20 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.title = "Disponibili"
         self.navigationController?.navigationBar.barTintColor = Utils.myUnimolBlueUIColor
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        self.tabBarController?.tabBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+        self.tabBarController?.tabBar.tintColor = UIColor.white
         self.tabBarController?.tabBar.barTintColor = Utils.myUnimolBlueUIColor
-        self.tabBarController?.tabBar.translucent = false
+        self.tabBarController?.tabBar.isTranslucent = false
         
         let menuButton = UIBarButtonItem(image: UIImage(named: "menu"),
-                                         style: UIBarButtonItemStyle.Plain ,
+                                         style: UIBarButtonItemStyle.plain ,
                                          target: self, action: #selector(UIViewController.menuClicked(_:)))
         
-        menuButton.tintColor = UIColor.whiteColor()
+        menuButton.tintColor = UIColor.white
         
         self.tabBarController?.navigationItem.leftBarButtonItem = menuButton
     }
@@ -90,12 +90,12 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.exams?.count ?? 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DefaultExamCell", forIndexPath: indexPath) as! DefaultExamCell
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultExamCell", for: indexPath) as! DefaultExamCell
         
         let exam = self.exams?[indexPath.row]
         cell.examName.text = exam?.name
@@ -106,7 +106,7 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
 }

@@ -4,11 +4,11 @@
   use_frameworks!
 
 target 'MyUnimol' do
-    pod 'Alamofire', '~> 3.0'
+    pod 'Alamofire', '~> 4.0'
     pod 'MMDrawerController', '~> 0.5.7'
-    pod 'Gloss', '~> 0.6'
+    pod 'Gloss', '~> 1.2'
     pod 'Charts'
-    pod 'HanekeSwift'
+    pod "HanekeSwift", :git => 'https://github.com/Haneke/HanekeSwift.git', :branch => 'feature/swift-3'
     pod 'SCLAlertView'
 end
 

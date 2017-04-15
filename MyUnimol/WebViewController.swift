@@ -13,43 +13,43 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView?
     
-    private var request: NSURLRequest {
+    fileprivate var request: URLRequest {
         let baseUrl = "https://unimol.esse3.cineca.it/auth/Logon.do"
-        let URL = NSURL(string: baseUrl)!
-        return NSURLRequest(URL: URL)
+        let URL = Foundation.URL(string: baseUrl)!
+        return URLRequest(url: URL)
     }
     
-    private var userScript: WKUserScript {
+    fileprivate var userScript: WKUserScript {
         let source = "javascript:cookies.set()"
-        let userScript = WKUserScript(source: source, injectionTime: .AtDocumentStart, forMainFrameOnly: false)
+        let userScript = WKUserScript(source: source, injectionTime: .atDocumentStart, forMainFrameOnly: false)
         return userScript
     }
     
     /* Start the network activity indicator when the web view is loading */
-    func webView(webView: WKWebView,
+    func webView(_ webView: WKWebView,
                  didStartProvisionalNavigation navigation: WKNavigation){
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
     /* Stop the network activity indicator when the loading finishes */
-    func webView(webView: WKWebView,
-                 didFinishNavigation navigation: WKNavigation){
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    func webView(_ webView: WKWebView,
+                 didFinish navigation: WKNavigation){
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
-    func webView(webView: WKWebView,
-                 decidePolicyForNavigationResponse navigationResponse: WKNavigationResponse,
-                                                   decisionHandler: ((WKNavigationResponsePolicy) -> Void)){
-        decisionHandler(.Allow)
+    func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationResponse: WKNavigationResponse,
+                                                   decisionHandler: (@escaping (WKNavigationResponsePolicy) -> Void)){
+        decisionHandler(.allow)
     }
     
     /// Perform automatic login
-    func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
+    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         if challenge.protectionSpace.host == "unimol.esse3.cineca.it" {
             let (user, password) = CacheManager.sharedInstance.getUserCredential()
-            let credential = NSURLCredential(user: user!, password: password!, persistence: NSURLCredentialPersistence.ForSession)
-            challenge.sender?.useCredential(credential, forAuthenticationChallenge: challenge)
-            completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
+            let credential = URLCredential(user: user!, password: password!, persistence: URLCredential.Persistence.forSession)
+            challenge.sender?.use(credential, for: challenge)
+            completionHandler(URLSession.AuthChallengeDisposition.useCredential, credential)
         }
     }
     
@@ -77,13 +77,13 @@ class WebViewController: UIViewController, WKNavigationDelegate {
             if let theWebView = webView {
                 /* Load a web page into our web view */
                 let urlRequest = self.request
-                theWebView.loadRequest(urlRequest)
+                theWebView.load(urlRequest)
                 theWebView.navigationDelegate = self
                 view.addSubview(theWebView)
             }
         } // else for connection available
         
         // Hide the navigation bar for this view
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
 }

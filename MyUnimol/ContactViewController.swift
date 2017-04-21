@@ -50,7 +50,9 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         cell.name.text = contact?.fullname
         cell.telephone.text = "📞 " + (contact?.externalTelephone)!
+        cell.telephone.tintColor = UIColor.black
         cell.email.text = "📧 " + (contact?.email)!
+        cell.email.tintColor = UIColor.black
         return cell
     }
     

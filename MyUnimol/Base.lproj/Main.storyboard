@@ -991,7 +991,9 @@
                                     <constraint firstAttribute="height" constant="38" id="9Gh-Ya-7RC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
-                                <state key="normal" title="toc-toc@myunimol.it"/>
+                                <state key="normal" title="toc-toc@myunimol.it">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="sendMail:" destination="xuV-IR-3h5" eventType="touchUpInside" id="C5x-8O-wuF"/>
                                 </connections>

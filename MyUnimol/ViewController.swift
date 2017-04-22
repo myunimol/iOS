@@ -78,22 +78,26 @@ class ViewController: UIViewController {
         
         var fakes = [String]()
         for i in 0..<grades.count {
-            dataEntries.append(ChartDataEntry(x: Double(grades[i]), y: Double(i)))
+            dataEntries.append(ChartDataEntry(x: Double(i), y: Double(grades[i])))
             fakes.append("")
         }
-        
+                
         let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Esami")
         lineChartDataSet.axisDependency = .left
         lineChartDataSet.lineWidth = 1.0
         lineChartDataSet.circleRadius = 2.0
         lineChartDataSet.setDrawHighlightIndicators(false)
         lineChartDataSet.setColor(Utils.myUnimolBlueUIColor)
+        lineChartDataSet.colors = [Utils.myUnimolBlueUIColor]
         lineChartDataSet.setCircleColor(Utils.myUnimolBlueUIColor)
         
-        let lineChartData = LineChartData(dataSet: lineChartDataSet)
-        
+        let lineChartData = LineChartData()
+        lineChartData.addDataSet(lineChartDataSet)
         self.lineChartView.data = lineChartData
         self.lineChartView.data?.setValueTextColor(UIColor.clear) // remove labels
+        
+        // remove the description
+        self.lineChartView.chartDescription?.text = ""
         
         let rightAxis = self.lineChartView.getAxis(YAxis.AxisDependency.right)
         rightAxis.drawLabelsEnabled = false
@@ -110,8 +114,8 @@ class ViewController: UIViewController {
         
         var fakes = [String]()
         for i in 0..<startingDegrees.count {
-            dataEntries.append(BarChartDataEntry(x: Double(startingDegrees[i]), y: Double(i)))
-//            fakes.append("")
+            dataEntries.append(BarChartDataEntry(x: Double(i), y: Double(startingDegrees[i])))
+            fakes.append("")
         }
         
         let barChartDataSet = BarChartDataSet(values: dataEntries, label: "Voto di partenza")
@@ -122,6 +126,8 @@ class ViewController: UIViewController {
         
         self.barChartView.data = barChartData
         self.barChartView.data?.setValueTextColor(UIColor.clear)
+        
+        self.barChartView.chartDescription?.text = ""
         
         let rightAxis = self.barChartView.getAxis(YAxis.AxisDependency.right)
         rightAxis.drawLabelsEnabled = false

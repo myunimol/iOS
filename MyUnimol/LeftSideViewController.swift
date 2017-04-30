@@ -14,7 +14,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var studentID: UILabel!
     
-    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "Orario", "News", "Pagamenti", "Suggerimenti", "#MyUnimol su Facebook", "Il mio Portale", "Logout", "v1.1 \"Fabiana\""]
+    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "Orario", "News", "Pagamenti", "Suggerimenti", "#MyUnimol su Facebook", "Il mio Portale", "Logout", "v1.1 \"Fabiana\"", "test"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,6 +118,12 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             mainWindowController =
             self.storyboard?.instantiateViewController(withIdentifier: "HelpUsViewController") as!
             HelpUsViewController
+            let centerNavigation = UINavigationController(rootViewController: mainWindowController)
+            appDelegate.centerContainer!.centerViewController = centerNavigation
+        case 12:
+            mainWindowController =
+                self.storyboard?.instantiateViewController(withIdentifier: "DayTimesTabController") as!
+            UITabBarController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
         default:

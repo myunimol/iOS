@@ -50,32 +50,32 @@ class AdditionalCalendarController: UIViewController, UITextFieldDelegate {
         
         self.hideKeyboardWhenTappedAround()
         
-        self.startButton.setTitle("Inizio", for: UIControlState.normal)
-        self.endButton.setTitle("Fine", for: UIControlState.normal)
-        
-        // selectors
-        self.startDatePicker.addTarget(self, action: #selector(startDateValueChanger(datePicker:)), for: .valueChanged)
-        self.endDatePicker.addTarget(self, action: #selector(endDateValueChanger(datePicker:)), for: .valueChanged)
+//        self.startButton.setTitle("Inizio", for: UIControlState.normal)
+//        self.endButton.setTitle("Fine", for: UIControlState.normal)
+//        
+//        // selectors
+//        self.startDatePicker.addTarget(self, action: #selector(startDateValueChanger(datePicker:)), for: .valueChanged)
+//        self.endDatePicker.addTarget(self, action: #selector(endDateValueChanger(datePicker:)), for: .valueChanged)
     }
     
     /// Used to update the value in the starting label
-    func startDateValueChanger(datePicker: UIDatePicker) {
-        
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: datePicker.date)
-        let minutes = calendar.component(.minute, from: datePicker.date)
-        
-        self.startTimeLabel.text = "\(hour):\(minutes)"
-    }
-    
-    func endDateValueChanger(datePicker: UIDatePicker) {
-        
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: datePicker.date)
-        let minutes = calendar.component(.minute, from: datePicker.date)
-        
-        self.endDateLabel.text = "\(hour):\(minutes)"
-    }
+//    func startDateValueChanger(datePicker: UIDatePicker) {
+//        
+//        let calendar = Calendar.current
+//        let hour = calendar.component(.hour, from: datePicker.date)
+//        let minutes = calendar.component(.minute, from: datePicker.date)
+//        
+//        self.startTimeLabel.text = "\(hour):\(minutes)"
+//    }
+//    
+//    func endDateValueChanger(datePicker: UIDatePicker) {
+//        
+//        let calendar = Calendar.current
+//        let hour = calendar.component(.hour, from: datePicker.date)
+//        let minutes = calendar.component(.minute, from: datePicker.date)
+//        
+//        self.endDateLabel.text = "\(hour):\(minutes)"
+//    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

@@ -62,6 +62,7 @@
 		527E8E8A1D4F30C700FE9AE4 /* CalendarDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E891D4F30C700FE9AE4 /* CalendarDataViewController.swift */; };
 		527E8E8C1D4F42E800FE9AE4 /* CalendarDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527E8E8B1D4F42E800FE9AE4 /* CalendarDataCell.swift */; };
 		52BFB18F1D54E94300695990 /* HeaderCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BFB18E1D54E94300695990 /* HeaderCalendarCell.swift */; };
+		52C3EC451ECB7542008794CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3EC441ECB7542008794CE /* Extensions.swift */; };
 		52CE08A11D50C83700DB22B7 /* MyUnimol.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52CE089F1D50C83700DB22B7 /* MyUnimol.xcdatamodeld */; };
 		52CE08A71D50D2E600DB22B7 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE08A61D50D2E600DB22B7 /* CoreDataController.swift */; };
 		52CE08AA1D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE08A81D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift */; };
@@ -156,6 +157,7 @@
 		527E8E891D4F30C700FE9AE4 /* CalendarDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataViewController.swift; sourceTree = "<group>"; };
 		527E8E8B1D4F42E800FE9AE4 /* CalendarDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataCell.swift; sourceTree = "<group>"; };
 		52BFB18E1D54E94300695990 /* HeaderCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCalendarCell.swift; sourceTree = "<group>"; };
+		52C3EC441ECB7542008794CE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		52CE08A01D50C83700DB22B7 /* MyUnimol.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyUnimol.xcdatamodel; sourceTree = "<group>"; };
 		52CE08A61D50D2E600DB22B7 /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		52CE08A81D50E2DE00DB22B7 /* Orario+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Orario+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		1E27AA0A1C69B42D009AD819 /* MyUnimol */ = {
 			isa = PBXGroup;
 			children = (
+				52C3EC431ECB7526008794CE /* Helpers */,
 				52410F6A1D4BC6AD00F40A68 /* calendar */,
 				1E9B774A1D19C3C500D22B15 /* protocols */,
 				1EA0915E1CE4E84800D9158B /* userTips */,
@@ -437,6 +440,14 @@
 				42999CE01ED0106C00D93A2F /* TimeBarController.swift */,
 			);
 			name = calendar;
+			sourceTree = "<group>";
+		};
+		52C3EC431ECB7526008794CE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				52C3EC441ECB7542008794CE /* Extensions.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		B03316ED1BF5BE1BD9AA517B /* Frameworks */ = {
@@ -785,6 +796,7 @@
 				C93406B41DC792F800B8CE4F /* PartyAllNightView.swift in Sources */,
 				1EFA57351CDF2C1E00FA74A4 /* EnrolledExamsController.swift in Sources */,
 				1E9B774C1D19C3F100D22B15 /* ButtonSelectorController.swift in Sources */,
+				52C3EC451ECB7542008794CE /* Extensions.swift in Sources */,
 				4232B3431EAD221E00BBBD1F /* AdditionCalendarController.swift in Sources */,
 				1E94C46E1CDBBB4000B9812D /* LoadSentences.swift in Sources */,
 				1E94C4651CD6803000B9812D /* FirstPageController.swift in Sources */,

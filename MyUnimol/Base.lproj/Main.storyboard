@@ -1648,7 +1648,34 @@
                     <view key="view" contentMode="scaleToFill" id="mmN-gS-QKT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ebZ-1N-Imh">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="obI-LQ-McA" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="383" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="obI-LQ-McA" id="KsS-Qp-qiV">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gQN-xz-vCt" firstAttribute="top" secondItem="ebZ-1N-Imh" secondAttribute="bottom" id="9Pi-80-XeI"/>
+                            <constraint firstAttribute="trailing" secondItem="ebZ-1N-Imh" secondAttribute="trailing" constant="-4" id="Cqc-8M-4rG"/>
+                            <constraint firstAttribute="trailing" secondItem="ebZ-1N-Imh" secondAttribute="trailing" constant="-4" id="DcP-AG-3wr"/>
+                            <constraint firstItem="ebZ-1N-Imh" firstAttribute="top" secondItem="mmN-gS-QKT" secondAttribute="top" id="RqU-Rj-cpG"/>
+                            <constraint firstItem="ebZ-1N-Imh" firstAttribute="bottom" secondItem="gQN-xz-vCt" secondAttribute="top" id="SGx-wT-vpF"/>
+                            <constraint firstItem="ebZ-1N-Imh" firstAttribute="leading" secondItem="mmN-gS-QKT" secondAttribute="leading" constant="-4" id="TgO-09-Tai"/>
+                            <constraint firstItem="ebZ-1N-Imh" firstAttribute="leading" secondItem="mmN-gS-QKT" secondAttribute="leading" constant="-4" id="Zbk-Wb-uph"/>
+                            <constraint firstItem="ebZ-1N-Imh" firstAttribute="top" secondItem="mmN-gS-QKT" secondAttribute="top" id="fIG-2u-1YE"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Martedì" image="m-letter" id="NSx-Ny-0Zk"/>
                     <connections>
@@ -1657,7 +1684,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ep-Zs-Haw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3990" y="2898"/>
+            <point key="canvasLocation" x="3989.5999999999999" y="2897.9010494752624"/>
         </scene>
         <!--Venerdì-->
         <scene sceneID="ZKE-8C-aqN">
@@ -1670,7 +1697,30 @@
                     <view key="view" contentMode="scaleToFill" id="ZYp-eg-UVz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lAb-xC-TvV">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="2VN-j5-887" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="383" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2VN-j5-887" id="m6t-q2-guZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lAb-xC-TvV" firstAttribute="leading" secondItem="ZYp-eg-UVz" secondAttribute="leading" constant="-4" id="4DA-BY-Yoe"/>
+                            <constraint firstAttribute="trailing" secondItem="lAb-xC-TvV" secondAttribute="trailing" constant="-4" id="6rB-fh-gEk"/>
+                            <constraint firstItem="lAb-xC-TvV" firstAttribute="top" secondItem="ZYp-eg-UVz" secondAttribute="top" id="tc7-Ob-z7j"/>
+                            <constraint firstItem="8ak-vC-uzB" firstAttribute="top" secondItem="lAb-xC-TvV" secondAttribute="bottom" id="zVX-cd-Yw6"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Venerdì" image="v-letter" id="h5d-JU-xTk"/>
                     <connections>
@@ -1679,7 +1729,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8HY-fK-T1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4991" y="2898"/>
+            <point key="canvasLocation" x="4989.6000000000004" y="2897.9010494752624"/>
         </scene>
         <!--Mercoledì-->
         <scene sceneID="jnp-LQ-3dX">
@@ -1692,7 +1742,30 @@
                     <view key="view" contentMode="scaleToFill" id="9dS-CQ-lQ7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eud-s9-z7o">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="oO8-wY-TYs" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="383" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oO8-wY-TYs" id="MYu-sn-5VK">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8wm-5Z-mMB" firstAttribute="top" secondItem="Eud-s9-z7o" secondAttribute="bottom" id="AGf-im-yhS"/>
+                            <constraint firstItem="Eud-s9-z7o" firstAttribute="leading" secondItem="9dS-CQ-lQ7" secondAttribute="leading" constant="-4" id="COh-Pa-6Eh"/>
+                            <constraint firstAttribute="trailing" secondItem="Eud-s9-z7o" secondAttribute="trailing" constant="-4" id="QHk-kO-yDX"/>
+                            <constraint firstItem="Eud-s9-z7o" firstAttribute="top" secondItem="9dS-CQ-lQ7" secondAttribute="top" id="Zwq-TB-aWV"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Mercoledì" image="m-letter" id="3af-iO-m5i"/>
                     <connections>
@@ -1701,7 +1774,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wa1-BS-Qb6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3990" y="3612"/>
+            <point key="canvasLocation" x="3989.5999999999999" y="3611.2443778110946"/>
         </scene>
         <!--Lunedì-->
         <scene sceneID="Goj-GL-mSp">
@@ -1714,16 +1787,44 @@
                     <view key="view" contentMode="scaleToFill" id="cI1-W1-ePI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K1H-SW-Lgt">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="Peg-bA-LYA" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="383" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Peg-bA-LYA" id="4la-0I-Lfj">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="K1H-SW-Lgt" firstAttribute="leading" secondItem="cI1-W1-ePI" secondAttribute="leading" constant="-4" id="52P-Sv-vaW"/>
+                            <constraint firstItem="K1H-SW-Lgt" firstAttribute="leading" secondItem="cI1-W1-ePI" secondAttribute="leading" constant="-4" id="Dhl-MG-3pM"/>
+                            <constraint firstAttribute="trailing" secondItem="K1H-SW-Lgt" secondAttribute="trailing" constant="-4" id="KwS-an-2Ll"/>
+                            <constraint firstItem="K1H-SW-Lgt" firstAttribute="top" secondItem="cI1-W1-ePI" secondAttribute="top" id="Lxl-j9-YPP"/>
+                            <constraint firstAttribute="trailing" secondItem="K1H-SW-Lgt" secondAttribute="trailing" constant="-4" id="Mft-AJ-yfN"/>
+                            <constraint firstItem="h0u-ex-Qwo" firstAttribute="top" secondItem="K1H-SW-Lgt" secondAttribute="bottom" id="NEu-FH-IyO"/>
+                            <constraint firstItem="K1H-SW-Lgt" firstAttribute="bottom" secondItem="h0u-ex-Qwo" secondAttribute="top" id="ZPe-av-lrc"/>
+                            <constraint firstItem="K1H-SW-Lgt" firstAttribute="top" secondItem="cI1-W1-ePI" secondAttribute="top" id="qwT-6e-5ig"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Lunedì" image="l-letter" id="ba1-MM-xeW"/>
                     <connections>
+                        <outlet property="tableView" destination="K1H-SW-Lgt" id="uI6-Tq-R3Z"/>
                         <segue destination="VNj-WP-tR8" kind="push" identifier="timeSegue" id="GzU-i0-fK8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ErE-u8-5S5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3990" y="2194"/>
+            <point key="canvasLocation" x="3989.5999999999999" y="2193.5532233883059"/>
         </scene>
         <!--Giovedì-->
         <scene sceneID="P5E-En-8ez">
@@ -1736,7 +1837,30 @@
                     <view key="view" contentMode="scaleToFill" id="kex-0N-O4K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RtF-3x-ECR">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="Aca-nB-WN4" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="383" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aca-nB-WN4" id="hR3-i0-NOq">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xhj-6e-2MA" firstAttribute="top" secondItem="RtF-3x-ECR" secondAttribute="bottom" id="Mrp-n4-u6N"/>
+                            <constraint firstItem="RtF-3x-ECR" firstAttribute="top" secondItem="kex-0N-O4K" secondAttribute="top" id="Mrq-Ku-RBT"/>
+                            <constraint firstItem="RtF-3x-ECR" firstAttribute="leading" secondItem="kex-0N-O4K" secondAttribute="leading" constant="-4" id="avg-nb-w8i"/>
+                            <constraint firstAttribute="trailing" secondItem="RtF-3x-ECR" secondAttribute="trailing" constant="-4" id="wcX-HJ-Wvm"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Giovedì" image="g-letter" id="ZbC-7z-uxz"/>
                     <connections>
@@ -1745,12 +1869,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vWY-aq-ISU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4992" y="2188"/>
+            <point key="canvasLocation" x="4991.1999999999998" y="2187.2563718140932"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Time Bar Controller-->
         <scene sceneID="Hjj-zM-KVo">
             <objects>
-                <tabBarController storyboardIdentifier="DayTimesTabController" id="ZVC-mP-3VU" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="DayTimesTabController" id="ZVC-mP-3VU" customClass="TimeBarController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="zLg-TA-FRK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1849,10 +1973,11 @@
         <scene sceneID="5nl-QR-Nwv">
             <objects>
                 <tableViewController id="VNj-WP-tR8" customClass="CalendarDataViewController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Wh-X3-vNh">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Wh-X3-vNh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="matsCell" rowHeight="53" id="JSa-zc-1Kc" customClass="CalendarDataCell" customModule="MyUnimol" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="53"/>
@@ -1861,7 +1986,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PHa-LY-XPg">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Materia" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PHa-LY-XPg">
                                             <rect key="frame" x="8" y="8" width="359" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -1888,7 +2013,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pe8-gx-1zW">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Commento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pe8-gx-1zW">
                                             <rect key="frame" x="8" y="8" width="359" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -1995,32 +2120,6 @@
                                     <outlet property="datePicker" destination="BRw-ei-ihY" id="nkW-wJ-2ow"/>
                                     <outlet property="endHourLbl" destination="rpU-er-B28" id="uZm-Sa-2Do"/>
                                     <outlet property="terminaLbl" destination="Tc2-Bq-FUY" id="MGM-sI-qNW"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="saveCell" rowHeight="53" id="88z-qv-irD" customClass="CalendarDataCell" customModule="MyUnimol" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="534" width="375" height="53"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="88z-qv-irD" id="Ezf-4u-KDN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dV-bv-lqL">
-                                            <rect key="frame" x="170" y="11" width="34" height="30"/>
-                                            <state key="normal" title="Save">
-                                                <color key="titleColor" red="0.023529411760000001" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="saveBtnAct:" destination="88z-qv-irD" eventType="touchUpInside" id="AP6-yX-4J4"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="6dV-bv-lqL" firstAttribute="centerY" secondItem="Ezf-4u-KDN" secondAttribute="centerY" id="2kW-7F-tRs"/>
-                                        <constraint firstItem="6dV-bv-lqL" firstAttribute="centerX" secondItem="Ezf-4u-KDN" secondAttribute="centerX" id="oq6-8f-k1e"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="saveBtnLbl" destination="6dV-bv-lqL" id="O6R-XV-WKH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

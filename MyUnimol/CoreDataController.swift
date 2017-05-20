@@ -76,6 +76,7 @@ class CoreDataController {
             print("Stampo l'errore: \n \(errore) \n")
         }
         return array
+        print(array)
     }
     
     /// Funzione per il salvataggio dei dati sul Core Data

@@ -16,7 +16,6 @@ class CalendarDataCell: UITableViewCell {
     @IBOutlet weak var terminaLbl: UILabel! // label Termina
     @IBOutlet weak var startHourLbl: UILabel! // Label ora inizio delle lezioni
     @IBOutlet weak var endHourLbl: UILabel! // Label ora termine delle lezioni
-    @IBOutlet weak var saveBtnLbl: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var frameAdded = false
@@ -76,24 +75,24 @@ class CalendarDataCell: UITableViewCell {
     
     // ###################################################################################################################################
     
-    @IBAction func saveBtnAct(_ sender: AnyObject) {
-        guard !CoreDataController.sharedIstanceCData.matsDataField.isEmpty else {return}
-        guard !CoreDataController.sharedIstanceCData.commentDataField.isEmpty else {return}
-        // TODO Inserire controlli per l'orario
-        let materia = CoreDataController.sharedIstanceCData.matsDataField
-        let commento = CoreDataController.sharedIstanceCData.commentDataField
-        let data_inizio = CoreDataController.sharedIstanceCData.startHourNSDate
-        let data_termine = CoreDataController.sharedIstanceCData.endHourNSDate
-        CoreDataController.sharedIstanceCData.addOrario(materia, commento: commento, data_inizio: data_inizio, data_termine: data_termine, day: CoreDataController.sharedIstanceCData.dayOfTheWeek)
-        
-        // Svuoto le variabili in caso l'utente non inserisce i valori nei text field materia e commenti
-        // Non è possibile fare un controllo diretto sulle @IBOutlet dei data field in quanto abbandonata la cella
-        // risultano nil, il guard rimane impostato sulle variabili del singleton che devono essere azzerate dopo ogni
-        // inserimento altrimenti verrebbero memorizzati nel core data i valori rimasti in memoria
-        CoreDataController.sharedIstanceCData.matsDataField = ""
-        CoreDataController.sharedIstanceCData.commentDataField = ""
-        
-            }
+//    @IBAction func saveBtnAct(_ sender: AnyObject) {
+//        guard !CoreDataController.sharedIstanceCData.matsDataField.isEmpty else {return}
+//        guard !CoreDataController.sharedIstanceCData.commentDataField.isEmpty else {return}
+//        // TODO Inserire controlli per l'orario
+//        let materia = CoreDataController.sharedIstanceCData.matsDataField
+//        let commento = CoreDataController.sharedIstanceCData.commentDataField
+//        let data_inizio = CoreDataController.sharedIstanceCData.startHourNSDate
+//        let data_termine = CoreDataController.sharedIstanceCData.endHourNSDate
+//        CoreDataController.sharedIstanceCData.addOrario(materia, commento: commento, data_inizio: data_inizio, data_termine: data_termine, day: CoreDataController.sharedIstanceCData.dayOfTheWeek)
+//        
+//        // Svuoto le variabili in caso l'utente non inserisce i valori nei text field materia e commenti
+//        // Non è possibile fare un controllo diretto sulle @IBOutlet dei data field in quanto abbandonata la cella
+//        // risultano nil, il guard rimane impostato sulle variabili del singleton che devono essere azzerate dopo ogni
+//        // inserimento altrimenti verrebbero memorizzati nel core data i valori rimasti in memoria
+//        CoreDataController.sharedIstanceCData.matsDataField = ""
+//        CoreDataController.sharedIstanceCData.commentDataField = ""
+//        
+//            }
     
     override func awakeFromNib() {
         super.awakeFromNib()

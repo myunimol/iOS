@@ -36,12 +36,15 @@ open class StudentInfo {
         self.department          = "department" <~~ json
         self.enrolledExams       = "enrolledExams" <~~ json
         
-        let auxName: String?     = "name" <~~ json
-        self.name                = auxName?.capitalized
-        
-        let auxSurname: String?  = "surname" <~~ json
-        self.surname             = auxSurname?.capitalized
-        
+        let fullName: String?    = "name" <~~ json
+        let fullNameArray        = fullName!.components(separatedBy: " ")
+        let auxName: String      = fullNameArray[0]
+        let surnameArray         = fullNameArray[1...fullNameArray.count-1]
+        let auxSurname           = surnameArray.joined(separator: " ")
+
+        self.name                = auxName.capitalized
+        self.surname             = auxSurname.capitalized
+
         self.registrationDate    = "registrationDate" <~~ json
         self.studentClass        = "studentClass" <~~ json
         self.studentId           = "studentID" <~~ json
@@ -131,6 +134,7 @@ extension Alamofire.DataRequest {
             
             switch result {
             case .success(let value):
+                print(value)
                 let api: APIMessage = APIMessage(json: value as! JSON)!
                 let studentInfo: StudentInfo = StudentInfo(json: value as! JSON)!
                 if api.result != "failure" {

@@ -18,8 +18,7 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
         self.tabBarController?.delegate = self
     }
     
-    /// save a lesson 
-    /// TODO: implement all the controls and the checks in this page
+    /// save a lesson
     func saveLesson(_ sender: UIBarButtonItem) {
         
         guard !CoreDataController.sharedIstanceCData.matsDataField.isEmpty else {
@@ -35,9 +34,6 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
         let startDate = CoreDataController.sharedIstanceCData.startHourNSDate
         let endDate = CoreDataController.sharedIstanceCData.endHourNSDate
         
-        print(startDate)
-        print(endDate)
-        
         if(!isLessonTime(date: startDate, dateTarget: "08:00")) {
             Utils.displayAlert(self, title: "😴", message: "Ammirro davvero la tua determinazione, ma il professore probabilmente starà ancora dormendo 😴!")
         }
@@ -48,6 +44,8 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
             
             CoreDataController.sharedIstanceCData.matsDataField = ""
             CoreDataController.sharedIstanceCData.commentDataField = ""
+            // reload
+            
             self.navigationController?.popViewController(animated: true)
         } else {
             // date is not valid
@@ -166,18 +164,20 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
         let hour = dateFormatter.string(from: data)
         return hour
     }
-    
+        
     // ############################## METODI PER IL RIDIMENSIONAMENTO DELLE CELLE DEL DATE PICKER ########################
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let previousIndexPath = selectedIndexPath
+   
         if indexPath == selectedIndexPath {
             selectedIndexPath = nil
         } else {
             selectedIndexPath = indexPath
         }
-        
+       
         var indexPaths : Array<IndexPath> = []
+      
         if let previous = previousIndexPath {
             indexPaths += [previous]
         }
@@ -198,12 +198,14 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // Lasciamo l'altezza di default in caso vengano selezionate le celle 0 (materia) 1 (commenti) e 4 (save)
-        if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 4 {
+        // Lasciamo l'altezza di default in caso vengano selezionate le celle 0 (materia) 1 (commenti)
+        if indexPath.row == 0 || indexPath.row == 1 {
             return CalendarDataCell.defaultHeight
         }
-        if indexPath == selectedIndexPath {
-            return CalendarDataCell.expandedHeight
+
+        if indexPath == selectedIndexPath &&
+            (indexPath.row == 2 || indexPath.row == 3) {
+                return CalendarDataCell.expandedHeight
         } else {
             return CalendarDataCell.defaultHeight
         }

@@ -1612,7 +1612,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IId-3q-1xt">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6k0-VN-h7c" id="tUd-3M-gPg"/>
@@ -1640,43 +1640,14 @@
         <!--Martedì-->
         <scene sceneID="N7Z-6R-efd">
             <objects>
-                <viewController storyboardIdentifier="TuesdayTime" id="Kyx-Jm-SdM" customClass="DayTimeTableController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zdo-pr-cle"/>
-                        <viewControllerLayoutGuide type="bottom" id="gQN-xz-vCt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mmN-gS-QKT">
+                <viewController id="Kyx-Jm-SdM" customClass="DayTimeTableController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="AbW-8q-4gD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ebZ-1N-Imh">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="obI-LQ-McA" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="383" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="obI-LQ-McA" id="KsS-Qp-qiV">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="gQN-xz-vCt" firstAttribute="top" secondItem="ebZ-1N-Imh" secondAttribute="bottom" id="9Pi-80-XeI"/>
-                            <constraint firstAttribute="trailing" secondItem="ebZ-1N-Imh" secondAttribute="trailing" constant="-4" id="Cqc-8M-4rG"/>
-                            <constraint firstAttribute="trailing" secondItem="ebZ-1N-Imh" secondAttribute="trailing" constant="-4" id="DcP-AG-3wr"/>
-                            <constraint firstItem="ebZ-1N-Imh" firstAttribute="top" secondItem="mmN-gS-QKT" secondAttribute="top" id="RqU-Rj-cpG"/>
-                            <constraint firstItem="ebZ-1N-Imh" firstAttribute="bottom" secondItem="gQN-xz-vCt" secondAttribute="top" id="SGx-wT-vpF"/>
-                            <constraint firstItem="ebZ-1N-Imh" firstAttribute="leading" secondItem="mmN-gS-QKT" secondAttribute="leading" constant="-4" id="TgO-09-Tai"/>
-                            <constraint firstItem="ebZ-1N-Imh" firstAttribute="leading" secondItem="mmN-gS-QKT" secondAttribute="leading" constant="-4" id="Zbk-Wb-uph"/>
-                            <constraint firstItem="ebZ-1N-Imh" firstAttribute="top" secondItem="mmN-gS-QKT" secondAttribute="top" id="fIG-2u-1YE"/>
-                        </constraints>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </tableView>
                     <tabBarItem key="tabBarItem" title="Martedì" image="m-letter" id="NSx-Ny-0Zk"/>
                     <connections>
                         <segue destination="VNj-WP-tR8" kind="show" identifier="timeSegue" id="Dyp-0T-K4x"/>
@@ -1689,39 +1660,14 @@
         <!--Venerdì-->
         <scene sceneID="ZKE-8C-aqN">
             <objects>
-                <viewController storyboardIdentifier="FridayTime" id="Qx4-uT-oog" customClass="DayTimeTableController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="R0Z-ot-OAZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="8ak-vC-uzB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZYp-eg-UVz">
+                <viewController id="Qx4-uT-oog" customClass="DayTimeTableController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Q3E-gO-9I7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lAb-xC-TvV">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="2VN-j5-887" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="383" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2VN-j5-887" id="m6t-q2-guZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="lAb-xC-TvV" firstAttribute="leading" secondItem="ZYp-eg-UVz" secondAttribute="leading" constant="-4" id="4DA-BY-Yoe"/>
-                            <constraint firstAttribute="trailing" secondItem="lAb-xC-TvV" secondAttribute="trailing" constant="-4" id="6rB-fh-gEk"/>
-                            <constraint firstItem="lAb-xC-TvV" firstAttribute="top" secondItem="ZYp-eg-UVz" secondAttribute="top" id="tc7-Ob-z7j"/>
-                            <constraint firstItem="8ak-vC-uzB" firstAttribute="top" secondItem="lAb-xC-TvV" secondAttribute="bottom" id="zVX-cd-Yw6"/>
-                        </constraints>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </tableView>
                     <tabBarItem key="tabBarItem" title="Venerdì" image="v-letter" id="h5d-JU-xTk"/>
                     <connections>
                         <segue destination="VNj-WP-tR8" kind="show" identifier="timeSegue" id="3hZ-FZ-AF0"/>
@@ -1734,39 +1680,14 @@
         <!--Mercoledì-->
         <scene sceneID="jnp-LQ-3dX">
             <objects>
-                <viewController storyboardIdentifier="WednesdayTime" id="TCc-cJ-bAi" customClass="DayTimeTableController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ph5-Xr-FfO"/>
-                        <viewControllerLayoutGuide type="bottom" id="8wm-5Z-mMB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9dS-CQ-lQ7">
+                <viewController id="TCc-cJ-bAi" customClass="DayTimeTableController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xn1-IY-eqO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eud-s9-z7o">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="oO8-wY-TYs" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="383" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oO8-wY-TYs" id="MYu-sn-5VK">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="8wm-5Z-mMB" firstAttribute="top" secondItem="Eud-s9-z7o" secondAttribute="bottom" id="AGf-im-yhS"/>
-                            <constraint firstItem="Eud-s9-z7o" firstAttribute="leading" secondItem="9dS-CQ-lQ7" secondAttribute="leading" constant="-4" id="COh-Pa-6Eh"/>
-                            <constraint firstAttribute="trailing" secondItem="Eud-s9-z7o" secondAttribute="trailing" constant="-4" id="QHk-kO-yDX"/>
-                            <constraint firstItem="Eud-s9-z7o" firstAttribute="top" secondItem="9dS-CQ-lQ7" secondAttribute="top" id="Zwq-TB-aWV"/>
-                        </constraints>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </tableView>
                     <tabBarItem key="tabBarItem" title="Mercoledì" image="m-letter" id="3af-iO-m5i"/>
                     <connections>
                         <segue destination="VNj-WP-tR8" kind="show" identifier="timeSegue" id="oCD-YG-ArC"/>
@@ -1779,46 +1700,16 @@
         <!--Lunedì-->
         <scene sceneID="Goj-GL-mSp">
             <objects>
-                <viewController storyboardIdentifier="MondayTime" id="bcc-62-8XK" customClass="DayTimeTableController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BoP-4w-koD"/>
-                        <viewControllerLayoutGuide type="bottom" id="h0u-ex-Qwo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cI1-W1-ePI">
+                <viewController storyboardIdentifier="DayTimeTableController" id="bcc-62-8XK" customClass="DayTimeTableController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kb7-Iq-5xR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K1H-SW-Lgt">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="Peg-bA-LYA" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="383" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Peg-bA-LYA" id="4la-0I-Lfj">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="K1H-SW-Lgt" firstAttribute="leading" secondItem="cI1-W1-ePI" secondAttribute="leading" constant="-4" id="52P-Sv-vaW"/>
-                            <constraint firstItem="K1H-SW-Lgt" firstAttribute="leading" secondItem="cI1-W1-ePI" secondAttribute="leading" constant="-4" id="Dhl-MG-3pM"/>
-                            <constraint firstAttribute="trailing" secondItem="K1H-SW-Lgt" secondAttribute="trailing" constant="-4" id="KwS-an-2Ll"/>
-                            <constraint firstItem="K1H-SW-Lgt" firstAttribute="top" secondItem="cI1-W1-ePI" secondAttribute="top" id="Lxl-j9-YPP"/>
-                            <constraint firstAttribute="trailing" secondItem="K1H-SW-Lgt" secondAttribute="trailing" constant="-4" id="Mft-AJ-yfN"/>
-                            <constraint firstItem="h0u-ex-Qwo" firstAttribute="top" secondItem="K1H-SW-Lgt" secondAttribute="bottom" id="NEu-FH-IyO"/>
-                            <constraint firstItem="K1H-SW-Lgt" firstAttribute="bottom" secondItem="h0u-ex-Qwo" secondAttribute="top" id="ZPe-av-lrc"/>
-                            <constraint firstItem="K1H-SW-Lgt" firstAttribute="top" secondItem="cI1-W1-ePI" secondAttribute="top" id="qwT-6e-5ig"/>
-                        </constraints>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tableView>
                     <tabBarItem key="tabBarItem" title="Lunedì" image="l-letter" id="ba1-MM-xeW"/>
                     <connections>
-                        <outlet property="tableView" destination="K1H-SW-Lgt" id="uI6-Tq-R3Z"/>
                         <segue destination="VNj-WP-tR8" kind="push" identifier="timeSegue" id="GzU-i0-fK8"/>
                     </connections>
                 </viewController>
@@ -1830,38 +1721,13 @@
         <scene sceneID="P5E-En-8ez">
             <objects>
                 <viewController storyboardIdentifier="ThursdayTime" id="1HB-q8-myJ" customClass="DayTimeTableController" customModule="MyUnimol" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fWK-PC-QJC"/>
-                        <viewControllerLayoutGuide type="bottom" id="xhj-6e-2MA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kex-0N-O4K">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zyg-fT-LTa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RtF-3x-ECR">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="618"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="Aca-nB-WN4" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="383" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aca-nB-WN4" id="hR3-i0-NOq">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="99.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="xhj-6e-2MA" firstAttribute="top" secondItem="RtF-3x-ECR" secondAttribute="bottom" id="Mrp-n4-u6N"/>
-                            <constraint firstItem="RtF-3x-ECR" firstAttribute="top" secondItem="kex-0N-O4K" secondAttribute="top" id="Mrq-Ku-RBT"/>
-                            <constraint firstItem="RtF-3x-ECR" firstAttribute="leading" secondItem="kex-0N-O4K" secondAttribute="leading" constant="-4" id="avg-nb-w8i"/>
-                            <constraint firstAttribute="trailing" secondItem="RtF-3x-ECR" secondAttribute="trailing" constant="-4" id="wcX-HJ-Wvm"/>
-                        </constraints>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </tableView>
                     <tabBarItem key="tabBarItem" title="Giovedì" image="g-letter" id="ZbC-7z-uxz"/>
                     <connections>
                         <segue destination="VNj-WP-tR8" kind="show" identifier="timeSegue" id="DIl-UF-Ott"/>
@@ -2156,8 +2022,8 @@
         <image name="voto_bg" width="127" height="126"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="GzU-i0-fK8"/>
         <segue reference="AfS-jD-Ety"/>
-        <segue reference="3hZ-FZ-AF0"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

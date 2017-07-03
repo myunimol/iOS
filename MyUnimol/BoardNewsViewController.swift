@@ -102,7 +102,6 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultNewsCell", for: indexPath) as! DefaultNewsCell
-        
         let news = self.news?[indexPath.row]
         cell.title.text = news?.title
         cell.date.text = news?.date

@@ -131,6 +131,11 @@ class Utils {
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.center
         label.text = message
+        
+        // give tags to views in order to delete them later
+        imageView.tag = 1
+        label.tag = 2
+        
         calling.view.addSubview(label)
         calling.view.addSubview(imageView)
     }

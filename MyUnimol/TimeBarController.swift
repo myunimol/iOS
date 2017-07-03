@@ -8,34 +8,39 @@
 
 import Foundation
 
-class TimeBarController: UITabBarController, UITabBarControllerDelegate {
+class TimeBarController: UITabBarController {
     
-    override func viewDidLoad() {
-        let mondayController = self.storyboard?.instantiateViewController(withIdentifier: "DayTimesTabController") as! DayTimeTableController
-        mondayController.tabBarIndex = UITabBarItem(title: "Lunedì", image: UIImage("l-letter"), selectedImage: UIImage("l-letter"))
-
-        let tuesdayController = self.storyboard?.instantiateViewController(withIdentifier: "DayTimesTabController") as! DayTimeTableController
-        tuesdayController.tabBarIndex = UITabBarItem(title: "Martedì", image: UIImage("m-letter"), selectedImage: UIImage("m-letter"))
-        
-        let wednesdayController = self.storyboard?.instantiateViewController(withIdentifier: "DayTimesTabController") as! DayTimeTableController
-        wednesdayController.tabBarIndex = UITabBarItem(title: "Mercoledì", image: UIImage("m-letter"), selectedImage: UIImage("m-letter"))
-        
-        let thursayController = self.storyboard?.instantiateViewController(withIdentifier: "DayTimesTabController") as! DayTimeTableController
-        thursayController.tabBarIndex = UITabBarItem(title: "Giovedi", image: UIImage("g-letter"), selectedImage: UIImage("g-letter"))
-        
-        let fridayController = self.storyboard?.instantiateViewController(withIdentifier: "DayTimesTabController") as! DayTimeTableController
-        fridayController.tabBarIndex = UITabBarItem(title: "Venerdì", image: UIImage("v-letter"), selectedImage: UIImage("v-letter"))
-        
-        self.tabBarController?.setViewControllers([mondayController, tuesdayController, wednesdayController, thursayController, fridayController], animated: True)
-        
-    }
+    var tabBarIndex: Int = 0
+    var currentDay: String = "monday"
+    var day: String = "Lunedì"
     
-    override func didReceiveMemoryWarning() {
-        //
-    }
+    override func viewDidLoad() { self.view.backgroundColor = UIColor.white }
     
-    // do something when a tab is pressed
+    override func didReceiveMemoryWarning() { }
+    
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        //
+    
+        self.tabBarIndex = (self.tabBar.items?.index(of: item)) ?? 0
+        
+        switch self.tabBarIndex {
+        case 0:
+            self.day = "Lunedì"
+            self.currentDay = "monday"
+        case 1:
+            self.day = "Martedì"
+            self.currentDay = "tuesday"
+        case 2:
+            self.day = "Mercoledì"
+            self.currentDay = "wednesday"
+        case 3:
+            self.day = "Giovedì"
+            self.currentDay = "thursday"
+        case 4:
+            self.day = "Venerdì"
+            self.currentDay = "friday"
+        default:
+            self.day = "Lunedì"
+            self.currentDay = "monday"
+        }
     }
 }

@@ -7,95 +7,82 @@
 //
 
 import Foundation
+import CoreData
 
-class DayTimeTableController: UIViewController, UITabBarControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class DayTimeTableController: UITableViewController, UITabBarControllerDelegate, NSFetchedResultsControllerDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    // tab bar index; is 0 (monday) by default
     var tabBarIndex = 0
-    
+    var myTabController: TimeBarController?
     // the arrays with the times
     var arrayTimes: [Orario]?
     // the current day that correspond to the selected tab
-    var currentDay: String = ""
+    var currentDay: String = "monday"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Utils.setNavigationControllerStatusBar(self, title: "Orario", color: Utils.myUnimolBlue, style: UIBarStyle.black)
         self.tabBarController?.delegate = self
         
-        self.arrayTimes = CoreDataController.sharedIstanceCData.loadAllOrario(CoreDataController.sharedIstanceCData.dayOfTheWeek)
-        self.tableView.reloadData()
+        self.myTabController = tabBarController as! TimeBarController
+        
+        self.tableView.delegate = self
+        
+        let nib = UINib(nibName: "TimeTableCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "TimeTableCell")
+        
+        self.tableView.isHidden = true
     }
     
-    // Detect the click on the tab element
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        self.tabBarIndex = tabBarController.selectedIndex
+    func removeSubView(_ view: UIViewController) {
         
-        var day = "Lunedì"
-        switch tabBarIndex {
-        case 0:
-            day = "Lunedì"
-            self.currentDay = "monday"
-        case 1:
-            day = "Martedì"
-            self.currentDay = "tuesday"
-        case 2:
-            day = "Mercoledì"
-            self.currentDay = "wednesday"
-        case 3:
-            day = "Giovedì"
-            self.currentDay = "thursday"
-        case 4:
-            day = "Venerdì"
-            self.currentDay = "friday"
-        default:
-            day = "Lunedì"
-            self.currentDay = "monday"
+        var sub1 = view.view.viewWithTag(1)
+        var sub2 = view.view.viewWithTag(2)
+        
+        sub1?.removeFromSuperview()
+        sub1 = nil
+        
+        sub2?.removeFromSuperview()
+        sub2 = nil
+     }
+    
+    func isPlaceholderHere(_ view: UIViewController) -> Bool {
+        for view in view.view.subviews as [UIView] {
+            if view.tag == 1 || view.tag == 2 {
+                return true
+            }
         }
-        
-        self.tabBarController?.navigationItem.title = day
-        
-        let retrieveOrariofromCoreData = CoreDataController.sharedIstanceCData.loadAllOrario(currentDay)
-        self.arrayTimes = retrieveOrariofromCoreData
-        print(day)
-        print(arrayTimes)
-        self.tableView.reloadData()
+        return false
     }
     
     override func didReceiveMemoryWarning() {
         //
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimeTableCell", for: indexPath) as! TimeTableCell
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-//        cell.lesson.text = arrayOrario![indexPath.row].materia
-//        cell.comment.text = arrayOrario![indexPath.row].commento
-//        cell.dot.text = "."
-//        cell.dot.textAlignment = .center
-//        cell.start_hour.text = dateFormatter.string(from: arrayOrario![indexPath.row].data_inizio! as Date)
-//        cell.end_hour.text = dateFormatter.string(from: arrayOrario![indexPath.row].data_termine! as Date)
         cell.lessonName.text = self.arrayTimes![indexPath.row].materia
         cell.lessonComment.text = self.arrayTimes![indexPath.row].commento
-        cell.startingTime.text = dateFormatter.string(from: self.arrayTimes![indexPath.row].data_inizio! as Date)
-        cell.endingTime.text = dateFormatter.string(from: self.arrayTimes![indexPath.row].data_termine! as Date)
+        cell.startingTime.text = dateFormatter.string(from: self.arrayTimes![indexPath.row].data_inizio! as! Date)
+        cell.endingTime.text = dateFormatter.string(from: self.arrayTimes![indexPath.row].data_termine! as! Date)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayTimes!.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.self.arrayTimes?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
-        self.tabBarController?.navigationItem.title = "Lunedi"
+        
+        self.arrayTimes = CoreDataController.sharedIstanceCData.loadAllOrario((self.myTabController?.currentDay)!)
+        CoreDataController.sharedIstanceCData.dayOfTheWeek = (self.myTabController?.currentDay)!
+        
+        self.tabBarController?.navigationItem.title = (self.myTabController?.day)!
         self.navigationController?.navigationBar.barTintColor = Utils.myUnimolBlueUIColor
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barStyle = UIBarStyle.black
@@ -114,8 +101,19 @@ class DayTimeTableController: UIViewController, UITabBarControllerDelegate, UITa
                                         target: self, action: #selector(UIViewController.addTime(_:)))
         
         addButton.tintColor = UIColor.white
-        
+
         self.tabBarController?.navigationItem.leftBarButtonItem = menuButton
         self.tabBarController?.navigationItem.rightBarButtonItem = addButton
+        
+        
+        if (self.arrayTimes?.isEmpty)! {
+            self.tableView.isHidden = true
+            if !self.isPlaceholderHere(self.tabBarController!) {
+                Utils.setPlaceholderForEmptyTable(self.tabBarController!, message: "Niente lezioni oggi! 🍻")
+            }
+        } else {
+            removeSubView(self.tabBarController!)
+            Utils.reloadTable(self.tableView)
+        }
     }
 }

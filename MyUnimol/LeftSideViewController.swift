@@ -14,7 +14,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var studentID: UILabel!
     
-    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "Orario", "News", "Pagamenti", "Suggerimenti", "#MyUnimol su Facebook", "Il mio Portale", "Logout", "v1.1 \"Fabiana\"", "test"]
+    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "News", "Pagamenti", "Suggerimenti", "#MyUnimol su Facebook", "Il mio Portale", "Logout", "v1.1.1 \"Fabiana\""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,41 +72,41 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
-        case 4:
-            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "CalendarViewController") as! CalendarViewController
-            let centerNavigation = UINavigationController(rootViewController: mainWindowController)
-            appDelegate.centerContainer!.centerViewController = centerNavigation
-            break;
+//        case 4:
+//            mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "CalendarViewController") as! CalendarViewController
+//            let centerNavigation = UINavigationController(rootViewController: mainWindowController)
+//            appDelegate.centerContainer!.centerViewController = centerNavigation
+//            break;
             
-        case 5:
+        case 4:
             mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "UITabBarController") as! UITabBarController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
-        case 6:
+        case 5:
             mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "TaxesViewController") as! TaxesViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
-        case 7:
+        case 6:
             mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "TipsViewController") as! TipsViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
-        case 8:
+        case 7:
             shareAppOnFacebook()
             break;
             
-        case 9:
+        case 8:
             mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
             break;
             
-        case 10:
+        case 9:
             mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "LoginController") as! LoginController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
@@ -114,18 +114,18 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
             CacheManager.sharedInstance.resetCredentials()
             CacheManager.sharedInstance.refreshCache()
             break;
-        case 11:
+        case 10:
             mainWindowController =
             self.storyboard?.instantiateViewController(withIdentifier: "HelpUsViewController") as!
             HelpUsViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)
             appDelegate.centerContainer!.centerViewController = centerNavigation
-        case 12:
-            mainWindowController =
-                self.storyboard?.instantiateViewController(withIdentifier: "DayTimesTabController") as!
-            UITabBarController
-            let centerNavigation = UINavigationController(rootViewController: mainWindowController)
-            appDelegate.centerContainer!.centerViewController = centerNavigation
+//        case 12:
+//            mainWindowController =
+//                self.storyboard?.instantiateViewController(withIdentifier: "DayTimesTabController") as!
+//            UITabBarController
+//            let centerNavigation = UINavigationController(rootViewController: mainWindowController)
+//            appDelegate.centerContainer!.centerViewController = centerNavigation
         default:
             mainWindowController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
             let centerNavigation = UINavigationController(rootViewController: mainWindowController)

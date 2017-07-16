@@ -77,6 +77,36 @@ class DayTimeTableController: UITableViewController, UITabBarControllerDelegate,
         return 100
     }
     
+    // delegato per attivare le azioni della cell dopo swipe
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        // Bottone per editare la cella
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
+            print("more button tapped")
+        }
+        edit.backgroundColor = UIColor.blue
+        
+        
+        // Bottone per rimuovere la cella
+        let delete = UITableViewRowAction(style: .destructive, title: "Elimina") { action, index in
+            print("elimina button tapped")
+            let commit = self.arrayTimes![indexPath.row]
+            CoreDataController.sharedIstanceCData.context.delete(commit)
+            self.arrayTimes?.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            do {
+                try CoreDataController.sharedIstanceCData.context.save()
+            } catch let errore {
+                print("Problema eliminazione orario")
+                print("Stampo l'errore: \n \(errore) \n")
+            }
+            tableView.reloadData()
+        }
+        
+        return [delete, edit]
+    }
+
+    
     override func viewWillAppear(_ animated: Bool) {
         
         self.arrayTimes = CoreDataController.sharedIstanceCData.loadAllOrario((self.myTabController?.currentDay)!)

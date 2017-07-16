@@ -12,6 +12,8 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
 
     @IBOutlet var dataTableView: UITableView!
     var selectedIndexPath : IndexPath?
+    var setTime: String = ""
+    var isPlayedOnce = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +105,7 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
                 cell.startHourLbl.text = CoreDataController.sharedIstanceCData.labelOraInizioToString
             }
             
+            cell.viewController = self
             cell.selectedCellRow = indexPath.row
             cell.inizioLbl.text = "Inizio"
             cellFinal = cell
@@ -131,6 +134,7 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
         save.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = save
     }
+    
     
     func makeSegue(_ button:UIButton) {
         // Si possono inserire funzioni di controllo prima di cambiare view

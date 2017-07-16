@@ -19,7 +19,9 @@ class CalendarDataCell: UITableViewCell {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var frameAdded = false
-    var selectedCellRow :Int? = Int()
+    var selectedCellRow :Int = Int()
+    var viewController: CalendarDataViewController!
+    var dateAfterTwoHours: Date?
     
     class var expandedHeight: CGFloat { get { return 200 } }
     class var defaultHeight: CGFloat { get { return 44 } }
@@ -29,13 +31,21 @@ class CalendarDataCell: UITableViewCell {
         dateFormatter.dateFormat = "HH:mm"
         dateFormatter.timeZone = TimeZone.autoupdatingCurrent
         let strDate = dateFormatter.string(from: datePicker.date)
+        let strDateAfterTwoHours = dateFormatter.string(from: datePicker.date.addingTimeInterval(7200))
         if selectedCellRow == 2 {
+            // Creiamo un oggetto cell per poter cambiare in automatico la label endHourLbl
+            // quando agiamo sulpickerDate della cella riferita all'ora di inizio
+            let cell = self.viewController.tableView.cellForRow(at: IndexPath.init(row: selectedCellRow+1, section: 0)) as! CalendarDataCell
+            viewController.isPlayedOnce = true
             CoreDataController.sharedIstanceCData.startHourNSDate = dateFormatter.date(from: strDate)!
             startHourLbl.text = strDate
+            cell.endHourLbl.text = strDateAfterTwoHours
+            self.dateAfterTwoHours = datePicker.date.addingTimeInterval(7200)
             CoreDataController.sharedIstanceCData.labelOraInizioToString = strDate
+            //CoreDataController.sharedIstanceCData.startHourNSDate = strDateAfterTwoHours
+            CoreDataController.sharedIstanceCData.labelOraTermineToString = strDateAfterTwoHours
         } else {
             CoreDataController.sharedIstanceCData.endHourNSDate = dateFormatter.date(from: strDate)!
-            endHourLbl.text = strDate
             CoreDataController.sharedIstanceCData.labelOraTermineToString = strDate
         }
     }

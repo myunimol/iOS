@@ -19,6 +19,7 @@ class TimeTableCell: UITableViewCell {
     
     @IBOutlet weak var lessonComment: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

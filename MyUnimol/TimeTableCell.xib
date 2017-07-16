@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,56 +13,52 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeTableCell" rowHeight="100" id="KGk-i7-Jjw" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="TimeTableCell" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="TimeTableCell" customModule="MyUnimol" customModuleProvider="target">
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="TimeTableCell" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="commento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLJ-6X-FJX">
-                        <rect key="frame" x="8" y="52" width="119" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="h8g-jV-6eO"/>
-                            <constraint firstAttribute="width" constant="119" id="vVU-qI-9DK"/>
-                        </constraints>
+                        <rect key="frame" x="10" y="56.5" width="74" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNW-Ro-IRL">
-                        <rect key="frame" x="265" y="14" width="47" height="21"/>
+                        <rect key="frame" x="258" y="10" width="47" height="21"/>
                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                         <color key="textColor" red="0.29411764705882354" green="0.396078431372549" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ev-2F-zSm">
-                        <rect key="frame" x="265" y="53" width="47" height="21"/>
+                        <rect key="frame" x="258" y="53.5" width="47" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.29411764705882354" green="0.396078431372549" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="materia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chc-26-Skx">
-                        <rect key="frame" x="8" y="16" width="58" height="20"/>
+                        <rect key="frame" x="10" y="8" width="58" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="aNW-Ro-IRL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="3ps-Ol-10r"/>
-                    <constraint firstItem="RLJ-6X-FJX" firstAttribute="top" secondItem="chc-26-Skx" secondAttribute="bottom" constant="16" id="4bZ-Te-eno"/>
-                    <constraint firstAttribute="trailing" secondItem="aNW-Ro-IRL" secondAttribute="trailing" constant="8" id="HBP-8P-Sal"/>
-                    <constraint firstAttribute="trailing" secondItem="3Ev-2F-zSm" secondAttribute="trailing" constant="8" id="XxP-oL-cad"/>
-                    <constraint firstItem="3Ev-2F-zSm" firstAttribute="top" secondItem="aNW-Ro-IRL" secondAttribute="bottom" constant="18" id="Ysf-lo-2v7"/>
-                    <constraint firstItem="RLJ-6X-FJX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="jdk-BC-cfE"/>
-                    <constraint firstItem="3Ev-2F-zSm" firstAttribute="baseline" secondItem="RLJ-6X-FJX" secondAttribute="baseline" id="qAq-Zz-4Ne"/>
-                    <constraint firstItem="RLJ-6X-FJX" firstAttribute="leading" secondItem="chc-26-Skx" secondAttribute="leading" id="rMP-cW-49C"/>
+                    <constraint firstItem="RLJ-6X-FJX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="6vW-0j-tyK"/>
+                    <constraint firstAttribute="trailing" secondItem="aNW-Ro-IRL" secondAttribute="trailing" constant="15" id="KDZ-3u-hHr"/>
+                    <constraint firstAttribute="bottom" secondItem="RLJ-6X-FJX" secondAttribute="bottom" constant="15" id="LUE-d9-JuE"/>
+                    <constraint firstAttribute="trailing" secondItem="3Ev-2F-zSm" secondAttribute="trailing" constant="15" id="YzT-4O-4ql"/>
+                    <constraint firstItem="chc-26-Skx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="j7W-uJ-e3g"/>
+                    <constraint firstItem="chc-26-Skx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="lux-e0-fW6"/>
+                    <constraint firstAttribute="bottom" secondItem="3Ev-2F-zSm" secondAttribute="bottom" constant="15" id="mia-hf-p3F"/>
+                    <constraint firstItem="aNW-Ro-IRL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="y78-ya-Ihb"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="endingTime" destination="3Ev-2F-zSm" id="8eA-cL-vva"/>
-                <outlet property="lessonComment" destination="RLJ-6X-FJX" id="AgG-da-2Eq"/>
-                <outlet property="lessonName" destination="chc-26-Skx" id="n31-kG-Isf"/>
-                <outlet property="startingTime" destination="aNW-Ro-IRL" id="jbV-9m-zxM"/>
+                <outlet property="endingTime" destination="3Ev-2F-zSm" id="rwd-6V-NHk"/>
+                <outlet property="lessonComment" destination="RLJ-6X-FJX" id="1c9-zs-edz"/>
+                <outlet property="lessonName" destination="chc-26-Skx" id="143-bL-wrn"/>
+                <outlet property="startingTime" destination="aNW-Ro-IRL" id="LAv-hj-w7m"/>
             </connections>
             <point key="canvasLocation" x="-222" y="-9"/>
         </tableViewCell>

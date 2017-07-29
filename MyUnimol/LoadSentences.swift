@@ -71,7 +71,7 @@ class LoadSentences {
     }
     
     /// Gets a random home greating and an icon to display, based on the average
-    static func getRandomHomeSentence(average: Double) -> [String : String] {
+    static func getRandomHomeSentence(_ average: Double) -> [String : String] {
         switch average {
         case _ where average > HIGH:
             return self.high.randomItem()

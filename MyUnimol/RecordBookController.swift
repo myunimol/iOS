@@ -17,10 +17,10 @@ class RecordBookController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Utils.setNavigationControllerStatusBar(self, title: "Libretto", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
+        Utils.setNavigationControllerStatusBar(self, title: "Libretto", color: Utils.myUnimolBlue, style: UIBarStyle.black)
         
         if !Reachability.isConnectedToNetwork() {
-            CacheManager.sharedInstance.getJsonByString(CacheManager.RECORD_BOOK) { json, error in
+            CacheManager.sharedInstance.getJsonByString(CacheManager.RECORD_BOOK) { json in
                 let recordBook = RecordBook(json: json!)
                 self.recordBook = recordBook
             }
@@ -34,13 +34,13 @@ class RecordBookController: UIViewController, UITableViewDelegate {
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.recordBook?.exams.count ?? 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("RecordBookCell", forIndexPath: indexPath) as! RecordBookCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecordBookCell", for: indexPath) as! RecordBookCell
         
         let currentRecordBook = self.recordBook?.exams[indexPath.row]
         cell.examName.text = currentRecordBook!.name
@@ -51,7 +51,7 @@ class RecordBookController: UIViewController, UITableViewDelegate {
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 }

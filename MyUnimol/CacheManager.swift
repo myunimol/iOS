@@ -16,9 +16,9 @@ class CacheManager {
     /// the `CacheManager` singleton object
     static let sharedInstance = CacheManager()
     
-    private let cache = Cache<Gloss.JSON>(name: "myUnimolCache")
+    fileprivate let cache = Cache<Gloss.JSON>(name: "myUnimolCache")
     
-    private let userDefaults = NSUserDefaults.standardUserDefaults()
+    fileprivate let userDefaults = UserDefaults.standard
     
     /// key for student info cache
     static let STUDENT_INFO = "studentInfo"
@@ -44,22 +44,22 @@ class CacheManager {
     init() {}
     
     // Stores the credentials in NSUserDefaults
-    internal func storeCredentials(username: String, password: String) {
-        self.userDefaults.setObject(username, forKey: "username")
-        self.userDefaults.setObject(password, forKey: "password")
+    internal func storeCredentials(_ username: String, password: String) {
+        self.userDefaults.set(username, forKey: "username")
+        self.userDefaults.set(password, forKey: "password")
     }
     
     /// Resets the users credentials
     internal func resetCredentials() {
-        self.userDefaults.setObject(nil, forKey: "username")
-        self.userDefaults.setObject(nil, forKey: "password")
-        self.userDefaults.setObject(nil, forKey: CacheManager.CAREERS)
+        self.userDefaults.set(nil, forKey: "username")
+        self.userDefaults.set(nil, forKey: "password")
+        self.userDefaults.set(nil, forKey: CacheManager.CAREERS)
     }
     
     // Returns user credentials, if stored; otherwise returns nil
     internal func getUserCredential() -> (String?, String?) {
-        let username = self.userDefaults.objectForKey("username") as? String
-        let password = self.userDefaults.objectForKey("password") as? String
+        let username = self.userDefaults.object(forKey: "username") as? String
+        let password = self.userDefaults.object(forKey: "password") as? String
         return (username, password)
     }
     
@@ -73,27 +73,27 @@ class CacheManager {
     }
     
     /// Stores the user default career in `NSUserDefaults`
-    internal func storeCareer(careerId: String) {
-        self.userDefaults.setObject(careerId, forKey: CacheManager.CAREERS)
+    internal func storeCareer(_ careerId: String) {
+        self.userDefaults.set(careerId, forKey: CacheManager.CAREERS)
     }
     
     /// Gets the user default career in `NSUserDefaults`
     internal func getCareer() -> (String?) {
-        let career = self.userDefaults.objectForKey(CacheManager.CAREERS) as? String
+        let career = self.userDefaults.object(forKey: CacheManager.CAREERS) as? String
         return career
     }
     
     /// Store a `Gloss.JSON` into `NSUserDefaults` for a given key
-    internal func storeJsonInCacheByKey(key: String, json: Gloss.JSON) {
+    internal func storeJsonInCacheByKey(_ key: String, json: Gloss.JSON) {
         self.cache.set(value: json, key: key)
     }
     
     /// Returns a `Gloss.JSON` object for a given key
-    internal func getJsonByString(key: String, completionHandler: (json: Gloss.JSON?, error: NSError?) -> Void) {
+    internal func getJsonByString(_ key: String, completionHandler: @escaping (_ json: Gloss.JSON?) -> Void) {
         self.cache.fetch(key: key).onSuccess { json in
-            return completionHandler(json: json, error: nil)
+            return completionHandler(json)
             }.onFailure { error in
-                return completionHandler(json: nil, error: error)
+                return completionHandler(nil)
         }
     }
     
@@ -108,11 +108,11 @@ extension Dictionary : DataConvertible, DataRepresentable {
     
     public typealias Result = Dictionary
     
-    public static func convertFromData(data:NSData) -> Result? {
-        return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? Dictionary
+    public static func convertFromData(_ data:Data) -> Result? {
+        return NSKeyedUnarchiver.unarchiveObject(with: data) as? Dictionary
     }
     
-    public func asData() -> NSData! {
-        return NSKeyedArchiver.archivedDataWithRootObject(self as! AnyObject)
+    public func asData() -> Data! {
+        return NSKeyedArchiver.archivedData(withRootObject: self as AnyObject)
     }
 }

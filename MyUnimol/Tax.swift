@@ -30,50 +30,54 @@ public struct Tax: Decodable {
         self.statusPayment = "statusPayment" <~~ json
     }
     
-    public static func getAllTaxes(completionHandler: (Taxes?, NSError?) -> Void) {
-        Alamofire.request(.POST, MyUnimolEndPoints.GET_TAXES, parameters: ParameterHandler.getStandardParameters()).responseAllTaxes { response in
-            completionHandler(response.result.value, response.result.error)
+    public static func getAllTaxes(_ completionHandler: @escaping (Taxes?) -> Void) {
+        Alamofire.request(
+            MyUnimolEndPoints.GET_TAXES,
+            method: .post,
+            parameters: ParameterHandler.getStandardParameters())
+            .responseAllTaxes { response in
+                completionHandler(response.value!)
         }
     }
 }
 
 ///Contains a list of `Tax` objects
-public class Taxes {
+open class Taxes {
     
     ///A list of `Tax` objects
     var taxes = [Tax]()
     
     init(json: JSON) {
-        self.taxes = [Tax].fromJSONArray(("taxes" <~~ json)!)
+        self.taxes = [Tax].from(jsonArray: ("taxes" <~~ json)!)!
     }
 }
 
-extension Alamofire.Request {
-    func responseAllTaxes(completionHandler: Response<Taxes, NSError> -> Void) -> Self {
-        let responseSerializer = ResponseSerializer<Taxes, NSError> { request, response, data, error in
+extension Alamofire.DataRequest {
+    func responseAllTaxes(_ completionHandler: @escaping (DataResponse<Taxes>) -> Void) -> Self {
+        let responseSerializer = DataResponseSerializer<Taxes> { request, response, data, error in
             
             guard error == nil else {
-                return .Failure(error!)
+                return .failure(BackendError.network(error: error!))
             }
             
-            guard let responseData = data else {
-                let failureReason = "Array could not be serialized because input data was nil"
-                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
-                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
-                return .Failure(error)
-            }
+//            guard let responseData = data else {
+//                let failureReason = "Array could not be serialized because input data was nil"
+//                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
+//                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
+//                return .failure(error)
+//            }
             
-            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
-            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            let JSONResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, data, error)
             
             switch result {
-            case .Success(let value):
+            case .success(let value):
                 let taxes: Taxes = Taxes(json: value as! JSON)
                 // store in cache
                 CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.TAX, json: value as! JSON)
-                return .Success(taxes)
-            case .Failure(let error):
-                return .Failure(error)
+                return .success(taxes)
+            case .failure(let error):
+                return .failure(error)
             }
         }
         return response(responseSerializer: responseSerializer, completionHandler: completionHandler)

@@ -11,7 +11,7 @@ import SCLAlertView
 
 class UIUtils {
     
-    static func alertForCareerChoice(careers: Careers, completionHandler: (Void) -> Void) {
+    static func alertForCareerChoice(_ careers: Careers, completionHandler: @escaping (Void) -> Void) {
         let appearance = SCLAlertView.SCLAppearance(
             showCloseButton: false,
             showCircularIcon: false
@@ -19,7 +19,7 @@ class UIUtils {
         let alertView = SCLAlertView(appearance: appearance)
         let allCareers = careers.careers
         for career in allCareers! {
-            alertView.addButton("\(career.tipoCorso!)", backgroundColor: Utils.myUnimolBlueUIColor, textColor: UIColor.whiteColor()) {
+            alertView.addButton("\(career.tipoCorso!)", backgroundColor: Utils.myUnimolBlueUIColor, textColor: UIColor.white) {
                 CacheManager.sharedInstance.storeCareer(career.id!)
                 completionHandler()
             }

@@ -8,19 +8,19 @@
 
 import Foundation
 
-public class ParameterHandler {
+open class ParameterHandler {
     
-    public static func getParametersForBoardNews() -> [String : String] {
+    open static func getParametersForBoardNews() -> [String : String] {
         return ["token" : MyUnimolToken.TOKEN,
                 "course" : self.guessCourseParameter(Student.sharedInstance.getStudentCourse())]
     }
     
-    public static func getParametersForDepartmentNews() -> [String : String] {
+    open static func getParametersForDepartmentNews() -> [String : String] {
         return ["token" : MyUnimolToken.TOKEN,
                 "department" : self.guessDepartmentParameter(Student.sharedInstance.getStudentDepartment())]
     }
     
-    public static func getParameterForUniversityNews() -> [String : String] {
+    open static func getParameterForUniversityNews() -> [String : String] {
         return ["token" : MyUnimolToken.TOKEN]
     }
 
@@ -34,7 +34,7 @@ public class ParameterHandler {
     }
     
     /// Returns the stadard parameters for API (a `Dictionary` with username, password and token)
-    public static func getStandardParameters() -> [String : String] {
+    open static func getStandardParameters() -> [String : String] {
         let (username, password) = CacheManager.sharedInstance.getUserCredential()
         
         if let careerId = CacheManager.sharedInstance.getCareer() {
@@ -49,71 +49,69 @@ public class ParameterHandler {
         }
     }
     
-    private class func guessDepartmentParameter(studentDepartment: String) -> String {
+    fileprivate class func guessDepartmentParameter(_ studentDepartment: String) -> String {
         var departmentParameter: String = ""
         
-        if (studentDepartment.lowercaseString.rangeOfString("bioscienze") != nil) {
+        if (studentDepartment.lowercased().range(of: "bioscienze") != nil) {
             departmentParameter = "bioscienzeTerritorio"
-        } else if (studentDepartment.lowercaseString.rangeOfString("agricol") != nil) {
+        } else if (studentDepartment.lowercased().range(of: "agricol") != nil) {
             departmentParameter = "agricolturaAmbienteAlimenti"
-        } else if (studentDepartment.lowercaseString.rangeOfString("economia") != nil) {
+        } else if (studentDepartment.lowercased().range(of: "economia") != nil) {
             departmentParameter = "economiaGestioneSocietaIstituzioni"
-        } else if (studentDepartment.lowercaseString.rangeOfString("giuridico") != nil) {
+        } else if (studentDepartment.lowercased().range(of: "giuridico") != nil) {
             departmentParameter = "giuridico"
-        } else if (studentDepartment.lowercaseString.rangeOfString("medicina") != nil) {
+        } else if (studentDepartment.lowercased().range(of: "medicina") != nil) {
             departmentParameter = "medicinaScienzeSalute"
-        } else if (studentDepartment.lowercaseString.rangeOfString("umanistic") != nil) {
+        } else if (studentDepartment.lowercased().range(of: "umanistic") != nil) {
             departmentParameter = "scienzeUmanisticheSocialiFormazione"
         }
         return departmentParameter
     }
     
-    private class func guessCourseParameter(studentCourse: String) -> String {
+    fileprivate class func guessCourseParameter(_ studentCourse: String) -> String {
         var courseParameter: String = ""
         
-        if (studentCourse.lowercaseString.rangeOfString("informatica") != nil) {
+        if (studentCourse.lowercased().range(of: "informatica") != nil) {
             courseParameter = "informatica"
-        } else if (studentCourse.lowercaseString.rangeOfString("scienze biologiche lm") != nil) {
+        } else if (studentCourse.lowercased().range(of: "scienze biologiche lm") != nil) {
             courseParameter = "scienzeBiologicheMaster"
-        } else if (studentCourse.lowercaseString.rangeOfString("scienze biologiche") != nil) {
+        } else if (studentCourse.lowercased().range(of: "scienze biologiche") != nil) {
             courseParameter = "scienzeBiologiche"
-        } else if (studentCourse.lowercaseString.rangeOfString("medicina e chirurgia") != nil) {
+        } else if (studentCourse.lowercased().range(of: "medicina e chirurgia") != nil) {
             courseParameter = "medicina"
-        } else if (studentCourse.lowercaseString.rangeOfString("economia aziendale") != nil) {
+        } else if (studentCourse.lowercased().range(of: "economia aziendale") != nil) {
             courseParameter = "economia"
-        } else if (studentCourse.lowercaseString.rangeOfString("scienze politiche istit europ") != nil) {
+        } else if (studentCourse.lowercased().range(of: "scienze politiche istit europ") != nil) {
             courseParameter = "scienzePoliticheIstituzioniEuropee"
-        } else if (studentCourse.lowercaseString.rangeOfString("sociale politiche sociali") != nil) {
+        } else if (studentCourse.lowercased().range(of: "sociale politiche sociali") != nil) {
             courseParameter = "servizioSocialePoliticheSociali"
-        } else if (studentCourse.lowercaseString.rangeOfString("scienze politiche") != nil) {
+        } else if (studentCourse.lowercased().range(of: "scienze politiche") != nil) {
             courseParameter = "scienzePolitiche"
-        } else if (studentCourse.lowercaseString.rangeOfString("servizio sociale") != nil) {
+        } else if (studentCourse.lowercased().range(of: "servizio sociale") != nil) {
             courseParameter = "scienzeServizioSociale"
-        } else if (studentCourse.lowercaseString.rangeOfString("giurisprudenza") != nil) {
+        } else if (studentCourse.lowercased().range(of: "giurisprudenza") != nil) {
             courseParameter = "giurisprudenza"
-        } else if (studentCourse.lowercaseString.rangeOfString("scienze tecnologie alimentari") != nil)  {
+        } else if (studentCourse.lowercased().range(of: "scienze tecnologie alimentari") != nil)  {
             courseParameter = "scienzeTecnologieAlimentari"
-        } else if (studentCourse.lowercaseString.rangeOfString("agraria") != nil) {
+        } else if (studentCourse.lowercased().range(of: "agraria") != nil) {
             courseParameter = "agraria"
-        } else if (studentCourse.lowercaseString.rangeOfString("scienze e tecnologie agrarie<") != nil) {
-            courseParameter = "agraria"
-        } else if (studentCourse.lowercaseString.rangeOfString("tecnologie forestali ambientali") != nil) {
+        } else if (studentCourse.lowercased().range(of: "tecnologie forestali ambientali") != nil) {
             courseParameter = "tecnologieForestaliAmbientali"
-        } else if (studentCourse.lowercaseString.rangeOfString("lettere") != nil) {
+        } else if (studentCourse.lowercased().range(of: "lettere") != nil) {
             courseParameter = "lettere"
-        } else if (studentCourse.lowercaseString.rangeOfString("scienze comunicazione") != nil) {
+        } else if (studentCourse.lowercased().range(of: "scienze comunicazione") != nil) {
             courseParameter = "comunicazione"
-        } else if (studentCourse.lowercaseString.rangeOfString("scienze formazione primaria") != nil) {
+        } else if (studentCourse.lowercased().range(of: "scienze formazione primaria") != nil) {
             courseParameter = "scienzeFormazionePrimaria"
-        } else if (studentCourse.lowercaseString.rangeOfString("ingegneria edile") != nil) {
+        } else if (studentCourse.lowercased().range(of: "ingegneria edile") != nil) {
             courseParameter = "ingEdile"
-        } else if (studentCourse.lowercaseString.rangeOfString("ingegneria civile lm") != nil) {
+        } else if (studentCourse.lowercased().range(of: "ingegneria civile lm") != nil) {
             courseParameter = "ingCivileMaster"
-        } else if (studentCourse.lowercaseString.rangeOfString("ingegneria civile") != nil) {
+        } else if (studentCourse.lowercased().range(of: "ingegneria civile") != nil) {
             courseParameter = "ingCivile"
-        } else if (studentCourse.lowercaseString.rangeOfString("scienze turistiche") != nil) {
+        } else if (studentCourse.lowercased().range(of: "scienze turistiche") != nil) {
             courseParameter = "scienzeTuristiche"
-        } else if (studentCourse.lowercaseString.rangeOfString("turismo beni culturali") != nil) {
+        } else if (studentCourse.lowercased().range(of: "turismo beni culturali") != nil) {
             courseParameter = "turismoBeniCulturali"
         }
         return courseParameter

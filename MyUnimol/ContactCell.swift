@@ -11,7 +11,6 @@ import UIKit
 class ContactCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
-        
     @IBOutlet weak var telephone: UITextView!
     @IBOutlet weak var email: UITextView!
     
@@ -19,7 +18,7 @@ class ContactCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 

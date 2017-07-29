@@ -20,21 +20,21 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Utils.setNavigationControllerStatusBar(self, title: "Pagamenti", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
+        Utils.setNavigationControllerStatusBar(self, title: "Pagamenti", color: Utils.myUnimolBlue, style: UIBarStyle.black)
         
-        self.tableView.hidden = true
+        self.tableView.isHidden = true
         self.loadTaxes()
     }
     
     func loadTaxes() {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
-        Tax.getAllTaxes { taxes, error in
-            guard error == nil else {
+        Tax.getAllTaxes { taxes in
+            guard taxes != nil else {
                 
                 self.recoverFromCache { _ in
                     if (self.taxes != nil) {
                         self.tableView.reloadData()
-                        self.tableView.hidden = false
+                        self.tableView.isHidden = false
                         Utils.removeProgressBar(self)
                     } else {
                         Utils.removeProgressBar(self)
@@ -48,18 +48,18 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
             } // end errors
             self.taxes = taxes?.taxes
             if (self.taxes?.count == 0) {
-                self.tableView.hidden = true
+                self.tableView.isHidden = true
                 Utils.setPlaceholderForEmptyTable(self, message: "Niente soldi da sborsare per ora! 😎")
             } else {
                 self.tableView.reloadData()
-                self.tableView.hidden = false
+                self.tableView.isHidden = false
             }
             Utils.removeProgressBar(self)
         }
     }
         
-    private func recoverFromCache(completion: (Void)-> Void) {
-        CacheManager.sharedInstance.getJsonByString(CacheManager.TAX) { json, error in
+    fileprivate func recoverFromCache(_ completion: @escaping (Void)-> Void) {
+        CacheManager.sharedInstance.getJsonByString(CacheManager.TAX) { json in
             if (json != nil) {
                 let auxTaxes: Taxes = Taxes(json: json!)
                 self.taxes = auxTaxes.taxes
@@ -72,13 +72,13 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.taxes?.count ?? 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("TaxesCell", forIndexPath: indexPath) as! TaxesCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaxesCell", for: indexPath) as! TaxesCell
         
         let tax = self.taxes?[indexPath.row]
         
@@ -92,15 +92,15 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         cell.view.layer.masksToBounds = true
         
         if (tax?.statusPayment == "pagato") {
-            cell.view.backgroundColor = UIColor.greenColor()
+            cell.view.backgroundColor = UIColor.green
         } else {
-            cell.view.backgroundColor = UIColor.redColor()
+            cell.view.backgroundColor = UIColor.red
         }
         
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     

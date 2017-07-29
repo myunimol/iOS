@@ -41,10 +41,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // force the contraints for elements in left slider
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.centerContainer?.bouncePreviewForDrawerSide(MMDrawerSide.Left, distance: 0.1, completion: nil)
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.centerContainer?.bouncePreview(for: MMDrawerSide.left, distance: 0.1, completion: nil)
         
-        Utils.setNavigationControllerStatusBar(self, title: "Home", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
+        Utils.setNavigationControllerStatusBar(self, title: "Home", color: Utils.myUnimolBlue, style: UIBarStyle.black)
         // get record book from singleton object
         self.recordBook = RecordBookClass.sharedInstance.recordBook
         let grades = recordBook?.examsGrades
@@ -61,9 +61,9 @@ class ViewController: UIViewController {
         self.setGreating((recordBook?.weightedAverage)!)
     }
     
-    func setGreating(average: Double) {
+    func setGreating(_ average: Double) {
         let dict = LoadSentences.getRandomHomeSentence(average)
-        let index = dict.startIndex.advancedBy(0)
+        let index = dict.index(dict.startIndex, offsetBy: 0)
         let sentence = dict.keys[index]
         let imageRef = "\(dict.values[index]).png"
         let image = UIImage(named: imageRef)
@@ -71,62 +71,68 @@ class ViewController: UIViewController {
         self.homeGreating.text = sentence
     }
     
-    func setGradesChart(grades: [Int]) {
-        self.lineChartView.noDataTextDescription = "Nessun esame verbalizzato"
+    func setGradesChart(_ grades: [Int]) {
+        self.lineChartView.noDataText = "Nessun esame verbalizzato"
         
         var dataEntries: [ChartDataEntry] = []
         
         var fakes = [String]()
         for i in 0..<grades.count {
-            dataEntries.append(ChartDataEntry(value: Double(grades[i]), xIndex: i))
+            dataEntries.append(ChartDataEntry(x: Double(i), y: Double(grades[i])))
             fakes.append("")
         }
-        
-        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Esami")
-        lineChartDataSet.axisDependency = .Left
+                
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Esami")
+        lineChartDataSet.axisDependency = .left
         lineChartDataSet.lineWidth = 1.0
         lineChartDataSet.circleRadius = 2.0
         lineChartDataSet.setDrawHighlightIndicators(false)
-        lineChartDataSet.setColor(UIColor(CIColor: Utils.myUnimolBlue), alpha: 1.0)
-        lineChartDataSet.setCircleColor(UIColor(CIColor: Utils.myUnimolBlue))
+        lineChartDataSet.setColor(Utils.myUnimolBlueUIColor)
+        lineChartDataSet.colors = [Utils.myUnimolBlueUIColor]
+        lineChartDataSet.setCircleColor(Utils.myUnimolBlueUIColor)
         
-        let lineChartData = LineChartData(xVals: fakes, dataSet: lineChartDataSet)
-        
+        let lineChartData = LineChartData()
+        lineChartData.addDataSet(lineChartDataSet)
         self.lineChartView.data = lineChartData
-        self.lineChartView.data?.setValueTextColor(UIColor.clearColor()) // remove labels
+        self.lineChartView.data?.setValueTextColor(UIColor.clear) // remove labels
         
-        let rightAxis = self.lineChartView.getAxis(ChartYAxis.AxisDependency.Right)
+        // remove the description
+        self.lineChartView.chartDescription?.text = ""
+        
+        let rightAxis = self.lineChartView.getAxis(YAxis.AxisDependency.right)
         rightAxis.drawLabelsEnabled = false
         
-        self.lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .EaseInBounce)
+        self.lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBounce)
         
     }
         
-    func setStartingDegreesChart(startingDegrees: [Int]) {
-        self.barChartView.noDataTextDescription = "Nessun esame verbalizzato"
+    func setStartingDegreesChart(_ startingDegrees: [Int]) {
+//        self.barChartView.noDataTextDescription = "Nessun esame verbalizzato"
         self.barChartView.noDataText = "Non hai ancora esami a libretto"
         
         var dataEntries: [ChartDataEntry] = []
         
         var fakes = [String]()
         for i in 0..<startingDegrees.count {
-            dataEntries.append(BarChartDataEntry(value: Double(startingDegrees[i]), xIndex: i))
+            dataEntries.append(BarChartDataEntry(x: Double(i), y: Double(startingDegrees[i])))
             fakes.append("")
         }
         
-        let barChartDataSet = BarChartDataSet(yVals: dataEntries, label: "Voto di partenza")
-        barChartDataSet.axisDependency = .Left
-        barChartDataSet.setColor(UIColor(CIColor: Utils.myUnimolBlue), alpha: 1.0)
+        let barChartDataSet = BarChartDataSet(values: dataEntries, label: "Voto di partenza")
+        barChartDataSet.axisDependency = .left
+        barChartDataSet.setColor(UIColor(ciColor: Utils.myUnimolBlue), alpha: 1.0)
         
-        let barChartData = BarChartData(xVals: fakes, dataSet: barChartDataSet)
+        let barChartData = BarChartData(dataSet: barChartDataSet)
         
         self.barChartView.data = barChartData
-        self.barChartView.data?.setValueTextColor(UIColor.clearColor())
+        self.barChartView.data?.setValueTextColor(UIColor.clear)
         
-        let rightAxis = self.barChartView.getAxis(ChartYAxis.AxisDependency.Right)
+        self.barChartView.chartDescription?.text = ""
+        
+        let rightAxis = self.barChartView.getAxis(YAxis.AxisDependency.right)
         rightAxis.drawLabelsEnabled = false
         
-        self.barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .EaseInBounce)
+        self.barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBounce)
     }
     
     
@@ -147,7 +153,7 @@ class ViewController: UIViewController {
         
         let angle = percentage * 360 / 100
         
-        progress.animateFromAngle(0, toAngle: angle, duration: 1) { completed in
+        progress.animate(fromAngle: 0, toAngle: Double(angle), duration: 1) { completed in
             if completed {
                 self.percentage.text = "\(percentage)%"
             }

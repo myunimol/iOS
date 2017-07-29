@@ -30,8 +30,8 @@ class LoginController : UIViewController, UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
     }
     
-    @IBAction func login(sender: AnyObject) {
-        self.loginButton.enabled = false
+    @IBAction func login(_ sender: AnyObject) {
+        self.loginButton.isEnabled = false
         self.username = self.usernameField.text!
         self.password = self.passwordField.text!
         self.view.endEditing(true)
@@ -39,29 +39,29 @@ class LoginController : UIViewController, UITextFieldDelegate {
         if !Reachability.isConnectedToNetwork() {
             // no available connection
             Utils.displayAlert(self, title: "😨 Ooopss...", message: "Sembra che tu non abbia una connessione disponibile 👎")
-            self.loginButton.enabled = true
+            self.loginButton.isEnabled = true
             return
         } else {
             if username == "" || password == "" {
                 Utils.displayAlert(self, title: "Oops!", message: "Username e/o password mancanti")
-                self.loginButton.enabled = true
+                self.loginButton.isEnabled = true
             } else {
                 self.getCareerAndLogin(username, password: password)
             }
         }
     }
     
-    @IBAction func showPrivacy(sender: AnyObject) {
+    @IBAction func showPrivacy(_ sender: AnyObject) {
         Utils.displayAlert(self, title: "Privacy", message: Utils.privacyStatement)
     }
     
-    func getCareerAndLogin(username: String, password: String) {
+    func getCareerAndLogin(_ username: String, password: String) {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
-        Career.getAllCareers(username, password: password) { careers, error in
-            guard error == nil else {
+        Career.getAllCareers(username, password: password) { careers in
+            guard careers != nil else {
                 Utils.removeProgressBar(self)
                 Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️! Ritenta tra poco 💪")
-                self.loginButton.enabled = true
+                self.loginButton.isEnabled = true
                 return
             }
             if (careers!.areCredentialsValid == true) {
@@ -80,15 +80,15 @@ class LoginController : UIViewController, UITextFieldDelegate {
         } // end completion block
     }
     
-    func getStudentInfo(addSentenceBar: Bool) {
+    func getStudentInfo(_ addSentenceBar: Bool) {
         if addSentenceBar {
             Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
         }
-        StudentInfo.getCredentials { studentInfo, error in
-            guard error == nil else {
+        StudentInfo.getCredentials { studentInfo in
+            guard studentInfo != nil else {
                 Utils.removeProgressBar(self)
                 Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️! Ritenta tra poco 💪")
-                self.loginButton.enabled = true
+                self.loginButton.isEnabled = true
                 return
             } // error guard
             if studentInfo!.areCredentialsValid {
@@ -102,18 +102,18 @@ class LoginController : UIViewController, UITextFieldDelegate {
     }
     
     func getRecordBook() {
-        RecordBook.getRecordBook { recordBook, error in
-            guard error == nil else {
+        RecordBook.getRecordBook { recordBook in
+            guard recordBook != nil else {
                 self.opsGiveMeAnError()
                 return
             }
-            self.performSegueWithIdentifier("ViewController", sender: self)
+            self.performSegue(withIdentifier: "ViewController", sender: self)
             Utils.removeProgressBar(self)
-            self.loginButton.enabled = true
+            self.loginButton.isEnabled = true
         }
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         
         let keyboardSize: CGFloat = 260
         let bottomCoordinate = self.view.frame.origin.y + self.view.frame.size.height
@@ -122,59 +122,59 @@ class LoginController : UIViewController, UITextFieldDelegate {
         if (bottomCoordinate - textFieldCoordinate < keyboardSize) {
             // the textField goes under the keyboard
             let remanence = keyboardSize - (bottomCoordinate - textFieldCoordinate)
-            self.scrollView.setContentOffset(CGPointMake(0, remanence), animated: true)
+            self.scrollView.setContentOffset(CGPoint(x: 0, y: remanence), animated: true)
             
         }
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
-        self.scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        let centerViewContainer = appDelegate.mainStoryBoard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let centerViewContainer = appDelegate.mainStoryBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         let centerNav = UINavigationController(rootViewController: centerViewContainer)
         
         appDelegate.centerContainer!.centerViewController = centerNav
-        appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+        appDelegate.centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.Default
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.default
     }
     
     override func didReceiveMemoryWarning() {}
     
     ///Remove the focus from a texfield
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     /// Displays an error, enables the login button and refresh username and passoword
-    private func opsGiveMeAnError() {
+    fileprivate func opsGiveMeAnError() {
         Utils.removeProgressBar(self)
         Utils.displayAlert(self, title: "😨 Ooopss...", message: "Qualcosa è andato 👎 ma non saprei proprio cosa ☹️! Ritenta tra poco 💪")
-        self.loginButton.enabled = true
+        self.loginButton.isEnabled = true
         self.usernameField.text = ""
         self.passwordField.text = ""
     }
     
     /// Displays a messsage fro wrong credentials
-    private func displayWrongCredentials() {
+    fileprivate func displayWrongCredentials() {
         Utils.removeProgressBar(self)
         Utils.displayAlert(self, title: "Credenziali non valide 😱", message: "Controlla username e password 😎")
-        self.loginButton.enabled = true
+        self.loginButton.isEnabled = true
         // DO NOT reset text field, preserve as much user input as we can
         //self.usernameField.text = ""
         //self.passwordField.text = ""

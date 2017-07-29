@@ -13,7 +13,7 @@ class HelpUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Utils.setNavigationControllerStatusBar(self, title: "MyUnimol", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
+        Utils.setNavigationControllerStatusBar(self, title: "MyUnimol", color: Utils.myUnimolBlue, style: UIBarStyle.black)
 
     }
     

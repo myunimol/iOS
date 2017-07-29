@@ -11,10 +11,10 @@ import MessageUI
 
 class TipsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
-    @IBAction func sendMail(sender: AnyObject) {
+    @IBAction func sendMail(_ sender: AnyObject) {
         let mailComposerController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
-            self.presentViewController(mailComposerController, animated: true, completion: nil)
+            self.present(mailComposerController, animated: true, completion: nil)
         } else {
             self.showSendMailErrorAlert()
         }
@@ -22,7 +22,7 @@ class TipsViewController: UIViewController, MFMailComposeViewControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Utils.setNavigationControllerStatusBar(self, title: "Suggerimenti", color: Utils.myUnimolBlue, style: UIBarStyle.Black)
+        Utils.setNavigationControllerStatusBar(self, title: "Suggerimenti", color: Utils.myUnimolBlue, style: UIBarStyle.black)
     }
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
@@ -38,8 +38,8 @@ class TipsViewController: UIViewController, MFMailComposeViewControllerDelegate 
         Utils.displayAlert(self, title: "Errore invio mail", message: "Il tuo dispositivo non può speire email! Per cortesia, controlla le impostazioni delle email")
     }
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

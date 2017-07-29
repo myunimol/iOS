@@ -18,8 +18,6 @@ public struct Career: Decodable {
     let stato           : String?
     let id              : String?
     
-  
-    
     public init?(json: JSON) {
         self.matricola          = "matricola" <~~ json
         self.tipoCorso          = "tipoCorso" <~~ json
@@ -29,58 +27,66 @@ public struct Career: Decodable {
         
     }
     
-    public static func getAllCareers(username: String, password: String, completionHandler: (Careers?, NSError?) -> Void) {
+    public static func getAllCareers(_ username: String, password: String, completionHandler: @escaping (Careers?) -> Void) {
         
         let parameters = ["username": username,
                           "password": password,
                           "token"   : MyUnimolToken.TOKEN]
         
-        Alamofire.request(.POST, MyUnimolEndPoints.GET_CAREERS, parameters: parameters).responseAllCareers(username, password: password) { response in
-            completionHandler(response.result.value, response.result.error)
+        Alamofire.request(
+            MyUnimolEndPoints.GET_CAREERS, method: .post,
+            parameters: parameters).responseAllCareers(username, password: password) { response in
+                completionHandler(response.value!)
         }
     }
 }
 
 
 /// Stores an array of all student careers
-public class Careers {
+open class Careers {
     
     var careers: Array<Career>?
     var areCredentialsValid : Bool?
     
     init(json: JSON) {
-        self.careers = [Career].fromJSONArray(("careers" <~~ json)!)
+        self.careers = [Career].from(jsonArray: ("careers" <~~ json)!)
         self.areCredentialsValid = false
     }
     
     init() { }
     
-    public func getNumberOfCareers() -> Int {
+    open func getNumberOfCareers() -> Int {
         return self.careers?.count ?? 0
     }
 }
 
-extension Alamofire.Request {
-    func responseAllCareers(username: String, password: String, completionHandler: Response<Careers, NSError> -> Void) -> Self {
-        let responseSerializer = ResponseSerializer<Careers, NSError> { request, response, data, error in
+extension Alamofire.DataRequest {
+    func responseAllCareers(_ username: String, password: String, completionHandler: @escaping (DataResponse<Careers>) -> Void) -> Self {
+        let responseSerializer = DataResponseSerializer<Careers> { request, response, data, error in
             
             guard error == nil else {
-                return .Failure(error!)
+                return .failure(BackendError.network(error: error!))
             }
             
-            guard let responseData = data else {
-                let failureReason = "Array could not be serialized because input data was nil"
-                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
-                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
-                return .Failure(error)
-            }
+//            guard let responseData = data else {
+//                let failureReason = "Array could not be serialized because input data was nil"
+//                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
+//                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
+//                let error = NSError(domain: error.debugDescription, code: (response?.statusCode)!, userInfo: nil)
+//                return .failure(error)
+//            }
             
-            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
-            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            let JSONResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, data, error)
 
+            guard case let .success(jsonObject) = result else {
+                return .failure(BackendError.jsonSerialization(error: result.error!))
+            }
+            
             switch result {
-            case .Success(let value):
+            case .success(let value):
                 let api: APIMessage = APIMessage(json: value as! JSON)!
+                print(value)
                 var careers: Careers = Careers()
                 
                 // check for correct credentials
@@ -90,9 +96,10 @@ extension Alamofire.Request {
                     CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.CAREERS, json: value as! JSON)
                     careers.areCredentialsValid = true
                 }
-                return .Success(careers)
-            case .Failure(let error):
-                return .Failure(error)
+                print(careers.getNumberOfCareers())
+                return .success(careers)
+            case .failure(let error):
+                return .failure(error)
             }
         }
         return response(responseSerializer: responseSerializer, completionHandler: completionHandler)

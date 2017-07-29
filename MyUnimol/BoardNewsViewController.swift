@@ -21,21 +21,21 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         
         let nib = UINib(nibName: "DefaultNewsCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "DefaultNewsCell")
+        self.tableView.register(nib, forCellReuseIdentifier: "DefaultNewsCell")
         
-        self.tableView.hidden = true
+        self.tableView.isHidden = true
         self.loadNews()
     }
     
     func loadNews() {
         Utils.progressBarDisplayer(self, msg: LoadSentences.getSentence(), indicator: true)
-        News.getBoardNews { news, error in
-            guard error == nil else {
+        News.getBoardNews { news in
+            guard news != nil else {
                 
                 self.recoverFromCache { _ in
                     if (self.news != nil) {
                         self.tableView.reloadData()
-                        self.tableView.hidden = false
+                        self.tableView.isHidden = false
                         Utils.removeProgressBar(self)
                     } else {
                         Utils.removeProgressBar(self)
@@ -49,18 +49,18 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
             } // end errors
             self.news = news?.newsList
             if (self.news?.count == 0) {
-                self.tableView.hidden = true
+                self.tableView.isHidden = true
                 Utils.setPlaceholderForEmptyTable(self, message: "Nulla da segnalare al momento! 😎")
             } else {
                 self.tableView.reloadData()
-                self.tableView.hidden = false
+                self.tableView.isHidden = false
             }
             Utils.removeProgressBar(self)
         }
     }
     
-    private func recoverFromCache(completion: (Void)-> Void) {
-        CacheManager.sharedInstance.getJsonByString(CacheManager.BOARD_NEWS) { json, error in
+    fileprivate func recoverFromCache(_ completion: @escaping (Void)-> Void) {
+        CacheManager.sharedInstance.getJsonByString(CacheManager.BOARD_NEWS) { json in
             if (json != nil) {
                 let auxNews: NewsList = NewsList(json: json!)
                 self.news = auxNews.newsList
@@ -69,20 +69,20 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.title = "News"
         self.navigationController?.navigationBar.barTintColor = Utils.myUnimolBlueUIColor
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        self.tabBarController?.tabBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+        self.tabBarController?.tabBar.tintColor = UIColor.white
         self.tabBarController?.tabBar.barTintColor = Utils.myUnimolBlueUIColor
-        self.tabBarController?.tabBar.translucent = false
+        self.tabBarController?.tabBar.isTranslucent = false
         
         let menuButton = UIBarButtonItem(image: UIImage(named: "menu"),
-                                         style: UIBarButtonItemStyle.Plain ,
+                                         style: UIBarButtonItemStyle.plain ,
                                          target: self, action: #selector(UIViewController.menuClicked(_:)))
         
-        menuButton.tintColor = UIColor.whiteColor()
+        menuButton.tintColor = UIColor.white
         
         self.tabBarController?.navigationItem.leftBarButtonItem = menuButton
     }
@@ -91,18 +91,17 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let svc = SFSafariViewController(URL: NSURL(string: (self.news?[indexPath.row].link)!)!)
-        self.presentViewController(svc, animated: true, completion: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let svc = SFSafariViewController(url: URL(string: (self.news?[indexPath.row].link)!)!)
+        self.present(svc, animated: true, completion: nil)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.news?.count ?? 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DefaultNewsCell", forIndexPath: indexPath) as! DefaultNewsCell
-        
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultNewsCell", for: indexPath) as! DefaultNewsCell
         let news = self.news?[indexPath.row]
         cell.title.text = news?.title
         cell.date.text = news?.date
@@ -111,7 +110,7 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
 }

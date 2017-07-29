@@ -15,8 +15,8 @@ public struct SessionExam: Decodable {
     let name               : String?
     let cfu                : String?
     let professor          : String?
-    let date               : NSDate?
-    let expiringDate       : NSDate?
+    let date               : Date?
+    let expiringDate       : Date?
     let room               : String?
     let notes              : String?
     let id                 : String?
@@ -42,15 +42,15 @@ public struct SessionExam: Decodable {
         self.enrolled            = "enrolled" <~~ json
     }
     
-    public static func getSessionExams(completionHandler: (SessionExams?, NSError?) -> Void) {
-        Alamofire.request(.POST, MyUnimolEndPoints.GET_EXAM_SESSIONS, parameters: ParameterHandler.getStandardParameters()).responseSessionExams { response in
-            completionHandler(response.result.value, response.result.error)
+    public static func getSessionExams(_ completionHandler: @escaping (SessionExams?) -> Void) {
+        Alamofire.request(MyUnimolEndPoints.GET_EXAM_SESSIONS, method: .post, parameters: ParameterHandler.getStandardParameters()).responseSessionExams { response in
+            completionHandler(response.value)
         }
     }
     
-    public static func getEnrolledExams(completionHandler: (SessionExams?, NSError?) -> Void) {
-        Alamofire.request(.POST, MyUnimolEndPoints.GET_ENROLLED_EXAMS, parameters: ParameterHandler.getStandardParameters()).responseSessionExams { response in
-                completionHandler(response.result.value, response.result.error)
+    public static func getEnrolledExams(_ completionHandler: @escaping (SessionExams?) -> Void) {
+        Alamofire.request(MyUnimolEndPoints.GET_ENROLLED_EXAMS, method: .post, parameters: ParameterHandler.getStandardParameters()).responseSessionExams { response in
+                completionHandler(response.value!)
         }
     }
 
@@ -68,34 +68,38 @@ public struct SessionExams {
     var examsList = [SessionExam]()
     
     init(json: JSON) {
-        self.examsList = [SessionExam].fromJSONArray(("exams" <~~ json)!)
+        self.examsList = [SessionExam].from(jsonArray: ("exams" <~~ json)!)!
     }
 }
 
-extension Alamofire.Request {
-    func responseSessionExams(completionHandler: Response<SessionExams, NSError> -> Void) -> Self {
-        let responseSerializer = ResponseSerializer<SessionExams, NSError> { request, response, data, error in
+extension Alamofire.DataRequest {
+    func responseSessionExams(_ completionHandler: @escaping (DataResponse<SessionExams>) -> Void) -> Self {
+        let responseSerializer = DataResponseSerializer<SessionExams> { request, response, data, error in
             
             guard error == nil else {
-                return .Failure(error!)
+                return .failure(BackendError.network(error: error!))
             }
             
-            guard let responseData = data else {
-                let failureReason = "Array could not be serialized because input data was nil"
-                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
-                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
-                return .Failure(error)
-            }
+//            guard let responseData = data else {
+//                let failureReason = "Array could not be serialized because input data was nil"
+//                let userInfo: Dictionary<NSObject, AnyObject> = [NSLocalizedFailureReasonErrorKey: failureReason, Error.UserInfoKeys.StatusCode: response!.statusCode]
+//                let error = NSError(domain: Error.Domain, code: Error.Code.StatusCodeValidationFailed.rawValue, userInfo: userInfo)
+//                return .Failure(error)
+//            }
             
-            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
-            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            let JSONResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, data, error)
+            
+            guard case let .success(jsonObject) = result else {
+                return .failure(BackendError.jsonSerialization(error: result.error!))
+            }
             
             switch result {
-            case .Success(let value):
+            case .success(let value):
                 let exams: SessionExams = SessionExams(json: value as! JSON)
                 
                 // store in cache
-                let endpoint = (request?.URL)!
+                let endpoint = (request?.url)!
                 switch endpoint.absoluteString {
                 case MyUnimolEndPoints.GET_EXAM_SESSIONS:
                     CacheManager.sharedInstance.storeJsonInCacheByKey(CacheManager.EXAMS_AVAILABLE, json: value as! JSON)
@@ -107,9 +111,9 @@ extension Alamofire.Request {
                     break
                 }
                 
-                return .Success(exams)
-            case .Failure(let error):
-                return .Failure(error)
+                return .success(exams)
+            case .failure(let error):
+                return .failure(error)
             }
         }
         return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
@@ -149,21 +153,21 @@ extension String {
      Returns a `NSDate` object from a given string, using the format dd/MM/yyyy
      - returns: a string value for the given date
     */
-    var stringToDate: NSDate? {
-        let dateFormatter = NSDateFormatter()
+    var stringToDate: Date? {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
-        return dateFormatter.dateFromString(self)
+        return dateFormatter.date(from: self)
     }
 }
 
-extension NSDate {
+extension Date {
     /**
      Returns a `String` for a given `NSDate` object, using the format dd/MM/yyyy
      - returns: a `NSDate` object for the given string
     */
     var dateToString: String? {
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
-        return dateFormatter.stringFromDate(self)
+        return dateFormatter.string(from: self)
     }
 }

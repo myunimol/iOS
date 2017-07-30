@@ -79,7 +79,16 @@ class CoreDataController {
         print(array)
     }
     
-    /// Funzione per il salvataggio dei dati sul Core Data
+    /** 
+        Function to save a new lesson to Core Data
+        
+        - Parameters:
+            - materia:      the name of the lesson
+            - comment:      an optional comment
+            - data_inizio:  staring time of the lesson
+            - data_termina: end time of the lesson
+            - day:          the day of the lesson
+    */
     func addOrario(_ materia: String, commento: String, data_inizio: Date, data_termine: Date, day: String) {
         let entity = NSEntityDescription.entity(forEntityName: "Orario", in: self.context)
         let newOrario = Orario(entity: entity!, insertInto: self.context)
@@ -94,6 +103,15 @@ class CoreDataController {
             print("Problema salvataggio Materia: \(newOrario.materia!) in memoria")
             print("Stampo l'errore: \n \(errore) \n")
         }
-        //print("Orario \(newOrario.materia!) salvato in memoria correttamente")
+    }
+    
+    /**
+        Update a given lesson stored in the Core Data
+        
+        - parameter oldLesson:      the old lesson to update
+        - parameter newLesson:      the new lesson ti save
+    */
+    func updateLesson(oldLesson: Orario, newLesson: Orario) {
+        
     }
 }

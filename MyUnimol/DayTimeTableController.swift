@@ -17,6 +17,9 @@ class DayTimeTableController: UITableViewController, UITabBarControllerDelegate,
     var arrayTimes: [Orario]?
     // the current day that correspond to the selected tab
     var currentDay: String = "monday"
+    // this is the lesson that needs to be eventually update
+    var lessonToUpdate: Orario?
+    var isToUpdate: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,17 +80,20 @@ class DayTimeTableController: UITableViewController, UITabBarControllerDelegate,
         return 100
     }
     
-    // delegato per attivare le azioni della cell dopo swipe
+    // delegate that add actions for the row after the swipe from left for the cell
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        // Bottone per editare la cella
+        // Edit the cell
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
+            // open a new CalendarDataViewController and passData
+            self.lessonToUpdate = self.arrayTimes![indexPath.row] // this one should be passed
+            self.isToUpdate = true
+            self.performSegue(withIdentifier: "timeSegue", sender: self)
             print("more button tapped")
         }
-        edit.backgroundColor = UIColor.blue
-        
-        
-        // Bottone per rimuovere la cella
+        edit.backgroundColor = Utils.myUnimolBlueUIColor
+                
+        // Remove the cell
         let delete = UITableViewRowAction(style: .destructive, title: "Elimina") { action, index in
             print("elimina button tapped")
             let commit = self.arrayTimes![indexPath.row]
@@ -105,7 +111,18 @@ class DayTimeTableController: UITableViewController, UITabBarControllerDelegate,
         
         return [delete, edit]
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let updateController = segue.destination as? CalendarDataViewController {
+            updateController.lessonToUpdate = self.lessonToUpdate
+            updateController.isAnUpdate = self.isToUpdate
+            print(lessonToUpdate)
+        }
+    }
 
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         

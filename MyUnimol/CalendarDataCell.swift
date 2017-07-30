@@ -10,12 +10,12 @@ import UIKit
 
 class CalendarDataCell: UITableViewCell {
     
-    @IBOutlet weak var matsDataField: UITextField! // Data Field della materia
-    @IBOutlet weak var commentDataField: UITextField! // Data Field dei commenti
-    @IBOutlet weak var inizioLbl: UILabel! // Label Inizio
-    @IBOutlet weak var terminaLbl: UILabel! // label Termina
-    @IBOutlet weak var startHourLbl: UILabel! // Label ora inizio delle lezioni
-    @IBOutlet weak var endHourLbl: UILabel! // Label ora termine delle lezioni
+    @IBOutlet weak var matsDataField: UITextField!      // Data Field della materia
+    @IBOutlet weak var commentDataField: UITextField!   // Data Field dei commenti
+    @IBOutlet weak var inizioLbl: UILabel!              // Label Inizio
+    @IBOutlet weak var terminaLbl: UILabel!             // label Termina
+    @IBOutlet weak var startHourLbl: UILabel!           // Label ora inizio delle lezioni
+    @IBOutlet weak var endHourLbl: UILabel!             // Label ora termine delle lezioni
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var frameAdded = false

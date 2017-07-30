@@ -8,6 +8,7 @@
 
 import UIKit
 
+// the class the control the new lessor to insert
 class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UITabBarControllerDelegate {
 
     @IBOutlet var dataTableView: UITableView!
@@ -15,20 +16,25 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
     var setTime: String = ""
     var isPlayedOnce = false
     
+    var lessonToUpdate: Orario?     // orario to be checked
+    var isAnUpdate: Bool = false    // flag for update or new lesson
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.delegate = self
     }
     
-    /// save a lesson
+    /**
+        Saves a lesson to Core Data
+     
+        - parameter sender: the UIBarButtonItem
+    */
     func saveLesson(_ sender: UIBarButtonItem) {
         
         guard !CoreDataController.sharedIstanceCData.matsDataField.isEmpty else {
             Utils.displayAlert(self, title: "😨 Ooopss...", message: "Il campo Materia non può essere vuoto")
             return
         }
-        
-        // I would suggest that the comment field can be empty
         
         let materia = CoreDataController.sharedIstanceCData.matsDataField
         let commento = CoreDataController.sharedIstanceCData.commentDataField
@@ -38,6 +44,7 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
         
         if(!isLessonTime(date: startDate, dateTarget: "08:00")) {
             Utils.displayAlert(self, title: "😴", message: "Ammirro davvero la tua determinazione, ma il professore probabilmente starà ancora dormendo 😴!")
+            return
         }
         
         if checkCorrectnessOfTime(start: startDate,to: endDate) {
@@ -53,6 +60,10 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
             // date is not valid
             Utils.displayAlert(self, title: "🤔 Sei sicuro?", message: "Non credo che una lezione possa terminare prima del suo inizio!")
         }
+    }
+    
+    func updateLesson(_ sender: UIBarButtonItem) {
+        //
     }
     
     func checkCorrectnessOfTime(start startingTime: Date, to endingTime: Date) -> Bool {
@@ -87,11 +98,19 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: "matsCell", for: indexPath) as! CalendarDataCell
             cell.matsDataField.delegate = self
             cell.matsDataField.tag = indexPath.row
+            if (isAnUpdate) {
+                cell.matsDataField.text = self.lessonToUpdate?.materia
+            }
             cellFinal = cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CalendarDataCell
             cell.commentDataField.delegate = self
             cell.commentDataField.tag = indexPath.row
+            if (isAnUpdate) {
+                if (self.lessonToUpdate?.commento != nil) {
+                    cell.commentDataField.text = self.lessonToUpdate?.commento
+                }
+            }
             cellFinal = cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "startDateCell", for: indexPath) as! CalendarDataCell
@@ -130,9 +149,15 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
     
     override func viewWillAppear(_ animated: Bool) {
         // create the save button and add it to the tab bar controller
-        let save = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveLesson(_:)))
-        save.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = save
+        if (self.isAnUpdate) {
+            let edit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(updateLesson(_:)))
+            edit.tintColor = UIColor.white
+            self.navigationItem.rightBarButtonItem = edit
+        } else {
+            let save = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveLesson(_:)))
+            save.tintColor = UIColor.white
+            self.navigationItem.rightBarButtonItem = save
+        }
     }
     
     

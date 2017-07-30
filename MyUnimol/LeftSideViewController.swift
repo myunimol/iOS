@@ -14,7 +14,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var studentID: UILabel!
     
-    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "Orario", "News", "Pagamenti", "Suggerimenti", "#MyUnimol su Facebook", "Il mio Portale", "Logout", "v1.1.1 \"Fabiana\""]
+    var drawerMenuItems = ["Home", "Libretto", "Rubrica", "Appelli", "Orario", "News", "Pagamenti", "Suggerimenti", "#MyUnimol su Facebook", "Il mio Portale", "Logout", "v1.2 \"Vittorio\""]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,6 +8,22 @@
 
 import UIKit
 
+public struct LessonTime {
+    var lessonName :String
+    var commentName :String
+    var startHour: Date
+    var endHour: Date
+    var dayOfTheWeek: String
+    
+    init(lessonName: String, commentName: String, startHour: Date, endHour: Date, dayOfTheWeek: String) {
+        self.lessonName = lessonName
+        self.commentName = commentName
+        self.startHour = startHour
+        self.endHour = endHour
+        self.dayOfTheWeek = dayOfTheWeek
+    }
+}
+
 // the class the control the new lessor to insert
 class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UITabBarControllerDelegate {
 
@@ -30,12 +46,48 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
         - parameter sender: the UIBarButtonItem
     */
     func saveLesson(_ sender: UIBarButtonItem) {
+        let (isValid, lesson) = self.checkValidity()
         
+        if isValid {
+            CoreDataController.sharedIstanceCData.addOrario((lesson?.lessonName)!,
+                                                            commento: (lesson?.commentName)!,
+                                                            data_inizio: (lesson?.startHour)!,
+                                                            data_termine: (lesson?.endHour)!,
+                                                            day: (lesson?.dayOfTheWeek)!)
+            
+            CoreDataController.sharedIstanceCData.matsDataField = ""
+            CoreDataController.sharedIstanceCData.commentDataField = ""
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    /**
+        Update a lesson to Core Data
+    */
+    func updateLesson(_ sender: UIBarButtonItem) {
+        let (isValid, newLesson) = self.checkValidity()
+        if isValid {
+            CoreDataController.sharedIstanceCData.updateLesson(oldLesson: self.lessonToUpdate!, newLesson: newLesson!)
+            
+            CoreDataController.sharedIstanceCData.matsDataField = ""
+            CoreDataController.sharedIstanceCData.commentDataField = ""
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    /**
+        Checks wheteher the contraints for the lessons the user want to insert are correct
+     
+        - return    a boolean flag
+        - return    an LessonTime object
+    */
+    func checkValidity() -> (Bool, LessonTime?) {
+
         guard !CoreDataController.sharedIstanceCData.matsDataField.isEmpty else {
             Utils.displayAlert(self, title: "😨 Ooopss...", message: "Il campo Materia non può essere vuoto")
-            return
+            return (false, nil)
         }
-        
+
         let materia = CoreDataController.sharedIstanceCData.matsDataField
         let commento = CoreDataController.sharedIstanceCData.commentDataField
         
@@ -44,26 +96,17 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
         
         if(!isLessonTime(date: startDate, dateTarget: "08:00")) {
             Utils.displayAlert(self, title: "😴", message: "Ammirro davvero la tua determinazione, ma il professore probabilmente starà ancora dormendo 😴!")
-            return
+            return (false, nil)
         }
         
         if checkCorrectnessOfTime(start: startDate,to: endDate) {
-            // date is ok
-            CoreDataController.sharedIstanceCData.addOrario(materia, commento: commento, data_inizio: startDate, data_termine: endDate, day: CoreDataController.sharedIstanceCData.dayOfTheWeek)
-            
-            CoreDataController.sharedIstanceCData.matsDataField = ""
-            CoreDataController.sharedIstanceCData.commentDataField = ""
-            // reload
-            
-            self.navigationController?.popViewController(animated: true)
+            let lessonTime: LessonTime = LessonTime(lessonName: materia, commentName: commento, startHour: startDate, endHour: endDate, dayOfTheWeek: CoreDataController.sharedIstanceCData.dayOfTheWeek)
+            return (true, lessonTime)
         } else {
             // date is not valid
             Utils.displayAlert(self, title: "🤔 Sei sicuro?", message: "Non credo che una lezione possa terminare prima del suo inizio!")
+            return (false, nil)
         }
-    }
-    
-    func updateLesson(_ sender: UIBarButtonItem) {
-        //
     }
     
     func checkCorrectnessOfTime(start startingTime: Date, to endingTime: Date) -> Bool {

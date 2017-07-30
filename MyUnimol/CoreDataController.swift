@@ -111,7 +111,33 @@ class CoreDataController {
         - parameter oldLesson:      the old lesson to update
         - parameter newLesson:      the new lesson ti save
     */
-    func updateLesson(oldLesson: Orario, newLesson: Orario) {
+    func updateLesson(oldLesson: Orario, newLesson: LessonTime) {
+        var times = [Orario]()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Orario")
         
+        let predicate = NSPredicate(format: "materia == %@ AND day == %@ AND commento == %@ AND data_inizio == %@ AND data_termine == %@ ",
+                                    oldLesson.materia!, oldLesson.day!, oldLesson.commento!, oldLesson.data_inizio! as NSDate, oldLesson.data_termine! as NSDate)
+        fetchRequest.predicate = predicate
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            times = try self.context.fetch(fetchRequest) as! [Orario]
+            let lessonToChange = times[0]
+            
+            lessonToChange.setValue(newLesson.lessonName, forKey: "materia")
+            lessonToChange.setValue(newLesson.commentName, forKey: "commento")
+            lessonToChange.setValue(newLesson.startHour, forKey: "data_inizio")
+            lessonToChange.setValue(newLesson.endHour, forKey: "data_termine")
+            lessonToChange.setValue(newLesson.dayOfTheWeek, forKey: "day")
+            
+            do {
+                try self.context.save()
+            } catch let error as NSError {
+                print("Could not save \(error), \(error.userInfo)")
+            }
+            
+        } catch let error {
+            print("Error with request: \(error)")        }
+
     }
 }

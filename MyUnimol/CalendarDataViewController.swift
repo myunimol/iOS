@@ -35,6 +35,9 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
     var lessonToUpdate: Orario?     // orario to be checked
     var isAnUpdate: Bool = false    // flag for update or new lesson
     
+    var tempLessonNmae: String = ""
+    var tempCommentName: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.delegate = self
@@ -83,12 +86,12 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
     */
     func checkValidity() -> (Bool, LessonTime?) {
 
-        guard !CoreDataController.sharedIstanceCData.matsDataField.isEmpty else {
+        guard !CoreDataController.sharedIstanceCData.matsDataField.isEmpty || self.tempLessonNmae != "" else {
             Utils.displayAlert(self, title: "😨 Ooopss...", message: "Il campo Materia non può essere vuoto")
             return (false, nil)
         }
 
-        let materia = CoreDataController.sharedIstanceCData.matsDataField
+        let materia = (CoreDataController.sharedIstanceCData.matsDataField == "") ? self.tempLessonNmae : CoreDataController.sharedIstanceCData.matsDataField
         let commento = CoreDataController.sharedIstanceCData.commentDataField
         
         let startDate = CoreDataController.sharedIstanceCData.startHourNSDate
@@ -134,6 +137,16 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
         return 4
     }
     
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "matsCell", for: indexPath) as! CalendarDataCell
+            self.tempLessonNmae = cell.matsDataField.text!
+        } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CalendarDataCell
+            self.tempCommentName = cell.commentDataField.text!
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cellFinal: UITableViewCell
 
@@ -144,6 +157,7 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
             if (isAnUpdate) {
                 cell.matsDataField.text = self.lessonToUpdate?.materia
             }
+            self.tempLessonNmae = cell.matsDataField.text!
             cellFinal = cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CalendarDataCell
@@ -154,6 +168,7 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
                     cell.commentDataField.text = self.lessonToUpdate?.commento
                 }
             }
+            self.tempCommentName = cell.commentDataField.text!
             cellFinal = cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "startDateCell", for: indexPath) as! CalendarDataCell

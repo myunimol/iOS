@@ -162,5 +162,7 @@ class DayTimeTableController: UITableViewController, UITabBarControllerDelegate,
             removeSubView(self.tabBarController!)
             Utils.reloadTable(self.tableView)
         }
+        
+        self.isToUpdate = false
     }
 }

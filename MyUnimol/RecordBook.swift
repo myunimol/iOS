@@ -23,7 +23,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 
 /// A single done exam in student career
-public struct Exam: Decodable {
+public struct Exam: JSONDecodable {
     
     let name : String?
     let cfu  : Int?
@@ -155,7 +155,7 @@ extension Alamofire.DataRequest {
     }
 }
 
-extension Decoder {
+extension Gloss.Decoder {
     
     static func getExamName(_ key: String, json: JSON) -> (String) {
         let string = json.valueForKeyPath(keyPath: key) as? String

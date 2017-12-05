@@ -9,7 +9,7 @@
 import UIKit
 import Social
 
-class LeftSideViewController: UIViewController, UITableViewDelegate {
+class LeftSideViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var studentID: UILabel!
@@ -36,7 +36,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate {
         return drawerMenuItems.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DrawerCell", for: indexPath) as! DrawerCell
         cell.menuItemLabel.text = drawerMenuItems[indexPath.row]
         return cell

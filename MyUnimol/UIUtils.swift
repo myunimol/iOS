@@ -11,7 +11,7 @@ import SCLAlertView
 
 class UIUtils {
     
-    static func alertForCareerChoice(_ careers: Careers, completionHandler: @escaping (Void) -> Void) {
+    static func alertForCareerChoice(_ careers: Careers, completionHandler: @escaping () -> Void) {
         let appearance = SCLAlertView.SCLAppearance(
             showCloseButton: false,
             showCircularIcon: false

@@ -10,7 +10,7 @@ import Gloss
 import Alamofire
 
 /// Info about a generic news
-public struct News: Decodable {
+public struct News: JSONDecodable {
     
     let date  : String?
     let title : String?

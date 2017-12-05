@@ -58,7 +58,7 @@ class Utils {
         
         let size: CGFloat = 260
         var screeHeight: CGFloat
-        if (targetVC.isEqual(LoginController)) {
+        if (targetVC.isEqual(LoginController())) {
             screeHeight = targetVC.view.frame.size.height
         } else {
             screeHeight = targetVC.view.frame.size.height - 64

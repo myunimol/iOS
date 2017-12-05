@@ -70,7 +70,7 @@ class LoginController : UIViewController, UITextFieldDelegate {
                     self.getStudentInfo(false)
                 } else {
                     Utils.removeProgressBar(self)
-                    UIUtils.alertForCareerChoice(careers!) { _ in
+                    UIUtils.alertForCareerChoice(careers!) { 
                         self.getStudentInfo(true)
                     }
                 }
@@ -183,11 +183,12 @@ class LoginController : UIViewController, UITextFieldDelegate {
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(gestureRecognizer)
+        gestureRecognizer.cancelsTouchesInView = false
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 }

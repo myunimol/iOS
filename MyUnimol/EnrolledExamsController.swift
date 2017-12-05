@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Gloss
 
-class EnrolledExamsController: UIViewController, UITableViewDelegate {
+class EnrolledExamsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var exams: Array<SessionExam>?
     
@@ -31,7 +31,7 @@ class EnrolledExamsController: UIViewController, UITableViewDelegate {
         SessionExam.getEnrolledExams { exams in
             guard exams != nil else {
                 
-                self.recoverFromCache { _ in
+                self.recoverFromCache { 
                     if (self.exams != nil) {
                         self.tableView.reloadData()
                         self.tableView.isHidden = false
@@ -58,7 +58,7 @@ class EnrolledExamsController: UIViewController, UITableViewDelegate {
         }
     }
     
-    fileprivate func recoverFromCache(_ completion: @escaping (Void)-> Void) {
+    fileprivate func recoverFromCache(_ completion: @escaping ()-> Void) {
         CacheManager.sharedInstance.getJsonByString(CacheManager.EXAMS_ENROLLED) { json in
             if (json != nil) {
                 let auxExams: SessionExams = SessionExams(json: json!)
@@ -86,7 +86,7 @@ class EnrolledExamsController: UIViewController, UITableViewDelegate {
         return self.exams?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultExamCell", for: indexPath) as! DefaultExamCell
         
         let exam = self.exams?[indexPath.row]
@@ -97,7 +97,7 @@ class EnrolledExamsController: UIViewController, UITableViewDelegate {
         
         return cell
     }
-    
+        
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }

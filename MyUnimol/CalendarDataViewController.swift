@@ -48,7 +48,7 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
      
         - parameter sender: the UIBarButtonItem
     */
-    func saveLesson(_ sender: UIBarButtonItem) {
+    @objc func saveLesson(_ sender: UIBarButtonItem) {
         let (isValid, lesson) = self.checkValidity()
         
         if isValid {
@@ -67,7 +67,7 @@ class CalendarDataViewController: UITableViewController, UITextFieldDelegate, UI
     /**
         Update a lesson to Core Data
     */
-    func updateLesson(_ sender: UIBarButtonItem) {
+    @objc func updateLesson(_ sender: UIBarButtonItem) {
         let (isValid, newLesson) = self.checkValidity()
         if isValid {
             CoreDataController.sharedIstanceCData.updateLesson(oldLesson: self.lessonToUpdate!, newLesson: newLesson!)

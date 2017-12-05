@@ -11,7 +11,7 @@ import Alamofire
 import Gloss
 
 
-class TaxesViewController: UIViewController, UITableViewDelegate {
+class TaxesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var taxes: Array<Tax>?
 
@@ -31,7 +31,7 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         Tax.getAllTaxes { taxes in
             guard taxes != nil else {
                 
-                self.recoverFromCache { _ in
+                self.recoverFromCache { 
                     if (self.taxes != nil) {
                         self.tableView.reloadData()
                         self.tableView.isHidden = false
@@ -58,7 +58,7 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         }
     }
         
-    fileprivate func recoverFromCache(_ completion: @escaping (Void)-> Void) {
+    fileprivate func recoverFromCache(_ completion: @escaping ()-> Void) {
         CacheManager.sharedInstance.getJsonByString(CacheManager.TAX) { json in
             if (json != nil) {
                 let auxTaxes: Taxes = Taxes(json: json!)
@@ -76,7 +76,7 @@ class TaxesViewController: UIViewController, UITableViewDelegate {
         return self.taxes?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaxesCell", for: indexPath) as! TaxesCell
         

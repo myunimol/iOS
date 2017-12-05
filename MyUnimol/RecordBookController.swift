@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Gloss
 
-class RecordBookController: UIViewController, UITableViewDelegate {
+class RecordBookController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var recordBook: RecordBook?
 
@@ -38,7 +38,7 @@ class RecordBookController: UIViewController, UITableViewDelegate {
         return self.recordBook?.exams.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecordBookCell", for: indexPath) as! RecordBookCell
         

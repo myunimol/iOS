@@ -11,7 +11,7 @@ import Alamofire
 import Gloss
 import SafariServices
 
-class BoardNewsViewController: UIViewController, UITableViewDelegate {
+class BoardNewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var news: Array<News>?
     
@@ -32,7 +32,7 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
         News.getBoardNews { news in
             guard news != nil else {
                 
-                self.recoverFromCache { _ in
+                self.recoverFromCache { 
                     if (self.news != nil) {
                         self.tableView.reloadData()
                         self.tableView.isHidden = false
@@ -59,7 +59,7 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    fileprivate func recoverFromCache(_ completion: @escaping (Void)-> Void) {
+    fileprivate func recoverFromCache(_ completion: @escaping ()-> Void) {
         CacheManager.sharedInstance.getJsonByString(CacheManager.BOARD_NEWS) { json in
             if (json != nil) {
                 let auxNews: NewsList = NewsList(json: json!)
@@ -100,7 +100,7 @@ class BoardNewsViewController: UIViewController, UITableViewDelegate {
         return self.news?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultNewsCell", for: indexPath) as! DefaultNewsCell
         let news = self.news?[indexPath.row]
         cell.title.text = news?.title

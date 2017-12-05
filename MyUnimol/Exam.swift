@@ -10,7 +10,7 @@ import Gloss
 import Alamofire
 
 /// Info about an exam of the current session (already enrolled or not yet)
-public struct SessionExam: Decodable {
+public struct SessionExam: JSONDecodable {
     
     let name               : String?
     let cfu                : String?

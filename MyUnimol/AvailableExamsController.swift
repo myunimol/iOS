@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Gloss
 
-class AvailableExamsController: UIViewController, UITableViewDelegate {
+class AvailableExamsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var exams: Array<SessionExam>?
     
@@ -31,7 +31,7 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
         SessionExam.getSessionExams { exams in
             guard exams != nil else {
                 
-                self.recoverFromCache { _ in
+                self.recoverFromCache { 
                     if (self.exams != nil) {
                         self.tableView.reloadData()
                         self.tableView.isHidden = false
@@ -58,7 +58,7 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
         }
     }
     
-    fileprivate func recoverFromCache(_ completion: @escaping (Void)-> Void) {
+    fileprivate func recoverFromCache(_ completion: @escaping ()-> Void) {
         CacheManager.sharedInstance.getJsonByString(CacheManager.EXAMS_AVAILABLE) { json in
             if (json != nil) {
                 let auxExams: SessionExams = SessionExams(json: json!)
@@ -94,7 +94,7 @@ class AvailableExamsController: UIViewController, UITableViewDelegate {
         return self.exams?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultExamCell", for: indexPath) as! DefaultExamCell
         
         let exam = self.exams?[indexPath.row]

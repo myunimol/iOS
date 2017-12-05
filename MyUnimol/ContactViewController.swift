@@ -77,7 +77,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         Contact.getAllContacts { contacts in
             guard contacts != nil else {
             
-                self.recoverFromCache { _ in
+                self.recoverFromCache { 
                     if (self.contactsWrapper != nil) {
                         self.tableView.reloadData()
                         self.tableView.isHidden = false
@@ -98,7 +98,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    fileprivate func recoverFromCache(_ completion: @escaping (Void)-> Void) {
+    fileprivate func recoverFromCache(_ completion: @escaping ()-> Void) {
         CacheManager.sharedInstance.getJsonByString(CacheManager.CONTACTS) { json in
             if (json != nil) {
                 self.contactsWrapper = Contacts(json: json!)

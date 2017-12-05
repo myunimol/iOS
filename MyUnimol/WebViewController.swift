@@ -148,7 +148,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIToolbarDelega
         view.addSubview(toolBar)
     }
     
-    func onClickBarButton(_ sender: UIBarButtonItem) {
+    @objc func onClickBarButton(_ sender: UIBarButtonItem) {
         switch sender.tag {
         case 1:
             webView?.reload()

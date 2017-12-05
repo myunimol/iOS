@@ -10,7 +10,7 @@ import Gloss
 import Alamofire
 
 /// The informations about a single student career
-public struct Career: Decodable {
+public struct Career: JSONDecodable {
     
     let matricola       : String?
     let tipoCorso       : String?
@@ -79,7 +79,7 @@ extension Alamofire.DataRequest {
             let JSONResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
             let result = JSONResponseSerializer.serializeResponse(request, response, data, error)
 
-            guard case let .success(jsonObject) = result else {
+            guard case let .success(_) = result else {
                 return .failure(BackendError.jsonSerialization(error: result.error!))
             }
             

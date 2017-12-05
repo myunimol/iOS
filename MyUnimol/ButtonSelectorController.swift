@@ -13,12 +13,12 @@ protocol ButtonSelectorController {
 }
 
 extension UIViewController: ButtonSelectorController {
-    func menuClicked(_ sender: UIBarButtonItem) {
+    @objc func menuClicked(_ sender: UIBarButtonItem) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
     }
     
-    func addTime(_ sender: UIBarButtonItem) {
+    @objc func addTime(_ sender: UIBarButtonItem) {
         //TODO implement: segue into the page for the creation of a lesson
         self.performSegue(withIdentifier: "timeSegue", sender: self)
     }

@@ -10,7 +10,7 @@ import Gloss
 import Alamofire
 
 ///Contains the info for a contact
-public struct Contact: Decodable {
+public struct Contact: JSONDecodable {
     
     let fullname          : String?
     let role              : String?

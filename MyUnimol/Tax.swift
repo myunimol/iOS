@@ -10,7 +10,7 @@ import Gloss
 import Alamofire
 
 /// Store the info for a tax
-public struct Tax: Decodable {
+public struct Tax: JSONDecodable {
     
     let billId        : String?
     let bullettinCode : String?

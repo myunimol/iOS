@@ -1,9 +1,12 @@
 PODS:
-  - Alamofire (4.4.0)
-  - Charts (3.0.2):
-    - Charts/Core (= 3.0.2)
-  - Charts/Core (3.0.2)
-  - Gloss (1.2.4)
+  - Alamofire (4.6.0)
+  - Charts (3.0.4):
+    - Charts/Core (= 3.0.4)
+  - Charts/Core (3.0.4)
+  - ChartsRealm (3.0.4):
+    - Charts (= 3.0.4)
+    - RealmSwift (~> 2.10)
+  - Gloss (2.0.0-beta.2)
   - HanekeSwift (0.10.1)
   - MMDrawerController (0.5.7):
     - MMDrawerController/Core (= 0.5.7)
@@ -17,34 +20,48 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.5.7):
     - MMDrawerController/Core
+  - Realm (2.10.2):
+    - Realm/Headers (= 2.10.2)
+  - Realm/Headers (2.10.2)
+  - RealmSwift (2.10.2):
+    - Realm (= 2.10.2)
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - Charts
-  - Gloss (~> 1.2)
+  - ChartsRealm
+  - Gloss (= 2.0.0-beta.2)
   - HanekeSwift (from `https://github.com/Haneke/HanekeSwift.git`, branch `feature/swift-3`)
   - MMDrawerController (~> 0.5.7)
-  - SCLAlertView
+  - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`)
 
 EXTERNAL SOURCES:
   HanekeSwift:
     :branch: feature/swift-3
     :git: https://github.com/Haneke/HanekeSwift.git
+  SCLAlertView:
+    :git: https://github.com/vikmeup/SCLAlertView-Swift.git
 
 CHECKOUT OPTIONS:
   HanekeSwift:
-    :commit: 62057645b77a5bd0652e53b43258c6f5b4757f2f
+    :commit: 2f6d87f1f725d204d85cb34492e8c399cd5a200f
     :git: https://github.com/Haneke/HanekeSwift.git
+  SCLAlertView:
+    :commit: 85329ce66c297bea79ddef92908ff2040174ccf9
+    :git: https://github.com/vikmeup/SCLAlertView-Swift.git
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
-  Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Charts: 0705898046257443f0afbbc3179f4b67507b6e48
+  ChartsRealm: 3cf7c9ebf9c6312efbf418cf1da91d72d5416b26
+  Gloss: ec2bc49c3d2db468581ced33d49c26117c7343af
   HanekeSwift: 4113367892828e7700d24a384027de6ebc79aad1
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
+  Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
+  RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: 504d94c63aa269c4c6ad3c580979c5f70fd3a74a
+PODFILE CHECKSUM: 7a79589028b157cced77f4f6e755c922697f7736
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
